@@ -1,16 +1,21 @@
-<h2>Resend unlock instructions</h2>
-
-<%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="text-center mt-5 mb-5">
+  <div class="form-wrapper pt-5 pb-5"> 
+    <h4 class="form-title mb-3">ロック解除メールを送信</h4>
+    
+    <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+    
+      <div class="field form-group">
+        <%= f.label :email ,class:"form-text"%><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-contorl-sm" %>
+      </div>
+    
+      <div class="actions">
+        <%= f.submit "メールを送信" ,class:"btn btn-info mb-4"%>
+      </div>
+    <% end %>
+    
+    <%= render "users/shared/links" %>
   </div>
+</div>
 
-  <div class="actions">
-    <%= f.submit "Resend unlock instructions" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>

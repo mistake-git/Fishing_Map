@@ -1,17 +1,17 @@
     <div class="text-center mt-5 mb-5">
       <div class="form-wrapper pt-5 pb-5">   
-        <h4 class="form-title mb-3">Resend confirmation instructions</h4>
+        <h4 class="form-title mb-3">アカウント確認メールを送信</h4>
         
         <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
           <%= render "devise/shared/error_messages", resource: resource %>
         
           <div class="field form-group">
-            <%= f.label :"メール" %><br />
+            <%= f.label :"mail" ,class:"form-text"%><br />
             <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email),class:"form-contorl-sm"%>
           </div>
         
           <div class="actions">
-            <%= f.submit "Resend confirmation instructions" ,class:"btn btn-info"%>
+            <%= f.submit "メールを送信" ,class:"btn btn-info mb-4"%>
           </div>
         <% end %>
         
