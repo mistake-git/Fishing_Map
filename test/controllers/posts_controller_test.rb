@@ -17,10 +17,17 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create post" do
     assert_difference('Post.count') do
-      post posts_url, params: { post: { feed: @post.feed, name: @post.name } }
+      post posts_url, params: { post: { feed: 'new_feed', name: 'new_name' } }
     end
 
+    post = Post.last
+    assert_equal 'new_feed', post.feed
+    assert_equal 'new_name', post.name
+
     assert_redirected_to post_url(Post.last)
+    follow_redirect!
+    assert_select '.post-feed', "Feed:new_feed"
+    assert_select '.post-name', "Name:new_name"
   end
 
   test "should show post" do

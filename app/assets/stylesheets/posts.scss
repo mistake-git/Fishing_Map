@@ -1,3 +1,49 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$application-color:#00CCCC;
+
+.post-wrapper{
+    
+    width: 60%;
+    height: 80%;
+    margin: 10% auto;
+    border: 1px solid #00CCCC ;
+    
+    .post *{
+        margin:0 auto;
+        color:$application-color;
+    }
+}
+
+.post-img-area{
+    .post-show-img{
+        width: 80%;
+        height: 80%;
+    }
+}
+
+.post-map-area{
+    .post-show-map{
+         width: 80%;
+        height: 80%;
+    }
+
+}
+
+
+.post-btn-area{
+    color:#fff;
+}
+
+.post-data .row,.post-map-area,{
+    border-top: 1px solid #00CCCC ;
+}
+
+.post-data{
+    .data-item{
+        padding: 1% 0;
+    }
+}
+
