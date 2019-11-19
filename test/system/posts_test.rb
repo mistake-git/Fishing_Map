@@ -16,6 +16,9 @@ class PostsTest < ApplicationSystemTestCase
 
     fill_in "Feed", with: @post.feed
     fill_in "Name", with: @post.name
+    fill_in "Weathr",with: @post.weather
+    fill_in "Description",with: @post.descrption
+    fill_in "Number",with: @post.number
     click_on "Create Post"
 
     assert_text "Post was successfully created"
@@ -28,6 +31,9 @@ class PostsTest < ApplicationSystemTestCase
 
     fill_in "Feed", with: @post.feed
     fill_in "Name", with: @post.name
+    fill_in "Weathr",with: @post.weather
+    fill_in "Description",with: @post.descrption
+    fill_in "Number",with: @post.number
     click_on "Update Post"
 
     assert_text "Post was successfully updated"

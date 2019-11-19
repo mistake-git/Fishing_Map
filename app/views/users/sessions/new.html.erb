@@ -2,6 +2,7 @@
   <div class="form-wrapper pt-5 pb-5">     
     <h4 class="form-title mb-3">ログイン</h4>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+     <%= render "devise/shared/error_messages", resource: resource %>
       <div class="field form-group">
         <%= f.label :email ,class:"form-text"%><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class:"form-contorl-sm"%>
