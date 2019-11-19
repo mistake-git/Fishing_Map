@@ -1,0 +1,32 @@
+<div class="text-center mt-5 mb-5">
+  <div class="form-wrapper pt-5 pb-5">      
+    <%= form_with(model: post, local: true) do |form| %>
+      <% if post.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+    
+          <ul>
+          <% post.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="field form-group">
+        <%= form.label :name ,class:"form-text"%><br />
+        <%= form.text_field :name,class:"form-control-sm" %>
+      </div>
+    
+      <div class="field form-group">
+        <%= form.label :feed ,class:"form-text"%><br />
+        <%= form.text_field :feed,class:"form-control-sm" %>
+      </div>
+    
+      <div class="actions">
+        <%= form.submit%>
+      </div>
+    <% end %>
+  </div>    
+</div> 
+
