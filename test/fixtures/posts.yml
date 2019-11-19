@@ -3,7 +3,9 @@
 one:
   name: one_name
   feed: one_feed
+  weather: one_weather
 
 two:
   name: two_name
   feed: two_feed
+  weather: two_weather

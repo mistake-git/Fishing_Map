@@ -26,3 +26,7 @@ Things you may want to cover:
 作成工程手順
 google mapを表示できるようにする
 投稿とgoogle mapを関連付ける
+
+解決すること
+・エラーメッセージがおかしい
+・フラッシュメッセージダブり

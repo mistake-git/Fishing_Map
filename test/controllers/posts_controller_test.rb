@@ -17,17 +17,27 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create post" do
     assert_difference('Post.count') do
-      post posts_url, params: { post: { feed: 'new_feed', name: 'new_name' } }
+      post posts_url, params: { post: { 
+      feed: 'new_feed', name: 'new_name' ,weather:'new_weather',description:'new_description',number:'new_number'}
+      }
     end
 
     post = Post.last
     assert_equal 'new_feed', post.feed
     assert_equal 'new_name', post.name
+    assert_equal 'new_weather', post.weather
+    assert_equal 'new_description', post.description
+    assert_equal 'new_number', post.number
+    
+
 
     assert_redirected_to post_url(Post.last)
     follow_redirect!
     assert_select '.post-feed', "Feed:new_feed"
     assert_select '.post-name', "Name:new_name"
+    assert_equal 'post_weather',"Weather:new_weather"
+    assert_equal 'post_description',"Description:new_description"
+    assert_equal 'post_number',"Number:new_number"
   end
 
   test "should show post" do
@@ -41,7 +51,10 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update post" do
-    patch post_url(@post), params: { post: { feed: @post.feed, name: @post.name } }
+    patch post_url(@post), params: { post: { 
+        feed: @post.feed, name: @post.name,weather: @post.weather,description: @post.description,number: @post.number} 
+        
+    }
     assert_redirected_to post_url(@post)
   end
 
