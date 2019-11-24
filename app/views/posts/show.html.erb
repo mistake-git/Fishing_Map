@@ -1,6 +1,10 @@
 <div class="post-wrapper">
     <div class="post">
-        <div class="post-img-area text-center mt-4 mb-4"><img src="/assets/sakana.jpg" class="post-show-img"></div>
+        <div class="post-img-area text-center mt-4 mb-4">
+            <% if @post.image.attached? %>
+                <%= image_tag @post.image %>
+            <% end %>
+        </div>
             <div class="post-data">
                 <dl class="row data-item">
                     <dt class=" col-md-2 text-right">魚種:</dt>
