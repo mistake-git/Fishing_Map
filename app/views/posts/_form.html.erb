@@ -23,6 +23,11 @@
         <%= form.number_field :number,class:"form-control-sm" %>
       </div>
       
+       <div class="field form-group">
+        <%= form.label :"日時" ,class:"form-text"%><br />
+        <%= form.date_select :date %>
+      </div>
+      
       <div class="field form-group">
         <%= form.label :"説明" ,class:"form-text"%><br />
         <%= form.text_field :description,class:"form-control-sm" %>

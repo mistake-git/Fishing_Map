@@ -1,30 +1,30 @@
-<p id="notice"><%= notice %></p>
-
-
-    
 <div class="post-wrapper">
     <div class="post">
         <div class="post-img-area text-center mt-4 mb-4"><img src="/assets/sakana.jpg" class="post-show-img"></div>
             <div class="post-data">
                 <dl class="row data-item">
                     <dt class=" col-md-2 text-right">魚種:</dt>
-                    <dd class=" col-md-10"><%= @post.name %></dd>
+                    <dd class="col-md-10 post-name"><%= @post.name %></dd>
                 </dl>
                 <dl class="row data-item">
                     <dt class=" col-md-2 text-right">数量:</dt>
-                    <dd class=" col-md-10"><%= @post.number %>匹</dd>
+                    <dd class=" col-md-10 post-number"><%= @post.number %>匹</dd>
+                </dl>
+                <dl class="row data-item">
+                    <dt class=" col-md-2 text-right">日時:</dt>
+                    <dd class=" col-md-10 post-date"><%= @post.date %></dd>
                 </dl>
                  <dl class="row data-item">
                     <dt class=" col-md-2 text-right">説明:</dt>
-                    <dd class=" col-md-10"><%= @post.description %></dd>
+                    <dd class=" col-md-10 post-description"><%= @post.description %></dd>
                 </dl>
                 <dl class="row data-item">
                     <dt class=" col-md-2 text-right">使った餌:</dt>
-                    <dd class=" col-md-10"><%= @post.feed %></dd>
+                    <dd class=" col-md-10 post-feed"><%= @post.feed %></dd>
                 </dl>
                 <dl class="row data-item">
                     <dt class=" col-md-2 text-right">天気:</dt>
-                    <dd class=" col-md-10"><%= @post.weather %></dd>
+                    <dd class=" col-md-10 post-weather"><%= @post.weather %></dd>
                 </dl>
             </div>    
         <div class="post-map-area text-center pt-4"><img src="/assets/map.png " class="post-show-map"></div>
