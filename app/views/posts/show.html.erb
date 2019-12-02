@@ -1,0 +1,68 @@
+<div class="post-wrapper">
+    <div class="post">
+            <div class="post-img-area text-center mt-4 mb-4">
+                <% if @post.image.attached? %>
+                    <%= image_tag @post.image %>
+                <% end %>
+            </div>
+            <div class="post-data">
+                <dl class="row data-item">
+                    <dt class=" col-md-2 text-right">魚種:</dt>
+                    <dd class="col-md-10 post-name"><%= @post.name %></dd>
+                </dl>
+                <dl class="row data-item">
+                    <dt class=" col-md-2 text-right">数量:</dt>
+                    <dd class=" col-md-10 post-number"><%= @post.number %>匹</dd>
+                </dl>
+                <dl class="row data-item">
+                    <dt class=" col-md-2 text-right">日時:</dt>
+                    <dd class=" col-md-10 post-date"><%= @post.date %></dd>
+                </dl>
+                 <dl class="row data-item">
+                    <dt class=" col-md-2 text-right">説明:</dt>
+                    <dd class=" col-md-10 post-description"><%= @post.description %></dd>
+                </dl>
+                <dl class="row data-item">
+                    <dt class=" col-md-2 text-right">使った餌:</dt>
+                    <dd class=" col-md-10 post-feed"><%= @post.feed %></dd>
+                </dl>
+                <dl class="row data-item">
+                    <dt class=" col-md-2 text-right">天気:</dt>
+                    <dd class=" col-md-10 post-weather"><%= @post.weather %></dd>
+                </dl>
+            </div>    
+            <div class="post-map-area text-center pt-4">
+                <div id="map" style='width: 80%; height: 500px;'></div>
+                  <script type="text/javascript">
+                    handler = Gmaps.build('Google');
+                    handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map'}}, function(){
+                      markers = handler.addMarkers([
+                        {
+                          "lat": <%= @post.latitude %>,
+                          "lng": <%= @post.longitude %>,
+                		  "infowindow": '<%= @post.address %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@post.latitude},#{@post.longitude}&iwloc=J",target: "_blank" %></p>'
+                        }
+                      ]);
+                      handler.bounds.extendWith(markers);
+                      handler.fitMapToBounds();
+                      handler.getMap().setZoom(17);
+                    });
+                  </script>
+            </div>
+            <div class="post-btn-area text-right mb-2">
+                <%= link_to '編集', edit_post_path(@post),class:"btn-sm mt-2" %> 
+                <%= link_to '削除', @post, method: :delete, data: { confirm: 'Are you sure?' },class:"btn-sm mt-2" %>
+            </div>
+    </div>    
+</div>
+
+
+
+
+
+
+
+
+
+
+

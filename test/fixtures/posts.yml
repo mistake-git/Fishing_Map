@@ -1,0 +1,20 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: one_name
+  number: one_number
+  date: one_date
+  description: one_description
+  feed: one_feed
+  weather: one_weather
+
+two:
+  name: two_name
+  number: two_number
+  date: two_date
+  description: two_description
+  feed: two_feed
+  weather: two_weather
+  
+
+#後で追記する
