@@ -1,25 +1,25 @@
 <h1>Fishing Map</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Feed</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
   <tbody>
     <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.name %></td>
-        <td><%= post.feed %></td>
-        <td><%= link_to 'Show', post %></td>
-      </tr>
+        <%= post.name %></td>
+        <%= link_to 'Show', post %>
+         <div id="map" style='width: 100%; height: 500px;'></div>
+         <script type="text/javascript">
+                    handler = Gmaps.build('Google');
+                    handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map'}}, function(){
+                      markers = handler.addMarkers([
+                        {
+                          "lat": <%= post.latitude %>,
+                          "lng": <%= post.longitude %>,
+                		  "infowindow": '<%= post.address %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{post.latitude},#{post.longitude}&iwloc=J",target: "_blank" %></p>'
+                        }
+                      ]);
+                      handler.bounds.extendWith(markers);
+                      handler.fitMapToBounds();
+                      handler.getMap().setZoom(17);
+                    });
+                  </script>
     <% end %>
-  </tbody>
-</table>
-
-<br>
 
 
