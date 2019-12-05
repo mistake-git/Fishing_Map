@@ -1,0 +1,96 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*ユーザー詳細ページ*/
+$application-color:#00CCCC;
+
+@mixin application-text($application-color){
+    color: $application-color;
+    font-weight: bold;
+}
+
+.user-header{
+    margin: 3% 0;
+
+    .user-status{
+        display: inline-block;
+        width: 100%;
+        background-color: $application-color;
+            .user-name,.user-image-area{
+                 display: inline-block;
+            }
+            
+            .user-name{
+                 font-weight: bold;
+                 font-size: 1.2rem;
+                 color: #fff;
+            }
+
+            .user-image{
+                width: 120px;
+                height: 120px;
+           }
+    }
+
+}
+
+
+.user-info{
+     border:2px solid #00CCCC;
+     margin-left: 50px;
+     border-radius: 10px;
+}
+
+.introduce-title,.area-title{
+     @include application-text($application-color)
+}
+
+
+
+.media{
+    border:2px solid #00CCCC;
+    border-radius: 10px;
+    margin-right: 50px;
+}
+
+
+.media-heading{
+    color: $application-color;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+    
+.media-user-image{
+    width: 80px;
+    height: 80px;
+}
+
+
+.media-description{
+    height: 50%;
+}
+
+.media-date,.media-place,.media-feed,.media-weather{
+    display: inline-block;
+    @include application-text($application-color);
+}
+
+.media-list-title{
+    font-size: 1.2rem;
+    @include application-text($application-color);
+}
+
+.media-user-name,.media-title,.media-place,.media-date{
+   @include application-text($application-color);
+}
+
+                
+                
+.media-fish-image{
+    width: 230px;
+    height: auto;
+}
+
+
+

@@ -1,8 +1,7 @@
 <h1>Fishing Map</h1>
 
-  <tbody>
     <% @posts.each do |post| %>
-        <%= post.name %></td>
+        <%= post.name %>
         <%= link_to 'Show', post %>
          <div id="map" style='width: 100%; height: 500px;'></div>
          <script type="text/javascript">
