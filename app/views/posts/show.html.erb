@@ -1,14 +1,18 @@
 <div class="post-wrapper">
     <div class="post">
-            <div class="post-img-area text-center mt-4 mb-4">
-                <% if @post.image.attached? %>
-                    <%= image_tag @post.image %>
-                <% end %>
-            </div>
+             <% if @post.image.attached? %>
+                <div class="post-img-area text-center mt-4 mb-4">
+                        <%= image_tag @post.image %>
+                </div>
+            <%end%>    
             <div class="post-data">
                 <dl class="row data-item">
                     <dt class=" col-md-2 text-right">魚種:</dt>
                     <dd class="col-md-10 post-name"><%= @post.name %></dd>
+                </dl>
+                <dl class="row data-item">
+                    <dt class=" col-md-2 text-right">難易度:</dt>
+                    <dd class="col-md-10 post-difficulty">★</dd>
                 </dl>
                 <dl class="row data-item">
                     <dt class=" col-md-2 text-right">数量:</dt>

@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_current_user
 
   # GET /posts
   # GET /posts.json
@@ -11,6 +12,8 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
      @post = Post.find_by(id: params[:id])
+     @user = @post.user
+    
   end
 
   # GET /posts/new
@@ -25,7 +28,11 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(post_params)
+    @post = Post.new(
+        post_params.merge(user_id: current_user.id)
+        )
+    # @post = Post.new(name: parmas[:name], image: params[:image])
+    # @post = Post.new({ { name: parmas[:name], image: params[:image] }, user_id: current_user.id } )
 
     respond_to do |format|
       if @post.save
@@ -70,6 +77,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:image,:name, :feed,:weather,:description,:number,:date,:address, :latitude, :longitude)
+      params.require(:post).permit(:image,:name, :feed,:weather,:description,:number,:date,:address, :latitude, :longitude,:user_id)
     end
 end
