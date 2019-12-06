@@ -50,6 +50,10 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
+          if params[:post][:image]
+            @post.image.purge
+            @post.image.attach(params[:post][:image])
+          end
         format.html { redirect_to @post, notice: '投稿を編集しました' }
         format.json { render :show, status: :ok, location: @post }
       else
