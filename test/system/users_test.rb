@@ -13,11 +13,13 @@ class UsersTest < ApplicationSystemTestCase
     fill_in "users_emai", with: 'masa@example.com'
     fill_in "users_password",with:"<%= Devise::Encryptor.digest(User, 'password') %>"
     click_on "ログイン"
+    assert_selector ".nave-link",text: 'ログアウト'
     end
     
     test "sign out" do
     visit users_url
     click_on "ログアウト"
+    assert_selector ".nave-link",text: 'ログイン'
     end
   
   

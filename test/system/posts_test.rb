@@ -24,6 +24,7 @@ class PostsTest < ApplicationSystemTestCase
     fill_in "post_description",with: 'これは魚です'
     select( "ゴカイ", from: 'post_feed')
     select( "晴れ", from: 'post_weather')
+    fill_in "post_address",with: '兵庫県明石市'
     click_on "登録する"
     assert_selector ".post-name",text: 'fish'
     assert_selector ".post-number",text:3
@@ -46,6 +47,7 @@ class PostsTest < ApplicationSystemTestCase
     fill_in "post_description",with: 'これは魚です'
     select( "ゴカイ", from: 'post_feed')
     select( "晴れ", from: 'post_weather')
+    fill_in "post_address",with: '兵庫県明石市'
     click_on "登録する"
     assert_selector ".post-name",text: 'fish'
     assert_selector ".post-number",text:3

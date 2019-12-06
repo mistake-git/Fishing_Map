@@ -12,6 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
    end
 
   def create
+      pp params
       @user = User.new(
       name: params[:name],
       email: params[:email],

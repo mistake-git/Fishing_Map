@@ -18,37 +18,40 @@
       
       <div class="field form-group">
         <%= form.label :"魚種" ,class:"form-text"%><br />
-        <%= form.text_field :name,class:"form-control-sm" %>
+        <%= form.text_field :name,class:"form-control-sm post_name" %>
       </div>
       
       <div class="field form-group">
         <%= form.label :"数量" ,class:"form-text"%><br />
-        <%= form.number_field :number,class:"form-control-sm" %>
+        <%= form.number_field :number,class:"form-control-sm post_number" %>
       </div>
       
        <div class="field form-group">
         <%= form.label :"日時" ,class:"form-text"%><br />
-        <%= form.date_select :date %>
+        <%= form.date_select :date ,class:"post-date"%>
       </div>
       
       <div class="field form-group">
         <%= form.label :"説明" ,class:"form-text"%><br />
-        <%= form.text_field :description,class:"form-control-sm" %>
+        <%= form.text_field :description,class:"form-control-sm post-description" %>
       </div>
       
       <div class="field form-group">
         <%= form.label :"使ったエサ" ,class:"form-text"%><br />
-        <%= form.select :feed, [["アオイソメ"], ["ゴカイ"],["オキアミ"],["カニ"],["貝"],["配合エサ"],["ミミズ"],["アカムシ"],["練エサ"],["ルアー"]],:prompt => "エサを選択してください" %>
+        <%= form.select :feed, 
+        [["アオイソメ"], ["ゴカイ"],["オキアミ"],["カニ"],["貝"],["配合エサ"],["ミミズ"],["アカムシ"],["練エサ"],["ルアー"]],:prompt => "エサを選択してください" 
+        ,class:"post-feed"
+        %>
       </div>
     
       <div class="field form-group">
         <%= form.label :"天気" ,class:"form-text"%><br />
-        <%= form.select :weather, [["晴れ"], ["曇り"],["雨"],["その他"]],:prompt => "天気を選択してください" %>
+        <%= form.select :weather, [["晴れ"], ["曇り"],["雨"],["その他"]],:prompt => "天気を選択してください" ,class:"post-weather"%>
       </div>
       
       <div class="field form-group">
         <%= form.label :"住所を入力してください" ,class:"form-text"%><br />
-        <%= form.text_field :address,class:"form-control-sm" %>
+        <%= form.text_field :address,class:"form-control-sm post-address" %>
       </div>
       
       <div class="actions">
