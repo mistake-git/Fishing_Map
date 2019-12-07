@@ -8,7 +8,7 @@ class PostsTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit posts_url
-    assert_selector "h1", text: "Fishing Map"
+    assert_selector ".navbar-brand", text: "Fishing Map"
   end
 
   test "creating a Post" do
@@ -24,6 +24,7 @@ class PostsTest < ApplicationSystemTestCase
     fill_in "post_description",with: 'これは魚です'
     select( "ゴカイ", from: 'post_feed')
     select( "晴れ", from: 'post_weather')
+    fill_in "post_address",with: '兵庫県明石市'
     click_on "登録する"
     assert_selector ".post-name",text: 'fish'
     assert_selector ".post-number",text:3
@@ -46,6 +47,7 @@ class PostsTest < ApplicationSystemTestCase
     fill_in "post_description",with: 'これは魚です'
     select( "ゴカイ", from: 'post_feed')
     select( "晴れ", from: 'post_weather')
+    fill_in "post_address",with: '兵庫県明石市'
     click_on "登録する"
     assert_selector ".post-name",text: 'fish'
     assert_selector ".post-number",text:3

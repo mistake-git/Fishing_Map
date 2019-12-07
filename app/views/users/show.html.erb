@@ -25,25 +25,34 @@
               <div class="user-posts">
                   <ul class="media-list">
                       <div class="media-list-title mb-3">これまでの釣果</div>
-                    <li class="media">
-                        <div class="media-left mr-3">
-                            <img src="../assets/user-image.png" class="media-user-image image-circle mt-2 ml-2">
-                            <div class="media-user-name ml-3">まさたか</div>
-                        </div>
-                        <div class="media-body">
-                            <div class="media-heading mt-4 ml-4">タイ</div>
-                            <div class="media-description mt-4 mb-4">明石の港で釣りました｡大物でした｡天候は晴れでした｡</div>
-                            <div class="media-bottom mt-5">
-                                <div class="media-date">2019/04/02</div>
-                                <div class="media-place ml-3">兵庫県明石市</div>
-                                <div class="media-feed ml-3">餌:ゴカイ</div>
-                                <div class="media-weather ml-3">天気:晴れ</div>
+                    <% @user.posts.each do |post| %>
+                        <%= link_to post do %>
+                        <li class="media mb-1">
+                            <div class="media-left mr-3">
+                                <img src="../assets/user-image.png" class="media-user-image image-circle mt-2 ml-2">
+                                <div class="media-user-name ml-3"><%= @user.name %></div>
                             </div>
-                        </div>
-                        <div class="media-right">
-                            <img src="../assets/sakana.jpg" class="media-fish-image mt-3 mb-3 mr-3">
-                        </div>
-                    </li>
+                            <div class="media-body">
+                                <div class="media-heading mt-4 ml-4"><%= post.name %></div>
+                                <div class="media-description mt-4 mb-5"><%= post.description %></div>
+                                <div class="media-bottom mt-5">
+                                    <div class="media-date">釣った日 <%= post.date %></div>
+                                    <div class="media-place ml-3"><%= post.address %></div>
+                                    <div class="media-feed mt-5 ml-3 mr-1">餌:<%= post.feed %></div>
+                                    <div class="media-weather mt-5 ml-3 mr-1">天気:<%= post.weather %></div>
+                                    <div class="media-created_at mt-5 ml-4"><%= post.created_at %></div>
+                                </div>
+                            </div>
+                            <div class ="media-image-area">
+                                <div class="media-right">
+                                    <% if post.image.attached? %>
+                                        <%= image_tag post.image ,class:"media-fish-image mt-3 mb-3 mr-2"%>
+                                    <% end %>
+                                </div>
+                            </div>
+                        </li>
+                        <% end %>
+                    <% end %>
                   </ul>
               </div>
           </div>

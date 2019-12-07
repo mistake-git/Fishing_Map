@@ -6,7 +6,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_permitted_parameters, if: :devise_controller?
 
 
-  # GET /resource/sign_up
+   #GET /resource/sign_up
    def new
       @user = User.new
    end
