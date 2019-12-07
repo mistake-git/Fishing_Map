@@ -8,7 +8,7 @@ class PostsTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit posts_url
-    assert_selector "h1", text: "Fishing Map"
+    assert_selector ".navbar-brand", text: "Fishing Map"
   end
 
   test "creating a Post" do

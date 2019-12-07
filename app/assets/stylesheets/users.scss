@@ -5,6 +5,11 @@
 /*ユーザー詳細ページ*/
 $application-color:#00CCCC;
 
+* {
+    text-decoration: none;
+    /*linkのデコレーションが消えない*/
+}
+
 @mixin application-text($application-color){
     color: $application-color;
     font-weight: bold;
@@ -47,50 +52,56 @@ $application-color:#00CCCC;
 }
 
 
+.media-list-title{
+        font-size: 1.2rem;
+        @include application-text($application-color);
+    }
+
 
 .media{
     border:2px solid #00CCCC;
     border-radius: 10px;
     margin-right: 50px;
-}
 
-
-.media-heading{
-    color: $application-color;
-    font-size: 1.2rem;
-    font-weight: bold;
-}
+    .media-heading{
+        color: $application-color;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+        
+    .media-user-image{
+        width: 80px;
+        height: 80px;
+    }
     
-.media-user-image{
-    width: 80px;
-    height: 80px;
+    
+    .media-description{
+        height: 50%;
+    }
+    
+    .media-date,.media-place,.media-feed,.media-weather{
+        display: inline-block;
+        @include application-text($application-color);
+    }
+    
+    .media-created_at{
+        display: inline-block;
+    }
+    
+    
+    .media-user-name,.media-title,.media-place,.media-date{
+       @include application-text($application-color);
+    }
+    
+    .media-fish-image{
+        width: 200px;
+        height: 145px;
+    }
+
 }
 
 
-.media-description{
-    height: 50%;
-}
 
-.media-date,.media-place,.media-feed,.media-weather{
-    display: inline-block;
-    @include application-text($application-color);
-}
-
-.media-list-title{
-    font-size: 1.2rem;
-    @include application-text($application-color);
-}
-
-.media-user-name,.media-title,.media-place,.media-date{
-   @include application-text($application-color);
-}
-
-                
-                
-.media-fish-image{
-    width: 230px;
-    height: auto;
-}
 
 
 

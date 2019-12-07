@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :posts
   get '/',to:'home#top'
   devise_for :users
+  #devise_for :users, controllers: { registrations: 'users/registrations' }
   
   get '/users',to:'users#index'
   get '/users/:id',to:'users#show'
