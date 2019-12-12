@@ -2,7 +2,7 @@
   <div class="form-wrapper pt-5 pb-5">     
     <h4 class="form-title mb-3">新規登録</h4>
     
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= form_for(@user,url:{controller: 'registrations', action: 'create'})  do |f| %>
       <%= render "users/shared/error_messages", resource: resource %>
       <div class="field form-group">
         <%= f.label :name ,class:"form-text"%><br />
@@ -31,7 +31,6 @@
         <%= f.submit "新規登録",class:"btn btn-info mb-4" %>
       </div>
     <% end %>
-    
     <%= render "users/shared/links" %>
   </div>    
 </div>    

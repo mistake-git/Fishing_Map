@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
-    validates :name, presence: true,length: { maximum: 20 }     
+    validates :name, presence: true,length: { maximum: 20 }
+    validates :address, presence: true
     validates :user_id, {presence: true}
     has_one_attached :image
     geocoded_by :address

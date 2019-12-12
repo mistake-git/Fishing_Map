@@ -1,25 +1,27 @@
-<h1>Fishing Map</h1>
-
-    <% @posts.each do |post| %>
-        <%= post.name %>
-        <%= link_to 'Show', post %>
+<h1 class="text-center mb-3">Fishing Map</h1>
+    
          <div id="map" style='width: 100%; height: 500px;'></div>
          <script type="text/javascript">
                     handler = Gmaps.build('Google');
                     handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map'}}, function(){
                       markers = handler.addMarkers([
+                          <% @posts.each do |post| %>
                         {
                           "lat": <%= post.latitude %>,
                           "lng": <%= post.longitude %>,
-                		  "infowindow": '<%= post.address %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{post.latitude},#{post.longitude}&iwloc=J",target: "_blank" %></p>'
-                        }
+                		  "infowindow": '<div class="map-post-name"><%= post.name %></div><br/><% if post.image.attached? %><%= image_tag post.image,class:"map-icon-img mt-1 mb-1" %><br><% end %><p><%= link_to "詳細" ,post %></p>',
+                		  "picture": {
+                		       "url": '<%= asset_path "map-icon.png" %>',
+        		                "width":  48,
+                                "height": 48
+                            }
+                        },
+                        <% end %>
                       ]);
                       handler.bounds.extendWith(markers);
                       handler.fitMapToBounds();
-                      handler.getMap().setZoom(17);
+                      handler.getMap().setZoom(12);
                     });
          </script>
-    <% end %>
     
-    
-    
+

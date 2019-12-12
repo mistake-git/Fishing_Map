@@ -2,7 +2,7 @@
     <div class="post">
              <% if @post.image.attached? %>
                 <div class="post-img-area text-center mt-4 mb-4">
-                        <%= image_tag @post.image %>
+                        <%= image_tag @post.image,class:"post-show-img"%>
                 </div>
             <%end%>    
             <div class="post-data">
@@ -35,7 +35,7 @@
                     <dd class=" col-md-10 post-weather"><%= @post.weather %></dd>
                 </dl>
             </div>    
-            <div class="post-map-area text-center pt-4">
+            <div class="post-map-area text-center mt-4 mb-4">
                 <div id="map" style='width: 80%; height: 500px;'></div>
                   <script type="text/javascript">
                     handler = Gmaps.build('Google');
@@ -44,7 +44,12 @@
                         {
                           "lat": <%= @post.latitude %>,
                           "lng": <%= @post.longitude %>,
-                		  "infowindow": '<%= @post.address %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@post.latitude},#{@post.longitude}&iwloc=J",target: "_blank" %></p>'
+                		  "infowindow": '<%= @post.address %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@post.latitude},#{@post.longitude}&iwloc=J",target: "_blank" %></p>',
+                		  "picture": {
+                		       "url": '<%= asset_path "map-icon.png" %>',
+        		                "width":  48,
+                                "height": 48
+                            }
                         }
                       ]);
                       handler.bounds.extendWith(markers);
@@ -53,10 +58,12 @@
                     });
                   </script>
             </div>
-            <div class="post-btn-area text-right mb-2">
-                <%= link_to '編集', edit_post_path(@post),class:"btn-sm mt-2" %> 
-                <%= link_to '削除', @post, method: :delete, data: { confirm: 'Are you sure?' },class:"btn-sm mt-2" %>
-            </div>
+            <%if @post.user.id == current_user.id %>
+                <div class="post-btn-area text-right mb-2">
+                    <%= link_to '編集', edit_post_path(@post),class:"btn-sm mt-2" %> 
+                    <%= link_to '削除', @post, method: :delete, data: { confirm: 'Are you sure?' },class:"btn-sm mt-2" %>
+                </div>
+            <% end %>    
     </div>    
 </div>
 

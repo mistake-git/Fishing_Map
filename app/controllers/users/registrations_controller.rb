@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  before_action :configure_sign_up_params, only: [:create]
-  before_action :configure_account_update_params, only: [:update]
   before_action :configure_permitted_parameters, if: :devise_controller?
 
 
@@ -11,30 +9,45 @@ class Users::RegistrationsController < Devise::RegistrationsController
       @user = User.new
    end
 
-  def create
+   def create
       @user = User.new(
-      name: params[:name],
-      email: params[:email],
-      password: params[:password],
-      password_confirmation: params[:password]
+      name: params[:user][:name],
+      email: params[:user][:email],
+      password: params[:user][:password],
+      password_confirmation: params[:user][:password]
      )
       if @user.save
       flash[:notice] = 'アカウントを作成しました'
-      redirect_to('/')
+      redirect_to('/posts')
       else
-      render('users/new')
+      render('users/registrations/new')
       end
-  end
+   end
 
-  # GET /resource/edit
-  # def edit
-  #   super
-  # end
 
-  # PUT /resource
-  # def update
-  #   super
-  # end
+
+   def edit
+    @user = current_user
+   end
+   
+   def update
+    @user = current_user
+    if @user.update(
+      name: params[:user][:name],
+      email: params[:user][:email],
+      introduce: params[:user][:introduce]
+    )
+      if params[:user][:image]
+        @user.image.purge
+        @user.image.attach(params[:user][:image])
+      end
+      flash[:notice] = 'ユーザー情報を編集しました'
+      redirect_to("/users/#{current_user.id}")
+    else
+      render('users/registrations/edit')
+    end
+   end
+   
 
   # DELETE /resource
   # def destroy
@@ -75,7 +88,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
 end

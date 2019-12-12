@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   resources :posts
   get '/',to:'home#top'
-  devise_for :users
-  #devise_for :users, controllers: { registrations: 'users/registrations' }
+  devise_for :users, controllers: { registrations: 'users/registrations' }
+  
+  devise_scope :user do
+      post '/users/profile/edit',to:'users/registrations#update'
+  end      
+      
   
   get '/users',to:'users#index'
   get '/users/:id',to:'users#show'

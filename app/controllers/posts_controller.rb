@@ -31,8 +31,6 @@ class PostsController < ApplicationController
     @post = Post.new(
         post_params.merge(user_id: current_user.id)
         )
-    # @post = Post.new(name: parmas[:name], image: params[:image])
-    # @post = Post.new({ { name: parmas[:name], image: params[:image] }, user_id: current_user.id } )
 
     respond_to do |format|
       if @post.save
@@ -50,10 +48,6 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-          if params[:post][:image]
-            @post.image.purge
-            @post.image.attach(params[:post][:image])
-          end
         format.html { redirect_to @post, notice: '投稿を編集しました' }
         format.json { render :show, status: :ok, location: @post }
       else
