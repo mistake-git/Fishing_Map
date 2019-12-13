@@ -1,5 +1,5 @@
  <nav class="navbar navbar-expand">
-      <%= link_to "Fishing Map", "#", id: "logo", class: "navbar-brand" %>
+      <%=link_to(image_tag("fmap-site-logo.png",class:"fmap-site-logo"),"/")%>
       <ul class="navbar-nav ml-auto">
         <%if user_signed_in?%> 
             <li class="nav-item"> 
