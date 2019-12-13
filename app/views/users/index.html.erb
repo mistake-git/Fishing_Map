@@ -5,10 +5,15 @@
             <%= link_to"/users/#{user.id}" do %>
                 <li class="media media-users mb-1">
                     <div class="media-left mr-3">
-                        <img src="../assets/user-image.png" class="media-user-image image-circle mt-2 ml-2">
+                        <% if user.image.attached? %>
+                            <%= image_tag user.image, class:"media-user-image mt-2 ml-2"%>
+                        <% else %>
+                            <img src="../assets/user-image.png" class="media-user-image  mt-2 ml-2">
+                        <% end %>
                         <div class="media-user-name text-center"><%= user.name %></div>
                     </div>
-                    <div class="media-body">
+                    <div class="media-body mt-5 mr-5">
+                        <%= user.introduce %>
                     </div>
                 </li>
             <% end %>

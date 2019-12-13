@@ -4,7 +4,7 @@
 /*ユーザー一覧ページ*/
 .media-users{
     width: 60%;
-    margin-left: 20%
+    margin-left: 18%
 }
 /*ユーザー詳細ページ*/
 $application-color:#00CCCC;
@@ -26,7 +26,7 @@ $application-color:#00CCCC;
         display: inline-block;
         width: 100%;
         background-color: $application-color;
-            .user-name,.user-image-area{
+            .user-name,.user-image-area,.user-introduce{
                  display: inline-block;
             }
             
@@ -39,7 +39,9 @@ $application-color:#00CCCC;
             .user-image{
                 width: 120px;
                 height: 120px;
+                border-radius: 50%;
            }
+           
     }
 
 }
@@ -76,6 +78,7 @@ $application-color:#00CCCC;
     .media-user-image{
         width: 80px;
         height: 80px;
+        border-radius: 50%;
     }
     
     
@@ -104,7 +107,9 @@ $application-color:#00CCCC;
 
 }
 
-
+.media-block,.media-introduce{
+    display: inline-block;
+}
 
 
 
