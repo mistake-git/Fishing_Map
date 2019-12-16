@@ -74,5 +74,8 @@ gem 'rails-i18n', '~> 5.1'
 gem "gmaps4rails"
 gem "geocoder"
 
-#環境変数設定
-gem 'dotenv-rails'
+#環境変数設定 
+gem "dotenv-rails"
+
+#グラフ描画
+gem "chartkick"

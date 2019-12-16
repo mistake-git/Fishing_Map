@@ -38,8 +38,12 @@
                         <%= link_to post do %>
                         <li class="media mb-1">
                             <div class="media-left mr-3">
-                                <img src="../assets/user-image.png" class="media-user-image image-circle mt-2 ml-2">
-                                <div class="media-user-name text-center"><%= post.user.name %></div>
+                                <% if post.user.image.attached? %>
+                                    <%= image_tag post.user.image,class:"media-user-image mt-2 ml-2" %>
+                                <% else %>
+                                    <img src="../assets/user-image.png" class="media-user-image mt-2 ml-2">
+                                <% end %>
+                                <div class="media-user-name text-center"><%= post.user.name%></div>
                             </div>
                             <div class="media-body">
                                 <div class="media-heading mt-4 ml-4"><%= post.name %></div>

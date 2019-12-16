@@ -1,10 +1,23 @@
 <div class="post-wrapper">
     <div class="post">
-             <% if @post.image.attached? %>
-                <div class="post-img-area text-center mt-4 mb-4">
-                        <%= image_tag @post.image,class:"post-show-img"%>
-                </div>
-            <%end%>    
+        <%= link_to "/users/#{@post.user.id}" do %>
+            <% if @post.user.image.attached? %>
+                <div class="post-user-image">
+                    <%= image_tag @post.user.image, class:"post-user-image ml-2 "%>
+                </div>    
+            <% else %>
+                <div class="post-user-image">
+                    <img src="../assets/user-image.png" class="post-user-image ml-2 ">
+                </div>    
+            <% end %>
+            <div class ="post-user-name ml-4 mt-3">
+                <%= @post.user.name %>
+            </div>
+            <% if @post.image.attached? %>
+            <div class="post-img-area text-center mt-4 mb-4">
+                    <%= image_tag @post.image,class:"post-show-img"%>
+            </div>
+            <% end %>    
             <div class="post-data">
                 <dl class="row data-item">
                     <dt class=" col-md-2 text-right">魚種:</dt>
@@ -34,8 +47,8 @@
                     <dt class=" col-md-2 text-right">天気:</dt>
                     <dd class=" col-md-10 post-weather"><%= @post.weather %></dd>
                 </dl>
-            </div>    
-            <div class="post-map-area text-center mt-4 mb-4">
+        <% end %>        
+                <div class="post-map-area text-center mb-4 pt-4">
                 <div id="map" style='width: 80%; height: 500px;'></div>
                   <script type="text/javascript">
                     handler = Gmaps.build('Google');
@@ -47,7 +60,7 @@
                 		  "infowindow": '<%= @post.address %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@post.latitude},#{@post.longitude}&iwloc=J",target: "_blank" %></p>',
                 		  "picture": {
                 		       "url": '<%= asset_path "map-icon.png" %>',
-        		                "width":  48,
+                                "width":  48,
                                 "height": 48
                             }
                         }
@@ -57,15 +70,25 @@
                       handler.getMap().setZoom(17);
                     });
                   </script>
+                </div>
             </div>
             <%if @post.user.id == current_user.id %>
-                <div class="post-btn-area text-right mb-2">
-                    <%= link_to '編集', edit_post_path(@post),class:"btn-sm mt-2" %> 
-                    <%= link_to '削除', @post, method: :delete, data: { confirm: 'Are you sure?' },class:"btn-sm mt-2" %>
-                </div>
+            <div class="post-btn-area text-right mb-2">
+                <%= link_to '編集', edit_post_path(@post),class:"btn-sm mt-2" %> 
+                <%= link_to '削除', @post, method: :delete, data: { confirm: 'Are you sure?' },class:"btn-sm mt-2" %>
+            </div>
             <% end %>    
-    </div>    
+        </div>
 </div>
+
+<div class="data-label text-center"><%= @post.name %>のデータ</div>
+        <div class="season-data-label mt-5 mb-5"><%= @post.name%>がよく釣れる時期</div>
+        <%= line_chart @data1, width: "60%", height: "300px",class:"a"%>
+        <div class="feed-data-label mt-5 mb-5"><%= @post.name%>がよく釣れる餌</div>
+        <%= pie_chart @data2, width: "60%", height: "300px"%>
+
+
+
 
 
 

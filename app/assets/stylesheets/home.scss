@@ -1,3 +1,91 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$application-color:#00CCCC;
+@mixin application-text($application-color){
+    color: $application-color;
+    font-weight: bold;
+}
+
+/*トップページ*/
+.header{
+    height: 500px;
+    .site-catch-copy{
+         @include application-text($application-color);
+         font-size: 3.0rem;
+         background-image:url("/assets/top-image.jpg");
+         background-size: cover;
+         padding-top: 15%;
+         padding-bottom: 15%;
+    }
+}
+
+.about{
+    width: 100%;
+    .about-title{
+    color:#FF3300;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+    .about-site-title{
+        @include application-text($application-color);
+        font-size: 1.5rem;
+    }
+    
+    .about-text{
+        font-size: 1.2rem;
+    }
+    
+    .about-image{
+        width: 50%;
+        height: auto;
+    }
+
+   .border-line{
+       border-bottom: 2px solid #00CCCC;
+   }
+   
+   .description-border{
+       font-size: 1.2rem;
+       border-bottom: 2px solid #FF3300;
+   }
+}
+
+
+.application-recommend{
+    background-image: url("/assets/recommend-bg.jpg");
+    background-size: cover;
+    
+    .recommend-item{
+        padding: 5% 0;
+        background-color: rgba(255,255,255,0.5);
+        display: inline-block;
+        width: 30%;
+        margin: 5% auto;
+        border-radius: 20px;
+        
+    .recommend-title{
+     @include application-text($application-color);
+     font-size: 1.3rem;
+    }
+
+    .recommend-border{
+      border-bottom: 2px solid #FF3300;
+    }
+
+     .top-page-btn {
+      display: inline-block;
+      padding: 14px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      color: #FFF;
+      background-image: linear-gradient(45deg, #00CCCC 0%, #ff8b5f 100%);
+      transition: .4s;
+        &:hover {
+          background-image: linear-gradient(45deg, #FFC107 0%, #f76a35 100%);
+        }
+    }
+    
+    }
+   
+}

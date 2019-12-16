@@ -3,6 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 $application-color:#00CCCC;
+@mixin application-text($application-color){
+    color: $application-color;
+    font-weight: bold;
+}
 
 .post-wrapper{
     width: 60%;
@@ -10,9 +14,19 @@ $application-color:#00CCCC;
     margin: 10% auto;
     border: 2px solid #00CCCC ;
     
-    .post *{
+    .post-data *{
         margin:0 auto;
-        color:#003366;
+        color: #003366;
+    }
+    
+    .post-user-image{
+        width: 60px;
+        height : 60px;
+        border-radius: 50%;
+    }
+    
+    .post-user-image,.post-user-name{
+        display: inline-block;
     }
 }
 
@@ -58,3 +72,7 @@ $application-color:#00CCCC;
     height: auto;
 }
 
+/*データ*/
+.data-label,.season-data-label,.feed-data-label{
+     @include application-text($application-color);
+}

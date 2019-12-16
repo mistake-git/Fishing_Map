@@ -22,12 +22,14 @@ $application-color:#00CCCC;
     text-decoration: none;
 }
 
-.fmap-site-logo{
-    width: 100px;
-    height: 50px;
-}
+
+
 
 /*ナビゲーションバー*/
+.nav-item{
+    font-size: 1.1rem;
+}
+
 .nav-link{
     color: $application-color;
     font-weight: bold;
@@ -35,9 +37,8 @@ $application-color:#00CCCC;
 
 /*フォーム*/
 .form-wrapper{
-    border: 2px solid #66CCCC;
     display: inline-block;
-    width: 40%;
+    width: 30%;
     
     .form-text{
         color: #003366;
@@ -55,3 +56,14 @@ $application-color:#00CCCC;
         font-weight: bold;
         text-align: center;
     }
+
+/*フッター*/
+.footer{
+   background-color: #00CCCC;
+}
+.footer-site-logo{
+    width: 10%;
+    height: auto;
+    background-color: #fff;
+}
+
