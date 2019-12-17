@@ -1,11 +1,45 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-/*ユーザー一覧ページ*/
-.media-users{
-    width: 60%;
-    margin-left: 18%
+
+/*共通*/
+$application-color:#00CCCC;
+.user-introduce-default{
+    opacity: 0.5;
 }
+
+/*ユーザー一覧ページ*/
+.container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card{
+    .card-label{
+        position: relative;
+        padding: 0.3em;
+        background: $application-color;
+        color: white;
+        &::before {
+            position: absolute;
+            content: '';
+            top: 100%;
+            left: 0;
+            border: none;
+            border-bottom: solid 10px transparent;
+            border-right: solid 15px rgb(149, 158, 155);
+        }
+    }
+    
+    width: 24%;
+    .user-card-img{
+        width: 70%;
+        height: 52%;
+        border-radius: 50%;
+    }
+}
+
+
 /*ユーザー詳細ページ*/
 $application-color:#00CCCC;
 
@@ -58,59 +92,59 @@ $application-color:#00CCCC;
 }
 
 
-.media-list-title{
-        font-size: 1.2rem;
-        @include application-text($application-color);
-    }
-
-
-.media{
-    border:2px solid #00CCCC;
-    border-radius: 10px;
-    margin-right: 50px;
-
-    .media-heading{
-        color: $application-color;
-        font-size: 1.2rem;
+.user-post-title{
+    font-size: 1.2rem;
+        position: relative;
+        padding: 5px 5px 5px 42px;
+        background: $application-color;
+        font-size: 20px;
+        color: white;
         font-weight: bold;
-    }
+        margin-left: -33px;
+        line-height: 1.3;
+        width: 20%;
+        z-index:-1;
         
-    .media-user-image{
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-    }
+        &:before {
+        position: absolute;
+        content: '';
+        left: -2px;
+        top: -2px;
+        border: none;
+        border-left: solid 40px white;
+        border-bottom: solid 79px transparent;
+        z-index:-2
+        }
+}
+
+.user-post{
+    .card{
+    position: relative;
+        .post-card-img{
+        width: 100%;
+        height: 55%;
+        }
     
-    
-    .media-description{
-        height: 50%;
-    }
-    
-    .media-date,.media-place,.media-feed,.media-weather{
-        display: inline-block;
-        @include application-text($application-color);
-    }
-    
-    .media-created_at{
-        display: inline-block;
-    }
-    
-    
-    .media-user-name,.media-title,.media-place,.media-date{
-       @include application-text($application-color);
-    }
-    
-    .media-fish-image{
-        width: 250px;
-        height: 150px;
+        .post-description-default{
+        opacity: 0.5;
+        }
+        
+        .card-tag{
+            margin: 5%;
+        }
+        
+        .user-card-bottom div{
+            display: inline-block;
+        }
+        
+        .user-card-bottom{
+            position: absolute;
+            bottom: 3%;
+            left: 5%;
+        }
     }
 
 }
-
-.media-block,.media-introduce{
-    display: inline-block;
-}
-
 
 
 

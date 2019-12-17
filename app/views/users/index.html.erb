@@ -1,22 +1,30 @@
-<div class="text-center"> 
-    <ul class="media-list">
-        <div class="media-list-title mb-3">釣り人一覧</div>
-        <% @users.each do |user| %>
-            <%= link_to"/users/#{user.id}" do %>
-                <li class="media media-users mb-1">
-                    <div class="media-left mr-3">
-                        <% if user.image.attached? %>
-                            <%= image_tag user.image, class:"media-user-image mt-2 ml-2"%>
-                        <% else %>
-                            <img src="../assets/user-image.png" class="media-user-image  mt-2 ml-2">
-                        <% end %>
-                        <div class="media-user-name text-center"><%= user.name %></div>
-                    </div>
-                    <div class="media-body mt-5 mr-5">
-                        <%= user.introduce %>
-                    </div>
-                </li>
+
+<div class="container">
+    <% @users.each do |user| %>
+        <div class="card mt-1 ml-1 mr-1 mb-1">
+            <% if user.image.attached? %>
+                <%= image_tag user.image, class:"card-img-top user-card-img mx-auto mt-3"%>
+            <% else %>
+                <img src="../assets/user-image.png" class="card-img-top user-card-img mx-auto mt-3">
             <% end %>
-        <% end %>
-    </ul>
-</div>
+            <div class="card-body">
+            <h6 class="card-title text-center card-label"><%= user.name %></h6>
+            <p class="card-text text-center">
+                <% if user.introduce? %>
+                    <%= user.introduce %>
+                <% else %>
+                    <div class="user-introduce-default text-center">
+                        まだ自己紹介がありません
+                    </div>
+                <% end %>
+            </p>
+            <div class="text-right">
+                <%= link_to"詳細","/users/#{user.id}",class:"btn-sm btn-info" %>
+            </div>
+          </div>
+        </div>
+    <% end %> 
+</div> 
+
+
+

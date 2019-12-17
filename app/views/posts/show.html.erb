@@ -73,20 +73,27 @@
                 </div>
             </div>
             <%if @post.user.id == current_user.id %>
-            <div class="post-btn-area text-right mb-2">
-                <%= link_to '編集', edit_post_path(@post),class:"btn-sm mt-2" %> 
-                <%= link_to '削除', @post, method: :delete, data: { confirm: 'Are you sure?' },class:"btn-sm mt-2" %>
+            <div class="post-btn-area text-right mb-2 mr-2">
+                <%= link_to '編集', edit_post_path(@post),class:"btn-sm mt-2 btn-sm btn-info" %> 
+                <%= link_to '削除', @post, method: :delete, data: { confirm: 'Are you sure?' },class:"btn-sm mt-2 btn-danger" %>
             </div>
             <% end %>    
         </div>
 </div>
 
 <div class="data-label text-center"><%= @post.name %>のデータ</div>
+<div class="row no-gutters">
+    <div class="col-md-6 offset-md-3 mt-5">
         <div class="season-data-label mt-5 mb-5"><%= @post.name%>がよく釣れる時期</div>
-        <%= line_chart @data1, width: "60%", height: "300px",class:"a"%>
+        <%= line_chart @data1, width: "100%", height: "300px"%>
+    </div>
+</div>
+<div class="row no-gutters">
+    <div class="col-md-6 offset-md-3 mt-5">
         <div class="feed-data-label mt-5 mb-5"><%= @post.name%>がよく釣れる餌</div>
-        <%= pie_chart @data2, width: "60%", height: "300px"%>
-
+        <%= pie_chart @data2, width: "100%", height: "300px"%>
+    </div>
+</div>
 
 
 

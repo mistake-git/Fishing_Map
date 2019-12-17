@@ -1,5 +1,4 @@
-<div class="user-show">
-    
+
       <div class="user-header">
            <div class="user-status">
               <div class="user-image-area">
@@ -18,7 +17,15 @@
             <div class="user-info">
                 <div class="user-introduce mt-3 ml-3 mr-3">
                      <div class="introduce-title">自己紹介</div>
-                     <div class="introduce-content mt-3"><%= @user.introduce %></div>
+                     <div class="introduce-content mt-3">
+                        <% if @user.introduce?%>
+                            <%= @user.introduce %>
+                        <% else %>
+                            <div class="user-introduce-default">
+                                まだ自己紹介がありません
+                            </div>
+                        <% end %>
+                    </div>
                 </div>
                 <div class="user-area mb-3">
                     <div class="area-title mt-3">活動エリア</div>
@@ -28,47 +35,66 @@
                     <%= link_to"ユーザー情報編集","/users/edit"%>
                 <% end %>
             </div>
-          </div> 
+        </div> 
           
-          <div class="col-9">
-              <div class="user-posts">
-                  <ul class="media-list">
-                      <div class="media-list-title mb-3">これまでの釣果</div>
-                    <% @user.posts.each do |post| %>
-                        <%= link_to post do %>
-                        <li class="media mb-1">
-                            <div class="media-left mr-3">
-                                <% if post.user.image.attached? %>
-                                    <%= image_tag post.user.image,class:"media-user-image mt-2 ml-2" %>
-                                <% else %>
-                                    <img src="../assets/user-image.png" class="media-user-image mt-2 ml-2">
-                                <% end %>
-                                <div class="media-user-name text-center"><%= post.user.name%></div>
-                            </div>
-                            <div class="media-body">
-                                <div class="media-heading mt-4 ml-4"><%= post.name %></div>
-                                <div class="media-description mt-4 mb-5"><%= post.description %></div>
-                                <div class="media-bottom mt-5">
-                                    <div class="media-date">釣った日 <%= post.date %></div>
-                                    <div class="media-place ml-3"><%= post.address %></div>
-                                    <div class="media-feed mt-5 ml-3 mr-1">餌:<%= post.feed %></div>
-                                    <div class="media-weather mt-5 ml-3 mr-1">天気:<%= post.weather %></div>
-                                    <div class="media-created_at mt-5 ml-4"><%= post.created_at %></div>
-                                </div>
-                            </div>
-                            <div class ="media-image-area">
-                                <div class="media-right">
-                                    <% if post.image.attached? %>
-                                        <%= image_tag post.image ,class:"media-fish-image mt-3 mb-3 mr-2"%>
-                                    <% end %>
-                                </div>
-                            </div>
-                        </li>
+        <div class="col-9">
+            <div class="user-post-title mb-4 ml-1">
+                <%= @user.name%>さんの釣果
+            </div>
+            <div class="container user-post">
+                 <% @user.posts.each do |post| %>
+                    <div class="card mt-1 ml-1 mr-1 mb-1">
+                        <% if post.image.attached? %>
+                            <%= image_tag post.image,class:"card-img-top post-card-img" %>
+                        <% else %>
+                            <img src="../assets/sakana-img.jpg" class="card-img-top post-card-img">
                         <% end %>
-                    <% end %>
-                  </ul>
-              </div>
-          </div>
-      </div>
-</div>
+                          <div class="card-body">
+                            <h6 class="card-title text-center card-label"><%= post.name %></h6>
+                            <p class="card-text card-tag">
+                                <% if post.description? %>  
+                                    <div class="text-center">
+                                        <%= post.description %>
+                                    </div>
+                                <% else %>
+                                    <div class="post-description-default text-center">
+                                        説明がありません
+                                    </div>
+                                <% end %>
+                            </p>
+                                <% if post.feed? %>
+                                    <div class="badge badge-info">
+                                        餌: <%= post.feed %>
+                                    </div>
+                                <% end %>
+                                <% if post.weather? %>
+                                    <div class="badge badge-info">
+                                        天気: <%= post.weather %>
+                                    </div>
+                                <% end %>
+                                <% if post.number? %>
+                                    <div class="badge badge-info">
+                                        数量: <%= post.number%>
+                                    </div>
+                                <% end %>
+                                 <% if post.date? %>
+                                    <div class="badge badge-info">
+                                        日時: <%= post.date %>
+                                    </div>
+                                <% end %>
+                                <div class="user-card-bottom mt-3 mr-1">
+                                    <div class="post-created_at">
+                                        <%= post.created_at %>の投稿
+                                    </div>    
+                                    <div class="text-right">
+                                        <%= link_to "詳細",post%>
+                                    </div>
+                                </div>
+                          </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+ 
     

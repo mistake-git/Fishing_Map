@@ -76,3 +76,7 @@ $application-color:#00CCCC;
 .data-label,.season-data-label,.feed-data-label{
      @include application-text($application-color);
 }
+
+.data-label{
+    font-size: 1.3rem;
+}
