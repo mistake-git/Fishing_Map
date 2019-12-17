@@ -4,11 +4,40 @@
 
 /*共通*/
 $application-color:#00CCCC;
+
 .user-introduce-default{
     opacity: 0.5;
 }
 
 /*ユーザー一覧ページ*/
+.user-index-title {
+  position: relative;
+  padding: 0.25em 1em;
+  border-top: solid 4px #00CCCC;
+  border-bottom: solid 4px #00CCCC;
+  color: $application-color;
+  margin : 2% auto;
+  width: 30%;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+.user-index-title:before, .user-index-title:after {
+  content: '';
+  position: absolute;
+  top: -7px;
+  width: 2px;
+  height: -webkit-calc(100% + 14px);
+  height: calc(100% + 14px);
+  background-color: $application-color;
+}
+.user-index-title:before {
+  left: 7px;
+}
+.user-index-title:after {
+  right: 7px;
+}
+
+
 .container{
     display: flex;
     flex-wrap: wrap;
@@ -42,11 +71,6 @@ $application-color:#00CCCC;
 
 /*ユーザー詳細ページ*/
 $application-color:#00CCCC;
-
-* {
-    text-decoration: none;
-    /*linkのデコレーションが消えない*/
-}
 
 @mixin application-text($application-color){
     color: $application-color;
@@ -82,13 +106,58 @@ $application-color:#00CCCC;
 
 
 .user-info{
-     border:2px solid #00CCCC;
-     margin-left: 50px;
-     border-radius: 10px;
-}
+    border: dashed 2px #00CCCC;
+    padding: 0.2em 0.5em;
+    .introduce{
+    position: relative;
+    border: solid 2px #80c8d1;
+    color: $application-color;
+    line-height: 1.4;
+    padding: 0.4em 0.5em;
+    margin: 2em 0 0.5em;
+    font-weight: bold;
+    
+    &:after {
+      /*タブ*/
+        position: absolute;
+        content: '自己紹介';
+        background: #80c8d1;
+        color: #fff;
+        left: 0px;
+        bottom: 100%;
+        border-radius: 5px 5px 0 0;
+        padding: 5px 7px 3px;
+        font-size: 0.7em;
+        line-height: 1;
+        letter-spacing: 0.05em;
+    }
+    }
+    
 
-.introduce-title,.area-title{
-     @include application-text($application-color)
+    .area{
+      position: relative;
+      border: solid 2px #80c8d1;
+      color: $application-color;
+      line-height: 1.4;
+      padding: 0.4em 0.5em;
+      margin: 2em 0 0.5em;
+      font-weight: bold;
+      
+        &:after {
+          /*タブ*/
+            position: absolute;
+            content: '活動エリア';
+            background: #80c8d1;
+            color: #fff;
+            left: 0px;
+            bottom: 100%;
+            border-radius: 5px 5px 0 0;
+            padding: 5px 7px 3px;
+            font-size: 0.7em;
+            line-height: 1;
+            letter-spacing: 0.05em;
+    }
+    }
 }
 
 
@@ -118,7 +187,7 @@ $application-color:#00CCCC;
 }
 
 .user-post{
-    .card{
+    .user-post-card{
     position: relative;
         .post-card-img{
         width: 100%;
@@ -139,7 +208,7 @@ $application-color:#00CCCC;
         
         .user-card-bottom{
             position: absolute;
-            bottom: 3%;
+            bottom: 2%;
             left: 5%;
         }
     }

@@ -1,4 +1,6 @@
-
+<div class="application-description">
+    このページではGoogle Map上で釣果を見ることができます｡どこでどんな魚が釣れているのか確認してみましょう!
+</div>
  <div class="mt-5" id="map" style='width: 100%; height: 500px;'></div>
  <script type="text/javascript">
             handler = Gmaps.build('Google');
@@ -8,7 +10,7 @@
                 {
                   "lat": <%= post.latitude %>,
                   "lng": <%= post.longitude %>,
-        		  "infowindow": '<div class="map-post-name"><%= post.name %></div><br/><% if post.image.attached? %><%= image_tag post.image,class:"map-icon-img mt-1 mb-1" %><br><% end %><p><%= link_to "詳細" ,post %></p>',
+        		  "infowindow": '<p><%= link_to "#{post.user.name}さんの釣果","/users/#{post.user.id}",class:"badge badge-info mt-3" %></p><div class="map-post-name"><%= post.name %></div><br/><% if post.image.attached? %><%= image_tag post.image,class:"map-icon-img mb-2" %><br><% else %><img src="../assets/sakana-img.jpg" class="default-img map-icon-img mb-2"><% end %><p><%= link_to "詳細",post ,class:"btn-sm btn-info"%></p>',
         		  "picture": {
         		       "url": '<%= asset_path "map-icon.png" %>',
 		                "width":  48,

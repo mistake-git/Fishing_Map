@@ -13,6 +13,7 @@ class PostsController < ApplicationController
   def show
      @post = Post.find_by(id: params[:id])
      @user = @post.user
+     @level ="★"
      #その投稿のnameの数を月ごとに集計したい
      @data1 =[
             ['1月', 100],

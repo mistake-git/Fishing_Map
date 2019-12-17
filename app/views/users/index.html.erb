@@ -1,11 +1,14 @@
-
+<div class="text-center user-index-title mb-3"><%= @title %></div>
 <div class="container">
     <% @users.each do |user| %>
-        <div class="card mt-1 ml-1 mr-1 mb-1">
+        <div class="card user-index-card mt-1 ml-1 mr-1 mb-1">
             <% if user.image.attached? %>
-                <%= image_tag user.image, class:"card-img-top user-card-img mx-auto mt-3"%>
+                <%= image_tag user.image, class:"card-img-top user-card-img mx-auto mt-3 mb-3"%>
             <% else %>
-                <img src="../assets/user-image.png" class="card-img-top user-card-img mx-auto mt-3">
+                <img src="../assets/user-image.png" class="card-img-top user-card-img mx-auto mt-3 default-img">
+                <div class="default-text text-right mr-2">
+                    画像が添付されていません
+                </div>
             <% end %>
             <div class="card-body">
             <h6 class="card-title text-center card-label"><%= user.name %></h6>
