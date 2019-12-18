@@ -1,52 +1,12 @@
 <div class="page-title ml-4 mt-4"><%= @title %></div>
-      <div class="user-header">
-           <div class="user-status">
-              <div class="user-image-area">
-                  <% if @user.image.attached? %>
-                      <%= image_tag @user.image,class:"user-image mt-2 mb-2 ml-2 "%>
-                  <% else %>
-                      <img src="../assets/user-image.png" class="user-image default-img mt-2 mb-2 ml-2">
-                  <% end %>      
-              </div>
-              <div class="user-name"><%= @user.name %></div>
-          </div>
-      </div>
+<%= render partial: 'users_header'%>
       
       <div class="user-content row">
-        <div class="col-3 text-center mt-5">
-            <div class="user-info mt-3 ml-3">
-                <div class="user-introduce mt-3 ml-3 mr-3">
-                     <div class="introduce">
-                        <% if @user.introduce?%>
-                            <%= @user.introduce %>
-                        <% else %>
-                            <div class="user-introduce-default">
-                                まだ自己紹介がありません
-                            </div>
-                        <% end %>
-                    </div>
-                        <div class="area">兵庫県</div>
-                    </div>
-                <% if @user.id == current_user.id %>
-                    <%= link_to"/users/edit" do%>
-                        <i class="fas fa-cog"></i>設定
-                    <% end %>
-                <% end %>
-            </div>
-        </div> 
+       <div class="col-3 text-center mt-5">
+           <%= render partial: 'users_status'%>
+       </div> 
         <div class="col-9">
-            <div class="title-list">
-                <div class="user-post-title mb-4 ml-1">
-                    <%= @user.name%>さんの釣果
-                </div>
-                <div class="user-post-title mb-4 ml-1">
-                    いいねした釣果
-                </div>
-                <div class="user-post-title active mb-4 ml-1">
-                    コメント
-                </div>
-            </div>
-            
+            <%= render partial: 'users_title_list'%>
             <div class="container user-post">
                  <% @user.posts.each do |post| %>
                     <div class="card user-post-card mt-1 ml-1 mr-1 mb-1">

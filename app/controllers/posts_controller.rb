@@ -19,6 +19,7 @@ class PostsController < ApplicationController
      @post = Post.find_by(id: params[:id])
      @user = @post.user
      @level ="★"
+     @likes_count = Like.where(post_id:@post.id).count
      #その投稿のnameの数を月ごとに集計したい
      @data1 =[
             ['1月', 100],

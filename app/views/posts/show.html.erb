@@ -44,6 +44,8 @@
                 </div>
                 <ul class="post-data-list mt-5">
                     <li class="post-created_at"><%= @post.created_at %></li>
+                    <li class="like-icon ml-5"><i class="fas fa-heart"> <%= @likes_count %></i></li>
+                    <li class="comment-icon ml-5"><i class="fas fa-comment"> 8</i></li>
                 </ul>
                 <div class="data-area-title mt-5">
                     釣果のデータ
@@ -105,7 +107,22 @@
                         });
                         </script>
                     </div>
-                 <%if @post.user.id == current_user.id %>
+                    
+                <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
+                    <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
+                        <div class="text-right like-btn-wrapper">
+                            <span class="fa fa-heart like-btn-unlike mr-5 mb-3"></span>
+                        </div>
+                    <% end %>
+                <% else %>
+                    <%= link_to("/likes/#{@post.id}/create", {method: "post"}) do %>
+                        <div class="text-right like-btn-wrapper">
+                            <span class="fa fa-heart like-btn mr-5 mb-3"></span>
+                        </div>
+                    <% end %>
+                <% end %>
+                 
+                <% if @post.user.id == current_user.id %>
                     <div class="post-btn-area text-right mb-2 mr-5">
                         <%= link_to '編集', edit_post_path(@post),class:"btn-sm btn-info" %> 
                         <%= link_to '削除', @post, method: :delete, data: { confirm: 'Are you sure?' },class:"btn-sm btn-danger" %>
