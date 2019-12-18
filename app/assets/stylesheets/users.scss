@@ -160,6 +160,9 @@ $application-color:#00CCCC;
     }
 }
 
+.title-list div{
+    display: inline-block;
+}
 
 .user-post-title{
     font-size: 1.2rem;
@@ -173,6 +176,8 @@ $application-color:#00CCCC;
         line-height: 1.3;
         width: 20%;
         z-index:-1;
+        opacity: 0.6;
+        text-align: center;
         
         &:before {
         position: absolute;
@@ -186,6 +191,9 @@ $application-color:#00CCCC;
         }
 }
 
+.active{
+    opacity: 1.0;
+}
 .user-post{
     .user-post-card{
     position: relative;
