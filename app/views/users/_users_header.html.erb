@@ -1,0 +1,12 @@
+<div class="user-header">
+    <div class="user-status">
+      <div class="user-image-area">
+          <% if @user.image.attached? %>
+              <%= image_tag @user.image,class:"user-image mt-2 mb-2 ml-2 "%>
+          <% else %>
+              <img src="../assets/user-image.png" class="user-image default-img mt-2 mb-2 ml-2">
+          <% end %>      
+      </div>
+      <div class="user-name"><%= @user.name %></div>
+    </div>
+</div>

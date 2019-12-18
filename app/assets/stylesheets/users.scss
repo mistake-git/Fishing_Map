@@ -164,6 +164,7 @@ $application-color:#00CCCC;
     display: inline-block;
 }
 
+
 .user-post-title{
     font-size: 1.2rem;
         position: relative;
@@ -197,13 +198,14 @@ $application-color:#00CCCC;
 .user-post{
     .user-post-card{
     position: relative;
+    
         .post-card-img{
-        width: 100%;
-        height: 55%;
+            width: 100%;
+            height: 43%;
         }
     
         .post-description-default{
-        opacity: 0.5;
+            opacity: 0.5;
         }
         
         .card-tag{

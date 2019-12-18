@@ -24,3 +24,4 @@ Things you may want to cover:
 * ...
 
 登録中の画像プレビュー
+デコレーションが消えない

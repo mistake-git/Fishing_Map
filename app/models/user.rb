@@ -6,6 +6,7 @@ class User < ApplicationRecord
          validates :name, presence: true
          validates :email,  length: { maximum: 50 }
          has_one_attached :image
+         has_many :posts, dependent: :destroy
          
   def posts
     return Post.where(user_id: self.id)
