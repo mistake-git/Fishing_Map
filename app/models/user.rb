@@ -11,4 +11,12 @@ class User < ApplicationRecord
     return Post.where(user_id: self.id)
   end
   
+  def self.search(search)
+    if search
+      User.where(['name LIKE ?', "%#{search}%"])
+    else
+      User.all
+    end
+  end
+  
 end

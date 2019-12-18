@@ -7,6 +7,11 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
   end
+  
+  def search
+    @posts= Post.search(params[:search])
+    redirect_to('/posts')
+  end
 
   # GET /posts/1
   # GET /posts/1.json
