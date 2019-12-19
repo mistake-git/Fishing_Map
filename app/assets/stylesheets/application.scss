@@ -21,6 +21,11 @@ $application-color:#00CCCC;
 *{
     text-decoration: none;
 }
+
+body{
+    background-color: #EEFFFF;
+}
+
 .like-icon,.comment-icon,.post-created_at{
     font-size: 0.8rem;
     opacity: 0.5;
@@ -59,15 +64,17 @@ $application-color:#00CCCC;
 }
 
 /*ナビゲーションバー*/
-.nav-item{
-    font-size: 1.1rem;
+.navbar{
+    background: #fff;
+    .nav-item{
+        font-size: 1.1rem;
+    }
+    
+    .nav-link{
+        color: $application-color;
+        font-weight: bold;
+    }
 }
-
-.nav-link{
-    color: $application-color;
-    font-weight: bold;
-}
-
 /*フォーム*/
 .form-wrapper{
     display: inline-block;

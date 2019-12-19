@@ -16,12 +16,14 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-     @post = Post.find_by(id: params[:id])
-     @user = @post.user
-     @level ="★"
-     @likes_count = Like.where(post_id:@post.id).count
+    @post = Post.find_by(id: params[:id])
+    @user = @post.user
+    @level ="★"
+    @likes_count = Like.where(post_id: @post.id).count
+    @comments = Comment.where(post_id: @post.id)
+    @comments_count = Comment.where(post_id: @post.id).count
      #その投稿のnameの数を月ごとに集計したい
-     @data1 =[
+    @data1 =[
             ['1月', 100],
             ['2月', 70], 
             ['3月', 15],
@@ -111,6 +113,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:image,:name, :feed,:weather,:description,:number,:date,:address, :latitude, :longitude,:user_id)
+      params.require(:post).permit(:image,:name, :feed,:weather,:description,:number,:date,:address, :latitude, :longitude,:user_id,:size)
     end
 end

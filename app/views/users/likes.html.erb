@@ -16,11 +16,11 @@
                     いいねした釣果
                 </div>
             <% end %>
-                <%= link_to "/users/#{@user.id}/comments" do %>
-                    <div class="user-post-title mb-4 ml-1">
-                        コメント
-                    </div>
-                <% end %>
+            <%= link_to "/users/#{@user.id}/comments" do %>
+                <div class="user-post-title mb-4 ml-1">
+                    コメント
+                </div>
+            <% end %>
         </div>
         <div class="container user-post">
              <% @likes.each do |like| %>
@@ -56,9 +56,14 @@
                                     天気: <%= post.weather %>
                                 </div>
                             <% end %>
+                             <% if post.size? %>
+                                <div class="badge badge-info">
+                                    サイズ: <%= post.size %>cm
+                                </div>
+                            <% end %>
                             <% if post.number? %>
                                 <div class="badge badge-info">
-                                    数量: <%= post.number%>
+                                    数量: <%= post.number %>
                                 </div>
                             <% end %>
                             <% if post.date? %>

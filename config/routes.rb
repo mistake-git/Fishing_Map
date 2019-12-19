@@ -11,9 +11,14 @@ Rails.application.routes.draw do
   get '/users/search',to:'users#search'
   get '/users',to:'users#index'
   get '/users/:id',to:'users#show'
-  get "users/:id/likes" => "users#likes"
+  get '/users/:id/likes',to:'users#likes'
+  get '/users/:id/comments',to:'users#comments'
   
-  post "likes/:post_id/create" => "likes#create"
-  post "likes/:post_id/destroy" => "likes#destroy"
+  
+  post '/posts/:post_id/comments',to:'comments#create'
+  delete '/posts/:post_id/comments/:comment_id',to:'comments#destroy'
+  
+  post '/likes/:post_id/create',to:'likes#create'
+  post '/likes/:post_id/destroy',to:'likes#destroy'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
