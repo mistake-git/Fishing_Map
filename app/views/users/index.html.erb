@@ -3,9 +3,9 @@
 <div class="text-center mt-5 mb-5">
     <%= form_with url:'/users/search', method: :get, local: true do |form| %>
         <div class="search-form">
-          <%= form.text_field :search ,class:"form-control"%>
+          <%= form.text_field :search ,class:"form-control",placeholder: "名前で検索"%>
         </div>  
-      <%= form.submit '検索' ,class:"btn btn-info ml-3 mb-1"%>
+      <%= form.submit '検索' ,class:"btn btn-info ml-3 mb-1" %>
     <% end %>
 </div>
 
@@ -13,7 +13,7 @@
     <% @users.each do |user| %>
         <div class="card user-index-card mt-1 ml-1 mr-1 mb-1">
             <% if user.image.attached? %>
-                <%= image_tag user.image, class:"card-img-top user-card-img mx-auto mt-3 mb-3"%>
+                <%= image_tag user.image, class:"card-img-top user-card-img mx-auto mt-3 mb-4"%>
             <% else %>
                 <img src="../assets/user-image.png" class="card-img-top user-card-img mx-auto mt-3 default-img">
                 <div class="default-text text-right mr-2">
@@ -38,6 +38,5 @@
         </div>
     <% end %> 
 </div> 
-
 
 

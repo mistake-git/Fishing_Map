@@ -7,67 +7,46 @@
        </div> 
         <div class="col-9">
             <%= render partial: 'users_title_list'%>
-            <div class="container user-post">
-                 <% @user.posts.each do |post| %>
-                    <div class="card user-post-card mt-1 ml-1 mr-1 mb-1">
-                        <% if post.image.attached? %>
-                            <%= image_tag post.image,class:"card-img-top post-card-img mb-3" %>
-                        <% else %>
-                            <img src="../assets/sakana-img.jpg" class="card-img-top post-card-img default-img">
-                            <div class="default-text text-right mr-2">
-                                画像が添付されていません
-                            </div>
-                        <% end %>
-                          <div class="card-body mb-5 mt-1">
-                            <h6 class="card-title text-center card-label"><%= post.name %></h6>
-                            <p class="card-text card-tag">
-                                <% if post.description? %>  
-                                    <div class="text-center mt-2 mb-2">
-                                        <%= post.description %>
-                                    </div>
-                                <% else %>
-                                    <div class="post-description-default text-center mt-2 mb-2">
-                                        説明がありません
-                                    </div>
-                                <% end %>
-                                <% if post.feed? %>
-                                    <div class="badge badge-info">
-                                        餌: <%= post.feed %>
-                                    </div>
-                                <% end %>
-                                <% if post.weather? %>
-                                    <div class="badge badge-info">
-                                        天気: <%= post.weather %>
-                                    </div>
-                                <% end %>
-                                <% if post.number? %>
-                                    <div class="badge badge-info">
-                                        数量: <%= post.number%>
-                                    </div>
-                                <% end %>
-                                <% if post.date? %>
-                                    <div class="badge badge-info">
-                                        日時: <%= post.date %>
-                                    </div>
-                                <% end %>
-                                <% if post.address? %>
-                                    <div class="badge badge-info">
-                                        場所: <%= post.address%>
-                                    </div>
-                                <% end %>
-                            </p>
-                                <div class="user-card-bottom mr-1">
-                                    <div class="post-created_at">
-                                        <%= post.created_at %>の投稿
-                                    </div>    
-                                    <div class="text-right">
-                                        <%= link_to "詳細",post ,class:"btn-sm btn-info"%>
-                                    </div>
-                                </div>
-                          </div>
-                    </div>
-                <% end %>
+            
+            <div class="title-list">
+            <%= link_to "/users/#{@user.id}" do %>
+                <div class="user-post-title mb-4 ml-1">
+                    <%= @user.name %>さんの釣果
+                </div>
+            <% end %>
+            <%= link_to "/users/#{@user.id}/likes" do %>
+                <div class="user-post-title mb-4 ml-1">
+                    いいねした釣果
+                </div>
+            <% end %>
+            <%= link_to "/users/#{@user.id}/comments" do %>
+                <div class="user-post-title active mb-4 ml-1">
+                    コメント
+                </div>
+            <% end %>
             </div>
+            <ul class="media-list mt-4 mr-5">
+                    <% @comments.each do |comment| %>
+                    <% post = Post.find_by(id: comment.post_id) %>
+                        <%= link_to "/posts/#{post.id}" do %>
+                	        <li class="media media-comment mr-5">
+                		        <div class="media-left">
+                		            <%if comment.user.image.attached?%>
+                                        <%= image_tag comment.user.image,class:"comment-user-img mr-2" %>
+                                    <% else %>
+                                        <img src="../assets/user-image.png" class="comment-user-img">
+                                    <% end %>
+                		        </div>
+                		        <div class="media-body">
+                			        <h5 class="media-heading"><%= comment.user.name %></h5>
+                			        <div class="ml-5">
+                			            <%= comment.content %>
+                			        </div>
+                		        </div>
+                	        </li>
+            	        <% end %>
+        	        <% end %>
+                </ul>
         </div>
     </div>
  

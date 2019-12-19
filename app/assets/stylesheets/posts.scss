@@ -43,8 +43,13 @@ $application-color:#00CCCC;
 }
 
 /*投稿詳細*/
+
 .post-data-area{
     width: 90%;
+}
+
+.post-main{
+    background: #fff;
 }
 
 .post-show-title{
@@ -57,7 +62,7 @@ $application-color:#00CCCC;
   margin-left: -33px;
   line-height: 1.3;
   z-index:-1;
-  width: 95%;
+  width: 100%;
 
     &:before {
         position: absolute;
@@ -65,7 +70,7 @@ $application-color:#00CCCC;
         left: -2px;
         top: -2px;
         border: none;
-        border-left: solid 40px white;
+        border-left: solid 40px #EEFFFF;
         border-bottom: solid 79px transparent;
         z-index:-2
     }
@@ -120,9 +125,6 @@ $application-color:#00CCCC;
     display: inline-block;
 }
 
-.star-color{
-    color: yellow;
-}
 
 .like-btn-wrapper{
     font-size: 2.0rem;
@@ -136,14 +138,63 @@ $application-color:#00CCCC;
     }
 }
 
-
-
 .post-show-description{
      font-weight: bold;
 }
 
+/*データ*/
+.season-data-label,.feed-data-label{
+     @include application-text($application-color);
+     font-size: 1.2rem;
+}
 
+.data-label{
+    font-size: 1.5rem;
+}
 
+.comment-area-title {
+    position: relative;
+    display: inline-block;
+    padding: 0 5%;
+    @include application-text($application-color);
+    font-size: 1.5rem;
+    
+    &:before, &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        display: inline-block;
+        width: 20%;
+        height: 5px;
+        background-color: $application-color;
+    }
+    
+    &:before {
+        left:0;
+    }
+    &:after {
+        right: 0;
+    }
+}
+
+.media-comment{
+    padding: 8px 19px;
+    color: #2c2c2f;
+    background-color: #fff;
+    border-bottom: 2px solid #EEEEEE;
+    margin-top: 1%;
+    
+    .comment-user-img{
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+    }
+}
+
+.comment-form{
+    width: 90%;
+    margin: 0 auto;
+}
 
 /*マップアイコン*/
 .map-post-name{
@@ -156,11 +207,4 @@ $application-color:#00CCCC;
     height: auto;
 }
 
-/*データ*/
-.data-label,.season-data-label,.feed-data-label{
-     @include application-text($application-color);
-}
 
-.data-label{
-    font-size: 1.3rem;
-}

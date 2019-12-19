@@ -24,6 +24,7 @@ class UsersController < ApplicationController
     
     def comments
         @user = User.find_by(id: params[:id])
+        @comments = Comment.where(user_id: @user.id)
         @title="#{@user.name}さんのページ"
     end  
 end

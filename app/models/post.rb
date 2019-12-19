@@ -7,6 +7,7 @@ class Post < ApplicationRecord
     after_validation :geocode
     belongs_to :user
     has_many :likes, dependent: :destroy
+    has_many :comments, dependent: :destroy
     
   def user
     return User.find_by(id: self.user_id)
