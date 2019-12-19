@@ -9,6 +9,7 @@
             <% end %>
             <div class="card-body">
                 <h5 class="card-title text-center card-label"><%= @post.user.name%></h5>
+                <div class="area text-center">兵庫県</div>
                 <p class="card-text text-center">
                     <% if @post.user.introduce? %>
                         <%= @post.user.introduce %>
