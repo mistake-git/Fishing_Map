@@ -83,6 +83,10 @@ $application-color:#00CCCC;
     margin: 3% auto;
 }
 
+.area{
+    @include application-text($application-color); 
+}
+
 .post-show-img{
     width: 80%;
     height: auto;
