@@ -6,47 +6,54 @@
            <%= render partial: 'users_status'%>
        </div> 
         <div class="col-9">
-            <%= render partial: 'users_title_list'%>
-            
-            <div class="title-list">
-            <%= link_to "/users/#{@user.id}" do %>
+            <%= render partial: 'users_title_list' %>
+        <div class="title-list">
+            <%= link_to "/users/#{@user.id}",class:"decoration-none" do %>
                 <div class="user-post-title mb-4 ml-1">
-                    <%= @user.name %>さんの釣果
+                    釣果
+                    <div class="badge badge-light"><%= @user_posts_count %></div>
                 </div>
             <% end %>
             <%= link_to "/users/#{@user.id}/likes" do %>
                 <div class="user-post-title mb-4 ml-1">
-                    いいねした釣果
+                    いいね
+                    <div class="badge badge-light"><%= @user_likes_count %></div>
                 </div>
             <% end %>
             <%= link_to "/users/#{@user.id}/comments" do %>
                 <div class="user-post-title active mb-4 ml-1">
                     コメント
+                    <div class="badge badge-light"><%= @user_comments_count %></div>
                 </div>
             <% end %>
-            </div>
-            <ul class="media-list mt-4 mr-5">
-                    <% @comments.each do |comment| %>
-                    <% post = Post.find_by(id: comment.post_id) %>
-                        <%= link_to "/posts/#{post.id}" do %>
-                	        <li class="media media-comment mr-5">
-                		        <div class="media-left">
-                		            <%if comment.user.image.attached?%>
-                                        <%= image_tag comment.user.image,class:"comment-user-img mr-2" %>
-                                    <% else %>
-                                        <img src="../assets/user-image.png" class="comment-user-img">
-                                    <% end %>
-                		        </div>
-                		        <div class="media-body">
-                			        <h5 class="media-heading"><%= comment.user.name %></h5>
-                			        <div class="ml-5">
-                			            <%= comment.content %>
-                			        </div>
-                		        </div>
-                	        </li>
-            	        <% end %>
-        	        <% end %>
-                </ul>
+        </div>
+        <ul class="media-list mt-4 mr-5">
+            <% @comments.each do |comment| %>
+            <% post = Post.find_by(id: comment.post_id) %>
+                <%= link_to "/posts/#{post.id}" do %>
+        	        <li class="media media-comment mr-5">
+        		        <div class="media-left">
+        		            <%if comment.user.image.attached?%>
+                                <%= image_tag comment.user.image,class:"comment-user-img mr-2" %>
+                            <% else %>
+                                <img src="../assets/user-image.png" class="comment-user-img">
+                            <% end %>
+        		        </div>
+        		        <div class="media-body">
+        			        <h5 class="media-heading"><%= comment.user.name %></h5>
+        			        <div class="ml-5">
+        			            <%= comment.content %>
+        			        </div>
+        		        </div>
+        	        </li>
+    	        <% end %>
+	        <% end %>
+        </ul>
+            <% if @comments.empty? %>
+                <div class="when-not-text">
+                    <%= @when_not_text %>
+                </div>
+            <% end %>
         </div>
     </div>
  

@@ -9,8 +9,8 @@ class PostsController < ApplicationController
   end
   
   def search
-    @posts= Post.search(params[:search])
-    redirect_to('/posts')
+    @posts = Post.search(params[:search])
+    render('posts/index')
   end
 
   # GET /posts/1

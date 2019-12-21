@@ -39,7 +39,54 @@ body{
     opacity: 0.5;
 }
 
+/*フォローボタン*/
 
+.follow-btn{
+    display: inline-block;
+    padding: 2% 8%;
+    border: 2px solid #00CCCC;
+    border-radius: 25px;
+    text-decoration: none;
+    color: #00CCCC;
+    background-color: #fff;
+    font-weight: bold;
+}
+
+
+.unfollow-btn{
+    display: inline-block;
+    padding: 2% 8%;
+    border: 2px solid #00CCCC;
+    border-radius: 25px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #00CCCC;
+    font-weight: bold;
+}
+
+.follow-btn-lg{
+    display: inline-block;
+    padding: 8% 25%;
+    border-radius: 25px;
+    text-decoration: none;
+    color: #00CCCC;
+    background-color: #fff;
+    font-weight: bold;
+}
+
+
+.unfollow-btn-lg{
+    display: inline-block;
+    padding: 8% 25%;
+    border: 2px solid #fff;
+    border-radius: 25px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #00CCCC;
+    font-weight: bold;
+}
+
+/*ページタイトル*/
 .page-title{
   font-weight: bold;
   color: #fff;

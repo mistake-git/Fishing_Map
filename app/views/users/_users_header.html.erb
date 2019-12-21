@@ -1,12 +1,39 @@
 <div class="user-header">
     <div class="user-status">
-      <div class="user-image-area">
-          <% if @user.image.attached? %>
-              <%= image_tag @user.image,class:"user-image mt-2 mb-2 ml-2 "%>
-          <% else %>
-              <img src="/assets/user-image.png" class="user-image default-img mt-2 mb-2 ml-2">
+        <div class="user-image-area">
+            <% if @user.image.attached? %>
+                <%= image_tag @user.image,class:"user-image mt-2 mb-2 ml-2 "%>
+            <% else %>
+                <img src="/assets/user-image.png" class="user-image default-img mt-2 mb-2 ml-2">
           <% end %>      
-      </div>
-      <div class="user-name"><%= @user.name %></div>
+        </div>
+        <div class="user-name"><%= @user.name %></div>
+        <% @user ||= current_user %>
+        <div class="follow-group">
+            <%= link_to("/users/#{@user.id}/following") do %>
+                <div class="header-follow-text mr-5">
+                    フォロー <%= @user.following.count %>
+                </div>
+            <% end %>
+            <%= link_to("/users/#{@user.id}/followers") do %>
+                <div class="header-follow-text">
+                フォロワー <%= @user.followers.count %>
+                </div>
+            <% end %>
+        </div>
+        <div class="follow-btn-wrapper ml-4">    
+            <% if @user.id != current_user.id %>
+                <% if  Relationship.find_by(follower_id: current_user.id,followed_id: @user.id) %>
+                    <%= form_with(model: current_user.active_relationships.find_by(followed_id: @user.id),local: true,html: { method: :delete }) do |form| %>
+                    <%= form.submit "フォロー中", class: " unfollow-btn-lg" %>
+                <% end %>
+            <% else %>
+                <%= form_with(model: current_user.active_relationships.build,local: true) do|form| %>
+                    <%= hidden_field_tag :followed_id, @user.id %>
+                    <%= form.submit "フォローする", class: " follow-btn-lg" %>
+                    <% end %>
+               <% end %>
+            <% end %>
+        </div>
     </div>
 </div>
