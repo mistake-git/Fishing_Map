@@ -9,6 +9,10 @@ $application-color:#00CCCC;
     opacity: 0.5;
 }
 
+a{
+    text-decoration: none;
+}
+
 /*ユーザー一覧ページ*/
 .user-index-title {
   position: relative;
@@ -63,7 +67,7 @@ $application-color:#00CCCC;
     width: 24%;
     .user-card-img{
         width: 70%;
-        height: 52%;
+        height: 45%;
         border-radius: 50%;
     }
 }
@@ -80,8 +84,11 @@ $application-color:#00CCCC;
 .user-header{
     margin: 3% 0;
 
+.user-status *{
+    display: inline-block;
+}
+
     .user-status{
-        display: inline-block;
         width: 100%;
         background-color: $application-color;
             .user-name,.user-image-area,.user-introduce{
@@ -90,8 +97,9 @@ $application-color:#00CCCC;
             
             .user-name{
                  font-weight: bold;
-                 font-size: 1.2rem;
+                 font-size: 2.0rem;
                  color: #fff;
+                 margin-left: 2%;
             }
 
             .user-image{
@@ -99,6 +107,17 @@ $application-color:#00CCCC;
                 height: 120px;
                 border-radius: 50%;
            }
+           
+           .follow-group{
+                margin-left: 50%;
+               .header-follow-text{
+                   font-size: 1.5rem;
+                   display: inline-block;
+                   font-weight: bold;
+                   color: #fff;
+               }
+           }
+           
            
     }
 
@@ -165,12 +184,13 @@ $application-color:#00CCCC;
 }
 
 
+
 .user-post-title{
     font-size: 1.2rem;
         position: relative;
         padding: 5px 5px 5px 42px;
         background: $application-color;
-        font-size: 20px;
+        font-size: 1.3rem;
         color: white;
         font-weight: bold;
         margin-left: -33px;
@@ -186,7 +206,7 @@ $application-color:#00CCCC;
         left: -2px;
         top: -2px;
         border: none;
-        border-left: solid 40px white;
+        border-left: solid 40px #EEFFFF;
         border-bottom: solid 79px transparent;
         z-index:-2
         }
@@ -196,6 +216,7 @@ $application-color:#00CCCC;
     opacity: 1.0;
 }
 .user-post{
+    width: 80%;
     .user-post-card{
     position: relative;
     
@@ -224,6 +245,32 @@ $application-color:#00CCCC;
         }
     }
 
+}
+
+.when-not-text{
+    font-size: 1.5rem;
+    font-weight: bold;
+    opacity: 0.3;
+    margin: 10% 0 15% 20%;
+}
+
+/*フォロー,フォロワーページ*/
+
+.when-not-text-follow{
+    font-size: 1.5rem;
+    font-weight: bold;
+    opacity: 0.3;
+    margin-top: 15%;
+    margin-bottom: 21%;
+}
+
+.back-btn{
+    display: inline-block;
+    font-weight: bold;
+    padding: 0.5% 1.5%;
+    color: #fff;
+    border-radius: 25px;
+    background: $application-color;
 }
 
 

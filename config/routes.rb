@@ -1,18 +1,23 @@
 Rails.application.routes.draw do
+
   get'/posts/search',to:'posts#search'
   resources :posts
-  get '/',to:'home#top'
+  get '/',to:'home#top',as:'root'
   devise_for :users, controllers: { registrations: 'users/registrations' }
   
   devise_scope :user do
       post '/users/profile/edit',to:'users/registrations#update'
-  end      
+  end 
+  
+  resources :relationships, only: [:create, :destroy]
       
   get '/users/search',to:'users#search'
   get '/users',to:'users#index'
   get '/users/:id',to:'users#show'
   get '/users/:id/likes',to:'users#likes'
   get '/users/:id/comments',to:'users#comments'
+  get 'users/:id/following',to:'users#following'
+  get 'users/:id/followers',to:'users#followers'
   
   
   post '/posts/:post_id/comments',to:'comments#create'
