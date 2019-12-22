@@ -17,6 +17,11 @@
 @import "bootstrap";
 $application-color:#00CCCC;
 
+@mixin application-text($application-color){
+    color: $application-color;
+    font-weight: bold;
+}
+
 /*共通*/
 *{
     text-decoration: none;
@@ -128,21 +133,25 @@ body{
     width: 30%;
     
     .form-text{
-        color: #003366;
         display: inline-block;
+        @include application-text($application-color);
+        font-size: 1.2rem;
     }
     
-    .btn{
+    .btn,.btn-lg{
         font-weight: bold;
     }
     
 }
 
 .form-title{
-        color:  $application-color;
-        font-weight: bold;
-        text-align: center;
-    }
+    color:  $application-color;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.7rem;
+}
+
+
 
 /*フッター*/
 .footer{
