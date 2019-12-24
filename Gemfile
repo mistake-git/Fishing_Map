@@ -79,3 +79,6 @@ gem "dotenv-rails"
 
 #グラフ描画
 gem "chartkick"
+
+#JQuery
+gem "jquery-rails"

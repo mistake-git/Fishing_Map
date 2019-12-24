@@ -19,6 +19,11 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     @user = @post.user
     @level ="★"
+    if current_user.id == @user.id
+            @title = "あなた"
+        else
+            @title = "#{@user.name}さん"
+    end
     @likes_count = Like.where(post_id: @post.id).count
     @comments = Comment.where(post_id: @post.id)
     @comments_count = Comment.where(post_id: @post.id).count
@@ -57,10 +62,12 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
+    @form_title = '釣果を登録'
   end
 
   # GET /posts/1/edit
   def edit
+      @form_title ='釣果を編集'
   end
 
   # POST /posts

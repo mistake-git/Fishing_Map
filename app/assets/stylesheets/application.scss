@@ -118,19 +118,51 @@ body{
 /*ナビゲーションバー*/
 .navbar{
     background: #fff;
+    box-shadow: 1px 1px 2px #DDDDDD	;
     .nav-item{
-        font-size: 1.1rem;
+        font-size: 1.2rem;
     }
     
     .nav-link{
         color: $application-color;
         font-weight: bold;
     }
+    
+
+    .nav-link-login{
+        display: inline-block;
+        text-decoration: none;
+        color: #fff;
+        border-radius: 25px;
+        text-align: center;
+        overflow: hidden;
+        background-image: linear-gradient(45deg, #709dff 0%, #91fdb7 100%);
+        transition: .4s;
+        &:hover{
+            opacity: 0.7;
+        }
+    }
+    
 }
+
+/*通知*/
+.notifications-bell{
+    position: relative;
+    .n-circle {
+      position: absolute;
+      top: 20%;
+      left: 60%;
+      font-size: 0.8rem;
+      color: #efa04c;
+    }
+}
+
 /*フォーム*/
 .form-wrapper{
     display: inline-block;
     width: 30%;
+    background: #fff;
+    padding: 3% 5%;
     
     .form-text{
         display: inline-block;
@@ -151,6 +183,11 @@ body{
     font-size: 1.7rem;
 }
 
+/*画像プレビュー*/
+.img-preview{
+    width: 100%;
+    height: auto;
+}
 
 
 /*フッター*/
