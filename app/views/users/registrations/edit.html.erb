@@ -4,11 +4,18 @@
     
     <%= form_with(model: @user,url:"/users/profile/edit",local: true ,method: :post) do |form| %>
      <%= render "users/shared/error_messages", resource: resource %>
-        <div class="field form-group">
-           <%= form.label :"プロフィール画像を選択してください" ,class:"form-text"%><br />
-           <%= form.file_field :image %>
-        </div>
+     
+        <img src="" class="img-preview">
+        <% if @user.image.attached? %>
+            <div class="form-text">現在の画像</div>
+            <%= image_tag @user.image,class:"img-preview" %>
+        <% end %>
         
+        <div class="field form-group" onchange="previewFile()">
+            <div class="form-text mb-3">プロフィール画像を選択</div><br />
+            <%= form.file_field :image ,class:"image ",id:"file"%>
+        </div>
+    
         <div class="field form-group">
            <%= form.label :"ユーザー名" ,class:"form-text"%><br />
            <%= form.text_field :name %>

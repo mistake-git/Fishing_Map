@@ -13,7 +13,11 @@ class UsersController < ApplicationController
     
     def show
         @user = User.find_by(id: params[:id])
-        @title="#{@user.name}さんのページ"
+        if current_user.id == @user.id
+            @title = "あなたのページ"
+        else
+            @title = "#{@user.name}さんのページ"
+        end  
         @user_posts_count = Post.where(user_id: @user.id).count
         @user_likes_count = Like.where(user_id: @user.id).count
         @user_comments_count = Comment.where(user_id: @user.id).count

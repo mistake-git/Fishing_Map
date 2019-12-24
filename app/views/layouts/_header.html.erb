@@ -1,7 +1,7 @@
  <nav class="navbar navbar-expand">
       <%=link_to(image_tag("fmap-site-logo.png",class:"fmap-site-logo ml-3"),"/")%>
       <ul class="navbar-nav ml-auto">
-        <%if user_signed_in?%> 
+        <% if user_signed_in?%> 
             <li class="nav-item"> 
               <%= link_to posts_path,class:"nav-link" do %>
                   <i class="fas fa-map-marked-alt"></i>Fishing Map
@@ -16,24 +16,27 @@
             <li class="nav-item">
               <%= link_to "マイページ", "/users/#{current_user.id}", class: "nav-link" %>
             </li>
-             <li class="nav-item">
-              <%= link_to "/users/sign_out", class: "nav-link",method: :"delete" do %>
-              <i class="fas fa-sign-out-alt"></i>ログアウト
+            <li class="nav-item">
+              <%= link_to "/notifications", class:"nav-link"  do%>
+                  <div class="notifications-bell">
+                      <i class="fas fa-bell"></i>
+                      <% if unchecked_notifications.any? %>
+                          <i class="fa fa-circle n-circle"></i>
+                      <% end %>
+                  </div>
               <% end %>
             </li>
-        <%else%> 
-            <li class="nav-item">
-              <%= link_to "TOP", "/", class: "nav-link" %>
+             <li class="nav-item">
+              <%= link_to "ログアウト","/users/sign_out", class: "nav-link",method: :"delete"  %>
             </li>
+        <% else %> 
             <li class="nav-item">
               <%= link_to "新規登録", "/users/sign_up", class: "nav-link" %>
             </li>
             <li class="nav-item">
-              <%= link_to"/users/sign_in", class: "nav-link" do%>
-                   <span class="fas fa-sign-in-alt"></span>ログイン
-              <% end %>
+              <%= link_to "ログイン","/users/sign_in", class: "nav-link nav-link-login pl-4 pr-4 ml-3"%>
             </li>
-        <%end%>
+        <% end %>
       </ul>
     </nav>
     

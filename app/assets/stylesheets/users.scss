@@ -92,7 +92,7 @@ $application-color:#00CCCC;
         width: 100%;
         background-color: $application-color;
             .user-name,.user-image-area,.user-introduce{
-                 display: inline-block;
+                display: inline-block;
             }
             
             .user-name{
@@ -127,14 +127,15 @@ $application-color:#00CCCC;
 .user-info{
     border: dashed 2px #00CCCC;
     padding: 0.2em 0.5em;
+    background: #fff;
     .introduce{
-    position: relative;
-    border: solid 2px #80c8d1;
-    color: $application-color;
-    line-height: 1.4;
-    padding: 0.4em 0.5em;
-    margin: 2em 0 0.5em;
-    font-weight: bold;
+        position: relative;
+        border: solid 2px #80c8d1;
+        color: $application-color;
+        line-height: 1.4;
+        padding: 0.4em 0.5em;
+        margin: 2em 0 0.5em;
+        font-weight: bold;
     
     &:after {
       /*タブ*/

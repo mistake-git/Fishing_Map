@@ -14,10 +14,26 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-//= require bootstrap
 //= require underscore
 //= require gmaps/google
 //= require chartkick
 //= require Chart.bundle
 //= require chartkick
 //= require Chart.bundle
+//= require jquery
+//= require jquery_ujs
+//= require bootstrap
+
+function previewFile() {
+  var preview = document.querySelector('.img-preview');
+  var file    = document.querySelector('input[type=file]').files[0];
+  var reader  = new FileReader();
+
+  reader.addEventListener("load", function () {
+    preview.src = reader.result;
+  }, false);
+
+  if (file) {
+    reader.readAsDataURL(file);
+  }
+}

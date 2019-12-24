@@ -3,6 +3,7 @@ class Comment < ApplicationRecord
     validates :post_id, {presence: true}
     validates :content, {presence: true}
     belongs_to :post
+    has_many :notifications, dependent: :destroy
     
   def user
     User.find_by(id: user_id)
