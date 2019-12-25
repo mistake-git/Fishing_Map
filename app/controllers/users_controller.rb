@@ -10,8 +10,8 @@ class UsersController < ApplicationController
     end
     
     def search
-        @title="釣り人一覧"
-        @users = User.search(params[:search])
+        @title="検索結果"
+        @users = User.search(params[:search]).page(params[:page]).per(PER)
         render('users/index')
     end
     
