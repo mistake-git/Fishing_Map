@@ -5,7 +5,6 @@
        <%= render partial: 'users_status'%>
     </div> 
     <div class="col-9">
-        
         <div class="title-list">
             <%= link_to "/users/#{@user.id}",class:"decoration-none" do %>
                 <div class="user-post-title active mb-4 ml-1">
@@ -28,7 +27,7 @@
         </div>
         
         <div class="container user-post">
-             <% @user.posts.each do |post| %>
+             <% @posts.each do |post| %>
                 <div class="card user-post-card mt-1 ml-1 mr-1 mb-1">
                     <% if post.image.attached? %>
                         <%= image_tag post.image,class:"card-img-top post-card-img mb-3" %>
@@ -99,6 +98,9 @@
                     <%= @when_not_text %>
                 </div>
             <% end %>
+            <div class="pagenation">
+                <%= paginate @posts%>
+            </div>
         </div>
     </div>
 </div>

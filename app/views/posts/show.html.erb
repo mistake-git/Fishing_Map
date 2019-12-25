@@ -191,6 +191,9 @@
                 	        </li>
             	        <% end %>
         	        <% end %>
+        	        <div class="pagenation">
+                        <%= paginate @comments%>
+                    </div>
                 </ul>
                 <div class="comment-form">
                     <%= form_with url:"/posts/#{@post.id}/comments",method: :post,local: true do |form| %>

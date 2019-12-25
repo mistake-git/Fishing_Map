@@ -27,12 +27,12 @@
       
     <div class="field form-group">
         <div class="form-text  mb-3"><span class="badge badge-danger mr-1">※必須</span>魚種</div><br />
-        <%= form.text_field :name,class:"form-control" %>
+        <%= form.text_field :name,class:"form-control",placeholder:"カタカナで入力して下さい"%>
     </div>
     
     <div class="field form-group">
-        <div class="form-text  mb-3">数量</div><br />
-        <%= form.number_field :number,class:"form-control" %>
+        <div class="form-text  mb-3"><span class="badge badge-danger">※必須</span>数量</div><br />
+        <%= form.number_field :number,class:"form-control" ,value:1%>
     </div>
     
     <div class="field form-group">
