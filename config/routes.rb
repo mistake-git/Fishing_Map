@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-
-  get'/posts/search',to:'posts#search'
+  get '/fishing.map',to:'posts#fishing_map'
+  get '/posts/search',to:'posts#search'
   resources :posts
   get '/',to:'home#top',as:'root'
   devise_for :users, controllers: { registrations: 'users/registrations' }
@@ -17,8 +17,8 @@ Rails.application.routes.draw do
   get '/users/:id',to:'users#show'
   get '/users/:id/likes',to:'users#likes'
   get '/users/:id/comments',to:'users#comments'
-  get 'users/:id/following',to:'users#following'
-  get 'users/:id/followers',to:'users#followers'
+  get '/users/:id/following',to:'users#following'
+  get '/users/:id/followers',to:'users#followers'
   
   
   post '/posts/:post_id/comments',to:'comments#create'
