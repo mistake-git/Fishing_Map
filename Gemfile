@@ -82,3 +82,6 @@ gem "chartkick"
 
 #JQuery
 gem "jquery-rails"
+
+# ページネーション
+gem 'kaminari', '~> 1.1', '>= 1.1.1'

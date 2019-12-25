@@ -2,8 +2,8 @@ class Post < ApplicationRecord
     validates :name, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: 'はカタカナで入力して下さい。'}
     validates :address, presence: true
     validates :user_id, {presence: true}
-    validates :size,:numericality => { :greater_than_or_equal_to => 1 ,message:'1以上の数を入力してください'}
-    validates :number,:numericality => { :greater_than_or_equal_to => 1 ,message:'1以上の数を入力してください'} 
+    validates :size,numericality:{greater_than_or_equal_to:1 ,message:'は1以上の値を入力して下さい'},allow_nil: true
+    validates :number,numericality:{greater_than_or_equal_to:1 ,message:'は1以上の値を入力して下さい'} 
     has_one_attached :image
     geocoded_by :address
     after_validation :geocode

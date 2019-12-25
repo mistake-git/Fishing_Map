@@ -14,10 +14,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
       name: params[:user][:name],
       email: params[:user][:email],
       password: params[:user][:password],
-      password_confirmation: params[:user][:password]
+      password_confirmation: params[:user][:password_confirmation]
      )
       if @user.save
       flash[:notice] = 'アカウントを作成しました'
+      sign_in(@user)
       redirect_to('/posts')
       else
       render('users/registrations/new')

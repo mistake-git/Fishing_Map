@@ -1,6 +1,9 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :set_current_user
+  before_action :authenticate_user
+  before_action :ensure_correct_user, only: %i[edit update destroy]
+  PER = 8
 
   # GET /posts
   # GET /posts.json
@@ -25,7 +28,7 @@ class PostsController < ApplicationController
             @title = "#{@user.name}さん"
     end
     @likes_count = Like.where(post_id: @post.id).count
-    @comments = Comment.where(post_id: @post.id)
+    @comments = Comment.where(post_id: @post.id).page(params[:page]).per(PER)
     @comments_count = Comment.where(post_id: @post.id).count
      #その投稿のnameの数を月ごとに集計したい
     @data1 =[
@@ -122,4 +125,12 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:image,:name, :feed,:weather,:description,:number,:date,:address, :latitude, :longitude,:user_id,:size)
     end
+    
+  def ensure_correct_user
+    @post = Post.find_by(id: params[:id])
+    if @post.user_id != current_user.id
+      flash[:danger] = '権限がありません'
+      redirect_to('/posts')
+    end
+  end
 end

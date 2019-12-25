@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
+    before_action :authenticate_user, only: %i[index show edit update]
+    before_action :forbid_login_user, only: %i[new create login_form login]
+    before_action :ensure_correct_user, only: %i[edit update]
+    PER = 8
     
     def index
-        @users = User.all
+        @users = User.page(params[:page]).per(PER)
         @title="釣り人一覧"
     end
     
@@ -17,7 +21,8 @@ class UsersController < ApplicationController
             @title = "あなたのページ"
         else
             @title = "#{@user.name}さんのページ"
-        end  
+        end
+        @posts = @user.posts.page(params[:page]).per(PER)
         @user_posts_count = Post.where(user_id: @user.id).count
         @user_likes_count = Like.where(user_id: @user.id).count
         @user_comments_count = Comment.where(user_id: @user.id).count
@@ -26,7 +31,7 @@ class UsersController < ApplicationController
     
     def likes
         @user = User.find_by(id: params[:id])
-        @likes = Like.where(user_id: @user.id)
+        @likes = Like.where(user_id: @user.id).page(params[:page]).per(PER)
         @title="#{@user.name}さんのページ"
         @user_posts_count = Post.where(user_id: @user.id).count
         @user_likes_count = Like.where(user_id: @user.id).count
@@ -36,7 +41,7 @@ class UsersController < ApplicationController
     
     def comments
         @user = User.find_by(id: params[:id])
-        @comments = Comment.where(user_id: @user.id)
+        @comments = Comment.where(user_id: @user.id).page(params[:page]).per(PER)
         @title="#{@user.name}さんのページ"
         @user_posts_count = Post.where(user_id: @user.id).count
         @user_likes_count = Like.where(user_id: @user.id).count
@@ -46,15 +51,22 @@ class UsersController < ApplicationController
     
     def following
         @user  = User.find_by(id: params[:id])
-        @users = @user.following
+        @users = @user.following.page(params[:page]).per(PER)
         @title ="#{@user.name}さんがフォロー中"
         @when_not_text = "フォローしているユーザーがいません"
     end
 
     def followers
         @user  = User.find_by(id: params[:id])
-        @users = @user.followers
+        @users = @user.followers.page(params[:page]).per(PER)
         @title ="#{@user.name}さんのフォロワー"
         @when_not_text = "フォロワーがいません"
+    end
+    
+    def ensure_correct_user
+        if current_user.id != params[:id].to_i
+          flash[:notice] = '権限がありません'
+          redirect_to('/posts')
+        end
     end
 end
