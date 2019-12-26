@@ -5,13 +5,13 @@ class UsersController < ApplicationController
     PER = 8
     
     def index
-        @users = User.page(params[:page]).per(PER)
+        @users = User.order(created_at: :desc).page(params[:page]).per(PER)
         @title="釣り人一覧"
     end
     
     def search
         @title="検索結果"
-        @users = User.search(params[:search]).page(params[:page]).per(PER)
+        @users = User.search(params[:search]).order(created_at: :desc).page(params[:page]).per(PER)
         render('users/index')
     end
     
