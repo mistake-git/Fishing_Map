@@ -6,6 +6,8 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :email,  length: { maximum: 50 }
   has_one_attached :image
+  geocoded_by :address
+  after_validation :geocode
   has_many :posts, dependent: :destroy
   has_many :active_relationships, class_name:  "Relationship",
                                   foreign_key: "follower_id",

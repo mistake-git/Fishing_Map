@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get '/fishing.map',to:'posts#fishing_map'
+  get '/posts/search_fishing_map',to:'posts#search_fishing_map'
   get '/posts/search',to:'posts#search'
   resources :posts
   get '/',to:'home#top',as:'root'

@@ -9,12 +9,20 @@ class PostsController < ApplicationController
   # GET /posts.json
   
   def fishing_map
-    @posts = Post.all.order(created_at: :desc).limit(100)
+    @posts = Post.all.order(created_at: :desc).limit(100).page(params[:page]).per(PER)
+    @user = current_user
   end
   
   def index
     @posts = Post.all.order(created_at: :desc).page(params[:page]).per(PER)
     @title ="すべての釣果"
+  end
+  
+  def search_fishing_map
+    @posts = Post.search(params[:search]).order(created_at: :desc).page(params[:page]).per(1)
+    @user = current_user
+    @title ="検索結果"
+    render('posts/fishing_map')
   end
   
   def search

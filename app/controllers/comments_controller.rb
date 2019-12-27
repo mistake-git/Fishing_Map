@@ -2,14 +2,14 @@ class CommentsController < ApplicationController
   before_action :ensure_correct_user, only: [:destroy]
 
   def create
-    @post = Post.find_by(id: [params[:id]])
+    @post = Post.find_by(id: [params[:post_id]])
     @comment = Comment.new(
       content: params[:content],
       user_id: current_user.id,
       post_id: params[:post_id]
     )
     if @comment.save
-      #@post.create_notification_comment!(current_user, @comment.id)
+      @post.create_notification_comment!(current_user, @comment.id)
       flash[:notice] = 'コメントを投稿しました'
       redirect_to("/posts/#{params[:post_id]}")
     else
