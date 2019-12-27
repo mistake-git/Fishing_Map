@@ -21,6 +21,7 @@ a{
 }
 
 .card{
+    width: 24%;
     .card-label{
         position: relative;
         padding: 0.3em;
@@ -37,8 +38,15 @@ a{
         }
     }
     
-    width: 24%;
-    
+     .user-status-summary {
+        .summary-item{
+            display: inline-block;
+            margin: 5% 3%;
+            color: $application-color;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+    }
     .user-card-img{
         width: 150px;
         height: 150px;
@@ -196,8 +204,8 @@ $application-color:#00CCCC;
     position: relative;
     
         .post-card-img{
-            width: 80%;
-            height: 38%;
+            width: 200px;
+            height: 150px;
             margin: 5% auto;
         }
     

@@ -8,7 +8,7 @@
                     <img src="../assets/user-image.png" class=" post-user-img">
             <% end %>
             <div class="card-body">
-                <h5 class="card-title text-center card-label"><%= @post.user.name%></h5>
+                <h5 class="card-title text-center card-label"><%= link_to "#{@post.user.name}","/users/#{@post.user.id}"%></h5>
                 <div class="area text-center"><%= @user.address %></div>
                 <p class="card-text text-center">
                     <% if @post.user.introduce? %>
@@ -35,9 +35,22 @@
                         <% end %>
                     </div>
                 </p>
-                <div class="text-right">
-                   <%= link_to "詳細","/users/#{@post.user.id}",class:"btn-sm btn-info" %> 
-                </div>
+                <p>
+                    <div class="user-status-summary text-center">
+                        <div class="summary-item">
+                            <div class="summary-title">フォロー</div>
+                                <%= @post.user.following.count %>
+                            </div>
+                        <div class="summary-item">
+                            <div class="summary-title">フォロワー</div>
+                                <%= @post.user.followers.count %>
+                            </div>
+                        <div class="summary-item">
+                        <div class="summary-title">釣果</div>
+                            <%= @post.user.posts.count %>
+                        </div>
+                    </div>
+                </p>
            </div>
         </div>
     </div>

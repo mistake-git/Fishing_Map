@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     
     def index
         @users = User.order(created_at: :desc).page(params[:page]).per(PER)
-        @title="釣り人一覧"
+        @title ="釣り人一覧"
     end
     
     def search

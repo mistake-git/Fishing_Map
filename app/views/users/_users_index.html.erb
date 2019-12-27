@@ -33,6 +33,20 @@
                     <div class="follow-btn">自分</div>
                 <% end %>
             </div>
+            <div class="user-status-summary text-center">
+                <div class="summary-item">
+                    <div class="summary-title">フォロー</div>
+                    <%= user.following.count %>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-title">フォロワー</div>
+                    <%= user.followers.count %>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-title">釣果</div>
+                    <%= user.posts.count %>
+                </div>
+            </div>
           </div>
         </div>
     <% end %> 
