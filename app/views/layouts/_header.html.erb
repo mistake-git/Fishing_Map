@@ -33,7 +33,7 @@
                   <div class="notifications-bell">
                       <i class="fas fa-bell"></i>
                       <% if unchecked_notifications.any? %>
-                          <i class="fa fa-circle n-circle"></i>
+                          <div class="n-circle"><%= @notifications.count %></div>
                       <% end %>
                   </div>
               <% end %>

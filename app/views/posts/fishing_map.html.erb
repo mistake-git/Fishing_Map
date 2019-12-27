@@ -36,7 +36,8 @@
               handler.bounds.extendWith(markers);
               handler.fitMapToBounds();
               var latlng = new google.maps.LatLng(<%= @user.latitude %>,<%= @user.longitude %>); 
-              handler.getMap().setCenter(latlng,10);
+              handler.getMap().setCenter(latlng);
+              handler.getMap().setZoom(9.5);
             });
  </script>
 <div class="pagenation">

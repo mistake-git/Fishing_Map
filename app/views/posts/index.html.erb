@@ -10,13 +10,14 @@
       <%= form.submit '検索' ,class:"btn btn-info ml-3 mb-1" %>
     <% end %>
 </div>
+
 <div class="container user-post">
      <% @posts.each do |post| %>
         <div class="card user-post-card mt-1 ml-1 mr-1 mb-1">
             <% if post.image.attached? %>
                 <%= image_tag post.image,class:"card-img-top post-card-img mb-3" %>
             <% else %>
-                <img src="../assets/sakana-img.jpg" class="card-img-top post-card-img default-img">
+                <img src="/assets/sakana-img.jpg" class="card-img-top post-card-img default-img">
             <% end %>
               <div class="card-body mb-5 mt-1">
                 <h6 class="card-title text-center card-label"><%= post.name %></h6>

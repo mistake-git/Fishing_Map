@@ -1,7 +1,7 @@
 <div class="page-title ml-4 mt-4"><%= @title %>の釣果</div>
 <div class="row mr-4 ">
     <div class="col-3">
-        <div class="card mt-5 ml-5" style="width: 18rem;">
+        <div class="card mt-5 ml-5 position-fixed " style="width: 18rem;">
             <% if @post.user.image.attached? %>
                     <%= image_tag @post.user.image, class:" post-user-img"%>
             <% else %>
@@ -9,7 +9,7 @@
             <% end %>
             <div class="card-body">
                 <h5 class="card-title text-center card-label"><%= @post.user.name%></h5>
-                <div class="area text-center">兵庫県</div>
+                <div class="area text-center"><%= @user.address %></div>
                 <p class="card-text text-center">
                     <% if @post.user.introduce? %>
                         <%= @post.user.introduce %>
@@ -52,9 +52,6 @@
                     <% else %>
                         <div class="ml-5">
                             <img src="../assets/sakana-img.jpg" class=" post-show-img default-img">
-                        </div>
-                        <div class="default-text text-right mr-5 pr-1">
-                            画像が添付されていません
                         </div>
                     <% end %> 
                 
