@@ -13,13 +13,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
       @user = User.new(
       name: params[:user][:name],
       email: params[:user][:email],
+      address: params[:user][:address],
       password: params[:user][:password],
       password_confirmation: params[:user][:password_confirmation]
      )
       if @user.save
       flash[:notice] = 'アカウントを作成しました'
       sign_in(@user)
-      redirect_to('/posts')
+      redirect_to('/fishing.map')
       else
       render('users/registrations/new')
       end
@@ -36,7 +37,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if @user.update(
       name: params[:user][:name],
       email: params[:user][:email],
-      introduce: params[:user][:introduce]
+      introduce: params[:user][:introduce],
+      address: params[:user][:address]
     )
       if params[:user][:image]
         @user.image.purge
@@ -89,6 +91,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:name],keys:[:address])
   end
 end

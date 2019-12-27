@@ -9,7 +9,7 @@
                 </div>
             <% end %>
         </div>
-        <div class="area">兵庫県</div>
+        <div class="area"><%=@user.address %></div>
         </div>
     <% if @user.id == current_user.id %>
         <%= link_to"/users/edit" do%>

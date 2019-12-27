@@ -1,16 +1,16 @@
 module NotificationsHelper
     def notification_form(notification)
       @comment=nil
-      visiter=link_to notification.visiter.name, notification.visiter, style:"font-weight: bold;"
-      your_post=link_to 'あなたの投稿', notification.micropost, style:"font-weight: bold;", remote: true
+      visitor=link_to notification.visitor.name, "/users/#{notification.visitor.id}", style:"font-weight: bold;"
+      your_post=link_to 'あなたの投稿', notification.post, style:"font-weight: bold;", remote: true
       case notification.action
         when "follow" then
-          "#{visiter}があなたをフォローしました"
+          "#{visitor}があなたをフォローしました"
         when "like" then
-          "#{visiter}が#{your_post}にいいね！しました"
+          "#{visitor}が#{your_post}にいいね！しました"
         when "comment" then
           @comment=Comment.find_by(id:notification.comment_id).content
-          "#{visiter}が#{your_post}にコメントしました"
+          "#{visitor}が#{your_post}にコメントしました"
       end
     end
     
