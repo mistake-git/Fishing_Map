@@ -7,7 +7,7 @@
                 <img src="/assets/user-image.png" class="card-img-top user-card-img mx-auto mt-3 default-img">
             <% end %>
             <div class="card-body">
-            <h6 class="card-title text-center card-label"><%= user.name %></h6>
+            <h6 class="card-title text-center card-label"><%= link_to "#{user.name}","users/#{user.id}" %></h6>
             <p class="card-text text-center">
                 <% if user.introduce? %>
                     <%= user.introduce %>
@@ -20,22 +20,17 @@
             <div class="follow-btn-wrapper text-center">    
                 <% if user.id != current_user.id %>
                     <% if  Relationship.find_by(follower_id: current_user.id,followed_id: user.id) %>
-                        <%= form_with(model: current_user.active_relationships.find_by(followed_id: user.id),local: true,html: { method: :delete }) do |form| %>
-                        <%= form.submit "フォロー中", class: " unfollow-btn" %>
-                    <% end %>
-                <% else %>
-                    <%= form_with(model: current_user.active_relationships.build,local: true) do|form| %>
-                        <%= hidden_field_tag :followed_id, user.id %>
-                        <%= form.submit "フォローする", class: " follow-btn" %>
+                            <%= form_with(model: current_user.active_relationships.find_by(followed_id: user.id),local: true,html: { method: :delete }) do |form| %>
+                            <%= form.submit "フォロー中", class: " unfollow-btn" %>
                         <% end %>
-                   <% end %>
-                   <p class="text-right">
-                       <%= link_to"詳細","/users/#{user.id}",class:"btn-sm btn-info mt-3" %>
-                   </p>
-                <% else %>
-                    <p class="text-right mt-5">
-                        <%= link_to"詳細","/users/#{user.id}",class:"btn-sm btn-info mt-3"%>
-                    </p>
+                    <% else %>
+                        <%= form_with(model: current_user.active_relationships.build,local: true) do|form| %>
+                            <%= hidden_field_tag :followed_id, user.id %>
+                            <%= form.submit "フォローする", class: " follow-btn" %>
+                            <% end %>
+                       <% end %>
+                <% elsif %>
+                    <div class="follow-btn">自分</div>
                 <% end %>
             </div>
           </div>
