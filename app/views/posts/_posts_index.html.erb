@@ -54,9 +54,9 @@
                         </div>
                     <% end %>
                 </p>
-                    <div class="user-card-bottom mr-1">
+                    <div class="user-card-bottom">
                         <div class="post-created_at">
-                            <%= post.created_at %>の投稿
+                            <%= "#{time_ago_in_words(post.created_at)}前"%>
                         </div>  
                     </div>
               </div>

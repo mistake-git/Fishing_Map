@@ -41,6 +41,7 @@ body{
 .like-icon,.comment-icon,.post-created_at{
     font-size: 0.8rem;
     opacity: 0.5;
+    margin-left: 190px;
 }
 
 .default-img{
@@ -186,7 +187,30 @@ body{
         }
     }
     
+    .notifications-mene{
+             .when-not-text-notification{
+                font-weight: bold;
+                opacity: 0.3;
+            }
+            
+            .notifications-bell{
+                position: relative;
+                .n-circle {
+                  position: absolute;
+                  top: 20%;
+                  left: 60%;
+                  font-size: 0.25rem;
+                  padding: 1.25px 5.5px;
+                  color: #fff;
+                  background-color: #FF3300 ;
+                  border-radius: 20px;
+                }
+            }
+        
+    }
+
 }
+
 
 
 /*ユーザー,投稿一覧ページ*/
@@ -234,20 +258,7 @@ body{
 }
 
 
-/*通知*/
-.notifications-bell{
-    position: relative;
-    .n-circle {
-      position: absolute;
-      top: 20%;
-      left: 60%;
-      font-size: 0.25rem;
-      padding: 1.25px 5.5px;
-      color: #fff;
-      background-color: #FF3300 ;
-      border-radius: 20px;
-    }
-}
+
 
 /*フォーム*/
 .form-wrapper{

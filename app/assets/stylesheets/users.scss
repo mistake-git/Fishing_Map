@@ -9,9 +9,6 @@ $application-color:#00CCCC;
     opacity: 0.5;
 }
 
-a{
-    text-decoration: none;
-}
 
 
 
@@ -92,7 +89,13 @@ $application-color:#00CCCC;
         font-size: 0.7em;
         line-height: 1;
         letter-spacing: 0.05em;
+        }
+        
     }
+    
+     .setting{
+        color: #000000;
+        opacity: 0.5;
     }
     
 
@@ -197,14 +200,7 @@ $application-color:#00CCCC;
     margin: 10% 0 15% 20%;
 }
 
-.when-not-text-notification{
-    font-size: 1.5rem;
-    font-weight: bold;
-    opacity: 0.3;
-    margin-top: 15%;
-    margin-bottom: 21%;
-    margin-left: 45%;
-}
+
 
 /*フォロー,フォロワーページ*/
 

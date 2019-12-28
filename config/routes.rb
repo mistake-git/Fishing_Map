@@ -11,8 +11,6 @@ Rails.application.routes.draw do
   end 
   
   resources :relationships, only: [:create, :destroy]
-  resources :notifications, only: [:index]
-      
   get '/users/search',to:'users#search'
   get '/users',to:'users#index'
   get '/users/:id',to:'users#show'

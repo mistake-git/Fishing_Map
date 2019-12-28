@@ -209,6 +209,13 @@ $application-color:#00CCCC;
 .map-post-name{
     color: $application-color;
     font-weight: bold;
+    font-size: 1.1rem;
+    &:hover{
+        color: $application-color;
+        font-weight: bold;
+        opacity: 0.8;
+        
+    }
 }
 
 .map-icon-img{

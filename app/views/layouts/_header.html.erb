@@ -1,16 +1,16 @@
- <nav class="navbar navbar-expand">
-      <%=link_to(image_tag("fmap-site-logo.png",class:"fmap-site-logo ml-3"),"/")%>
-      <ul class="navbar-nav ml-auto">
+<nav class="navbar navbar-expand">
+    <%=link_to(image_tag("fmap-site-logo.png",class:"fmap-site-logo ml-3"),"/")%>
+    <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %> 
             <li class="nav-item"> 
-              <%= link_to"/fishing.map",class:"nav-link" do %>
-                  <i class="fas fa-map-marked-alt"></i>Fishing Map
-              <% end %>
+                <%= link_to"/fishing.map",class:"nav-link" do %>
+                    <i class="fas fa-map-marked-alt"></i>Fishing Map
+                <% end %>
             </li> 
             <li class="nav-item"> 
-              <%= link_to posts_path,class:"nav-link" do %>
-                  すべての釣果
-              <% end %>
+                <%= link_to posts_path,class:"nav-link" do %>
+                    すべての釣果
+                <% end %>
             </li>  
             <li class="nav-item"> 
                 <%= link_to "釣り人一覧", "/users",class:"nav-link" %>
@@ -28,20 +28,30 @@
             <li class="nav-item">
                 <%= link_to "マイページ", "/users/#{current_user.id}", class: "nav-link" %>
             </li>
-            <li class="nav-item">
-              <%= link_to "/notifications", class:"nav-link"  do%>
-                  <div class="notifications-bell">
-                      <i class="fas fa-bell"></i>
-                      <% if unchecked_notifications.any? %>
-                          <div class="n-circle"><%= @notifications.count %></div>
-                      <% end %>
-                  </div>
-              <% end %>
+            <li class="nav-item dropdown">
+                <div class="nav-link" id="notifications-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    <div class="notifications-bell">
+                    <i class="fas fa-bell"></i>
+                    <% if unchecked_notifications.any? %>
+                        <div class="n-circle"><%= @notifications.count %></div>
+                    <% end %>
+                    </div>
+                </div>
+                <div class="dropdown-menu dropdown-menu-right notifications-mene" aria-labelledby="notifications-menu">
+                    <div class="notification-title text-center">通知</div>
+                    <% if @notifications.exists? %>
+                        <div class="users-index">
+                            <%= render @notifications %>
+                        </div>
+                    <% else %>
+                        <div class="when-not-text-notification text-center">通知はありません</div>
+                    <% end %>
+                </div>
             </li>
             <li class="nav-item">
                 <%= link_to "ログアウト","/users/sign_out", class: "nav-link",method: :"delete"  %>
             </li>
-        <% else %> 
+            <% else %> 
             <li class="nav-item">
                 <%= link_to "新規登録", "/users/sign_up", class: "nav-link" %>
             </li>
@@ -49,6 +59,6 @@
                 <%= link_to "ログイン","/users/sign_in", class: "nav-link nav-link-login pl-4 pr-4 ml-3"%>
             </li>
         <% end %>
-      </ul>
-    </nav>
+    </ul>
+</nav>
     

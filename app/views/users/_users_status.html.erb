@@ -13,7 +13,9 @@
         </div>
     <% if @user.id == current_user.id %>
         <%= link_to"/users/edit" do%>
-            <i class="fas fa-cog"></i>設定
+            <div class="setting">
+                <i class="fas fa-cog"></i>設定
+            </div>
         <% end %>
     <% end %>
 </div>

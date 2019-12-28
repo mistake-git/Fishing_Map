@@ -22,5 +22,12 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     posts_path
   end
+  
+  def notification
+    @notifications = current_user.passive_notifications.all
+    @notifications.where(checked: false).each do |notification|
+    notification.update_attributes(checked: true)
+    end
+  end    
     
 end
