@@ -1,0 +1,20 @@
+<% visiter=notification.visitor %>
+<% post = notification.post %>
+
+<div class="media">
+    <div class="media-left mr-3">
+        <%= link_to "users/#{notification.visitor.id}" do %>
+            <% if notification.visitor.image.attached? %>
+                <%=  image_tag notification.visitor.image, class:"notification-user-img", style:"width: 60px;,height60px,border-radius: 50%"%>
+            <% else %>
+                <img src="/assets/user-image.png" class="notification-user-img" style="width: 60px;,height60px,border-radius: 50%">
+            <% end %>
+        <% end %>
+    </div>
+    <div class="media-body">
+        <%== notification_form(notification) %><span class="moderate-font"><%= " (#{time_ago_in_words(notification.created_at)}前)" %></span>
+    <% if !@comment.nil? %>
+        <p class="moderate-font"><%= @comment %></p>
+    <% end %>
+  </div>
+</div>

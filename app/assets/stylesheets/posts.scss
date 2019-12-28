@@ -157,7 +157,7 @@ $application-color:#00CCCC;
     font-size: 1.5rem;
 }
 
-.comment-area-title {
+.comment-area-title{
     position: relative;
     display: inline-block;
     padding: 0 5%;
@@ -183,15 +183,20 @@ $application-color:#00CCCC;
 }
 
 .media-comment{
-    padding: 8px 19px;
+   width: 80%;
     background-color: #fff;
-    border-bottom: 2px solid #EEEEEE;
-    margin-top: 1%;
+    border-bottom: 1px solid rgba(0,204,204,0.2);
+    padding: 2%;
     
     .comment-user-img{
         width: 50px;
         height: 50px;
         border-radius: 50%;
+    }
+    
+    .media-heading{
+        @include application-text($application-color);
+        font-size: 0.9rem;
     }
     
     .comment-content{

@@ -11,14 +11,27 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
   </head>
   <body>
-    <div class="text-center">
-        <% flash.each do |name, msg|%>
-         <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
-        <%end%> 
+
+    <div id="showloading">
+        <div class="loading-wrapper">
+            <img src="/assets/fmap-site-logo.png" alt="loading" class="loading-img">
+            <img src="/assets/loading_dot.gif" alt="loading" class="loading-dot">
+        </div>
     </div>
     
-    <%= render 'layouts/header' %>
-    <%= yield %>
-    <%= render 'layouts/footer' %>
+    <div id="contents" class="hidden">
+        
+        <div class="text-center">
+            <% flash.each do |name, msg|%>
+             <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+            <%end%> 
+        </div>
+        
+        <%= render 'layouts/header' %>
+        <%= yield %>
+        <%= render 'layouts/footer' %>
+        
+    </div>
+    
   </body>
 </html>

@@ -10,11 +10,11 @@
                 <h6 class="card-title text-center card-label"><%= link_to"#{post.name}",post %></h6>
                 <p class="card-text card-tag">
                     <% if post.description? %>  
-                        <div class="text-center mt-2 mb-2">
+                        <div class="text-center mt-3 mb-3">
                             <%= post.description %>
                         </div>
                     <% else %>
-                        <div class="post-description-default text-center mt-2 mb-2">
+                        <div class="post-description-default text-center mt-3 mb-3">
                             説明がありません
                         </div>
                     <% end %>

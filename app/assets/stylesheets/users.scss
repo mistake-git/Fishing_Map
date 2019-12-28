@@ -48,7 +48,7 @@ $application-color:#00CCCC;
            }
            
            .follow-group{
-                margin-left: 50%;
+                margin-left: 40%;
                .header-follow-text{
                    font-size: 1.5rem;
                    display: inline-block;
@@ -64,8 +64,9 @@ $application-color:#00CCCC;
 
 
 .user-info{
-    border: dashed 2px #00CCCC;
-    padding: 0.2em 0.5em;
+    border: 2px solid #00CCCC;
+    border-radius: 15px;
+    padding: 0.3em 0.5em;
     background: #fff;
     .introduce{
         position: relative;

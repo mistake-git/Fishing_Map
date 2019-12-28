@@ -52,6 +52,34 @@ body{
     opacity: 0.5;
 }
 
+/*ローディング画面*/
+
+#showloading{
+    background-color: #fff;
+    width: 100%;
+    height: 100vh;
+}
+
+.loading-wrapper{
+    text-align: center;
+    .loading-img{
+        width: 15%;
+        height: auto;
+        display: inline;
+        margin-top: 21%;
+    }
+     .loading-dot{
+        margin: 1% auto;
+        display: block;
+        width:   150px;
+        height: auto;
+    }
+}
+
+.hidden{
+    display: none;
+}
+
 /*一覧ページのタイトル*/
 .index-title {
   position: relative;
@@ -83,6 +111,8 @@ body{
 }
 
 /*フォローボタン*/
+
+
 
 .follow-btn{
     display: inline-block;
@@ -187,11 +217,22 @@ body{
         }
     }
     
-    .notifications-mene{
+    .dropdown-menu{
+            width: 380px;
+            height: 430px;
+            
+            .notification-title{
+                @include application-text($application-color);
+                font-size: 0.8rem;
+            }
+            
              .when-not-text-notification{
+                margin-top: 40%;
                 font-weight: bold;
                 opacity: 0.3;
             }
+            
+            
             
             .notifications-bell{
                 position: relative;
@@ -307,10 +348,37 @@ body{
 .pagination>.active>.page-link{     
   background-color: $application-color;
   border-radius: 30px;
+}
 
-    &:hover {        
+.page-link:hover {        
       border-radius: 25px;
     }
+
+/*お知らせ詳細ページ*/
+.notification{
+    border-right: 1px solid rgba(0,204,204,0.2);
+    margin: 5% 10%;
+    background-color: #fff;
+    width: 38%;
+        .notification-title{
+                @include application-text($application-color);
+                padding: 5%;
+                border-bottom: 2px solid rgba(0,204,204,0.2);
+                width: 95%;
+            }
+        .media-list{
+            padding: 5%;
+            
+            .media{
+                border-bottom: 1px solid rgba(0,204,204,0.2);
+                padding: 4%;
+                .notification-user-img{
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                }
+            }
+        }
 }
 
 

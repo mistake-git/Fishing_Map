@@ -36,4 +36,14 @@ function previewFile() {
   if (file) {
     reader.readAsDataURL(file);
   }
+  
 }
+
+$(function(){
+    var showloading = document.getElementById('showloading');
+    var contents = document.getElementById('contents');
+    window.addEventListener('load', function () {
+    showloading.style.display = 'none';
+    contents.classList.remove('hidden');
+    });
+});
