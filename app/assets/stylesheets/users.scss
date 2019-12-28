@@ -13,46 +13,6 @@ a{
     text-decoration: none;
 }
 
-/*ユーザー一覧ページ*/
-
-.container{
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.card{
-    width: 24%;
-    .card-label{
-        position: relative;
-        padding: 0.3em;
-        background: $application-color;
-        color: white;
-        &::before {
-            position: absolute;
-            content: '';
-            top: 100%;
-            left: 0;
-            border: none;
-            border-bottom: solid 10px transparent;
-            border-right: solid 15px rgb(149, 158, 155);
-        }
-    }
-    
-     .user-status-summary {
-        .summary-item{
-            display: inline-block;
-            margin: 5% 3%;
-            color: $application-color;
-            font-size: 0.9rem;
-            font-weight: bold;
-        }
-    }
-    .user-card-img{
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-    }
-}
 
 
 /*ユーザー詳細ページ*/
