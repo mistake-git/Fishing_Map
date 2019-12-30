@@ -207,7 +207,7 @@
                 </ul>
                 <div class="comment-form">
                     <%= form_with url:"/posts/#{@post.id}/comments",method: :post,local: true do |form| %>
-                        <%= form.text_field :content,class:"form-control mt-5" %>
+                        <%= form.text_field :content,class:"form-control mt-5" ,placeholder:"コメントを入力"%>
                         <div class="text-center">
                             <%= form.submit value = "コメントする",class:"btn-lg btn-info mt-5 mb-5"%>
                         </div>
