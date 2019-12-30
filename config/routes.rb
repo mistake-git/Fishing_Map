@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+    
   get '/fishing.map',to:'posts#fishing_map'
   get '/posts/search_fishing_map',to:'posts#search_fishing_map'
   get '/posts/search',to:'posts#search'
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
   resources :notifications, only: [:index]
   resources :messages, only: [:index]
   
+  get 'ranking/angler',to:'ranking#angler_ranking'
   
   get '/users/search',to:'users#search'
   get '/users',to:'users#index'

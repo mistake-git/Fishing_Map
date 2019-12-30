@@ -212,6 +212,18 @@ $application-color:#00CCCC;
     margin-left: 4%;
 }
 
+/*ランキング*/
+
+.ranking-text{
+    color: $application-color;
+    font-size: 1.3rem;
+        &:hover{
+             color: $application-color;
+             opacity: 0.8;
+        }
+    }
+
+
 /*マップアイコン*/
 .map-post-name{
     color: $application-color;
