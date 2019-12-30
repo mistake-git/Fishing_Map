@@ -12,7 +12,6 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require_tree .
 //= require underscore
 //= require gmaps/google
@@ -39,11 +38,22 @@ function previewFile() {
   
 }
 
-$(function(){
-    var showloading = document.getElementById('showloading');
-    var contents = document.getElementById('contents');
-    window.addEventListener('load', function () {
-    showloading.style.display = 'none';
-    contents.classList.remove('hidden');
-    });
+$(function() {
+  var h = $(window).height();
+  $('.contents').css('display','none');
+  $('#loading').height(h).css('display','block');
 });
+  
+$(window).on('load',function () {
+  $('#loading').css('display','none');
+  $('#contens').css('display', 'block');
+});
+  
+$(function(){
+  setTimeout('stopload()',8000);
+});
+function stopload(){ 
+  $('#contens').css('display','block');
+  $('#loading').css('display','none');
+}
+

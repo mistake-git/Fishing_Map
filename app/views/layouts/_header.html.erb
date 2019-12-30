@@ -28,6 +28,11 @@
             <li class="nav-item">
                 <%= link_to "マイページ", "/users/#{current_user.id}", class: "nav-link" %>
             </li>
+            <li class="nav-item"> 
+                <%= link_to "/messages",class:"nav-link" do%>
+                    <i class="fas fa-comment-dots"></i>
+                <% end %>
+            </li>
             <li class="nav-item dropdown">
                 <div class="nav-link" id="notifications-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                     <div class="notifications-bell">
@@ -38,7 +43,7 @@
                     </div>
                 </div>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="notifications-menu">
-                    <div class="notification-title ml-3">おしらせ</div>
+                    <div class="notification-title pl-3">おしらせ</div>
                     <% if @notifications.exists? %>
                         <div class="users-index">
                             <%= render @notifications %>
@@ -46,9 +51,11 @@
                     <% else %>
                         <div class="when-not-text-notification text-center">通知はありません</div>
                     <% end %>
-                    <div class ="text-center">
-                     <%= link_to"もっと見る" ,"/notifications", style:"color:#000000"%>
-                    </div>
+                     <% if @notifications.exists? %>
+                        <div class ="notification-more text-center">
+                         <%= link_to"もっと見る" ,"/notifications", style:"color:#000000"%>
+                        </div>
+                    <% end %>
                 </div>
             </li>
             <li class="nav-item">

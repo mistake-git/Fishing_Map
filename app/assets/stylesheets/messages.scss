@@ -1,0 +1,112 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$application-color:#00CCCC;
+@mixin application-text($application-color){
+    color: $application-color;
+    font-weight: bold;
+}
+
+/*メッセージ*/
+.message{
+    width: 70%;
+    background: #fff;
+    
+    .col-5,.col-7{
+        margin-bottom: -2%;
+    }
+    
+    .message-title{
+        border: 1px solid rgba(0,204,204,0.2);
+        border-right: none;
+        @include application-text($application-color);
+        font-size: 1.5rem;
+        padding: 10px;
+    }
+    
+    .message-title *{
+        display: inline-block;
+    }
+    
+    .message-user-list{
+        li:last-child{
+             border-bottom: 1px solid rgba(0,204,204,0.2);
+        }
+        
+        height: 620px;
+        overflow: visible scroll;
+        .media{
+             border: 1px solid rgba(0,204,204,0.2);
+             border-right: none;
+             border-bottom: none;
+             &:hover{
+                  background-color: rgba(0,204,204,0.1);
+             }
+             
+             &:active{
+                 background-color: rgba(0,204,204,0.5); 
+             }
+        }
+    }
+    
+    .message-content-area{
+        
+        .media{
+             border: 1px solid rgba(0,204,204,0.2);
+             border-bottom: none;
+        }
+        
+         .message-area{
+            height: 450px;
+            overflow: visible scroll;
+            border: 1px solid rgba(0,204,204,0.2);
+            
+            .media{
+                border: none;
+                
+                .message-content{
+                    width: 50%;
+                    padding: 0.5em 1em;
+                    color: #fff;
+                    background-color: #EEEEEE;
+                    color: #000000;
+                    border-radius: 25px;
+                }
+            }
+            
+            
+            
+            .message-item-me{
+                width: 50%;
+                padding: 0.5em 1em;
+                margin-left: 45%;
+                color: #fff;
+                background: rgba(0,204,204,0.7);
+                border-radius: 25px;
+            }
+        }
+    
+    .message-form{
+         border: 1px solid rgba(0,204,204,0.2);
+         border-top: none;
+         padding: 5%;
+         position: relative;
+         background-color: rgba(220, 220,220,0.3);
+         
+         textarea{
+            width: 70%;
+            border: 1px solid rgba(0,204,204,0.5);
+            border-radius: 10px;
+         }
+         
+         .message-btn{
+             position: absolute;
+             top: 18%;
+             left: 73%;
+
+         }
+    }
+    }
+    
+   
+}

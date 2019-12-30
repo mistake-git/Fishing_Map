@@ -27,28 +27,7 @@
                 </div>
             <% end %>
         </div>
-        <ul class="media-list mt-4 mr-5">
-            <% @comments.each do |comment| %>
-            <% post = Post.find_by(id: comment.post_id) %>
-                <%= link_to "/posts/#{post.id}" do %>
-        	        <li class="media media-comment mr-5">
-        		        <div class="media-left">
-        		            <%if comment.user.image.attached?%>
-                                <%= image_tag comment.user.image,class:"comment-user-img mr-2" %>
-                            <% else %>
-                                <img src="/assets/user-image.png" class="comment-user-img">
-                            <% end %>
-        		        </div>
-        		        <div class="media-body">
-        			        <h5 class="media-heading"><%= comment.user.name %></h5>
-        			        <div class="ml-5 comment-content">
-        			            <%= comment.content %>
-        			        </div>
-        		        </div>
-        	        </li>
-    	        <% end %>
-	        <% end %>
-        </ul>
+        <%= render "comments" %>
             <% if @comments.empty? %>
                 <div class="when-not-text">
                     <%= @when_not_text %>

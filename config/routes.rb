@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   
   resources :relationships, only: [:create, :destroy]
   resources :notifications, only: [:index]
+  resources :messages, only: [:index]
+  
   
   get '/users/search',to:'users#search'
   get '/users',to:'users#index'
