@@ -46,6 +46,11 @@
     </div>
     
     <div class="field form-group">
+        <div class="form-text  mb-3">時間帯(時)</div><br />
+        <%= form.time_select :time%>
+    </div>
+    
+    <div class="field form-group">
         <div class="form-text  mb-3">説明</div><br />
         <%= form.text_field :description,class:"form-control" %>
     </div>

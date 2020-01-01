@@ -9,6 +9,10 @@ $application-color:#00CCCC;
 }
 
 /*fishing map*/
+.fishing-map{
+    border: 5px solid #00CCCC;
+}
+
 .application-description {
     position: relative;
     background: #00CCCC;
@@ -41,6 +45,18 @@ $application-color:#00CCCC;
       border-bottom: solid 2px #4967b4;
     }
 }
+
+.month-fish-ranking {
+    position: relative;
+    background: #00CCCC;
+    padding: 2px 5px 2px 20px;
+    font-size: 20px;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 10px;
+    margin: 3% 5%;
+}
+
 
 /*投稿詳細*/
 
@@ -147,6 +163,10 @@ $application-color:#00CCCC;
      font-size: 1.2rem;
 }
 
+.post-like-count,.post-comments-count{
+    opacity: 0.5;
+}
+
 /*データ*/
 .season-data-label,.feed-data-label{
      @include application-text($application-color);
@@ -185,7 +205,7 @@ $application-color:#00CCCC;
 }
 
 .media-comment{
-   width: 80%;
+   width: 100%;
     background-color: #fff;
     border-bottom: 1px solid rgba(0,204,204,0.2);
     padding: 2%;
@@ -208,8 +228,8 @@ $application-color:#00CCCC;
 }
 
 .comment-form{
-    width: 78%;
-    margin-left: 4%;
+    width: 70%;
+    margin: 4% auto;
 }
 
 /*ランキング*/

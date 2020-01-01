@@ -9,8 +9,23 @@ class PostsController < ApplicationController
   # GET /posts.json
   
   def fishing_map
-    @posts = Post.all.order(created_at: :desc).limit(100).page(params[:page]).per(100)
+    @map_posts = Post.all.order(created_at: :desc).limit(100).page(params[:page]).per(100)
     @user = current_user
+    @fish_data = [
+            ['タイ', 100],
+            ['サメ', 70], 
+            ['サバ', 15],
+            ['アジ', 80],
+            ['カサゴ', 90],
+            ['メバル', 100],
+            ['イカ', 70], 
+            ['バス', 15],
+            ['アナゴ', 80],
+            ['アイナメ', 90]
+            ]
+            
+    @posts = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
+    @users = User.find(Relationship.group(:followed_id).order('count(followed_id)desc').limit(5).pluck(:followed_id))
   end
   
   def index
@@ -46,7 +61,7 @@ class PostsController < ApplicationController
     @comments = Comment.where(post_id: @post.id).page(params[:page]).per(PER)
     @comments_count = Comment.where(post_id: @post.id).count
      #その投稿のnameの数を月ごとに集計したい
-    @data1 =[
+    @month_data =[
             ['1月', 100],
             ['2月', 70], 
             ['3月', 15],
@@ -61,7 +76,7 @@ class PostsController < ApplicationController
             ['12月', 60]
             ]
     #その投稿のnameの数を餌ごとに集計したい
-    @data2 =[
+    @feed_data =[
             ['ゴカイ', 100],
             ['イソメ', 70], 
             ['アカムシ', 15],
@@ -73,6 +88,57 @@ class PostsController < ApplicationController
             ['練りエサ', 80],
             ['アカムシ', 200],
             ['ルアー', 20]
+            ]
+            
+    @size_data =[
+            ['1~5', 100],
+            ['5~10', 100],
+            ['10~15', 100],
+            ['15~20', 100],
+            ['20~25', 100],
+            ['25~30', 90],
+            ['30~35', 10],
+            ['35~40', 80],
+            ['40~45', 18],
+            ['45~50', 100],
+            ['50~55', 8],
+            ['55~60', 0],
+            ['60~65', 80],
+            ['65~70', 18],
+            ['70~75', 1],
+            ['75~80', 100],
+            ['80~85', 18],
+            ['85~90', 18],
+            ['90~95', 10],
+            ['95~100', 100],
+            ['100~', 100],
+            ]
+            
+    @time_data =[
+            ['0~1', 100],
+            ['1~2', 70], 
+            ['2~3', 100],
+            ['3~4', 70], 
+            ['4~5', 100],
+            ['5~6', 70],
+            ['7~8', 100],
+            ['8~9', 70], 
+            ['9~10', 70], 
+            ['10~11', 70],
+            ['11~12', 70],
+            ['12~13', 100],
+            ['13~14', 70], 
+            ['14~15', 100],
+            ['15~16', 70], 
+            ['16~17', 100],
+            ['17~18', 70],
+            ['18~19', 100],
+            ['19~20', 70], 
+            ['20~21', 70], 
+            ['21~22', 70],
+            ['22~23', 70],
+            ['23~0', 70]
+         
             ]
             
   end
@@ -138,7 +204,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:image,:name, :feed,:weather,:description,:number,:date,:address, :latitude, :longitude,:user_id,:size)
+      params.require(:post).permit(:image,:name, :feed,:weather,:description,:number,:date,:address, :latitude, :longitude,:user_id,:size,:time)
     end
     
   def ensure_correct_user

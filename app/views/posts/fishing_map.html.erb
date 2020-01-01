@@ -13,14 +13,14 @@
     <% end %>
 </div>
 
- <div class="mt-5" id="map" style='width: 100%; height: 650px;'></div>
+ <div class="mt-5 fishing-map" id="map" style='width: 100%; height: 650px;'></div>
  <script type="text/javascript">
             
             handler = Gmaps.build('Google');
             
             handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map'}}, function(){
               markers = handler.addMarkers([
-                  <% @posts.each do |post| %>
+                  <% @map_posts.each do |post| %>
                 {
                   "lat": <%= post.latitude %>,
                   "lng": <%= post.longitude %>,
@@ -41,7 +41,14 @@
             });
  </script>
 <div class="pagenation">
-    <%= paginate @posts%>
+    <%= paginate @map_posts%>
+</div>
+
+<div class="row no-gutters mb-5">
+    <div class="col-10 offset-1">
+        <h2 class="month-fish-ranking text-center mb-5"><i class="fas fa-fish mr-3"></i>今月よく釣れている魚です!気になる魚があれば上のマップで検索してみましょう<i class="fas fa-fish ml-3"></i></h2>
+        <%= column_chart @fish_data, width: "100%", height: "300px"%>
+    </div>
 </div>
 
 

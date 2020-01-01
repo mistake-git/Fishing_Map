@@ -41,7 +41,6 @@ body{
 .like-icon,.comment-icon,.post-created_at{
     font-size: 0.8rem;
     opacity: 0.5;
-    margin-left: 190px;
 }
 
 .default-img{
@@ -326,8 +325,32 @@ body{
         height: 150px;
         border-radius: 50%;
     }
+    
+    .post-card-user-img{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+    
+    
+    .post-card-user div{
+        display: inline-block;
+        @include application-text($application-color);
+        a{
+             @include application-text($application-color);
+        }
+    }
 }
 
+.card-bottom{
+    position: absolute;
+    bottom: 2%;
+    left: 5%;
+}
+
+.card-bottom div{
+    display: inline-block;
+}
 
 
 

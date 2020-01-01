@@ -1,8 +1,9 @@
 class RankingController < ApplicationController
   
-  def angler_ranking
+  def fish_size_ranking
       @post = Post.find_by(id: params[:id])
-      @angler_ranks = User.find(@post.group(:name).order('(size) desc').limit(5).pluck(:name))
+      @posts = Post.where(name: @post.name).where("size IS NOT NULL").order(size: 'DESC').limit(8)
+      @when_not_text ="#{@post.name}に関するサイズのデータはまだ登録されていません"
   end
   
 end

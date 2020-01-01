@@ -164,7 +164,8 @@ $application-color:#00CCCC;
 }
 .user-post{
     width: 80%;
-    .user-post-card{
+    
+    .card{
     position: relative;
     
         .post-card-img{
@@ -180,19 +181,11 @@ $application-color:#00CCCC;
         .card-tag{
             margin: 5%;
         }
-        
-        .user-card-bottom div{
-            display: inline-block;
-        }
-        
-        .user-card-bottom{
-            position: absolute;
-            bottom: 2%;
-            left: 5%;
-        }
     }
 
 }
+
+
 
 .when-not-text{
     font-size: 1.5rem;
