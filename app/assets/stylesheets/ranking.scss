@@ -1,0 +1,103 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$application-color:#00CCCC;
+@mixin application-text($application-color){
+    color: $application-color;
+    font-weight: bold;
+}
+
+@mixin ranking-icon{
+    font-family: "Font Awesome 5 Free";
+    position: absolute;
+    top: 3%;
+    left: 75%;
+    font-weight: 900;
+    font-size: 1.1rem;
+}
+
+@mixin ranking-icon2{
+    position: absolute;
+    top: 3%;
+    left: 75%;
+    font-weight: bold;
+    font-size: 1.1rem;
+    opacity: 0.5;
+}
+
+
+
+
+/*サイズランキング*/
+
+.ranking-title{
+    font-size: 1.5rem;
+    @include application-text($application-color);
+    .ranking-icon{
+    color: #FFD700;
+    }
+}
+
+.fish-ranking-user-img{
+    width: 70px;
+    height: 70px;
+    border-radius : 50%;
+}
+
+.ranking-card-list{
+    position: relative;
+    
+    .card:nth-child(1):before{
+        @include ranking-icon ;
+        content: '\f521 1位';
+        color: #FFD700;
+    }
+
+
+    .card:nth-child(2):before{
+        @include ranking-icon ;
+        content: '\f521 2位';
+        color: #C0C0C0;
+    }
+    
+    .card:nth-child(3):before{
+        @include ranking-icon ;
+        content: '\f521 3位';
+        color: #815A2B;
+    }
+    
+    .card:nth-child(4):before{
+        content: '4位';
+        @include ranking-icon2 ;
+    }
+    
+    .card:nth-child(5):before{
+        content: '5位';
+        @include ranking-icon2 ;
+    }
+    
+     .card:nth-child(6):before{
+        content: '6位';
+        @include ranking-icon2 ;
+    }
+    
+    .card:nth-child(7):before{
+        content: '7位';
+        @include ranking-icon2 ;
+    }
+    
+    .card:nth-child(8):before{
+        content: '8位';
+        @include ranking-icon2 ;
+    }
+    
+    .size-badge{
+        background-color: #FFD700;
+        font-size: 1.1rem;
+    }
+    
+}
+
+ 
+  

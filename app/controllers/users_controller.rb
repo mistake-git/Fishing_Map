@@ -31,7 +31,8 @@ class UsersController < ApplicationController
     
     def likes
         @user = User.find_by(id: params[:id])
-        @likes = Like.where(user_id: @user.id).page(params[:page]).per(PER)
+        @likes = @user.likes
+        @posts = @user.likes_posts.page(params[:page]).per(PER)
         @title="#{@user.name}さんのページ"
         @user_posts_count = Post.where(user_id: @user.id).count
         @user_likes_count = Like.where(user_id: @user.id).count
@@ -60,7 +61,7 @@ class UsersController < ApplicationController
         @user  = User.find_by(id: params[:id])
         @users = @user.followers.page(params[:page]).per(PER)
         @title ="#{@user.name}さんのフォロワー"
-        @when_not_text = "フォロワーがいません"
+        @when_not_text = "フォロワーがいませ��"
     end
     
     def ensure_correct_user

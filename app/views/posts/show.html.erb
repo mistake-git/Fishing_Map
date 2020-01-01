@@ -72,9 +72,9 @@
                         投稿のデータ
                     </div>
                     <ul class="post-data-list mt-5">
-                        <li class="post-created_at"><%= "#{time_ago_in_words(@post.created_at)}前"%></li>
                         <li class="like-icon ml-5"><i class="fas fa-heart"> <%= @likes_count %></i></li>
                         <li class="comment-icon ml-5"><i class="fas fa-comment"> <%= @comments_count %></i></li>
+                        <li class="post-created_at ml-5"><%= "#{time_ago_in_words(@post.created_at)}前"%></li>
                     </ul>
                     <div class="data-area-title mt-5">
                         釣果のデータ
@@ -88,6 +88,9 @@
                         <% end %>
                         <% if @post.date? %>
                             <li><span class="badge badge-info mr-3">日時: <%= @post.date %></span></li>
+                        <% end %>
+                        <% if @post.time? %>
+                           <li><span class="badge badge-info mr-3">時間帯: <%= @post.time %>時</span></li>
                         <% end %>
                         <% if @post.feed? %>
                            <li><span class="badge badge-info mr-3">使用した餌: <%= @post.feed %></span></li>
@@ -165,12 +168,27 @@
                     <div class="row no-gutters mb-5">
                         <div class="col-6 mt-5">
                             <div class="season-data-label mt-5 mb-5"><%= @post.name%>がよく釣れる時期</div>
-                                <%= column_chart @data1, width: "100%", height: "300px"%>
+                                <%= line_chart @month_data, width: "100%", height: "300px"%>
                         </div>
                         <div class="col-6 mt-5">
                             <div class="feed-data-label mt-5 mb-5"><%= @post.name%>がよく釣れる餌</div>
-                                <%= pie_chart @data2, width: "100%", height: "300px"%>
+                                <%= pie_chart @feed_data, width: "100%", height: "300px"%>
                          </div>
+                    </div>
+                    <div class="row no-gutters mb-5">
+                        <div class="col-6 mt-5">
+                            <div class="season-data-label mt-5 mb-5"><%= @post.name%>のサイズ分布</div>
+                                <%= line_chart @size_data, width: "100%", height: "300px"%>
+                        </div>
+                        <div class="col-6 mt-5">
+                            <div class="feed-data-label mt-5 mb-5"><%= @post.name%>がよく釣れる時間</div>
+                                <%= column_chart @time_data, width: "100%", height: "300px"%>
+                         </div>
+                    </div>
+                    <div class="text-center">
+                        <%= link_to"/ranking/#{@post.id}/fish_size",class:"ranking-text" do %>
+                        <i class="fas fa-crown"></i>この魚のランキングを見る
+                        <% end %>
                     </div>
                 </div>
                 <div class="comment-area-title ml-5 mt-5">
