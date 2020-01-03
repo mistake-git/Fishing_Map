@@ -214,7 +214,7 @@ body{
     }
     
     .dropdown-menu{
-            width: 380px;
+            width: 430px;
             height: 430px;
             position: relative;
             margin-right: -8px;
@@ -258,28 +258,35 @@ body{
             }
             
             
-            
-            .notifications-bell{
-                position: relative;
-                .n-circle {
-                  position: absolute;
-                  top: 20%;
-                  left: 60%;
-                  font-size: 0.25rem;
-                  padding: 1.25px 5.5px;
-                  color: #fff;
-                  background-color: #FF3300 ;
-                  border-radius: 20px;
-                }
-            }
-            
             .notification-more{
-                 border-top: 2px solid rgba(0,204,204,0.2);
+               position: absolute;
+               bottom: 0.5%;
+               left: 38%;
             }
-        
+            
+            
+            .header-notifications{
+                border-bottom: 2px solid rgba(0,204,204,0.2);
+            }
+    }
+    
+    .notifications-bell{
+        position: relative;
+
+        .n-circle {
+            position: absolute;
+            top: 20%;
+            left: 60%;
+            font-size: 0.25rem;
+            padding: 1.25px 5.5px;
+            color: #fff;
+            background-color: #FF3300 ;
+            border-radius: 20px;
+        }
     }
 
 }
+
 
 
 
@@ -360,7 +367,8 @@ body{
     width: 30%;
     background: #fff;
     padding: 3% 5%;
-    
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.12);
+ 
     .form-text{
         display: inline-block;
         @include application-text($application-color);
@@ -369,6 +377,14 @@ body{
     
     .btn,.btn-lg{
         font-weight: bold;
+    }
+    
+    a{
+        color: #000033;
+    
+        &:hover{
+          text-decoration: underline;  
+        }
     }
     
 }

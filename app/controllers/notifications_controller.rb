@@ -3,6 +3,8 @@ class NotificationsController < ApplicationController
     @notifications = current_user.passive_notifications.all
     @notifications.where(checked: false).each do |notification|
     notification.update_attributes(checked: true)
+     pp "●"
     end
+     pp"■#{@notifications}"
   end
 end

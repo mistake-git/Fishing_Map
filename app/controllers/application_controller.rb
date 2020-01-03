@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :set_current_user
+  before_action :set_current_user,:notifications
     
   def set_current_user
      current_user
@@ -23,10 +23,9 @@ class ApplicationController < ActionController::Base
     posts_path
   end
   
-  def notification
-    @notifications = current_user.passive_notifications.all
-    @notifications.where(checked: false).each do |notification|
-    notification.update_attributes(checked: true)
+  def notifications
+    if current_user
+        @notifications = current_user.passive_notifications.all
     end
   end    
     

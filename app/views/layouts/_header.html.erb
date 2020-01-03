@@ -45,17 +45,15 @@
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="notifications-menu">
                     <div class="notification-title pl-3">おしらせ</div>
                     <% if @notifications.exists? %>
-                        <div class="users-index">
+                        <div class="header-notifications">
                             <%= render @notifications %>
                         </div>
                     <% else %>
                         <div class="when-not-text-notification text-center">通知はありません</div>
                     <% end %>
-                     <% if @notifications.exists? %>
-                        <div class ="notification-more text-center">
-                         <%= link_to"もっと見る" ,"/notifications", style:"color:#000000"%>
-                        </div>
-                    <% end %>
+                    <div class ="notification-more text-center">
+                     <%= link_to"過去の通知を見る" ,"/notifications", style:"color:#000000" %>
+                    </div>
                 </div>
             </li>
             <li class="nav-item">
