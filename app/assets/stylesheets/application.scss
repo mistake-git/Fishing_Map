@@ -380,7 +380,7 @@ body{
     }
     
     a{
-        color: #000033;
+        color: #0099E8;
     
         &:hover{
           text-decoration: underline;  
@@ -396,6 +396,11 @@ body{
     font-size: 1.7rem;
 }
 
+/*場所選択地図*/
+
+.modal-title{
+    @include application-text($application-color);
+}
 /*画像プレビュー*/
 .img-preview{
     width: 100%;
@@ -406,6 +411,10 @@ body{
 
 .pagenation{
     margin: 5% 0 0 45%;
+}
+
+.notification-pagenation{
+    margin: 5% 0 0 23%;
 }
 
 .pagination>li>a {          
@@ -422,6 +431,22 @@ body{
 .page-link:hover {        
       border-radius: 25px;
     }
+    
+/*フラッシュ*/
+
+#flash_alert{
+    color: #FF0000;
+    font-weight: bold;
+    margin-top: 1%;
+}
+
+#flash_notice{
+  padding: 10px 0;
+  color: #fff;
+  background: rgba(0,204,204,0.7);
+  font-weight: bold;
+  width: 100%;
+}
 
 /*お知らせ詳細ページ*/
 .notification{

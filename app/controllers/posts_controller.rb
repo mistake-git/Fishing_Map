@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   
   def fishing_map
-    @posts = Post.all.order(created_at: :desc).limit(100).page(params[:page]).per(10)
+    @posts = Post.all.order(created_at: :desc).limit(100)
     @user = current_user
     @fish_data = [
             ['タイ', 100],
@@ -23,6 +23,7 @@ class PostsController < ApplicationController
             ['アナゴ', 80],
             ['アイナメ', 90]
             ]
+    @is_fmap = true
   end
   
   def index
@@ -58,11 +59,35 @@ class PostsController < ApplicationController
     @likes_count = Like.where(post_id: @post.id).count
     @comments = Comment.where(post_id: @post.id).page(params[:page]).per(PER)
     @comments_count = Comment.where(post_id: @post.id).count
+    
+    #その投稿のnameの数を月ごとに集計したい
+    @month_data = [
+        ['タイ', 100],
+            ['サメ', 70], 
+            ['サバ', 15],
+            ['アジ', 80],
+            ['カサゴ', 90],
+            ['メバル', 100],
+            ['イカ', 70], 
+            ['バス', 15],
+            ['アナゴ', 80],
+            ['アイナメ', 90]
+            ]
+    
+    #その投稿のnameの数を餌ごとに集計したい 例[[ゴカイ,10],[アカムシ,7],[カニ,5]]
+    @feed_data = Post.where(name: @post.name).where("feed IS NOT NULL").order('count(:feed) desc').limit(3)
+    
+    #サイズの分布データを集計したい
+    @size_data = Post.where(name: @post.name).sum(:size)
+    
+    #どの時間帯に釣れているのか集計したい
+    @time_data = Post.where(name: @post.name).sum(:time)
             
   end
 
   # GET /posts/new
   def new
+    @user = current_user
     @post = Post.new
     @form_title = '釣果を登録'
   end
@@ -75,12 +100,16 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
+    @user = current_user
     @post = Post.new(
         post_params.merge(user_id: current_user.id)
         )
-
     respond_to do |format|
       if @post.save
+        @user.followers.each do |follower|
+            follower_id = follower.id
+            @user.create_notification_post!(follower_id,current_user)
+        end
         format.html { redirect_to @post, notice: '投稿を作成しました' }
         format.json { render :show, status: :created, location: @post }
       else

@@ -11,6 +11,9 @@ module NotificationsHelper
         when "comment" then
           @comment=Comment.find_by(id:notification.comment_id).content
           "#{visitor}が#{your_post}にコメントしました"
+        when "post" then
+        @post = post.find_by(id:notification.post_id)
+        "#{visitor}が#{@post.name}を釣り上げました"
       end
     end
     

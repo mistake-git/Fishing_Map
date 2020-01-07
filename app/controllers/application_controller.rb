@@ -26,6 +26,9 @@ class ApplicationController < ActionController::Base
   def notifications
     if current_user
         @notifications = current_user.passive_notifications.all
+        @notifications.where(checked: false).each do |notification|
+        notification.update_attributes(checked: true)
+        end
     end
   end    
     

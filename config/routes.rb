@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
-    
   get '/fishing.map',to:'posts#fishing_map'
   get '/posts/search_fishing_map',to:'posts#search_fishing_map'
   get '/posts/search',to:'posts#search'
   resources :posts
   get '/',to:'home#top',as:'root'
   devise_for :users, controllers: { registrations: 'users/registrations' }
-  
   devise_scope :user do
       post '/users/profile/edit',to:'users/registrations#update'
   end 
@@ -17,6 +15,7 @@ Rails.application.routes.draw do
   
   get 'ranking/:id/fish_size',to:'ranking#fish_size_ranking'
   
+ 
   get '/users/search',to:'users#search'
   get '/users',to:'users#index'
   get '/users/:id',to:'users#show'

@@ -53,15 +53,15 @@ class UsersController < ApplicationController
     def following
         @user  = User.find_by(id: params[:id])
         @users = @user.following.page(params[:page]).per(PER)
-        @title ="#{@user.name}さんがフォロー中"
+        @title ="#{@user.name}がフォロー中"
         @when_not_text = "フォローしているユーザーがいません"
     end
 
     def followers
         @user  = User.find_by(id: params[:id])
         @users = @user.followers.page(params[:page]).per(PER)
-        @title ="#{@user.name}さんのフォロワー"
-        @when_not_text = "フォロワーがいませ��"
+        @title ="#{@user.name}のフォロワー"
+        @when_not_text = "フォロワーがいません"
     end
     
     def ensure_correct_user
