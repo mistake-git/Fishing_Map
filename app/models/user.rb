@@ -63,11 +63,12 @@ class User < ApplicationRecord
   end
   
 
-  def create_notification_post!(follower_id,current_user)
+  def create_notification_post!(follower_id,current_user,post_id)
       current_user.followers.each do |follower|
           follower_id = follower.id
       end 
       notification = current_user.active_notifications.new(
+        post_id: post_id,
         visitor_id: current_user.id,
         visited_id: follower_id,
         action: 'post'

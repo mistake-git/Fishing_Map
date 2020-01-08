@@ -1,20 +1,21 @@
-  <div class="text-center mt-5 mb-5">
-    <div class="form-wrapper pt-5 pb-5">   
-    <h4 class="form-title mb-3">メールを送信</h4>
-    
-    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-      <%= render "users/shared/error_messages", resource: resource %>
-    
-      <div class="field form-group">
-        <%= f.label :email ,class:"form-text"%><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class:"form-contorl-sm"%>
-      </div>
-    
-      <div class="actions">
-        <%= f.submit "メールを送信",class:"btn btn-info mb-4" %>
-      </div>
-    <% end %>
-    
-    <%= render "users/shared/links"%>
+<div class="password-mail-wrapper">
+    <div class="text-center mt-5 mb-5">
+        <div class="form-wrapper pt-5 pb-5">   
+        <h4 class="form-title mb-3">メールを送信</h4>
+            <%= form_for(resource, as: resource_name, url: user_password_path, html: { method: :post }) do |form| %>
+            <%= render "users/shared/error_messages", resource: resource %>
+        
+            <div class="field form-group">
+                <%= form.label :email ,class:"form-text"%><br />
+                <%= form.email_field :email, autofocus: true, autocomplete: "email" ,class:"form-control mt-3"%>
+            </div>
+        
+            <div class="actions">
+                <%= form.submit "メールを送信",class:"btn btn-info mb-4 mt-3"%>
+            </div>
+            <% end %>
+        
+        <%= render "users/shared/links"%>
+        </div>
     </div>
 </div>

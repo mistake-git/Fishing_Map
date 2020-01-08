@@ -396,6 +396,11 @@ body{
     font-size: 1.7rem;
 }
 
+/*パスワード変更メール*/
+.password-mail-wrapper{
+    height: 580px;
+}
+
 /*場所選択地図*/
 
 .modal-title{
@@ -454,6 +459,7 @@ body{
     margin: 5% 10%;
     background-color: #fff;
     width: 38%;
+    height: 700px;
         .notification-title{
                 @include application-text($application-color);
                 padding: 5%;

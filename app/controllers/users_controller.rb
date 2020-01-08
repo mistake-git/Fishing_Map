@@ -22,7 +22,7 @@ class UsersController < ApplicationController
         else
             @title = "#{@user.name}さんのページ"
         end
-        @posts = @user.posts.page(params[:page]).per(PER)
+        @posts = @user.posts.order(created_at: :desc).page(params[:page]).per(PER)
         @user_posts_count = Post.where(user_id: @user.id).count
         @user_likes_count = Like.where(user_id: @user.id).count
         @user_comments_count = Comment.where(user_id: @user.id).count
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
     def likes
         @user = User.find_by(id: params[:id])
         @likes = @user.likes
-        @posts = @user.likes_posts.page(params[:page]).per(PER)
+        @posts = @user.likes_posts.order(created_at: :desc).page(params[:page]).per(PER)
         @title="#{@user.name}さんのページ"
         @user_posts_count = Post.where(user_id: @user.id).count
         @user_likes_count = Like.where(user_id: @user.id).count
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
     
     def comments
         @user = User.find_by(id: params[:id])
-        @comments = Comment.where(user_id: @user.id).page(params[:page]).per(PER)
+        @comments = Comment.where(user_id: @user.id).order(created_at: :desc).page(params[:page]).per(5)
         @title="#{@user.name}さんのページ"
         @user_posts_count = Post.where(user_id: @user.id).count
         @user_likes_count = Like.where(user_id: @user.id).count

@@ -2,7 +2,6 @@
   <div class="form-wrapper">
     <h4 class="form-title  mb-3"><%= @form_title %></h4>      
     <%= form_with(model: post, local: true) do |form| %>
-    
     <% if post.errors.any? %>
         <div id="error_explanation">
             <ul>
@@ -18,7 +17,6 @@
         <div class="form-text">現在の画像</div>
         <%= image_tag post.image,class:"img-preview" %>
     <% end %>
-    
     
     <div class="field form-group" onchange="previewFile()">
        <div class="form-text mb-3">画像を選択してください</div><br />

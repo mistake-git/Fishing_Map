@@ -76,15 +76,15 @@
                     <% end %>
                 </p>
                     <div class="card-bottom ml-5">
-                        <div class ="post-like-count ml-1 ml-3">
+                        <div class ="post-like-count ml-1 ml-2">
                             <% @likes_count = Like.where(post_id: post.id).count %>
                             <i class="fas fa-heart ml-1 mr-2"></i><%= @likes_count %>
                         </div>
-                        <div class="post-comments-count ml-3">
+                        <div class="post-comments-count ml-2">
                             <% @comments_count = Comment.where(post_id: post.id).count %>
                             <i class="fas fa-comment ml-1 mr-2"></i><%= @comments_count %>
                         </div>
-                        <div class="post-created_at ml-3">
+                        <div class="post-created_at ml-2">
                             <%= "#{time_ago_in_words(post.created_at)}前"%>
                         </div> 
                     </div>

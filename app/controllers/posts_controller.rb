@@ -75,8 +75,9 @@ class PostsController < ApplicationController
             ]
     
     #その投稿のnameの数を餌ごとに集計したい 例[[ゴカイ,10],[アカムシ,7],[カニ,5]]
-    @feed_data = Post.where(name: @post.name).where("feed IS NOT NULL").order('count(:feed) desc').limit(3)
-    
+    Post.where(name: @post.name).where("feed IS NOT NULL").select(:feed).each do |feed_data|
+        @feed_data = feed_data
+    end
     #サイズの分布データを集計したい
     @size_data = Post.where(name: @post.name).sum(:size)
     
@@ -94,7 +95,9 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
-      @form_title ='釣果を編集'
+    @user = current_user
+    @post = Post.find_by(id: params[:id])
+    @form_title ='釣果を編集'
   end
 
   # POST /posts
@@ -108,7 +111,8 @@ class PostsController < ApplicationController
       if @post.save
         @user.followers.each do |follower|
             follower_id = follower.id
-            @user.create_notification_post!(follower_id,current_user)
+            post_id = @post.id
+            @user.create_notification_post!(follower_id,current_user,post_id)
         end
         format.html { redirect_to @post, notice: '投稿を作成しました' }
         format.json { render :show, status: :created, location: @post }
