@@ -32,4 +32,8 @@ class ApplicationController < ActionController::Base
     end
   end    
     
+  def after_sign_in_path_for(resource)
+        fmap_path_url
+  end
+    
 end

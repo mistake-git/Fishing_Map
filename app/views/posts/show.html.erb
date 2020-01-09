@@ -1,6 +1,6 @@
 <div class="page-title ml-4 mt-4"><%= @title %>の釣果</div>
 <div class="row mr-4 ">
-    <div class="col-3">
+    <div class="col-xs-12 col-md-3">
         <div class="card mt-5 ml-5 position-fixed " style="width: 18rem;">
             <% if @post.user.image.attached? %>
                     <%= image_tag @post.user.image, class:" post-user-img"%>
@@ -54,7 +54,7 @@
            </div>
         </div>
     </div>
-    <div class="col-9">
+    <div class="col-xs-12 col-md-9">
         <div class="post-data-area mx-auto">
             <div class="post-show-title mt-5 mb-5">
                 <%= @post.name%>: この魚の難易度: <%= @level %>
@@ -234,8 +234,6 @@
            </div>
         </div>
 </div>
-
-<%= @feed_data %>
 
    
 

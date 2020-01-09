@@ -34,6 +34,11 @@ a{
     }
 }
 
+img{
+    max-width:100%;
+    height:auto;
+}
+
 body{
     background-color: #EEFFFF;
 }
@@ -396,8 +401,8 @@ body{
     font-size: 1.7rem;
 }
 
-/*パスワード変更メール*/
-.password-mail-wrapper{
+/*パスワード変更*/
+.password-mail-wrapper,.password-edit-wrapper{
     height: 580px;
 }
 

@@ -1,10 +1,10 @@
 <div class="page-title ml-4 mt-4"><%= @title %></div>
 <%= render partial: 'users_header'%>
   <div class="user-content row">
-    <div class="col-3 text-center mt-5">
+    <div class="col-xs-12 col-md-3 text-center mt-5">
        <%= render partial: 'users_status'%>
     </div> 
-    <div class="col-9">
+    <div class="col-xs-12 col-md-9">
         <div class="title-list">
             <%= link_to "/users/#{@user.id}",class:"decoration-none" do %>
                 <div class="user-post-title active mb-4 ml-1">
