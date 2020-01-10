@@ -35,8 +35,8 @@ a{
 }
 
 img{
-    max-width:100%;
-    height:auto;
+    max-width: 100%;
+    height: auto;
 }
 
 body{
@@ -488,12 +488,23 @@ body{
 
 
 /*フッター*/
+
 .footer{
-   background-color: #00CCCC;
+   background-color: #fff;
+   height: 150px;
+   position: relative;
+    .footer-site-logo{
+        width: 15%;
+        height: auto;
+        margin: 1%;
+    }
+    
+    .web-copyright{
+        font-size: 0.8rem;
+        font-weight: bold;
+        opacity: 0.5;
+    }
 }
-.footer-site-logo{
-    width: 10%;
-    height: auto;
-    background-color: #fff;
-}
+
+
 

@@ -169,8 +169,8 @@ $application-color:#00CCCC;
 
 /*データ*/
 .season-data-label,.feed-data-label{
-     @include application-text($application-color);
-     font-size: 1.2rem;
+    @include application-text($application-color);
+    font-size: 1.2rem;
 }
 
 .data-label{

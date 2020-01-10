@@ -69,6 +69,6 @@ class PostsTest < ApplicationSystemTestCase
         assert_no_text('これは魚です')
         assert_no_text('ゴカイ')
         assert_no_text('晴れ')
-    assert_text "投稿を削除しました"
+        assert_text "投稿を削除しました"
   end
 end
