@@ -64,10 +64,13 @@
     </div>
     
     <div class="field form-group">
-        <div class="form-text  mb-3"><span class="badge badge-danger mr-1">※必須</span>場所</div><br />
+        <div class="form-text  mb-3"><span class="badge badge-danger mr-1">※必須</span>住所</div><br />
         <%= form.text_field :address,class:"form-control" %>
     </div>
     
+    <%= form.hidden_field :latitude,id:"map_lat" %>
+    <%= form.hidden_field :longitude,id:"map_lng"%>
+
     <div data-toggle="modal" data-target="#modal1" class="btn btn-info mt-3 mb-3">
       地図で場所を選択する
     </div>
@@ -94,13 +97,35 @@
             <div class="modal-body">
                 <div class="fishing-map" id="map" style='width: 100%; height: 550px;'></div>
                 <script type="text/javascript">
-                            handler = Gmaps.build('Google');
-                            handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map'}}, function(){
-                            handler.fitMapToBounds();
-                            var latlng = new google.maps.LatLng(<%= @user.latitude %>,<%= @user.longitude %>); 
-                            handler.getMap().setCenter(latlng);
-                            handler.getMap().setZoom(8);
-                            });
+                    var map;
+                    var markerOnMap;
+                    
+                    function initMap() {
+                        map = new google.maps.Map(document.getElementById('map'), { 
+                            center: { 
+                                lat: <%= @user.latitude %>,
+                                lng: <%= @user.longitude %>
+                            },
+                            zoom: 8 
+                        });
+                        function placeMarker(location, map) { 
+                            if (markerOnMap) {
+                              markerOnMap.setPosition(location);
+                            }
+                            else {
+                              markerOnMap = new google.maps.Marker({
+                                position: location,
+                                map: map,
+                              });
+                            }
+                        }
+                         google.maps.event.addListener(map, 'click', function(event) {
+                            placeMarker(event.latLng, map);
+                            document.getElementById("map_lat").value = event.latLng.lat();
+                            document.getElementById("map_lng").value = event.latLng.lng();
+                          })
+                    }
+                    initMap()
                 </script>
             </div>
                 <div class="modal-footer">
