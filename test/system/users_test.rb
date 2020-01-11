@@ -21,7 +21,5 @@ class UsersTest < ApplicationSystemTestCase
     click_on "ログアウト"
     assert_selector ".nave-link",text: 'ログイン'
     end
-  
-  
-    
+ 
 end

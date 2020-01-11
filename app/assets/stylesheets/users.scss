@@ -101,13 +101,13 @@ $application-color:#00CCCC;
     
 
     .area{
-      position: relative;
-      border: solid 2px #80c8d1;
-      color: $application-color;
-      line-height: 1.4;
-      padding: 0.4em 0.5em;
-      margin: 2em 0 0.5em;
-      font-weight: bold;
+        position: relative;
+        border: solid 2px #80c8d1;
+        color: $application-color;
+        line-height: 1.4;
+        padding: 0.4em 0.5em;
+        margin: 2em 0 0.5em;
+        font-weight: bold;
       
         &:after {
           /*タブ*/
@@ -166,7 +166,7 @@ $application-color:#00CCCC;
     width: 80%;
     
     .card{
-    position: relative;
+        position: relative;
     
         .post-card-img{
             width: 200px;

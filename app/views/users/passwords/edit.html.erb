@@ -1,29 +1,31 @@
+<div class="password-edit-wrapper">
     <div class="text-center mt-5 mb-5">
-      <div class="form-wrapper pt-5 pb-5">     
-        <h4 class="form-title mb-3">パスワードを変更</h4>
-        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-          <%= render "devise/shared/error_messages", resource: resource %>
-          <%= f.hidden_field :reset_password_token %>
-        
-          <div class="field form-group">
-            <%= f.label :password, "New password",class:"form-text" %><br />
-            <% if @minimum_password_length %>
-              <em>(<%= @minimum_password_length %>文字以上で入力してください)</em><br />
+        <div class="form-wrapper pt-5 pb-5">     
+            <h4 class="form-title mb-3">パスワードを変更</h4>
+            <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |form| %>
+                <%= render "devise/shared/error_messages", resource: resource %>
+                <%= form.hidden_field :reset_password_token %>
+            
+            <div class="field form-group">
+                <%= form.label :password, "新規パスワード",class:"form-text mb-3" %><br />
+                    <% if @minimum_password_length %>
+                        <em class="form-text">(<%= @minimum_password_length %>文字以上で入力してください)</em><br />
+                    <% end %>
+                <%= form.password_field :password, autofocus: true, autocomplete: "new-password",class:"form-contorl mt-1" %>
+            </div>
+            
+            <div class="field form-group">
+                <%= form.label :password_confirmation, "新規パスワード確認",class:"form-text mb-3" %><br />
+                <%= form.password_field :password_confirmation, autocomplete: "new-password",class:"form-contorl" %>
+            </div>
+
+            <div class="actions">
+                <%= form.submit "パスワードを変更",class:"btn btn-info mb-4 mt-3" %>
+            </div>
             <% end %>
-            <%= f.password_field :password, autofocus: true, autocomplete: "new-password",class:"form-contorl" %>
-          </div>
-        
-          <div class="field form-group">
-            <%= f.label :password_confirmation, "Confirm new password",class:"form-text" %><br />
-            <%= f.password_field :password_confirmation, autocomplete: "new-password",class:"form-contorl" %>
-          </div>
-        
-          <div class="actions">
-            <%= f.submit "パスワードを変更",class:"btn btn-info mb-4" %>
-          </div>
-        <% end %>
-        
-        <%= render "users/shared/links" %>
-      </div>    
-    </div>        
+            
+            <%= render "users/shared/links" %>
+        </div>    
+    </div>  
+</div>
         

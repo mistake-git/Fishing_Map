@@ -8,48 +8,222 @@ $application-color:#00CCCC;
 }
 
 /*トップページ*/
-.header{
-    height: 500px;
-    .site-catch-copy{
-         @include application-text($application-color);
-         font-size: 3.0rem;
-         background-image:url("/assets/top-image.jpg");
-         background-size: cover;
-         padding-top: 15%;
-         padding-bottom: 15%;
+.application-top{
+    position: relative;
+    
+    .top-img{
+        opacity: 0.8;
+    }
+    .catch-copy{
+        position: absolute;
+        top: 30%;
+        left: 8%;
+        background-color:rgba(255,255,255,0.8);
+        padding: 2%;
+        border-radius: 15px;
+        
+        .catch-text{
+            font-size: 2.5rem;
+            font-weight: bold;
+            line-height: 2;
+        }
+     
     }
 }
 
-.about{
-    width: 100%;
+
+
+/*アバウトアプリケーション*/
+
+.application-about{
+    border: 3px dashed #00CCCC;
+    width: 70%;
+    margin: 2% auto;
+    background: #fff;
     .about-title{
-    color:#FF3300;
-    font-size: 2.5rem;
-    font-weight: bold;
-}
-    .about-site-title{
-        @include application-text($application-color);
-        font-size: 1.5rem;
+        padding: 1%;
+        .about-title-text{
+            @include application-text($application-color);
+            font-size: 1.8rem;
+            vertical-align: middle;
+        }
     }
     
-    .about-text{
+    .about-description{
+        padding: 0 3%;
+        line-height: 2;
+        font-weight: bold;
         font-size: 1.2rem;
+        letter-spacing: 2px;
+        text-decoration: underline solid  red;
+    }
+}
+
+/*釣り人悩み*/
+
+.worries-title{
+    margin: 8% 0;
+    font-size: 1.5rem;
+    position: relative;
+    font-weight: bold;
+    text-shadow: 0 0 2px white;
+    &:before{
+        content: "";
+        position: absolute;
+        background: #9de5ff;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+        z-index: -1;
+    }
+}
+
+.worries-area{
+    background: #fff;
+    
+    .worries-list{
+        margin-top: 23%;
+        li{
+            list-style: none;
+            margin: 7% 0 0 10% ;
+            text-decoration: underline solid  red;
+        }
+        
+        .worries-item{
+            position: relative;
+            padding-left: 1.2em;
+            line-height: 1.4;
+            font-size: 1.3rem;
+            font-weight: bold;
+    
+        &:before {
+            font-family: "Font Awesome 5 Free";
+            content: "\f00c";
+            font-weight: 900;
+            position: absolute;
+            font-size: 1em;
+            left: 0;
+            top: 0;
+            color: $application-color;
+        }
+        }
+    }
+}
+    
+.worries-img-area{
+   background-color:rgba(0,204,204,0.2);
+    .worries-img{
+        width: 70%;
+        padding: 5%;
+    }
+}
+
+/*解決*/
+
+.settle-title{
+    margin: 5% auto;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-bottom: 3px solid red;
+    width: 35%;
+}
+
+.settle-area{
+    .settle{
+        background: #fff;
+        box-shadow: 2px 2px 4px rgba(0,0,0,0.12);
+        height: 400px;
+        
+        .settle-heading{
+            font-size: 1.2rem;
+           font-weight: bold;
+            margin: 5% 0;
+        }
+    
+        .settle-img{
+            height: 200px;
+            width: 85%;
+        }
+        
+        .settle-description{
+            line-height: 1.5;
+            opacity: 0.8;
+        }
     }
     
-    .about-image{
-        width: 50%;
-        height: auto;
+   
+}
+
+
+
+
+/*使い方ステップ*/
+.step-area-title{
+    margin: 3% auto;
+    font-size: 1.5rem;
+    @include application-text($application-color);
+    border-bottom: 3px solid #00CCCC;
+    width: 30%;
+    
+    .title-header{
+        font-weight: bold;
+        color: #FF0000;
+        font-size: 1.8rem;
+    }
+    
+    .title-num{
+        font-size: 3rem;
+        color: #FF0000	;
+    }
+}
+
+.step-area{
+    margin: 5% 0%;
+    
+    .step-copy{
+        font-size: 1.3rem;
+        margin-top: 3%;
+        font-weight: bold;
+    }
+    
+    .step-title{
+        @include application-text($application-color);
+        font-size: 1.3rem;
+        padding-top: 5%;
+        border-bottom: 3px solid #00CCCC;
+        width: 20%;
+        margin: 0 auto;
+        .step-num{
+            font-size: 1.5rem;
+        }
     }
 
-   .border-line{
-       border-bottom: 2px solid #00CCCC;
-   }
-   
-   .description-border{
-       font-size: 1.2rem;
-       border-bottom: 2px solid #FF3300;
-   }
+    .step{
+        background: #fff;
+        width: 80%;
+        margin: auto;
+        box-shadow: 2px 2px 4px rgba(0,0,0,0.12);
+        height: 540px;
+    }
+    
+    .step-img{
+        width: 280px;
+        height: 280px;
+        border-radius: 50%;
+        margin: 5% 3%;
+    }
+    
+     .step-description{
+        padding-bottom: 5%;
+        opacity: 0.8;
+    }
+
 }
+
 
 
 .application-recommend{
@@ -64,28 +238,28 @@ $application-color:#00CCCC;
         margin: 5% auto;
         border-radius: 20px;
         
-    .recommend-title{
-     @include application-text($application-color);
-     font-size: 1.3rem;
-    }
+        .recommend-title{
+             @include application-text($application-color);
+             font-size: 1.3rem;
+        }
+    
+        .recommend-border{
+            border-bottom: 2px solid #FF3300;
+        }
 
-    .recommend-border{
-      border-bottom: 2px solid #FF3300;
     }
+   
+}
 
-     .top-page-btn {
-      display: inline-block;
-      padding: 14px 20px;
-      border-radius: 25px;
-      text-decoration: none;
-      color: #FFF;
-      background-image: linear-gradient(45deg, #709dff 0%, #91fdb7 100%);
-      transition: .4s;
+.top-page-btn {
+    display: inline-block;
+    padding: 14px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    color: #FFF;
+    background-image: linear-gradient(45deg, #709dff 0%, #91fdb7 100%);
+    transition: .4s;
     &:hover {
       opacity: 0.8;
     }
-    }
-    
-    }
-   
 }

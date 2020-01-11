@@ -43,9 +43,11 @@
             });
  </script>
  
+<% if @is_fmap == false %>
  <div class="pagenation">
     <%= paginate @posts%>
 </div>
+<% end %>
 
 
 

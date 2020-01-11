@@ -34,6 +34,11 @@ a{
     }
 }
 
+img{
+    max-width: 100%;
+    height: auto;
+}
+
 body{
     background-color: #EEFFFF;
 }
@@ -380,7 +385,7 @@ body{
     }
     
     a{
-        color: #000033;
+        color: #0099E8;
     
         &:hover{
           text-decoration: underline;  
@@ -396,6 +401,16 @@ body{
     font-size: 1.7rem;
 }
 
+/*パスワード変更*/
+.password-mail-wrapper,.password-edit-wrapper{
+    height: 580px;
+}
+
+/*場所選択地図*/
+
+.modal-title{
+    @include application-text($application-color);
+}
 /*画像プレビュー*/
 .img-preview{
     width: 100%;
@@ -406,6 +421,10 @@ body{
 
 .pagenation{
     margin: 5% 0 0 45%;
+}
+
+.notification-pagenation{
+    margin: 5% 0 0 23%;
 }
 
 .pagination>li>a {          
@@ -422,6 +441,22 @@ body{
 .page-link:hover {        
       border-radius: 25px;
     }
+    
+/*フラッシュ*/
+
+#flash_alert{
+    color: #FF0000;
+    font-weight: bold;
+    margin-top: 1%;
+}
+
+#flash_notice{
+  padding: 10px 0;
+  color: #fff;
+  background: rgba(0,204,204,0.7);
+  font-weight: bold;
+  width: 100%;
+}
 
 /*お知らせ詳細ページ*/
 .notification{
@@ -429,6 +464,7 @@ body{
     margin: 5% 10%;
     background-color: #fff;
     width: 38%;
+    height: 700px;
         .notification-title{
                 @include application-text($application-color);
                 padding: 5%;
@@ -452,12 +488,23 @@ body{
 
 
 /*フッター*/
+
 .footer{
-   background-color: #00CCCC;
+   background-color: #fff;
+   height: 150px;
+   position: relative;
+    .footer-site-logo{
+        width: 15%;
+        height: auto;
+        margin: 1%;
+    }
+    
+    .web-copyright{
+        font-size: 0.8rem;
+        font-weight: bold;
+        opacity: 0.5;
+    }
 }
-.footer-site-logo{
-    width: 10%;
-    height: auto;
-    background-color: #fff;
-}
+
+
 

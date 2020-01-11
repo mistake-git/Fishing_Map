@@ -62,7 +62,7 @@ Rails.application.configure do
   config.cache_classes = false
   config.reload_classes_only_on_change = false
   
-  config.action_mailer.default_url_options = {  host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = {protocol: 'https', host: '787bbc86456d498e91a14641769de13c.vfs.cloud9.ap-northeast-1.amazonaws.com'}
   # mail setting
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp

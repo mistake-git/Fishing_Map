@@ -22,7 +22,7 @@ class UsersController < ApplicationController
         else
             @title = "#{@user.name}さんのページ"
         end
-        @posts = @user.posts.page(params[:page]).per(PER)
+        @posts = @user.posts.order(created_at: :desc).page(params[:page]).per(PER)
         @user_posts_count = Post.where(user_id: @user.id).count
         @user_likes_count = Like.where(user_id: @user.id).count
         @user_comments_count = Comment.where(user_id: @user.id).count
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
     def likes
         @user = User.find_by(id: params[:id])
         @likes = @user.likes
-        @posts = @user.likes_posts.page(params[:page]).per(PER)
+        @posts = @user.likes_posts.order(created_at: :desc).page(params[:page]).per(PER)
         @title="#{@user.name}さんのページ"
         @user_posts_count = Post.where(user_id: @user.id).count
         @user_likes_count = Like.where(user_id: @user.id).count
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
     
     def comments
         @user = User.find_by(id: params[:id])
-        @comments = Comment.where(user_id: @user.id).page(params[:page]).per(PER)
+        @comments = Comment.where(user_id: @user.id).order(created_at: :desc).page(params[:page]).per(5)
         @title="#{@user.name}さんのページ"
         @user_posts_count = Post.where(user_id: @user.id).count
         @user_likes_count = Like.where(user_id: @user.id).count
@@ -53,15 +53,15 @@ class UsersController < ApplicationController
     def following
         @user  = User.find_by(id: params[:id])
         @users = @user.following.page(params[:page]).per(PER)
-        @title ="#{@user.name}さんがフォロー中"
+        @title ="#{@user.name}がフォロー中"
         @when_not_text = "フォローしているユーザーがいません"
     end
 
     def followers
         @user  = User.find_by(id: params[:id])
         @users = @user.followers.page(params[:page]).per(PER)
-        @title ="#{@user.name}さんのフォロワー"
-        @when_not_text = "フォロワーがいませ��"
+        @title ="#{@user.name}のフォロワー"
+        @when_not_text = "フォロワーがいません"
     end
     
     def ensure_correct_user
