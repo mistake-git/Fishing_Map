@@ -188,11 +188,12 @@ body{
 .navbar{
     background: #fff;
     box-shadow: 1px 1px 2px #DDDDDD	;
+    
     .nav-item{
         font-size: 1.2rem;
     }
     
-    .nav-link{
+    .navbar-nav .nav-link{
         color: $application-color;
         font-weight: bold;
     }
@@ -204,7 +205,7 @@ body{
     }
     
 
-    .nav-link-login{
+    .navbar-nav .nav-link-login{
         display: inline-block;
         text-decoration: none;
         color: #fff;
@@ -215,6 +216,7 @@ body{
         transition: .4s;
         &:hover{
             opacity: 0.7;
+            color: #fff;
         }
     }
     
@@ -369,15 +371,23 @@ body{
 /*フォーム*/
 .form-wrapper{
     display: inline-block;
-    width: 30%;
+    width: 40%;
     background: #fff;
     padding: 3% 5%;
     box-shadow: 2px 2px 4px rgba(0,0,0,0.12);
- 
+    
+    /*@media screen and (max-width:700px){
+        .form-wrapper{
+            width: 70%;
+        }
+    }
+    */
+
+
     .form-text{
         display: inline-block;
         @include application-text($application-color);
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
     
     .btn,.btn-lg{

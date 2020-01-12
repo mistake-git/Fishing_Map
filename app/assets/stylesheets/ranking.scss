@@ -31,8 +31,6 @@ $application-color:#00CCCC;
 
 /*サイズランキング*/
 .ranking-area{
-    height: 700px;
-
     .ranking-title{
         font-size: 1.5rem;
         @include application-text($application-color);

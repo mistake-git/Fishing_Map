@@ -4,41 +4,29 @@
     
     <%= form_with(model: @user,url:"/users/profile/edit",local: true ,method: :post) do |form| %>
      <%= render "users/shared/error_messages", resource: resource %>
-     
-        <img src="" class="img-preview">
-        <% if @user.image.attached? %>
-            <div class="form-text">現在の画像</div>
-            <%= image_tag @user.image,class:"img-preview" %>
-        <% end %>
-        
-        <div class="field form-group" onchange="previewFile()">
-            <div class="form-text mb-3">プロフィール画像を選択</div><br />
-            <%= form.file_field :image ,class:"image ",id:"file"%>
-        </div>
-    
-        <div class="field form-group">
+        <div class="field form-group text-left">
            <%= form.label :"ユーザー名" ,class:"form-text"%><br />
-           <%= form.text_field :name ,placeholder:"ユーザー名"%>
+           <%= form.text_field :name ,placeholder:"ユーザー名" ,class:"form-control"%>
         </div>
         
-        <div class="field form-group">
+        <div class="field form-group text-left">
            <%= form.label :"メールアドレス" ,class:"form-text"%><br />
-           <%= form.text_field :email ,placeholder:"メールアドレス"%>
+           <%= form.text_field :email ,placeholder:"メールアドレス" ,class:"form-control"%>
         </div>
         
-        <div class="field form-group">
+        <div class="field form-group text-left">
            <%= form.label :"活動エリア" ,class:"form-text"%><br />
-           <%= form.text_field :address ,placeholder:"都道府県を入力して下さい"%>
+           <%= form.text_field :address ,placeholder:"都道府県を入力して下さい" ,class:"form-control"%>
         </div>
      
         
-        <div class="field form-group">
+        <div class="field form-group text-left">
            <%= form.label :"自己紹介" ,class:"form-text"%><br />
-           <%= form.text_field :introduce ,placeholder:"よろしくおねがいします"%>
+           <%= form.text_field :introduce ,placeholder:"よろしくおねがいします" ,class:"form-control"%>
         </div>
         
         <div class="actions">
-            <%= form.submit "編集する" ,class:"btn btn-info mb-4"%>
+            <%= form.submit "編集する" ,class:"btn-lg btn-info mb-4"%>
         </div>
     <% end %>
   </div>    

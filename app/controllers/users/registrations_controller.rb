@@ -40,16 +40,25 @@ class Users::RegistrationsController < Devise::RegistrationsController
       introduce: params[:user][:introduce],
       address: params[:user][:address]
     )
-      if params[:user][:image]
-        @user.image.purge
-        @user.image.attach(params[:user][:image])
-      end
       flash[:notice] = 'ユーザー情報を編集しました'
       redirect_to("/users/#{current_user.id}")
     else
       render('users/registrations/edit')
     end
    end
+   
+   def img_update
+       @user = current_user
+       if params[:user][:image]
+        @user.image.purge
+        @user.image.attach(params[:user][:image])
+       end
+       flash[:notice] = 'プロフィール画像を変更しました'
+       redirect_to("/users/#{current_user.id}")
+   end
+   
+   
+ 
    
 
   # DELETE /resource

@@ -2,12 +2,12 @@ Rails.application.routes.draw do
   get '/fishing.map',to:'posts#fishing_map',as:'fmap_path'
   get '/posts/search_fishing_map',to:'posts#search_fishing_map'
   get '/posts/search',to:'posts#search'
-  get '/posts/test'
   resources :posts
   get '/',to:'home#top',as:'root'
   devise_for :users, controllers: { registrations: 'users/registrations' }
   devise_scope :user do
       post '/users/profile/edit',to:'users/registrations#update'
+      post '/users/profile.img/edit',to:'users/registrations#img_update'
   end 
   
   
