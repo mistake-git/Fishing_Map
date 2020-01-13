@@ -27,6 +27,20 @@ class UsersController < ApplicationController
         @user_likes_count = Like.where(user_id: @user.id).count
         @user_comments_count = Comment.where(user_id: @user.id).count
         @when_not_text ="釣果が登録されていません"
+        @user_data = [
+            
+        ['タイ', 100],
+            ['サメ', 70], 
+            ['サバ', 15],
+            ['アジ', 80],
+            ['カサゴ', 90],
+            ['メバル', 100],
+            ['イカ', 70], 
+            ['バス', 15],
+            ['アナゴ', 80],
+            ['アイナメ', 90]
+            
+            ]
     end   
     
     def likes

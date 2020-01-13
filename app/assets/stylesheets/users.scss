@@ -20,6 +20,11 @@ $application-color:#00CCCC;
     font-weight: bold;
 }
 
+.profile-title,.data-title{
+    @include application-text($application-color);
+    font-size: 1.2rem;
+}
+
 .user-header{
     margin: 3% 0;
 
@@ -35,11 +40,20 @@ $application-color:#00CCCC;
             }
             
             .user-img-area{
+                
+               .user-image{
+                    width: 150px;
+                    height: 150px;
+                    border-radius: 50%;
+                    border: 4px solid #fff;
+               }
+                   
                 position: relative;
+                
                 .profile-img-edit{
                     position:absolute;
                     bottom: 8%;
-                    left: 55%;
+                    left: 40%;
                     color: #fff;
                     opacity: 0.8;
                     cursor: default;
@@ -50,21 +64,24 @@ $application-color:#00CCCC;
                 
             }
             
-            .user-name{
-                 font-weight: bold;
-                 font-size: 2.0rem;
-                 color: #fff;
+            
+            .user-name-area{
+                margin-top: 4%;
+                text-align: center;
+                  .user-name{
+                    vertical-align: middle;
+                    font-weight: bold;
+                    font-size: 2.0rem;
+                    color: #fff;
+                }
             }
-
-            .user-image{
-                width: 150px;
-                height: 150px;
-                border-radius: 50%;
-                border: 4px solid #fff;
-           }
-           
+            
+            .follow-btn-wrapper{
+                margin-top: 4%;
+            }
+          
            .follow-group{
-               
+               margin-top: 12%;
                .header-follow-text{
                    font-size: 1.5rem;
                    display: inline-block;
@@ -140,6 +157,7 @@ $application-color:#00CCCC;
     }
 }
 
+
 .user-tab-list div{
     display: inline-block;
 }
@@ -170,29 +188,25 @@ $application-color:#00CCCC;
 .active{
     opacity: 1.0;
 }
+    
+.card{
+    position: relative;
 
-.user-post{
-    width: 80%;
-    
-    .card{
-        position: relative;
-    
-        .post-card-img{
-            width: 200px;
-            height: 130px;
-            margin: 5% auto;
-        }
-    
-        .post-description-default{
-            opacity: 0.5;
-        }
-        
-        .card-tag{
-            margin: 5%;
-        }
+    .post-card-img{
+        width: 200px;
+        height: 130px;
+        margin: 5% auto;
     }
 
+    .post-description-default{
+        opacity: 0.5;
+    }
+    
+    .card-tag{
+        margin: 5%;
+    }
 }
+
 
 
 

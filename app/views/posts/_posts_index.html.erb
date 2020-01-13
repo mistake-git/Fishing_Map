@@ -1,94 +1,98 @@
-<div class="container user-post">
-     <% @posts.each do |post| %>
-        <div class="card mt-1 ml-1 mr-1 mb-1">
-            <div class="post-card-user mt-2 ml-2">
-                <div class="card-user-img-wrapper mr-1">
-                    <% if post.user.image.attached? %>
-                        <%= image_tag post.user.image,class:"card-img-top post-card-user-img" %>
-                    <% else %>
-                        <img src="/assets/user-image.png" class="card-img-top post-card-user-img default-img">
-                    <% end %>
+<div class="container">
+    <div class="row no-gutters">
+        <% @posts.each do |post| %>
+        <div class="col-xs-12 col-md-3"> 
+            <div class="card mt-1 mb-1 ml-1 mr-1">
+                <div class="post-card-user mt-2 ml-2">
+                    <div class="card-user-img-wrapper mr-1">
+                        <% if post.user.image.attached? %>
+                            <%= image_tag post.user.image,class:"card-img-top post-card-user-img" %>
+                        <% else %>
+                            <img src="/assets/user-image.png" class="card-img-top post-card-user-img default-img">
+                        <% end %>
+                    </div>
+                    <div class="post-card-user-name mr-1">
+                        <%=link_to "#{post.user.name}","/users/#{post.user.id}" %>
+                    </div>
+                    <div class="post-card-user-area mr-1">
+                        <%= post.user.address %>
+                    </div>
                 </div>
-                <div class="post-card-user-name mr-1">
-                    <%=link_to "#{post.user.name}","/users/#{post.user.id}" %>
-                </div>
-                <div class="post-card-user-area mr-1">
-                    <%= post.user.address %>
+                <% if post.image.attached? %>
+                    <%= image_tag post.image,class:"card-img-top post-card-img" %>
+                <% else %>
+                    <img src="/assets/sakana-img.jpg" class="card-img-top post-card-img default-img">
+                <% end %>
+                  <div class="card-body mt-1">
+                    <h6 class="card-title text-center card-label"><%= link_to"#{post.name}",post %></h6>
+                   
+                    <p class="card-text card-tag">
+                        <% if post.description? %>  
+                            <div class="text-center mt-3 mb-3">
+                                <%= post.description %>
+                            </div>
+                        <% else %>
+                            <div class="post-description-default text-center mt-3 mb-3">
+                                説明がありません
+                            </div>
+                        <% end %>
+                        <% if post.feed? %>
+                            <div class="badge badge-info">
+                                餌: <%= post.feed %>
+                            </div>
+                        <% end %>
+                        <% if post.weather? %>
+                            <div class="badge badge-info">
+                                天気: <%= post.weather %>
+                            </div>
+                        <% end %>
+                        <% if post.size? %>
+                            <div class="badge badge-info">
+                                数量: <%= post.size %>
+                            </div>
+                        <% end %>
+                        <% if post.size? %>
+                            <div class="badge badge-info size-badge">
+                                サイズ: <%= post.size %>cm
+                            </div>
+                        <% end %>
+                        <% if post.number? %>
+                            <div class="badge badge-info">
+                                数量: <%= post.number %>
+                            </div>
+                        <% end %>
+                        <% if post.date? %>
+                            <div class="badge badge-info">
+                                日時: <%= post.date %>
+                            </div>
+                        <% end %>
+                        <% if post.time? %>
+                            <div class="badge badge-info">
+                                時間: <%= post.time.to_s(:time)%>
+                            </div>
+                        <% end %>
+                        <% if post.address? %>
+                            <div class="badge badge-info">
+                                場所: <%= post.address%>
+                            </div>
+                        <% end %>
+                    </p>
+                        <div class="card-bottom ml-5">
+                            <div class ="post-like-count ml-1 ml-2">
+                                <% @likes_count = Like.where(post_id: post.id).count %>
+                                <i class="fas fa-heart ml-1 mr-2"></i><%= @likes_count %>
+                            </div>
+                            <div class="post-comments-count ml-2">
+                                <% @comments_count = Comment.where(post_id: post.id).count %>
+                                <i class="fas fa-comment ml-1 mr-2"></i><%= @comments_count %>
+                            </div>
+                            <div class="post-created_at ml-2">
+                                <%= "#{time_ago_in_words(post.created_at)}前"%>
+                            </div> 
+                        </div>
+                  </div>
                 </div>
             </div>
-            <% if post.image.attached? %>
-                <%= image_tag post.image,class:"card-img-top post-card-img" %>
-            <% else %>
-                <img src="/assets/sakana-img.jpg" class="card-img-top post-card-img default-img">
-            <% end %>
-              <div class="card-body mt-1">
-                <h6 class="card-title text-center card-label"><%= link_to"#{post.name}",post %></h6>
-               
-                <p class="card-text card-tag">
-                    <% if post.description? %>  
-                        <div class="text-center mt-3 mb-3">
-                            <%= post.description %>
-                        </div>
-                    <% else %>
-                        <div class="post-description-default text-center mt-3 mb-3">
-                            説明がありません
-                        </div>
-                    <% end %>
-                    <% if post.feed? %>
-                        <div class="badge badge-info">
-                            餌: <%= post.feed %>
-                        </div>
-                    <% end %>
-                    <% if post.weather? %>
-                        <div class="badge badge-info">
-                            天気: <%= post.weather %>
-                        </div>
-                    <% end %>
-                    <% if post.size? %>
-                        <div class="badge badge-info">
-                            数量: <%= post.size %>
-                        </div>
-                    <% end %>
-                    <% if post.size? %>
-                        <div class="badge badge-info size-badge">
-                            サイズ: <%= post.size %>cm
-                        </div>
-                    <% end %>
-                    <% if post.number? %>
-                        <div class="badge badge-info">
-                            数量: <%= post.number %>
-                        </div>
-                    <% end %>
-                    <% if post.date? %>
-                        <div class="badge badge-info">
-                            日時: <%= post.date %>
-                        </div>
-                    <% end %>
-                    <% if post.time? %>
-                        <div class="badge badge-info">
-                            時間: <%= post.time.to_s(:time)%>
-                        </div>
-                    <% end %>
-                    <% if post.address? %>
-                        <div class="badge badge-info">
-                            場所: <%= post.address%>
-                        </div>
-                    <% end %>
-                </p>
-                    <div class="card-bottom ml-5">
-                        <div class ="post-like-count ml-1 ml-2">
-                            <% @likes_count = Like.where(post_id: post.id).count %>
-                            <i class="fas fa-heart ml-1 mr-2"></i><%= @likes_count %>
-                        </div>
-                        <div class="post-comments-count ml-2">
-                            <% @comments_count = Comment.where(post_id: post.id).count %>
-                            <i class="fas fa-comment ml-1 mr-2"></i><%= @comments_count %>
-                        </div>
-                        <div class="post-created_at ml-2">
-                            <%= "#{time_ago_in_words(post.created_at)}前"%>
-                        </div> 
-                    </div>
-              </div>
-        </div>
-    <% end %>
+        <% end %>
+    </div>
 </div>

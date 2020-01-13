@@ -1,41 +1,51 @@
 <div class="page-title ml-4 mt-4"><%= @title %></div>
 <%= render partial: 'users_header'%>
-  <div class="user-content row">
-    <div class="col-xs-12 col-md-3 text-center mt-5">
-       <%= render partial: 'users_status'%>
-    </div> 
-    <div class="col-xs-12 col-md-9">
-        <div class="user-tab-list text-center mt-5 mb-5">
-            <%= link_to "/users/#{@user.id}",class:"decoration-none" do %>
-                <div class="user-tab-title active">
-                    <div class="tab-title">釣果</div>
-                    <div class="badge badge-light"><%= @user_posts_count %></div>
-                </div>
-            <% end %>
-            <%= link_to "/users/#{@user.id}/likes" do %>
-                <div class="user-tab-title">
-                    <div class="tab-title">いいね</div>
-                    <div class="badge badge-light"><%= @user_likes_count %></div>
-                </div>
-            <% end %>
-            <%= link_to "/users/#{@user.id}/comments" do %>
-                <div class="user-tab-title">
-                    <div class="tab-text">コメント</div>
-                    <div class="badge badge-light"><%= @user_comments_count %></div>
-                </div>
-            <% end %>
-        </div>
-        <%= render "posts/posts_index" %>
-        <% if @user.posts.empty? %>
-            <div class="when-not-text">
-                <%= @when_not_text %>
-            </div>
-        <% end %>
-        <div class="pagenation">
-            <%= paginate @posts%>
-        </div>
+<div class="container">
+    <div class="row no-gutters">
+        <div class="col-xs-12 col-md-6 mt-5 text-center">
+            <div class="text-center mb-3 profile-title">プロフィール</div>
+           <%= render partial: 'users_status'%>
+        </div> 
+        <div class="col-xs-12 col-md-6 mt-5 data-title">
+            <div class="text-center mb-3"><%= @user.name %>さんの釣果データ</div>
+             <%= pie_chart @user_data, width: "100%", height: "300px"%>
+        </div> 
     </div>
 </div>
+
+
+<div class="container">
+    <div class="user-tab-list text-center mt-5 mb-5">
+        <%= link_to "/users/#{@user.id}",class:"decoration-none" do %>
+            <div class="user-tab-title active">
+                <div class="tab-title">釣果</div>
+                <div class="badge badge-light"><%= @user_posts_count %></div>
+            </div>
+        <% end %>
+        <%= link_to "/users/#{@user.id}/likes" do %>
+            <div class="user-tab-title">
+                <div class="tab-title">いいね</div>
+                <div class="badge badge-light"><%= @user_likes_count %></div>
+            </div>
+        <% end %>
+        <%= link_to "/users/#{@user.id}/comments" do %>
+            <div class="user-tab-title">
+                <div class="tab-text">コメント</div>
+                <div class="badge badge-light"><%= @user_comments_count %></div>
+            </div>
+        <% end %>
+    </div>
+        <%= render "posts/posts_index" %>
+    <% if @user.posts.empty? %>
+        <div class="when-not-text">
+            <%= @when_not_text %>
+        </div>
+    <% end %>
+    <div class="pagenation">
+        <%= paginate @posts%>
+    </div>
+</div>
+
 
 
 

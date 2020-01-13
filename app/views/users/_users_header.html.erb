@@ -1,35 +1,19 @@
 <div class="user-header">
-    <div class="user-status pt-3 pb-3 row">
-        
-        <div class="col-xs-12 col-md-6">
+    <div class="user-status pt-3 pb-3 row no-gutters">
+        <div class="col-xs-12 col-md-2 text-center">
             <div class="user-img-area">
                 <% if @user.image.attached? %>
-                    <%= image_tag @user.image,class:"user-image mt-2 mb-2 ml-5 "%>
+                    <%= image_tag @user.image,class:"user-image"%>
                 <% else %>
-                    <img src="/assets/user-image.png" class="user-image default-img mt-2 mb-2 ml-5">
+                    <img src="/assets/user-image.png" class="user-image default-img">
                 <% end %>
                 <% if @user.id == current_user.id %>
                     <div class="profile-img-edit" data-toggle="modal" data-target="#img_edit">設定</div>
                <% end %>
             </div>
-            <div class="user-name ml-5"><%= @user.name %></div>
         </div>
-        
-        <div class="col-xs-12 col-md-6">
-            <% @user ||= current_user %>
-            <div class="follow-group">
-                <%= link_to("/users/#{@user.id}/following") do %>
-                    <div class="header-follow-text mr-5">
-                        フォロー <%= @user.following.count %>
-                    </div>
-                <% end %>
-                <%= link_to("/users/#{@user.id}/followers") do %>
-                    <div class="header-follow-text">
-                        フォロワー <%= @user.followers.count %>
-                    </div>
-                <% end %>
-            </div>
-            <div class="follow-btn-wrapper ml-5">    
+        <div class="col-xs-12 col-md-2 col-md-offcet-2 user-name-area text-center">
+            <div class="user-name mr-5"><%= @user.name %></div>
                 <% if @user.id != current_user.id %>
                     <% if  Relationship.find_by(follower_id: current_user.id,followed_id: @user.id) %>
                         <%= form_with(model: current_user.active_relationships.find_by(followed_id: @user.id),local: true,html: { method: :delete }) do |form| %>
@@ -41,6 +25,20 @@
                         <%= form.submit "フォローする", class: " follow-btn-lg" %>
                         <% end %>
                    <% end %>
+                <% end %>
+        </div>
+        <div class="col-xs-12 col-md-4 col-md-offcet-2 text-center">
+            <% @user ||= current_user %>
+            <div class="follow-group">
+                <%= link_to("/users/#{@user.id}/following") do %>
+                    <div class="header-follow-text mr-5">
+                        フォロー <%= @user.following.count %>
+                    </div>
+                <% end %>
+                <%= link_to("/users/#{@user.id}/followers") do %>
+                    <div class="header-follow-text">
+                        フォロワー <%= @user.followers.count %>
+                    </div>
                 <% end %>
             </div>
         </div>
