@@ -20,6 +20,11 @@ $application-color:#00CCCC;
     font-weight: bold;
 }
 
+.profile-title,.data-title{
+    @include application-text($application-color);
+    font-size: 1.2rem;
+}
+
 .user-header{
     margin: 3% 0;
 
@@ -34,21 +39,49 @@ $application-color:#00CCCC;
                 display: inline-block;
             }
             
-            .user-name{
-                 font-weight: bold;
-                 font-size: 2.0rem;
-                 color: #fff;
-                 margin-left: 2%;
+            .user-img-area{
+                
+               .user-image{
+                    width: 150px;
+                    height: 150px;
+                    border-radius: 50%;
+                    border: 4px solid #fff;
+               }
+                   
+                position: relative;
+                
+                .profile-img-edit{
+                    position:absolute;
+                    bottom: 8%;
+                    left: 40%;
+                    color: #fff;
+                    opacity: 0.8;
+                    cursor: default;
+                    &:hover{
+                        opacity: 1;
+                    }
+                }
+                
             }
-
-            .user-image{
-                width: 120px;
-                height: 120px;
-                border-radius: 50%;
-           }
-           
+            
+            
+            .user-name-area{
+                margin-top: 4%;
+                text-align: center;
+                  .user-name{
+                    vertical-align: middle;
+                    font-weight: bold;
+                    font-size: 2.0rem;
+                    color: #fff;
+                }
+            }
+            
+            .follow-btn-wrapper{
+                margin-top: 4%;
+            }
+          
            .follow-group{
-                margin-left: 40%;
+               margin-top: 12%;
                .header-follow-text{
                    font-size: 1.5rem;
                    display: inline-block;
@@ -78,7 +111,6 @@ $application-color:#00CCCC;
         font-weight: bold;
     
     &:after {
-      /*タブ*/
         position: absolute;
         content: '自己紹介';
         background: #80c8d1;
@@ -110,7 +142,6 @@ $application-color:#00CCCC;
         font-weight: bold;
       
         &:after {
-          /*タブ*/
             position: absolute;
             content: '活動エリア';
             background: #80c8d1;
@@ -126,64 +157,40 @@ $application-color:#00CCCC;
     }
 }
 
-.title-list div{
+
+.user-tab-list div{
     display: inline-block;
 }
 
-
-
-.user-post-title{
-    font-size: 1.2rem;
+.user-tab-title{
+        font-size: 1.2rem;
         position: relative;
-        padding: 5px 5px 5px 42px;
+        padding: 1% 4%;
         background: $application-color;
-        font-size: 1.3rem;
         color: white;
         font-weight: bold;
-        margin-left: -33px;
-        line-height: 1.3;
-        width: 20%;
+        width: 31%;
         z-index:-1;
         opacity: 0.6;
         text-align: center;
         
         &:before {
-        position: absolute;
-        content: '';
-        left: -2px;
-        top: -2px;
-        border: none;
-        border-left: solid 40px #EEFFFF;
-        border-bottom: solid 79px transparent;
-        z-index:-2
+            position: absolute;
+            content: '';
+            left: -2px;
+            top: -2px;
+            border: none;
+            border-left: solid 40px #EEFFFF;
+            border-bottom: solid 79px transparent;
+            z-index:-2
         }
 }
-
 .active{
     opacity: 1.0;
 }
-.user-post{
-    width: 80%;
     
-    .card{
-        position: relative;
-    
-        .post-card-img{
-            width: 200px;
-            height: 150px;
-            margin: 5% auto;
-        }
-    
-        .post-description-default{
-            opacity: 0.5;
-        }
-        
-        .card-tag{
-            margin: 5%;
-        }
-    }
 
-}
+
 
 
 

@@ -1,7 +1,11 @@
-<%= link_to :back do %>
-    <div class="mt-3 ml-3 back-btn"> < 戻る</div>
+
+<%= link_to"/fishing.map" do %>
+    <div class="mt-3 ml-3 back-btn">Fishing Map</div>
 <% end %>
-<div class="application-description">
+
+
+
+<div class="application-description text-center">
     このページではGoogle Map上で釣果を見ることができます｡どこでどんな魚が釣れているのか確認してみましょう!
 </div>
 <div class="form-group text-center mt-5 mb-5">
@@ -43,11 +47,9 @@
             });
  </script>
  
-<% if @is_fmap == false %>
- <div class="pagenation">
-    <%= paginate @posts%>
+<div class="pagenation">
+    <%= paginate @posts %>
 </div>
-<% end %>
 
 
 

@@ -1,28 +1,28 @@
 <div class="text-center mt-5 mb-5">
   <div class="form-wrapper mt-5 mb-5">     
     <h4 class="form-title mb-5">ログイン</h4>
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |form| %>
      <%= render "devise/shared/error_messages", resource: resource %>
      
-      <div class="field form-group users_email">
-        <%= f.label :email ,class:"form-text mb-4"%><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class:"form-control"%>
+      <div class="field form-group users_email text-left">
+        <%= form.label :email ,class:"form-text mb-4"%><br />
+        <%= form.email_field :email, autofocus: true, autocomplete: "email" ,class:"form-control"%>
       </div>
     
-      <div class="field form-group users_password">
-        <%= f.label :password,class:"form-text mb-4" %><br />
-        <%= f.password_field :password, autocomplete: "current-password" ,class:"form-control"%>
+      <div class="field form-group users_password text-left">
+        <%= form.label :password,class:"form-text mb-4" %><br />
+        <%= form.password_field :password, autocomplete: "current-password" ,class:"form-control"%>
       </div>
     
       <% if devise_mapping.rememberable? %>
         <div class="field form-group">
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me ,class:"form-text mb-3"%>
+          <%= form.check_box :remember_me %>
+          <%= form.label :remember_me ,class:"form-text mb-3"%>
         </div>
       <% end %>
     
       <div class="actions">
-        <%= f.submit "ログイン" ,class:"btn-lg btn-info mb-4" %>
+        <%= form.submit "ログイン" ,class:"btn-lg btn-info mb-4" %>
       </div>
     <% end %>
     

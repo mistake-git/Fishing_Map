@@ -9,21 +9,8 @@ class PostsController < ApplicationController
   # GET /posts.json
   
   def fishing_map
-    @posts = Post.all.order(created_at: :desc).limit(100)
+    @posts = Post.all.order(created_at: :desc).limit(100).page(params[:page]).per(100)
     @user = current_user
-    @fish_data = [
-            ['タイ', 100],
-            ['サメ', 70], 
-            ['サバ', 15],
-            ['アジ', 80],
-            ['カサゴ', 90],
-            ['メバル', 100],
-            ['イカ', 70], 
-            ['バス', 15],
-            ['アナゴ', 80],
-            ['アイナメ', 90]
-            ]
-    @is_fmap = true
   end
   
   def index

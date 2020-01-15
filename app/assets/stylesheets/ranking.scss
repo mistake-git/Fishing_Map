@@ -31,8 +31,6 @@ $application-color:#00CCCC;
 
 /*サイズランキング*/
 .ranking-area{
-    height: 700px;
-
     .ranking-title{
         font-size: 1.5rem;
         @include application-text($application-color);
@@ -49,7 +47,7 @@ $application-color:#00CCCC;
 
     .ranking-card-list{
         position: relative;
-        
+        /*
         .card:nth-child(1):before{
             @include ranking-icon ;
             content: '\f521 1位';
@@ -93,6 +91,8 @@ $application-color:#00CCCC;
             content: '8位';
             @include ranking-icon2 ;
         }
+        
+        */
         
         .size-badge{
             background-color: #FFD700;

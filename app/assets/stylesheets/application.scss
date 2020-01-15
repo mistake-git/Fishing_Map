@@ -188,91 +188,47 @@ body{
 .navbar{
     background: #fff;
     box-shadow: 1px 1px 2px #DDDDDD	;
+    
     .nav-item{
         font-size: 1.2rem;
     }
     
-    .nav-link{
+    .navbar-nav .nav-link{
         color: $application-color;
         font-weight: bold;
     }
-    
     .nav-link-img{
         width: 48px;
         height: 48px;
         border-radius: 50%;
     }
     
-
-    .nav-link-login{
-        display: inline-block;
-        text-decoration: none;
-        color: #fff;
-        border-radius: 25px;
-        text-align: center;
-        overflow: hidden;
-        background-image: linear-gradient(45deg, #709dff 0%, #91fdb7 100%);
-        transition: .4s;
-        &:hover{
-            opacity: 0.7;
+     @media screen and (max-width:700px){
+        .nav-link-img{
+           display: none;
         }
+        
+        .nav-link{
+            border-bottom: 2px dashed rgba(0,204,204,0.5);;
+            padding: 3% 0;
+        }
+
     }
-    
-    .dropdown-menu{
-            width: 430px;
-            height: 430px;
-            position: relative;
-            margin-right: -8px;
-            
-            &::after{
-                content: "";
-                position: absolute;
-                top: -9px;
-                right: 14px;
-                border-width: 0 9px 9px;
-                border-style: solid;
-                border-color: #fff transparent;
-                display: block;
-                width: 0;
+
+    @media screen and (min-width:700px){
+        .navbar-nav .nav-link-login{
+            display: inline-block;
+            text-decoration: none;
+            color: #fff;
+            border-radius: 25px;
+            text-align: center;
+            background-image: linear-gradient(45deg, #709dff 0%, #91fdb7 100%);
+            transition: .4s;
+            &:hover{
+                opacity: 0.7;
+                color: #fff;
             }
-            
-            &::before {
-                content: "";
-                position: absolute;
-                top: -10px;
-                right: 13px;
-                border-width: 0 10px 10px;
-                border-style: solid;
-                border-color: rgba(0,0,0,0.15) transparent;
-                display: block;
-                width: 0;
-            }
-    
-            
-            .notification-title{
-                @include application-text($application-color);
-                font-size: 0.8rem;
-                margin-top: -1%;
-                border-bottom: 2px solid rgba(0,204,204,0.2);
-            }
-            
-             .when-not-text-notification{
-                margin-top: 40%;
-                font-weight: bold;
-                opacity: 0.3;
-            }
-            
-            
-            .notification-more{
-               position: absolute;
-               bottom: 0.5%;
-               left: 38%;
-            }
-            
-            
-            .header-notifications{
-                border-bottom: 2px solid rgba(0,204,204,0.2);
-            }
+        }
     }
     
     .notifications-bell{
@@ -297,14 +253,15 @@ body{
 
 /*ユーザー,投稿一覧ページ*/
 
-.container{
-    display: flex;
-    flex-wrap: wrap;
+.user-index .user-card{
+    height: auto;
 }
 
 .card{
-    width: 24%;
-    
+    width: 95%;
+    height: auto;
+    position: relative;
+     
     .card-label{
         position: relative;
         padding: 0.3em;
@@ -352,32 +309,65 @@ body{
              @include application-text($application-color);
         }
     }
+    
+    .post-card-img{
+        width: 200px;
+        height: 130px;
+        margin: 5% auto;
+    }
+    
+    @media screen and (max-width:700px){
+        .post-card-img{
+            width: 400px;
+            height: 260px;
+        }
+    }
+    
+    .post-description-default{
+        opacity: 0.5;
+    }
+    
+    .card-tag{
+        margin: 5%;
+    }
+    
+    .card-bottom{
+        position: absolute;
+        bottom: 2%;
+        left: 5%;
+    }
+    
+    .card-bottom div{
+        display: inline-block;
+    }
 }
 
-.card-bottom{
-    position: absolute;
-    bottom: 2%;
-    left: 5%;
-}
 
-.card-bottom div{
-    display: inline-block;
-}
 
 
 
 /*フォーム*/
 .form-wrapper{
     display: inline-block;
-    width: 30%;
+    width: 40%;
     background: #fff;
     padding: 3% 5%;
     box-shadow: 2px 2px 4px rgba(0,0,0,0.12);
- 
+    
+    .form-title{
+    color:  $application-color;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.7rem;
+    border-left: solid 6px #7db4e6;
+    width: 40%;
+    margin: 0 auto;
+    }
+    
     .form-text{
         display: inline-block;
         @include application-text($application-color);
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
     
     .btn,.btn-lg{
@@ -386,20 +376,22 @@ body{
     
     a{
         color: #0099E8;
-    
         &:hover{
           text-decoration: underline;  
         }
     }
+}
+    
+
+@media screen and (max-width:700px){
+    .form-wrapper{
+        width: 70%;
+    }
+
     
 }
 
-.form-title{
-    color:  $application-color;
-    font-weight: bold;
-    text-align: center;
-    font-size: 1.7rem;
-}
+
 
 /*パスワード変更*/
 .password-mail-wrapper,.password-edit-wrapper{
@@ -420,7 +412,14 @@ body{
 /*ページネーション*/
 
 .pagenation{
-    margin: 5% 0 0 45%;
+     margin: 5% 18%;
+}
+
+@media screen and (min-width:700px){
+    .pagenation{
+        margin: 5% 38%;
+    }
+
 }
 
 .notification-pagenation{
@@ -459,11 +458,12 @@ body{
 }
 
 /*お知らせ詳細ページ*/
+
 .notification{
     border-right: 1px solid rgba(0,204,204,0.2);
-    margin: 5% 10%;
+    margin: 5% auto;
     background-color: #fff;
-    width: 38%;
+    width: 70%;
     height: 700px;
         .notification-title{
                 @include application-text($application-color);
@@ -486,12 +486,21 @@ body{
         }
 }
 
+@media screen and (min-width:700px){
+    .notification{
+        margin: 5% 10%;
+        width: 38%;
+    }
+}
+
 
 /*フッター*/
 
 .footer{
+   margin-top: 10%;    
    background-color: #fff;
    height: 150px;
+   border-top: 1px solid #DDDDDD	;
    position: relative;
     .footer-site-logo{
         width: 15%;
