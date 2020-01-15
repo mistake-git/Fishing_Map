@@ -1,6 +1,6 @@
 <div class="text-center mt-5 mb-5">
   <div class="form-wrapper pt-5 pb-5">  
-    <h4 class="form-title mb-3">アカウント編集</h4>
+    <h4 class="form-title mb-3">アカウント</h4>
     
     <%= form_with(model: @user,url:"/users/profile/edit",local: true ,method: :post) do |form| %>
      <%= render "users/shared/error_messages", resource: resource %>

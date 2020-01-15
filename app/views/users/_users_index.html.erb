@@ -1,8 +1,8 @@
 <div class="container">
     <div class="row no-gutters">
         <% @users.each do |user| %>
-            <div class="col-xs-12 col-md-3">
-                <div class="card user-index-card mt-1 ml-1 mr-1 mb-1">
+            <div class="col-xs-12 col-md-3 user-index">
+                <div class="card user-card mt-1 ml-1 mr-1 mb-1">
                     <% if user.image.attached? %>
                         <%= image_tag user.image, class:"card-img-top user-card-img mx-auto mt-3"%>
                     <% else %>
