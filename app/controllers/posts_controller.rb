@@ -44,7 +44,7 @@ class PostsController < ApplicationController
             @title = "#{@user.name}さん"
     end
     @likes_count = Like.where(post_id: @post.id).count
-    @comments = Comment.where(post_id: @post.id).page(params[:page]).per(PER)
+    @comments = Comment.where(post_id: @post.id).page(params[:page]).per(5)
     @comments_count = Comment.where(post_id: @post.id).count
     
     #その投稿のnameの数を月ごとに集計したい

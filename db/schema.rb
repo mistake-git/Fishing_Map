@@ -41,6 +41,14 @@ ActiveRecord::Schema.define(version: 2019_12_31_004130) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "fish", force: :cascade do |t|
+    t.string "name"
+    t.string "difficulty"
+    t.date "month"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
     t.integer "post_id"

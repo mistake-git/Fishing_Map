@@ -1,7 +1,7 @@
 <div class="page-title ml-4 mt-4"><%= @title %>の釣果</div>
-<div class="row mr-4 ">
+<div class="row mr-4">
     <div class="post-show-user col-xs-12 col-md-3">
-        <div class=" card mt-5 ml-5 show-user-card" style="height:auto;">
+        <div class=" card ml-5 show-user-card" style="height:auto;">
             <% if @post.user.image.attached? %>
                     <%= image_tag @post.user.image, class:" post-user-img"%>
             <% else %>

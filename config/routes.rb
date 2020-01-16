@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get '/posts/search',to:'posts#search'
   resources :posts
   get '/',to:'home#top',as:'root'
+  get '/rule',to:'home#rule'
+  get '/policy',to:'home#policy'
   devise_for :users, controllers: { registrations: 'users/registrations' }
   devise_scope :user do
       post '/users/profile/edit',to:'users/registrations#update'

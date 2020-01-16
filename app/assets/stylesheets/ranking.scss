@@ -47,52 +47,9 @@ $application-color:#00CCCC;
 
     .ranking-card-list{
         position: relative;
-        /*
-        .card:nth-child(1):before{
-            @include ranking-icon ;
-            content: '\f521 1位';
-            color: #FFD700;
+        .ranking-icon{
+            @include ranking-icon;
         }
-    
-    
-        .card:nth-child(2):before{
-            @include ranking-icon ;
-            content: '\f521 2位';
-            color: #C0C0C0;
-        }
-        
-        .card:nth-child(3):before{
-            @include ranking-icon ;
-            content: '\f521 3位';
-            color: #815A2B;
-        }
-        
-        .card:nth-child(4):before{
-            content: '4位';
-            @include ranking-icon2 ;
-        }
-        
-        .card:nth-child(5):before{
-            content: '5位';
-            @include ranking-icon2 ;
-        }
-        
-         .card:nth-child(6):before{
-            content: '6位';
-            @include ranking-icon2 ;
-        }
-        
-        .card:nth-child(7):before{
-            content: '7位';
-            @include ranking-icon2 ;
-        }
-        
-        .card:nth-child(8):before{
-            content: '8位';
-            @include ranking-icon2 ;
-        }
-        
-        */
         
         .size-badge{
             background-color: #FFD700;
