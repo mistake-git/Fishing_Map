@@ -35,6 +35,9 @@ Things you may want to cover:
 (地図の色を変えたい)
 背景画像を投稿できるようにする
 
+twitterでログイン
+twitterリンク
+お問い合わせ
 
 
    
