@@ -15,10 +15,12 @@ class FishController < ApplicationController
   # GET /fish/new
   def new
     @fish = Fish.new
+    @form_title ="データを作成"
   end
 
   # GET /fish/1/edit
   def edit
+      @form_title ="データを編集"
   end
 
   # POST /fish
@@ -28,7 +30,7 @@ class FishController < ApplicationController
 
     respond_to do |format|
       if @fish.save
-        format.html { redirect_to @fish, notice: 'Fish was successfully created.' }
+        format.html { redirect_to @fish, notice: '魚のデータを作成しました' }
         format.json { render :show, status: :created, location: @fish }
       else
         format.html { render :new }
@@ -42,7 +44,7 @@ class FishController < ApplicationController
   def update
     respond_to do |format|
       if @fish.update(fish_params)
-        format.html { redirect_to @fish, notice: 'Fish was successfully updated.' }
+        format.html { redirect_to @fish, notice: '魚のデータを編集しました' }
         format.json { render :show, status: :ok, location: @fish }
       else
         format.html { render :edit }
@@ -56,7 +58,7 @@ class FishController < ApplicationController
   def destroy
     @fish.destroy
     respond_to do |format|
-      format.html { redirect_to fish_index_url, notice: 'Fish was successfully destroyed.' }
+      format.html { redirect_to fish_index_url, notice: '魚のデータを削除しました.' }
       format.json { head :no_content }
     end
   end

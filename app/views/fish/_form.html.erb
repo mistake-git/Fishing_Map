@@ -1,32 +1,34 @@
-<%= form_with(model: fish, local: true) do |form| %>
-  <% if fish.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(fish.errors.count, "error") %> prohibited this fish from being saved:</h2>
-
-      <ul>
-      <% fish.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="text-center mt-5 mb-5">
+    <div class="form-wrapper">
+        <h4 class="form-title  mb-3"><%= @form_title %></h4>   
+        <%= form_with(model: @fish, local: true) do |form| %>
+          <% if fish.errors.any? %>
+            <div id="error_explanation">
+              <% fish.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+        
+          <div class="field form-group text-left">
+            <%= form.label :name ,class:"form-text" %>
+            <%= form.text_field :name ,class:"form-control"%>
+          </div>
+        
+          <div class="field form-group text-left">
+            <%= form.label :level ,class:"form-text"%>
+            <%= form.select :level ,[["★"], ["★★"],["★★★"],["★★★★"],["★★★★★"]],{:prompt => "難易度を選択して下さい"},{class:"form-control"}%>
+          </div>
+        
+          <div class="field form-grpup text-left">
+            <%= form.label :month ,class:"form-text"%>
+            <%= form.date_select :month ,{},{class:"form-control"}%>
+          </div>
+        
+          <div class="actions">
+            <%= form.submit value="登録する",class:"btn-lg btn-info mt-4 m-4"%>
+          </div>
+        <% end %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :level %>
-    <%= form.text_field :level %>
-  </div>
-
-  <div class="field">
-    <%= form.label :month %>
-    <%= form.date_select :month %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
