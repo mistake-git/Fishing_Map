@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :ensure_correct_user, only: [:destroy]
+  before_action :authenticate_user
 
   def create
     @post = Post.find_by(id: [params[:post_id]])
