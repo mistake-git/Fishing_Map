@@ -34,6 +34,7 @@ Things you may want to cover:
 地図の場所を検索する
 (地図の色を変えたい)
 背景画像を投稿できるようにする
+ランキングページのスタイル
 
 twitterでログイン
 twitterリンク

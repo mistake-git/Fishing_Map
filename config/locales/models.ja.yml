@@ -11,5 +11,12 @@ ja:
       fish:
         name: 魚種
         level: 難易度
-        month: オススメ月
-        
+        season_bigin:  シーズン開始
+        season_end: シーズン終了
+      post:
+        name: 魚種
+        address: 住所
+        latitude: 緯度
+        longitude: 経度
+        number: 数量
+        size: 大きさ

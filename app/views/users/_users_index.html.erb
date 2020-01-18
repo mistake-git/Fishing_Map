@@ -11,8 +11,15 @@
                     <div class="card-body">
                         <h6 class="card-title text-center card-label"><%= link_to"#{user.name}","/users/#{user.id}"%></h6>
                         <p class="card-text text-center">
+                             <% if user.address? %>
+                                <div class="user-address text-center">
+                                    <%= user.address %>
+                                </div>
+                            <% end %>
                             <% if user.introduce? %>
-                                <%= user.introduce %>
+                                <div class="text-center">
+                                    <%= user.introduce %>
+                                </div>
                             <% else %>
                                 <div class="user-introduce-default text-center">
                                     まだ自己紹介がありません

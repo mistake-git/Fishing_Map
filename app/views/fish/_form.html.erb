@@ -18,12 +18,16 @@
         
           <div class="field form-group text-left">
             <%= form.label :level ,class:"form-text"%>
-            <%= form.select :level ,[["★"], ["★★"],["★★★"],["★★★★"],["★★★★★"]],{:prompt => "難易度を選択して下さい"},{class:"form-control"}%>
+            <%= form.select :level ,[[1], [2],[3],[4],[5]],{:prompt => "難易度を選択して下さい"},{class:"form-control"}%>
           </div>
         
           <div class="field form-grpup text-left">
-            <%= form.label :month ,class:"form-text"%>
-            <%= form.date_select :month ,{},{class:"form-control"}%>
+            <%= form.label :season_bigin ,class:"form-text"%>
+            <%= form.date_select :season_bigin ,{discard_year: true,discard_day: true},{class:"form-control"}%>
+          </div>
+          <div class="field form-grpup text-left">
+            <%= form.label :season_end ,class:"form-text"%>
+            <%= form.date_select :season_end ,{discard_year: true,discard_day: true},{class:"form-control"}%>
           </div>
         
           <div class="actions">

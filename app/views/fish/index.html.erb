@@ -1,17 +1,16 @@
-<p id="notice"><%= notice %></p>
-
 <h4 class="data-table-title text-center mt-5">魚データテーブル</h4>
 
 <div class="fish-data-area">  
     <table class="fish-data-table">
         <tr>
-            <th>魚種</th><th>難易度</th><th>旬な時期</th><th>編集</th><th>削除</th>
+            <th>魚種</th><th>難易度</th><th>シーズン開始</th><th>シーズン終了</th></th><th>編集</th><th>削除</th>
         </tr>
             <% @fish.each do |fish| %>
                 <tr>
                     <td><%= fish.name %></td>
                     <td><%= fish.level %></td>
-                    <td><%= fish.month %></td>
+                    <td><%= fish.season_bigin %></td>
+                    <td><%= fish.season_end %></td>
                     <td><%= link_to '編集', edit_fish_path(fish) ,class:"btn-sm btn-info"%></td>
                     <td><%= link_to '削除', fish, method: :delete, data: { confirm: '削除してもよろしいですか?' } ,class:"btn-sm btn-danger"%></td>
                 </tr>
