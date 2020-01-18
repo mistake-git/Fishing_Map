@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_16_234040) do
+ActiveRecord::Schema.define(version: 2020_01_17_055306) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -43,10 +43,11 @@ ActiveRecord::Schema.define(version: 2020_01_16_234040) do
 
   create_table "fish", force: :cascade do |t|
     t.string "name"
-    t.string "level"
-    t.date "month"
+    t.integer "level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "season_bigin"
+    t.date "season_end"
   end
 
   create_table "likes", force: :cascade do |t|

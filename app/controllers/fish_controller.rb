@@ -15,10 +15,12 @@ class FishController < ApplicationController
   # GET /fish/new
   def new
     @fish = Fish.new
+    @form_title ="データを作成"
   end
 
   # GET /fish/1/edit
   def edit
+      @form_title ="データを編集"
   end
 
   # POST /fish
@@ -28,8 +30,8 @@ class FishController < ApplicationController
 
     respond_to do |format|
       if @fish.save
-        format.html { redirect_to @fish, notice: 'Fish was successfully created.' }
-        format.json { render :show, status: :created, location: @fish }
+        format.html { redirect_to "/fish", notice: '魚のデータを作成しました' }
+        format.json { render :fish, status: :created, location:fish}
       else
         format.html { render :new }
         format.json { render json: @fish.errors, status: :unprocessable_entity }
@@ -42,8 +44,8 @@ class FishController < ApplicationController
   def update
     respond_to do |format|
       if @fish.update(fish_params)
-        format.html { redirect_to @fish, notice: 'Fish was successfully updated.' }
-        format.json { render :show, status: :ok, location: @fish }
+        format.html { redirect_to"/fish", notice: '魚のデータを編集しました' }
+        format.json { render :index, status: :ok, location:fish }
       else
         format.html { render :edit }
         format.json { render json: @fish.errors, status: :unprocessable_entity }
@@ -56,7 +58,7 @@ class FishController < ApplicationController
   def destroy
     @fish.destroy
     respond_to do |format|
-      format.html { redirect_to fish_index_url, notice: 'Fish was successfully destroyed.' }
+      format.html { redirect_to fish_index_url, notice: '魚のデータを削除しました.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +71,6 @@ class FishController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def fish_params
-      params.require(:fish).permit(:name, :level, :month)
+      params.require(:fish).permit(:name, :level, :season_bigin,:season_end)
     end
 end

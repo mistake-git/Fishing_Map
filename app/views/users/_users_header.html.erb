@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="col-xs-12 col-md-2 col-md-offcet-2 user-name-area text-center">
-            <div class="user-name mr-5"><%= @user.name %></div>
+            <div class="user-name mr"><%= @user.name %></div>
                 <% if @user.id != current_user.id %>
                     <% if  Relationship.find_by(follower_id: current_user.id,followed_id: @user.id) %>
                         <%= form_with(model: current_user.active_relationships.find_by(followed_id: @user.id),local: true,html: { method: :delete }) do |form| %>

@@ -8,3 +8,15 @@ ja:
         password: パスワード
         password_confirmation: 確認用パスワード
         remember_me: 次回から自動的にログイン
+      fish:
+        name: 魚種
+        level: 難易度
+        season_bigin:  シーズン開始
+        season_end: シーズン終了
+      post:
+        name: 魚種
+        address: 住所
+        latitude: 緯度
+        longitude: 経度
+        number: 数量
+        size: 大きさ

@@ -1,0 +1,34 @@
+// Place all the styles related to the Fish controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootstrap";
+$application-color:#00CCCC;
+
+@mixin application-text($application-color){
+    color: $application-color;
+    font-weight: bold;
+}
+
+.data-table-title{
+    @include application-text($application-color)
+}
+
+.fish-data-table{
+    margin: 5% auto;
+    border: 2px solid #00CCCC;
+    width: 70%;
+    
+    tr{
+        border-bottom: 2px solid #00CCCC;
+    }
+    
+    td,th{
+        text-align: right;
+        padding: 2%;
+        border-left: 2px solid #00CCCC;
+    }
+    
+       
+}
+
