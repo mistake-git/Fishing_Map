@@ -7,6 +7,7 @@ class User < ApplicationRecord
   validates :address, presence: true
   validates :email,  length: { maximum: 50 }
   has_one_attached :image
+  has_one_attached :bg_image
   geocoded_by :address
   after_validation :geocode
   has_many :posts, dependent: :destroy

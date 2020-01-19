@@ -42,5 +42,10 @@ twitterリンク
 お問い合わせ
 )
 
+Docker
+circle CI
+AWS
+プログラミング問題
+react&railsの連携
 
    

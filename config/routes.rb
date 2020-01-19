@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   devise_scope :user do
       post '/users/profile/edit',to:'users/registrations#update'
       post '/users/profile.img/edit',to:'users/registrations#img_update'
+      post '/users/bg.img/edit',to:'users/registrations#bg_img_update'
   end 
   
   

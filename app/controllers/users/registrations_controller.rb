@@ -57,6 +57,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
        redirect_to("/users/#{current_user.id}")
    end
    
+   def bg_img_update
+       @user = current_user
+       if params[:user][:bg_image]
+        @user.bg_image.purge
+        @user.bg_image.attach(params[:user][:bg_image])
+       end
+       flash[:notice] = '背景画像を変更しました'
+       redirect_to("/users/#{current_user.id}")
+   end
+   
    
  
    
