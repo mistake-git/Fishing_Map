@@ -49,9 +49,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
    
    def img_update
        @user = current_user
-       if params[:user][:image]
-        @user.image.purge
-        @user.image.attach(params[:user][:image])
+       if params[:user] && params[:user][:image]
+            @user.image.purge
+            @user.image.attach(params[:user][:image])
        end
        flash[:notice] = 'プロフィール画像を変更しました'
        redirect_to("/users/#{current_user.id}")
@@ -59,9 +59,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
    
    def bg_img_update
        @user = current_user
-       if params[:user][:bg_image]
-        @user.bg_image.purge
-        @user.bg_image.attach(params[:user][:bg_image])
+       if params[:user] && params[:user][:bg_image]
+            @user.bg_image.purge
+            @user.bg_image.attach(params[:user][:bg_image])
        end
        flash[:notice] = '背景画像を変更しました'
        redirect_to("/users/#{current_user.id}")
