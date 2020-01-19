@@ -36,8 +36,8 @@ $application-color:#00CCCC;
     }
     .bg-img-edit{
         position: absolute;
-        bottom: 2%;
-        right: 2%;
+        bottom: 10px;
+        right: 0;
         font-size: 1.2rem;
         cursor: default;
         opacity: 0.8;
@@ -45,20 +45,33 @@ $application-color:#00CCCC;
         border-radius: 15px;
         background: #EEEEEE;
         
-        
             &:hover{
                 opacity: 1;
             }
-        
+    }
+    
+    .bg-img-delete{
+        position: absolute;
+        bottom: 10px;
+        right: 110px;
+        font-size: 1.2rem;
+        cursor: default;
+        opacity: 0.8;
+        padding: 3px 10px;
+        border-radius: 15px;
+        background-color:rgba(255,0,0,0.8);
+            &:hover{
+                opacity: 1;
+            }
     }
     
     .no-bg-img{
-        font-size: 20.0rem;
+        font-size: 15.0rem;
         opacity: 0.1;
     }
      
     .no-bg-text{
-        font-size: 2.0rem;
+        font-size: 1.5rem;
         opacity: 0.1;
     }
     
@@ -81,10 +94,12 @@ $application-color:#00CCCC;
                }
             }
             
-            .profile-img-edit{
+            .profile-img-edit,.profile-img-delete{
                 color: #fff;
                 opacity: 0.8;
                 cursor: default;
+                display: inline-block;
+                margin-bottom: 1%;
                 &:hover{
                     opacity: 1;
                 }
