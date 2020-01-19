@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+    before_validation :delete_whitespace
     validates :name, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: 'はカタカナで入力して下さい。'}
     validates :address, presence: true
     validates :latitude, presence: true
@@ -68,5 +69,10 @@ class Post < ApplicationRecord
     end
     notification.save if notification.valid?
   end
+  
+  private
+    def delete_whitespace
+      self.name = name.strip
+    end
   
 end

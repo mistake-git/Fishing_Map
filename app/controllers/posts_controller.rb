@@ -37,7 +37,14 @@ class PostsController < ApplicationController
   def show
     @post = Post.find_by(id: params[:id])
     @user = @post.user
-    @level ="★"
+    
+    @fish = Fish.find_by(name: @post.name)
+    if @fish 
+        @level = "★"*@fish.level
+    else
+        @level = nil
+    end
+    
     if current_user.id == @user.id
             @title = "あなた"
         else
@@ -48,28 +55,16 @@ class PostsController < ApplicationController
     @comments_count = Comment.where(post_id: @post.id).count
     
     #その投稿のnameの数を月ごとに集計したい
-    @month_data = [
-        ['タイ', 100],
-            ['サメ', 70], 
-            ['サバ', 15],
-            ['アジ', 80],
-            ['カサゴ', 90],
-            ['メバル', 100],
-            ['イカ', 70], 
-            ['バス', 15],
-            ['アナゴ', 80],
-            ['アイナメ', 90]
-            ]
-    
-    #その投稿のnameの数を餌ごとに集計したい 例[[ゴカイ,10],[アカムシ,7],[カニ,5]]
-    Post.where(name: @post.name).where("feed IS NOT NULL").select(:feed).each do |feed_data|
-        @feed_data = feed_data
-    end
+    @month_data = Post.where(name: @post.name).where.not(feed: "").group(:month).sum(:number)
+         
+    #その投稿のnameの数を餌ごとに集計したい
+    @feed_data = Post.where(name: @post.name).where.not(feed: "").group(:feed).sum(:number)
+       
     #サイズの分布データを集計したい
-    @size_data = Post.where(name: @post.name).sum(:size)
+    @size_data = Post.where(name: @post.name).where.not(feed: "").group(:size).sum(:number)
     
     #どの時間帯に釣れているのか集計したい
-    @time_data = Post.where(name: @post.name).sum(:time)
+    @time_data = Post.where(name: @post.name).where.not(feed: "").group(:time).sum(:number)
             
   end
 

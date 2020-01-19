@@ -2,10 +2,12 @@
 <%= render partial: 'users_header'%>
 <div class="container">
     <div class="row no-gutters">
-        <div class="col-xs-12 col-md-5 col-md-offcet-2 text-center mt-5">
+        <div class="col-xs-12 col-md-6 mt-5 text-center">
+            <div class="text-center mb-3 profile-title">プロフィール</div>
            <%= render partial: 'users_status'%>
         </div> 
-        <div class="col-xs-12 col-md-5 text-center mt-5">
+        <div class="col-xs-12 col-md-6 mt-5 data-title">
+            <div class="text-center mb-3"><%= @user.name %>さんの釣果データ</div>
              <%= pie_chart @user_data, width: "100%", height: "300px"%>
         </div> 
     </div>

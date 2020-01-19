@@ -1,4 +1,4 @@
-<div class="page-title ml-4 mt-4"><%= @title %>の釣果</div>
+<div class="page-title ml-4 mt-4 mb-4"><%= @title %>の釣果</div>
 <div class="row mr-4">
     <div class="post-show-user col-xs-12 col-md-3">
         <div class=" card ml-5 show-user-card" style="height:auto;">
@@ -57,7 +57,7 @@
     <div class="col-xs-12 col-md-9">
         <div class="post-data-area mx-auto">
             <div class="post-show-title mt-5 mb-5">
-                <%= @post.name%>: この魚の難易度: <%= @level %>
+                <%= @post.name %>: この魚の難易度: <%= @level ?  @level : "データがありません" %>
             </div>
                 <div class ="post-main pt-5 pl-5 pb-5">
                     <% if @post.image.attached? %>

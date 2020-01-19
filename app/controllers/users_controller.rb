@@ -23,28 +23,24 @@ class UsersController < ApplicationController
             @title = "#{@user.name}さんのページ"
         end
         @posts = @user.posts.order(created_at: :desc).page(params[:page]).per(PER)
+        @fishes = @user.posts
+        @user_data = @fishes.group(:name).sum(:number)
+        if @fishes.empty?
+             @user_data = [['釣果データがありません']]
+        end
         @user_posts_count = Post.where(user_id: @user.id).count
         @user_likes_count = Like.where(user_id: @user.id).count
         @user_comments_count = Comment.where(user_id: @user.id).count
         @when_not_text ="釣果が登録されていません"
-        @user_data = [
-            
-        ['タイ', 100],
-            ['サメ', 70], 
-            ['サバ', 15],
-            ['アジ', 80],
-            ['カサゴ', 90],
-            ['メバル', 100],
-            ['イカ', 70], 
-            ['バス', 15],
-            ['アナゴ', 80],
-            ['アイナメ', 90]
-            
-            ]
     end   
     
     def likes
         @user = User.find_by(id: params[:id])
+        @fishes = @user.posts
+        @user_data = @fishes.group(:name).sum(:number)
+        if @fishes.empty?
+             @user_data = [['釣果データがありません']]
+        end
         @likes = @user.likes
         @posts = @user.likes_posts.order(created_at: :desc).page(params[:page]).per(PER)
         @title="#{@user.name}さんのページ"
@@ -56,6 +52,11 @@ class UsersController < ApplicationController
     
     def comments
         @user = User.find_by(id: params[:id])
+        @posts = @user.posts
+        @user_data = @posts.group(:name).sum(:number)
+        if @posts.empty?
+             @user_data = [['釣果データがありません']]
+        end
         @comments = Comment.where(user_id: @user.id).order(created_at: :desc).page(params[:page]).per(5)
         @title="#{@user.name}さんのページ"
         @user_posts_count = Post.where(user_id: @user.id).count
