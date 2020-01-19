@@ -57,3 +57,6 @@ function stopload(){
   $('#loading').css('display','none');
 }
 
+ $(function(){
+  setTimeout("$('.flash').fadeOut('slow')", 10000) 
+ })
