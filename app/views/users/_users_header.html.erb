@@ -117,14 +117,14 @@
       </div>
       <div class="modal-body">
           <%= form_with(model: @user,url:"/users/bg.img/edit",local: true ,method: :post) do |form| %>
-                <img src="" class="bg-preview">
+                <img src="" class="img-preview">
                 <% if @user.bg_image.attached? %>
                     <div class="form-text">現在の画像</div>
                     <%= image_tag @user.bg_image,class:"img-preview" %>
                 <% end %>
                 
-                <div class="field form-group" onchange="BgPreviewFile()">
-                    <%= form.file_field :bg_image ,class:"bg_image",id:"file" ,class:"form-control-file mt-3" %>
+                <div class="field form-group" onchange="previewFile()">
+                    <%= form.file_field :bg_image ,class:"image",id:"file" ,class:"form-control-file mt-3" %>
                 </div>
                  <div class="modal-footer">
                     <div class="actions">

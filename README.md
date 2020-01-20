@@ -31,7 +31,6 @@ Things you may want to cover:
 テスト不十分
 
 
-投稿フォームの画像削除
 デプロイする
 トップページを動かす
 
