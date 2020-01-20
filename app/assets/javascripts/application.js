@@ -35,8 +35,8 @@ function previewFile() {
   if (file) {
     reader.readAsDataURL(file);
   }
-  
 }
+
 
 $(function() {
   var h = $(window).height();
@@ -57,19 +57,6 @@ function stopload(){
   $('#loading').css('display','none');
 }
 
-$(function(){
-  var pagetop = $('#page_top');
-  pagetop.hide();
-  $(window).scroll(function () {
-     if ($(this).scrollTop() > 100) {
-          pagetop.fadeIn();
-     } else {
-          pagetop.fadeOut();
-     }
-  });
-  pagetop.click(function () {
-     $('body, html').animate({ scrollTop: 0 }, 500);
-     return false;
-  });
-});
-
+ $(function(){
+  setTimeout("$('.flash').fadeOut('slow')", 10000) 
+ })

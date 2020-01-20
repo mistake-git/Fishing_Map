@@ -1,19 +1,43 @@
+<div class="bg-area text-center mt-5">
+    <% if @user.bg_image.attached? %>
+        <%= image_tag @user.bg_image,class:"bg-image"%>
+    <% else %>
+        <div>
+            <i class="far fa-image no-bg-img"></i>
+        </div>
+        <div class="no-bg-text">
+            まだ画像がありません
+        </div>
+    <% end %>
+    <% if @user.id == current_user.id %>
+        <div class="bg-img-edit text-right mr-5 mt-5" data-toggle="modal" data-target="#bg_edit">編集</div>
+        <div class="bg-img-delete">
+            <%= link_to"削除","/users/bg.img/delete",method:"post" %>
+        </div>
+    <% end %>
+</div>
 <div class="user-header">
-    <div class="user-status pt-3 pb-3 row no-gutters">
+    <div class="user-status row no-gutters">
         <div class="col-xs-12 col-md-2 text-center">
-            <div class="user-img-area">
+            <div class="user-img-area pt-3">
                 <% if @user.image.attached? %>
                     <%= image_tag @user.image,class:"user-image"%>
                 <% else %>
-                    <img src="/assets/user-image.png" class="user-image default-img">
+                    <img src="/assets/user-image.png" class="user-image">
                 <% end %>
-                <% if @user.id == current_user.id %>
-                    <div class="profile-img-edit" data-toggle="modal" data-target="#img_edit">設定</div>
-               <% end %>
             </div>
+            <% if @user.id == current_user.id %>
+                <div class="profile-img-edit" data-toggle="modal" data-target="#img_edit">設定</div>
+                <div class ="profile-img-delete">
+                    <%= link_to"削除","/users/profile.img/delete",method:"post" %>
+                </div>
+            <% end %>
         </div>
-        <div class="col-xs-12 col-md-2 col-md-offcet-2 user-name-area text-center">
-            <div class="user-name mr"><%= @user.name %></div>
+        <div class="col-xs-12 col-md-1 text-center">
+            <div class="user-name"><%= @user.name %></div>
+        </div>
+        <div class="col-xs-12 col-md-3 user-name-area text-center">
+            <div class="follow-btn-group">
                 <% if @user.id != current_user.id %>
                     <% if  Relationship.find_by(follower_id: current_user.id,followed_id: @user.id) %>
                         <%= form_with(model: current_user.active_relationships.find_by(followed_id: @user.id),local: true,html: { method: :delete }) do |form| %>
@@ -26,8 +50,9 @@
                         <% end %>
                    <% end %>
                 <% end %>
+            </div>
         </div>
-        <div class="col-xs-12 col-md-4 col-md-offcet-2 text-center">
+        <div class="col-xs-12 col-md-6 text-center">
             <% @user ||= current_user %>
             <div class="follow-group">
                 <%= link_to("/users/#{@user.id}/following") do %>
@@ -45,6 +70,8 @@
     </div>
 </div>
 
+
+<!--モーダル-->
 <div class="modal fade" id="img_edit" tabindex="-1"
       role="dialog" aria-labelledby="label1" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -57,8 +84,8 @@
       </div>
       <div class="modal-body">
           <%= form_with(model: @user,url:"/users/profile.img/edit",local: true ,method: :post) do |form| %>
-                
                 <img src="" class="img-preview">
+                
                 <% if @user.image.attached? %>
                     <div class="form-text">現在の画像</div>
                     <%= image_tag @user.image,class:"img-preview" %>
@@ -77,3 +104,36 @@
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="bg_edit" tabindex="-1"
+      role="dialog" aria-labelledby="label1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="label1">背景画像編集</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <%= form_with(model: @user,url:"/users/bg.img/edit",local: true ,method: :post) do |form| %>
+                <img src="" class="img-preview">
+                <% if @user.bg_image.attached? %>
+                    <div class="form-text">現在の画像</div>
+                    <%= image_tag @user.bg_image,class:"img-preview" %>
+                <% end %>
+                
+                <div class="field form-group" onchange="previewFile()">
+                    <%= form.file_field :bg_image ,class:"image",id:"file" ,class:"form-control-file mt-3" %>
+                </div>
+                 <div class="modal-footer">
+                    <div class="actions">
+                        <%= form.submit "編集する" ,class:"btn btn-info mb-4"%>
+                    </div>
+                </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -25,68 +25,120 @@ $application-color:#00CCCC;
     font-size: 1.2rem;
 }
 
-.user-header{
-    margin: 3% 0;
-
-.user-status *{
-    display: inline-block;
+.bg-area{
+    position: relative;
+    height: 400px;
+    
+    .bg-image{
+        width: 100%;
+        height: 400px;
+        margin-bottom: -3%;
+    }
+    .bg-img-edit{
+        position: absolute;
+        bottom: 10px;
+        right: 0;
+        font-size: 1.2rem;
+        cursor: default;
+        opacity: 0.8;
+        padding: 3px 10px;
+        border-radius: 15px;
+        background: #EEEEEE;
+        
+            &:hover{
+                opacity: 1;
+            }
+    }
+    
+    .bg-img-delete{
+        position: absolute;
+        bottom: 10px;
+        right: 110px;
+        font-size: 1.2rem;
+        cursor: default;
+        opacity: 0.8;
+        padding: 3px 10px;
+        border-radius: 15px;
+        background-color:rgba(255,0,0,0.8);
+            &:hover{
+                opacity: 1;
+            }
+    }
+    
+    .no-bg-img{
+        font-size: 15.0rem;
+        opacity: 0.1;
+    }
+     
+    .no-bg-text{
+        font-size: 1.5rem;
+        opacity: 0.1;
+    }
+    
 }
 
+.user-header{
     .user-status{
         width: 100%;
+        height: auto;
         background-color: $application-color;
             .user-name,.user-image-area,.user-introduce{
                 display: inline-block;
             }
             
             .user-img-area{
-                
                .user-image{
-                    width: 150px;
-                    height: 150px;
+                    width: 180px;
+                    height: 180px;
                     border-radius: 50%;
-                    border: 4px solid #fff;
                }
-                   
-                position: relative;
-                
-                .profile-img-edit{
-                    position:absolute;
-                    bottom: 8%;
-                    left: 40%;
-                    color: #fff;
-                    opacity: 0.8;
-                    cursor: default;
-                    &:hover{
-                        opacity: 1;
-                    }
-                }
-                
             }
             
-            
-            .user-name-area{
-                margin-top: 4%;
-                text-align: center;
-                  .user-name{
-                    vertical-align: middle;
-                    font-weight: bold;
-                    font-size: 2.0rem;
-                    color: #fff;
+            .profile-img-edit,.profile-img-delete{
+                color: #fff;
+                opacity: 0.8;
+                cursor: default;
+                display: inline-block;
+                margin-bottom: 1%;
+                &:hover{
+                    opacity: 1;
                 }
             }
             
-            .follow-btn-wrapper{
-                margin-top: 4%;
+            .user-name{
+                font-weight: bold;
+                font-size: 2.0rem;
+                color: #fff;
+            }
+            
+            .follow-btn-group{
+                margin-right: 8%;
+                margin-top: 5%;
+                margin-bottom: 10%;
             }
           
            .follow-group{
-               margin-top: 12%;
                .header-follow-text{
                    font-size: 1.5rem;
                    display: inline-block;
                    font-weight: bold;
                    color: #fff;
+               }
+           }
+           
+           @media screen and (min-width:700px){
+               .follow-group{
+                   margin-top: 12%;
+                   margin-bottom: 5%;
+               }
+               
+               .follow-btn-group{
+                    margin-top: 23%;
+                    margin-right: 15%;
+               }
+               
+               .user-name{
+                   margin-top: 75px;
                }
            }
            
