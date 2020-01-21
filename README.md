@@ -38,6 +38,7 @@ Things you may want to cover:
 ランキングページのスタイル
 ローディング画面の編集
 ログインボタンのスタイル
+プレビュー機能の編集
 
 (
 twitterリンク
