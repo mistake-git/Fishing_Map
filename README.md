@@ -32,23 +32,21 @@ Things you may want to cover:
 
 
 デプロイする
+
+
 トップページを動かす
-
-
 ランキングページのスタイル
 ローディング画面の編集
-ログインボタンのスタイル
 プレビュー機能の編集
+
+
 
 (
 twitterリンク
 お問い合わせ
 )
 
-Docker
 circle CI
 AWS
 プログラミング問題
 react&railsの連携
-
-   

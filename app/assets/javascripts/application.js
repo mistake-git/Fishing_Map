@@ -38,25 +38,27 @@ function previewFile() {
 }
 
 
-$(function() {
-  var h = $(window).height();
-  $('.contents').css('display','none');
-  $('#loading').height(h).css('display','block');
-});
-  
-$(window).on('load',function () {
-  $('#loading').css('display','none');
-  $('#contens').css('display', 'block');
-});
-  
-$(function(){
-  setTimeout('stopload()',8000);
-});
-function stopload(){ 
-  $('#contens').css('display','block');
-  $('#loading').css('display','none');
-}
-
  $(function(){
   setTimeout("$('.flash').fadeOut('slow')", 10000) 
  })
+ 
+$(function() {
+var h = $(window).height();
+  $('#content').css('display','none');
+  $('#loading').height(h).css('display','block');
+});
+ 
+$(window).load(function () { //全ての読み込みが完了したら実行
+  $('#loading').delay(900).fadeOut(800);
+  $('#content').css('display', 'block');
+});
+ 
+$(function(){
+  setTimeout('stopload()',10000);
+});
+ 
+function stopload(){
+  $('#wrap').css('display','block');
+  $('#loader-bg').delay(900).fadeOut(800);
+  $('#loader').delay(600).fadeOut(300);
+}
