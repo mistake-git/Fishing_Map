@@ -7,6 +7,13 @@ $application-color:#00CCCC;
     font-weight: bold;
 }
 
+@media screen and (max-width:700px){    
+    .application-logo{
+        width: 200px;
+        height: auto;
+    }
+}
+
 /*トップページ*/
 .application-top{
     position: relative;
