@@ -313,9 +313,11 @@ $application-color:#00CCCC;
 
 }
 
+/*レコメンド*/
 .application-recommend{
     background-image: url("/assets/recommend-bg.jpg");
     background-size: cover;
+    margin-bottom: -10%;
     .recommend-item{
         padding: 5% 0;
         background-color: rgba(255,255,255,0.5);
