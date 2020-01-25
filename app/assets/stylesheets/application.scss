@@ -347,12 +347,7 @@ body{
              @include application-text($application-color);
         }
     }
-    
-    .post-card-img{
-        width: 200px;
-        height: 130px;
-        margin: 5% auto;
-    }
+
     
     @media screen and (max-width:700px){
         .post-card-img{

@@ -19,9 +19,9 @@
                     </div>
                 </div>
                 <% if post.image.attached? %>
-                    <%= image_tag post.image,class:"post-card-img" %>
+                    <%= image_tag post.image,class:"card-img-top post-card-img" %>
                 <% else %>
-                    <img src="/assets/sakana-img.jpg" class="post-card-img default-img">
+                    <img src="/assets/sakana-img.jpg" class="card-img-top post-card-img default-img">
                 <% end %>
                   <div class="card-body mt-1">
                     <h6 class="card-title text-center card-label"><%= link_to"#{post.name}",post %></h6>
