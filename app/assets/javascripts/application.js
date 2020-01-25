@@ -67,7 +67,7 @@ var h = $(window).height();
   $('#loading').height(h).css('display','block');
 });
  
-$(window).load(function () { //全ての読み込みが完了したら実行
+$(window).load(function () {
   $('#loading').delay(900).fadeOut(800);
   $('#content').css('display', 'block');
 });
@@ -76,11 +76,6 @@ $(function(){
   setTimeout('stopload()',10000);
 });
  
-function stopload(){
-  $('#wrap').css('display','block');
-  $('#loader-bg').delay(900).fadeOut(800);
-  $('#loader').delay(600).fadeOut(300);
-}
 
 
 

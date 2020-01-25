@@ -38,7 +38,4 @@ Things you may want to cover:
 
 
 
-(
-twitterリンク
-お問い合わせ
-)
+(お問い合わせ)
