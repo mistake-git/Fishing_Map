@@ -35,5 +35,6 @@ Things you may want to cover:
 
 ローディング画面の編集
 
+herokuのメール設定
 (お問い合わせ)
 gitに隠すファイル設定
