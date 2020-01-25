@@ -32,7 +32,6 @@ Things you may want to cover:
 
 テスト不十分
 
-デプロイ先でファビコンを表示
 active strageを使えるようにする
 
 ランキングページのスタイル

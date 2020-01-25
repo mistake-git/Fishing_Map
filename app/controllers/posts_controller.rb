@@ -55,7 +55,7 @@ class PostsController < ApplicationController
     @comments_count = Comment.where(post_id: @post.id).count
     
     #その投稿のnameの数を月ごとに集計したい
-    @month_data = Post.where(name: @post.name).where.not(feed: "").group(:month).sum(:number)
+    @month_data = Post.where(name: @post.name).where.not(feed: "").group(:date).sum(:number)
          
     #その投稿のnameの数を餌ごとに集計したい
     @feed_data = Post.where(name: @post.name).where.not(feed: "").group(:feed).sum(:number)
