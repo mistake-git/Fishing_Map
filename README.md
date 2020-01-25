@@ -36,6 +36,5 @@ Things you may want to cover:
 ローディング画面の編集
 プレビュー機能の編集
 
-
-
 (お問い合わせ)
+gitに隠すファイル設定

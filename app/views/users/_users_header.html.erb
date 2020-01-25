@@ -117,7 +117,7 @@
       </div>
       <div class="modal-body">
           <%= form_with(model: @user,url:"/users/bg.img/edit",local: true ,method: :post) do |form| %>
-                <img src="" class="bg-preview2">
+                <img src="" class="img-preview2">
                 <% if @user.bg_image.attached? %>
                     <div class="form-text">現在の画像</div>
                     <%= image_tag @user.bg_image,class:"img-preview2" %>
