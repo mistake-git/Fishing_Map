@@ -60,13 +60,15 @@
                 <%= @post.name %>: この魚の難易度: <%= @level ?  @level : "データがありません" %>
             </div>
                 <div class ="post-main pt-5 pl-5 pb-5">
-                    <% if @post.image.attached? %>
-                        <%= image_tag @post.image,class:"post-show-img"%>
-                    <% else %>
-                        <div class="ml-5">
-                            <img src="../assets/sakana-img.jpg" class=" post-show-img default-img">
-                        </div>
-                    <% end %> 
+                    <div class="text-center">
+                        <% if @post.image.attached? %>
+                            <%= image_tag @post.image,class:"post-show-img"%>
+                        <% else %>
+                            <div class="ml-5">
+                                <img src="../assets/sakana-img.jpg" class=" post-show-img default-img">
+                            </div>
+                        <% end %> 
+                    </div>
                 
                     <div class="data-area-title pt-5">
                         投稿のデータ

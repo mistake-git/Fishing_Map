@@ -55,17 +55,15 @@ class PostsController < ApplicationController
     @comments_count = Comment.where(post_id: @post.id).count
     
     #その投稿のnameの数を月ごとに集計したい
-    @month_data = Post.where(name: @post.name).where.not(feed: "").group(:date).sum(:number)
+    @month_data = Post.where(name: @post.name).where.not(feed: "").group("MONTH(date)").sum(:number)
          
     #その投稿のnameの数を餌ごとに集計したい
     @feed_data = Post.where(name: @post.name).where.not(feed: "").group(:feed).sum(:number)
-       
     #サイズの分布データを集計したい
     @size_data = Post.where(name: @post.name).where.not(feed: "").group(:size).sum(:number)
     
     #どの時間帯に釣れているのか集計したい
     @time_data = Post.where(name: @post.name).where.not(feed: "").group(:time).sum(:number)
-            
   end
 
   # GET /posts/new

@@ -23,6 +23,7 @@
 //= require jquery_ujs
 //= require bootstrap
 
+//プレビュー
 function previewFile() {
   var preview = document.querySelector('.img-preview');
   var file    = document.querySelector('input[type=file]').files[0];
@@ -37,11 +38,29 @@ function previewFile() {
   }
 }
 
+function previewFile2() {
+  var preview = document.querySelector('.img-preview2');
+  console.log(preview);
+  var file    = document.querySelector('#bg').files[0];
+  console.log(file);
+  var reader  = new FileReader();
+
+  reader.addEventListener("load", function () {
+    preview.src = reader.result;
+  }, false);
+
+  if (file) {
+    reader.readAsDataURL(file);
+  }
+}
+//フラッシュ
 
  $(function(){
   setTimeout("$('.flash').fadeOut('slow')", 10000) 
  })
  
+
+//ローディング画面
 $(function() {
 var h = $(window).height();
   $('#content').css('display','none');
@@ -63,6 +82,9 @@ function stopload(){
   $('#loader').delay(600).fadeOut(300);
 }
 
+
+
+//トップページのアニメーション
 $(function(){
     $(window).scroll(function (){
         $('.fadein').each(function(){

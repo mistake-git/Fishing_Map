@@ -441,7 +441,7 @@ body{
     @include application-text($application-color);
 }
 /*画像プレビュー*/
-.img-preview{
+.img-preview,.img-preview2{
     width: 100%;
     height: auto;
 }

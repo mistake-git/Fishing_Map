@@ -25,9 +25,6 @@ class UsersController < ApplicationController
         @posts = @user.posts.order(created_at: :desc).page(params[:page]).per(PER)
         @fishes = @user.posts
         @user_data = @fishes.group(:name).sum(:number)
-        if @fishes.empty?
-             @user_data = [['釣果データがありません']]
-        end
         @user_posts_count = Post.where(user_id: @user.id).count
         @user_likes_count = Like.where(user_id: @user.id).count
         @user_comments_count = Comment.where(user_id: @user.id).count
@@ -38,9 +35,6 @@ class UsersController < ApplicationController
         @user = User.find_by(id: params[:id])
         @fishes = @user.posts
         @user_data = @fishes.group(:name).sum(:number)
-        if @fishes.empty?
-             @user_data = [['釣果データがありません']]
-        end
         @likes = @user.likes
         @posts = @user.likes_posts.order(created_at: :desc).page(params[:page]).per(PER)
         @title="#{@user.name}さんのページ"
@@ -54,9 +48,6 @@ class UsersController < ApplicationController
         @user = User.find_by(id: params[:id])
         @posts = @user.posts
         @user_data = @posts.group(:name).sum(:number)
-        if @posts.empty?
-             @user_data = [['釣果データがありません']]
-        end
         @comments = Comment.where(user_id: @user.id).order(created_at: :desc).page(params[:page]).per(5)
         @title="#{@user.name}さんのページ"
         @user_posts_count = Post.where(user_id: @user.id).count
