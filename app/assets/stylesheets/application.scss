@@ -543,9 +543,7 @@ body{
     }
     
     a.footer-link{
-        color: #000000;
-        opacity: 0.7;
-        font-weight: bold;
+        @include application-text($application-color);
         border-bottom: 2px dashed #00CCCC;
         &:hover{
             opacity: 0.5;
