@@ -61,7 +61,6 @@ function previewFile2() {
  
 
 //ローディング画面
-
 function Loading(ContentDisplay) {
     $('#content').css('display', 'block');
   callback();
