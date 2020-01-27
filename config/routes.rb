@@ -21,7 +21,6 @@ Rails.application.routes.draw do
     
     get 'ranking/:id/fish_size',to:'ranking#fish_size_ranking'
     
-    
     get '/users/search',to:'users#search'
     get '/users',to:'users#index'
     get '/users/:id',to:'users#show'
@@ -30,10 +29,8 @@ Rails.application.routes.draw do
     get '/users/:id/following',to:'users#following'
     get '/users/:id/followers',to:'users#followers'
     
-    
     post '/posts/:post_id/comments',to:'comments#create'
     delete '/posts/:post_id/comments/:comment_id',to:'comments#destroy'
-    
     post '/likes/:post_id/create',to:'likes#create'
     post '/likes/:post_id/destroy',to:'likes#destroy'
     

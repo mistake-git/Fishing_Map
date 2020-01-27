@@ -31,7 +31,6 @@ Things you may want to cover:
 ランキングページのスタイル
 ローディング画面の編集
 
-herokuのメール設定
 
 (お問い合わせ)
 (地図の色を変えたい)
