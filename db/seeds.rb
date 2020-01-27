@@ -11,7 +11,7 @@ Fish.create(
       name: 'ハゼ',
       level: '1',
       season_begin:'2020-06-01',
-      season_end:'10'
+      season_end:'2020-10-01'
     },
     {
       name: 'アナハゼ',
