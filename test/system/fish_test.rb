@@ -5,43 +5,40 @@ class FishTest < ApplicationSystemTestCase
     @fish = fish(:one)
   end
 
-  test "visiting the index" do
+  test "データを作成" do
     visit fish_url
-    assert_selector "h1", text: "Fish"
+    assert_selector text: "データを作成"
   end
 
   test "creating a Fish" do
     visit fish_url
-    click_on "New Fish"
-
-    fill_in "Level", with: @fish.level
-    fill_in "Month", with: @fish.month
-    fill_in "Name", with: @fish.name
-    click_on "Create Fish"
-
-    assert_text "Fish was successfully created"
-    click_on "Back"
+    fill_in "難易度", with: @fish.level
+    fill_in "シーズン開始", with: @fish.month
+    fill_in "シーズン終了", with: @fish.month
+    fill_in "魚種", with: @fish.name
+    click_on "登録する"
+    assert_text "魚野データを作成しました"
   end
 
   test "updating a Fish" do
     visit fish_url
-    click_on "Edit", match: :first
+    click_on "編集", match: :first
 
-    fill_in "Level", with: @fish.level
-    fill_in "Month", with: @fish.month
-    fill_in "Name", with: @fish.name
-    click_on "Update Fish"
+    fill_in "難易度", with: @fish.level
+    fill_in "シーズン開始", with: @fish.month
+    fill_in "シーズン終了", with: @fish.month
+    fill_in "魚種", with: @fish.name
+    click_on "登録する"
 
-    assert_text "Fish was successfully updated"
-    click_on "Back"
+    assert_text "魚のデータを編集しました"
   end
 
   test "destroying a Fish" do
     visit fish_url
     page.accept_confirm do
-      click_on "Destroy", match: :first
+      click_on "削除", match: :first
     end
 
-    assert_text "Fish was successfully destroyed"
+    assert_text "魚のデータを削除しました"
   end
 end

@@ -14,7 +14,6 @@ class PostsTest < ApplicationSystemTestCase
   test "creating a Post" do
     visit posts_url
     click_on "釣果を登録する"
-
     assert_selector "h4", text: "釣果を登録する"
     fill_in "post_name", with: 'fish'
     fill_in "post_number",with: 3
@@ -32,6 +31,7 @@ class PostsTest < ApplicationSystemTestCase
     assert_selector ".post-description",text: 'これは魚です'
     assert_selector ".post-feed",text: 'ゴカイ'
     assert_selector ".post-weather",text:'晴れ'
+    assert_selector ".post-address",text:'兵庫県明石市'
     assert_text "投稿を作成しました"
   end
 
