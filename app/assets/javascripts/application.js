@@ -64,13 +64,13 @@ function previewFile2() {
 
  $(function() {
  var h = $(window).height();
-   $('#content').css('display','none');
+   $('#contents').css('display','none');
    $('#loading').height(h).css('display','block');
  });
  
  $(window).load(function () {
     $('#loading').delay(900).fadeOut(800);
-    $('#content').delay(1700).queue(function(){
+    $('#contents').delay(1700).queue(function(){
      $(this).css('display', 'block');
  });
  });

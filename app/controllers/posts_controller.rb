@@ -16,6 +16,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all.order(created_at: :desc).page(params[:page]).per(PER)
     @title ="すべての釣果"
+    @when_not_text = "投稿がありません"
   end
   
   def search_fishing_map
