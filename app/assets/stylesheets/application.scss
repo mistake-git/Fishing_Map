@@ -126,6 +126,14 @@ body{
 
 }
 
+@media screen and (max-width:700px){
+        .index-title{
+           font-size: 0.7rem;
+        }
+}
+        
+
+
 /*フォローボタン*/
 
 
@@ -220,7 +228,7 @@ body{
     
 
     
-     @media screen and (max-width:700px){
+    @media screen and (max-width:700px){
         .nav-link-img{
            display: none;
         }
