@@ -91,8 +91,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-
-  config.action_mailer.default_url_options = {  host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = {protocol: 'https', host: 'https://limitless-refuge-32929.herokuapp.com/'}
   # mail setting
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp

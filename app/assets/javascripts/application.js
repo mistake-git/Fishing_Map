@@ -60,18 +60,24 @@ function previewFile2() {
  })
  
 
-//ローディング画面
-function Loading(ContentDisplay) {
-    $('#content').css('display', 'block');
-  callback();
-}
-// execCallback()に渡されるコールバック関数
-var ContentDisplay = function() {
-    $('#loading').delay(900).fadeOut(800);
-}
 
-// execCallback()にコールバック関数を渡して実行する
-ContentDisplay(Loading)
+
+ $(function() {
+ var h = $(window).height();
+   $('#content').css('display','none');
+   $('#loading').height(h).css('display','block');
+ });
+ 
+ $(window).load(function () {
+    $('#loading').delay(900).fadeOut(800);
+    $('#content').delay(1700).queue(function(){
+     $(this).css('display', 'block');
+ });
+ });
+ 
+ $(function(){
+   setTimeout('stopload()',10000);
+ });
  
 
 
