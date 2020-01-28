@@ -46,6 +46,7 @@ Things you may want to cover:
 * Ruby on rails [5.2]
 * device
 * google Map api
+* Active Storage
 * geocode
 * kaminari
 * bootstrap
