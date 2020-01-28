@@ -26,7 +26,6 @@ $application-color:#00CCCC;
 a{
     text-decoration: none;
     color: #fff;
-    
     &:hover{
         color: #fff;
         text-decoration: none;
@@ -93,8 +92,6 @@ body{
     }
 }
 
-
-
 @media screen and (max-width:700px){
     .loading-wrapper{
         .loading-img{
@@ -127,7 +124,6 @@ body{
       height: calc(100% + 14px);
       background-color: $application-color;
     }
-    
     &:before {
       left: 7px;
     }
@@ -235,6 +231,8 @@ body{
         border-radius: 50%;
     }
     
+
+    
     @media screen and (max-width:700px){
         .nav-link-img{
            display: none;
@@ -248,7 +246,6 @@ body{
     }
 
     @media screen and (min-width:700px){
-        
         .navbar-nav .nav-link-login{
             margin: 0 1.2rem;
             padding: 0.5rem 1.5rem;
@@ -265,7 +262,6 @@ body{
             }
         }
     }
-    
      @media screen and (min-width:700px){
         .navbar-nav .nav-link-signup{
             padding: 0.4rem 1.4rem;
@@ -275,13 +271,13 @@ body{
             border-radius: 25px;
             text-align: center;
             border: 2px solid #00CCCC;
-            
             &:hover{
                 color: #fff;
                 background: #00CCCC;
             }
         }
     }
+    
     
     .notifications-bell{
         position: relative;
@@ -393,6 +389,9 @@ body{
 }
 
 
+
+
+
 /*フォーム*/
 .form-wrapper{
     display: inline-block;
@@ -490,7 +489,8 @@ body{
     border-radius: 30px;
 }
 
-.page-link:hover { 
+.page-link:hover {        
+     
     border-radius: 25px;
 }
     
@@ -547,7 +547,6 @@ body{
         width: 38%;
     }
 }
-
 
 /*フッター*/
 
