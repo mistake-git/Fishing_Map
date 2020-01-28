@@ -3,9 +3,11 @@
 one:
   name: MyString
   level: MyString
-  month: 2020-01-16
+  season_begin: 2020-01-16
+  season_end: 2020-02-16
 
 two:
   name: MyString
   level: MyString
-  month: 2020-01-16
+  season_begin: 2020-01-16
+  season_end: 2020-02-16

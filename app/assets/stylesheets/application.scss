@@ -136,8 +136,6 @@ body{
 
 /*フォローボタン*/
 
-
-
 .follow-btn{
     display: inline-block;
     padding: 2% 8%;
@@ -396,13 +394,13 @@ body{
     box-shadow: 2px 2px 4px rgba(0,0,0,0.12);
     
     .form-title{
-    color:  $application-color;
-    font-weight: bold;
-    text-align: center;
-    font-size: 1.7rem;
-    border-left: solid 6px #7db4e6;
-    width: 40%;
-    margin: 0 auto;
+        color:  $application-color;
+        font-weight: bold;
+        text-align: center;
+        font-size: 1.7rem;
+        border-left: solid 6px #7db4e6;
+        width: 40%;
+        margin: 0 auto;
     }
     
     .form-text{
@@ -432,7 +430,7 @@ body{
     .form-wrapper{
         width: 90%;
         .form-title{
-            width: 50%;
+            width: 60%;
         }
     }
 
