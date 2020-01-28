@@ -153,6 +153,7 @@ $application-color:#00CCCC;
     border-radius: 15px;
     padding: 0.3em 0.5em;
     background: #fff;
+    
     .introduce{
         position: relative;
         border: solid 2px #80c8d1;
@@ -237,25 +238,11 @@ $application-color:#00CCCC;
             z-index:-2
         }
 }
+
 .active{
     opacity: 1.0;
 }
     
-
-
-
-
-
-.when-not-text{
-    font-size: 1.5rem;
-    font-weight: bold;
-    opacity: 0.3;
-    text-align: center;
-    margin: 5% 0;
-}
-
-
-
 /*フォロー,フォロワーページ*/
 
 .when-not-text-follow{

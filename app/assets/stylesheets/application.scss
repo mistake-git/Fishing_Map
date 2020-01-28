@@ -65,7 +65,7 @@ body{
     font-weight: bold;
     opacity: 0.3;
     text-align: center;
-    margin: 8% 0;
+    margin: 8% 0 12% 0;
 }
 
 /*ローディング画面*/
@@ -90,8 +90,10 @@ body{
         display: block;
         width:   150px;
         height: auto;
-
+    }
 }
+
+
 
 @media screen and (max-width:700px){
     .loading-wrapper{
@@ -125,6 +127,7 @@ body{
       height: calc(100% + 14px);
       background-color: $application-color;
     }
+    
     &:before {
       left: 7px;
     }
@@ -232,8 +235,6 @@ body{
         border-radius: 50%;
     }
     
-
-    
     @media screen and (max-width:700px){
         .nav-link-img{
            display: none;
@@ -247,6 +248,7 @@ body{
     }
 
     @media screen and (min-width:700px){
+        
         .navbar-nav .nav-link-login{
             margin: 0 1.2rem;
             padding: 0.5rem 1.5rem;
@@ -263,6 +265,7 @@ body{
             }
         }
     }
+    
      @media screen and (min-width:700px){
         .navbar-nav .nav-link-signup{
             padding: 0.4rem 1.4rem;
@@ -272,13 +275,13 @@ body{
             border-radius: 25px;
             text-align: center;
             border: 2px solid #00CCCC;
+            
             &:hover{
                 color: #fff;
                 background: #00CCCC;
             }
         }
     }
-    
     
     .notifications-bell{
         position: relative;
@@ -388,9 +391,6 @@ body{
         display: inline-block;
     }
 }
-
-
-
 
 
 /*フォーム*/
