@@ -16,14 +16,14 @@ Fish.create(
     {
       name: 'アナハゼ',
       level: '1',
-      season_begin:'6',
-      season_end:'10'
+      season_begin:'2020-06-01',
+      season_end:'2020-10-01'
     },
     {
       name: 'メバル',
       level: '1',
-      season_begin:'12',
-      season_end:'6'
+      season_begin:'2020-12-01',
+      season_end:'2020-06-01'
     },
     {
       name: 'ソイ',
@@ -34,8 +34,8 @@ Fish.create(
     {
       name: 'カサゴ',
       level: '1',
-      season_begin:'11',
-      season_end:'5'
+      season_begin:'2020-11-01',
+      season_end:'2020-05-01'
     },
     {
       name: 'アジ',
@@ -46,14 +46,14 @@ Fish.create(
     {
       name: 'カマス',
       level: '2',
-      season_begin:'9',
-      season_end:'12'
+      season_begin:'2020-09-01',
+      season_end:'2020-12-01'
     },
     {
       name: 'メッキ',
       level: '2',
-      season_begin:'8',
-      season_end:'12'
+      season_begin:'2020-08-01',
+      season_end:'2020-12-01'
     },
      {
       name: 'イワシ',
@@ -64,98 +64,98 @@ Fish.create(
     {
       name: 'キス',
       level: '2',
-      season_begin:'6',
-      season_end:'12'
+      season_begin:'2020-06-01',
+      season_end:'2020-12-01'
     },
     {
       name: 'サバ',
       level: '2',
-      season_begin:'6',
-      season_end:'12'
+      season_begin:'2020-06-01',
+      season_end:'2020-12-01'
     },
     {
       name: 'イカ',
       level: '2',
-      season_begin:'12',
-      season_end:'5'
+      season_begin:'2020-12-01',
+      season_end:'2020-05-01'
     },
      {
       name: 'タチウオ',
       level: '3',
-      season_begin:'8',
-      season_end:'12'
+      season_begin:'2020-08-01',
+      season_end:'2020-12-01'
     },
     {
       name: 'サヨリ',
       level: '3',
-      season_begin:'6',
-      season_end:'11'
+      season_begin:'2020-06-01',
+      season_end:'2020-11-01'
     },
      {
       name: 'カワハギ',
       level: '3',
-      season_begin:'10',
-      season_end:'3'
+      season_begin:'2020-10-01',
+      season_end:'2020-03-01'
     },
      {
       name: 'アナゴ',
       level: '3',
-      season_begin:'10',
-      season_end:'3'
+      season_begin:'2020-10-01',
+      season_end:'2020-03-01'
     },
     {
       name: 'アイナメ',
       level: '3',
-      season_begin:'10',
-      season_end:'3'
+      season_begin:'2020-10-01',
+      season_end:'2020-03-01'
     },
     {
       name: 'タコ',
       level: '3',
-      season_begin:'6',
-      season_end:'11'
+      season_begin:'2020-06-01',
+      season_end:'2020-11-01'
     },
     {
       name: 'クロダイ',
       level: '3',
-      season_begin:'6',
-      season_end:'8'
+      season_begin:'2020-06-01',
+      season_end:'2020-08-01'
     },
      {
       name: 'チヌ',
       level: '3',
-      season_begin:'6',
-      season_end:'8'
+      season_begin:'2020-06-01',
+      season_end:'2020-08-01'
     },
     {
       name: 'メバル',
       level: '3',
-      season_begin:'11',
-      season_end:'6'
+      season_begin:'2020-11-01',
+      season_end:'2020-06-01'
     },
     {
       name: 'シーバス',
       level: '3',
-      season_begin:'2',
-      season_end:'5'
+      season_begin:'2020-02-01',
+      season_end:'2020-05-01'
     },
     {
       name: 'スズキ',
       level: '3',
-      season_begin:'2',
-      season_end:'5'
+      season_begin:'2020-02-01',
+      season_end:'2020-05-01'
     },
     {
       name: 'マゴチ',
       level: '3',
-      season_begin:'6',
-      season_end:'11'
+      season_begin:'2020-06-01',
+      season_end:'2020-11-01'
     },
     {
       name: ' アオリイカ',
       level: '3',
-      season_begin:'6',
-      season_end:'9'
+      season_begin:'2020-06-01',
+      season_end:'2020-09-01'
     },
     {
       name: 'ハマチ',
@@ -172,14 +172,14 @@ Fish.create(
     {
       name: 'カレイ',
       level: '4',
-      season_begin:'11',
-      season_end:'5'
+      season_begin:'2020-11-01',
+      season_end:'2020-05-01'
     },
     {
       name: 'サワラ',
       level: '4',
-      season_begin:'3',
-      season_end:'12'
+      season_begin:'2020-03-01',
+      season_end:'2020-12-01'
     },
     {
       name: 'ヒラメ',
@@ -196,26 +196,26 @@ Fish.create(
     {
       name: 'ハタ',
       level: '4',
-      season_begin:'6',
-      season_end:'11'
+      season_begin:'2020-06-01',
+      season_end:'2020-11-01'
     },
     {
       name: 'マダイ',
       level: '4',
-      season_begin:'3',
-      season_end:'11'
+      season_begin:'2020-03-01',
+      season_end:'2020-11-01'
     },
     {
       name: 'メジナ',
       level: '4',
-      season_begin:'12',
-      season_end:'4'
+      season_begin:'2020-1-01',
+      season_end:'2020-04-01'
     },
     {
       name: 'ヒラメ',
       level: '4',
-      season_begin:'9',
-      season_end:'6'
+      season_begin:'2020-09-01',
+      season_end:'2020-06-01'
     },
     {
       name: 'シイラ',
@@ -226,14 +226,14 @@ Fish.create(
     {
       name: 'ブリ',
       level: '5',
-      season_begin:'6',
-      season_end:'12'
+      season_begin:'2020-06-01',
+      season_end:'2020-12-01'
     },
     {
       name: 'カンパチ',
       level: '5',
-      season_begin:'6',
-      season_end:'12'
+      season_begin:'2020-06-01',
+      season_end:'2020-12-01'
     },
     {
       name: 'ヒラマサ',

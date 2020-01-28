@@ -11,7 +11,7 @@ ja:
       fish:
         name: 魚種
         level: 難易度
-        season_bigin:  シーズン開始
+        season_begin:  シーズン開始
         season_end: シーズン終了
       post:
         name: 魚種
