@@ -60,6 +60,14 @@ body{
     opacity: 0.5;
 }
 
+.when-not-text{
+    font-size: 1.5rem;
+    font-weight: bold;
+    opacity: 0.3;
+    text-align: center;
+    margin: 8% 0;
+}
+
 /*ローディング画面*/
 
 #loading{
@@ -82,7 +90,7 @@ body{
         display: block;
         width:   150px;
         height: auto;
-    }
+
 }
 
 @media screen and (max-width:700px){
@@ -482,9 +490,9 @@ body{
     border-radius: 30px;
 }
 
-.page-link:hover {        
-      border-radius: 25px;
-    }
+.page-link:hover { 
+    border-radius: 25px;
+}
     
 /*フラッシュ*/
 
@@ -510,12 +518,14 @@ body{
     background-color: #fff;
     width: 70%;
     height: 700px;
+    
         .notification-title{
                 @include application-text($application-color);
                 padding: 5%;
                 border-bottom: 2px solid rgba(0,204,204,0.2);
                 width: 95%;
             }
+            
         .media-list{
             padding: 5%;
             
@@ -544,8 +554,9 @@ body{
 .footer{
    margin-top: 10%;    
    background-color: #fff;
-   border-top: 1px solid #DDDDDD	;
+   border-top: 1px solid #DDDDDD;
    position: relative;
+   
     .footer-site-logo{
         width: 15%;
         height: auto;
