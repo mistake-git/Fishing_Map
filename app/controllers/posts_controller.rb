@@ -56,9 +56,10 @@ class PostsController < ApplicationController
     @comments_count = Comment.where(post_id: @post.id).count
     
     #その投稿のnameの数を月ごとに集計したい
-    @month_data = Post.where(name: @post.name).where.not(feed: "").sum(:number)
+    # month_aggregate = "generate_series('2019-01-01','2019-12-01', '1 month'::interval)::date AS month
+    # ORDER BY month ASC;"
+    #@month_data = Post.find_by_sql(month_aggregate)
          
-    #その投稿のnameの数を餌ごとに集計したい
     @feed_data = Post.where(name: @post.name).where.not(feed: "").group(:feed).sum(:number)
     #サイズの分布データを集計したい
     @size_data = Post.where(name: @post.name).where.not(feed: "").group(:size).sum(:number)

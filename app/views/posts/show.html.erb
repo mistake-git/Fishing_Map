@@ -147,7 +147,7 @@
                                 {
                                   "lat": <%= @post.latitude %>,
                                   "lng": <%= @post.longitude %>,
-                            	  "infowindow": '<%= @post.address %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@post.latitude},#{@post.longitude}&iwloc=J",target: "_blank" %></p>',
+                            	  "infowindow": '<%= @post.address %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@post.latitude},#{@post.longitude}&iwloc=J",target: "_blank" ,class:"gmap-link"%></p>',
                             	  "picture": {
                             	       "url": '<%= asset_path "map-icon.png" %>',
                                         "width":  48,

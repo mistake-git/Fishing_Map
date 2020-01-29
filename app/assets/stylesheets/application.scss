@@ -547,6 +547,16 @@ body{
         width: 38%;
     }
 }
+/*gmap link*/
+
+.gmap-link{
+    color: #0099E8;
+    &:hover{
+        color: #0099E8;
+        text-decoration: underline;  
+    }
+}
+
 
 /*フッター*/
 
@@ -577,3 +587,5 @@ body{
         opacity: 0.5;
     }
 }
+
+
