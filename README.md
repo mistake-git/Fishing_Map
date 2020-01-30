@@ -1,16 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## Fishing Map
 
-# Fishing Map
-
-## アプリ概要
+### アプリ概要
  地図上で釣果を共有したりデータ分析を見たりできる,SNS型釣果登録アプリケーション
 
-## 機能一覧
+### 機能一覧
 * ユーザー登録
 * ユーザー情報編集
 * ログイン
@@ -42,7 +38,7 @@ Things you may want to cover:
 
 
 
-## 技術一覧
+### 技術一覧
 * Ruby on rails [5.2]
 * device
 * google Map api
@@ -53,4 +49,5 @@ Things you may want to cover:
 * chartkick
 * JQuery
 * PG
+* E3
 * heroku
