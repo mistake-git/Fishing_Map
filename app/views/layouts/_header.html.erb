@@ -6,9 +6,11 @@
   <div class="collapse navbar-collapse" id="Navber">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
       <% if user_signed_in? %> 
-            <li class="nav-item"> 
-                <%= link_to"データを作成","/fish/new",class:"nav-link"%>
-            </li>
+            <% if current_user.admin? %>
+                <li class="nav-item"> 
+                    <%= link_to"データを作成","/fish/new",class:"nav-link"%>
+                </li>
+            <% end %>
             <li class="nav-item"> 
                 <%= link_to"/fishing.map",class:"nav-link" do %>
                     <i class="fas fa-map-marked-alt"></i>地図で釣果を見る
