@@ -18,6 +18,13 @@ class ApplicationController < ActionController::Base
       redirect_to("/fishing.map")
     end
   end
+  
+  def admin_user
+    unless current_user.admin?
+      flash[:danger] = '管理者権限がありません'
+      redirect_to("/fishing.map")
+    end
+  end
     
   def after_sign_in_path_for(resource)
         fmap_path_url
