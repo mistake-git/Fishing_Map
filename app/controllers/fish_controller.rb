@@ -1,5 +1,8 @@
 class FishController < ApplicationController
   before_action :set_fish, only: [:show, :edit, :update, :destroy]
+  before_action :admin_user
+  
+  
 
   # GET /fish
   # GET /fish.json

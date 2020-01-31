@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
       flash[:notice] = 'コメントを投稿しました'
       redirect_to("/posts/#{params[:post_id]}")
     else
-       flash[:notice] = 'コメントの投稿に失敗しました'
+       flash[:alert] = 'コメントの投稿に失敗しました'
       redirect_to("/posts/#{params[:post_id]}")
     end
   end
@@ -29,7 +29,7 @@ class CommentsController < ApplicationController
   def ensure_correct_user
     @comment = Comment.find_by(id: params[:comment_id])
     if @comment.user_id != @current_user.id
-      flash[:danger] = '権限がありません'
+      flash[:alert] = '権限がありません'
       redirect_to("/posts/#{params[:post_id]}")
     end
   end

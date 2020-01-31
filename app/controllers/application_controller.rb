@@ -7,21 +7,21 @@ class ApplicationController < ActionController::Base
   
   def authenticate_user
     if current_user.nil?
-      flash[:notice] = 'ログインが必要です'
+      flash[:alert] = 'ログインが必要です'
       redirect_to('/users/sign_in')
     end
   end
   
   def forbid_login_user
     if current_user
-      flash[:notice] = "すでにログインしています"
+      flash[:alert] = "すでにログインしています"
       redirect_to("/fishing.map")
     end
   end
   
   def admin_user
     unless current_user.admin?
-      flash[:danger] = '管理者権限がありません'
+      flash[:alert] = '管理者権限がありません'
       redirect_to("/fishing.map")
     end
   end
