@@ -6,6 +6,8 @@
 #
 one: 
   visitor_id: 1
+  visited_id: 2
   
 two: 
-  visitor_id: 1
+  visitor_id: 3
+  visited_id: 4

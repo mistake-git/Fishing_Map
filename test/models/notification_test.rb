@@ -31,6 +31,5 @@ class NotificationTest < ActiveSupport::TestCase
         assert_equal(notification.visited_id,2)
         assert_equal(notification.post_id,1)
         assert_equal(notification.action,'post')
-        
     end
 end

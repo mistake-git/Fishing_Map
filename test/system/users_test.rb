@@ -3,7 +3,7 @@ require "application_system_test_case"
 class UsersTest < ApplicationSystemTestCase
   driven_by :selenium, using: :headless_chrome
     setup do
-      @user = users(:one)
+      @user = users :one
     end
     
     test "creating a User" do
@@ -20,7 +20,7 @@ class UsersTest < ApplicationSystemTestCase
         assert_text "ユーザーを作成しました"
     end
     
-     test "updating a User" do
+    test "updating a User" do
         visit user_url(@user)
         click_on "設定"
         assert_selector text: "アカウント"

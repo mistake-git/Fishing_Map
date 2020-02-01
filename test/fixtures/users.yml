@@ -6,12 +6,15 @@
 #
 one: 
   email: "masa@example.com"
+  id: 1
 # column: value
 #
 two:
   email: "taka@example.com"
+  id: 2
 # column: value
 
 test:
   email: "test@example.com"
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  id: 3
