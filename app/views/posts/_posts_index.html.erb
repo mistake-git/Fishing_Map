@@ -3,7 +3,7 @@
         <% @posts.each do |post| %>
         <div class="col-xs-12 col-md-3 mt-3"> 
             <div class="card mt-1 mb-1 ml-1 mr-1">
-                <div class="post-card-user mt-2 ml-2">
+                <div class="post-card-user mt-2 ml-2 mb-2">
                     <div class="card-user-img-wrapper mr-1">
                         <% if post.user.image.attached? %>
                             <%= image_tag post.user.image,class:"card-img-top post-card-user-img" %>
