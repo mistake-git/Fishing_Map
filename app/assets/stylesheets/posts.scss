@@ -312,8 +312,8 @@ table *{
 }
 
 /*ランキング*/
-
-.ranking-text{
+@media screen and (min-width:700px){
+    .ranking-text{
     color: $application-color;
     font-size: 1.3rem;
         &:hover{
@@ -321,6 +321,18 @@ table *{
              opacity: 0.8;
         }
     }
+}
+
+
+.ranking-text{
+    color: $application-color;
+    font-size: 1.0rem;
+        &:hover{
+             color: $application-color;
+             opacity: 0.8;
+        }
+    }
+
 
 
 /*マップアイコン*/
