@@ -219,7 +219,6 @@ table *{
 
 /*投稿のコメントエリア*/
 
-
 @media screen and (max-width:700px){
     .comment-area-title{
         position: relative;
@@ -275,8 +274,7 @@ table *{
 }
 
 .media-comment{
-    width: 95%;
-    margin: 0 auto;
+    width: 100%;
     background-color: #fff;
     border-bottom: 1px solid rgba(0,204,204,0.2);
     padding: 2%;

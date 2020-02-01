@@ -127,7 +127,7 @@
                                         <%= @post.description %>
                                     </div>
                                 <% else %>
-                                    <div class="post-description default-text">
+                                    <div class="post-show-description default-text">
                                         説明がありません
                                     </div>
                                 <% end %>
@@ -212,7 +212,7 @@
                 <div class="comment-area-title ml-5 mt-5">
                     コメント
                 </div>
-                 <ul class="media-list mt-4 mx-auto">
+                 <ul class="media-list mt-4 mx-auto ml-2 mr-2">
                     <% @comments.each do |comment| %>
                         <%= link_to "/users/#{comment.user.id}" do %>
                 	        <li class="media media-comment mr-5">
