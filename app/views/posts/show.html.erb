@@ -184,21 +184,21 @@
                         <%= @post.name %>のデータ
                     </div>
                     <div class="row no-gutters mb-5">
-                        <div class="col-xs-12 col-md-6 mt-5">
+                        <div class="col-xs-12 col-md-6">
                             <div class="data-label mt-5 mb-5"><%= @post.name%>がよく釣れる時期</div>
                                 <%= line_chart @month_data, width: "100%", height: "300px"%>
                         </div>
-                        <div class="col-xs-12 col-md-6 mt-5">
+                        <div class="col-xs-12 col-md-6">
                             <div class="data-label mt-5 mb-5"><%= @post.name%>がよく釣れる餌</div>
                                 <%= pie_chart @feed_data, width: "100%", height: "300px"%>
                          </div>
                     </div>
                     <div class="row no-gutters mb-5">
-                        <div class="col-xs-12 col-md-6 mt-5">
+                        <div class="col-xs-12 col-md-6">
                             <div class="data-label mt-5 mb-5"><%= @post.name%>のサイズ分布</div>
                                 <%= line_chart @size_data, width: "100%", height: "300px"%>
                         </div>
-                        <div class="col-xs-12 col-md-6 mt-5">
+                        <div class="col-xs-12 col-md-6">
                             <div class="data-label mt-5 mb-5"><%= @post.name%>がよく釣れる時間</div>
                                 <%= column_chart @time_data, width: "100%", height: "300px"%>
                          </div>
