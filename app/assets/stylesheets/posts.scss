@@ -60,18 +60,21 @@ $application-color:#00CCCC;
 
 @media screen and (min-width:700px){
     .post-show-user{
-        height: 3218px;
+        height: 3225px;
         .show-user-card{
             margin-top: 42%;
             position: sticky;
             top: 10%;
+            margin-left: 15%;
         }
+    }
+    .post-data-area{
+      width: 90%;
     }
 }
 
-.post-data-area{
-    width: 90%;
-}
+
+
 
 .post-main{
     background: #fff;
@@ -116,6 +119,7 @@ $application-color:#00CCCC;
 .post-show-img{
     width: 80%;
     height: auto;
+    margin: 0 auto;
 }
 
 
@@ -153,6 +157,14 @@ $application-color:#00CCCC;
     list-style: none;
     font-size: 1.5rem;
     display: inline-block;
+}
+
+@media screen and (max-width:700px){
+    .post-data-list li{
+        list-style: none;
+        font-size: 1.0rem;
+        display: inline-block;
+    }
 }
 
 table *{
@@ -194,33 +206,64 @@ table *{
 
 /*投稿のコメントエリア*/
 
-.comment-area-title{
-    position: relative;
-    display: inline-block;
-    padding: 0 5%;
-    @include application-text($application-color);
-    font-size: 1.5rem;
-    
-    &:before, &:after {
-        content: '';
-        position: absolute;
-        top: 50%;
+
+@media screen and (max-width:700px){
+    .comment-area-title{
+        position: relative;
         display: inline-block;
-        width: 20%;
-        height: 5px;
-        background-color: $application-color;
+        padding: 0 5%;
+        @include application-text($application-color);
+        font-size: 1.0rem;
+        
+        &:before, &:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            display: inline-block;
+            width: 20%;
+            height: 5px;
+            background-color: $application-color;
+        }
+        
+        &:before {
+            left:0;
+        }
+        &:after {
+            right: 0;
+        }
     }
-    
-    &:before {
-        left:0;
-    }
-    &:after {
-        right: 0;
+}
+
+@media screen and (min-width:700px){
+    .comment-area-title{
+        position: relative;
+        display: inline-block;
+        padding: 0 5%;
+        @include application-text($application-color);
+        font-size: 1.5rem;
+        
+        &:before, &:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            display: inline-block;
+            width: 20%;
+            height: 5px;
+            background-color: $application-color;
+        }
+        
+        &:before {
+            left:0;
+        }
+        &:after {
+            right: 0;
+        }
     }
 }
 
 .media-comment{
-   width: 95%;
+    width: 95%;
+    margin: 0 auto;
     background-color: #fff;
     border-bottom: 1px solid rgba(0,204,204,0.2);
     padding: 2%;
@@ -275,6 +318,7 @@ table *{
 .map-icon-img{
     width: 100px;
     height: auto;
+    margin: 0 auto;
 }
 
 

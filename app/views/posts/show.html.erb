@@ -1,7 +1,7 @@
 <div class="page-title ml-4 mt-4 mb-4"><%= @title %>の釣果</div>
-<div class="row mr-4">
+<div class="row">
     <div class="post-show-user col-xs-12 col-md-3">
-        <div class=" card ml-5 show-user-card" style="height:auto;">
+        <div class=" card show-user-card " style="height:auto;">
             <% if @post.user.image.attached? %>
                     <%= image_tag @post.user.image, class:" post-user-img"%>
             <% else %>
@@ -54,22 +54,18 @@
            </div>
         </div>
     </div>
+    
     <div class="col-xs-12 col-md-9">
         <div class="post-data-area mx-auto">
             <div class="post-show-title mt-5 mb-5">
                 <%= @post.name %>: この魚の難易度: <%= @level ?  @level : "データがありません" %>
             </div>
                 <div class ="post-main pt-5 pl-5 pb-5">
-                    <div class="text-center">
-                        <% if @post.image.attached? %>
-                            <%= image_tag @post.image,class:"post-show-img"%>
-                        <% else %>
-                            <div class="ml-5">
-                                <img src="../assets/sakana-img.jpg" class=" post-show-img default-img">
-                            </div>
-                        <% end %> 
-                    </div>
-                
+                    <% if @post.image.attached? %>
+                        <%= image_tag @post.image,class:"post-show-img mx-auto"%>
+                    <% else %>
+                        <img src="../assets/sakana-img.jpg" class=" post-show-img default-img mx-auto">
+                    <% end %> 
                     <div class="data-area-title pt-5">
                         投稿のデータ
                     </div>

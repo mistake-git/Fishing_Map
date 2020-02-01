@@ -56,9 +56,9 @@ class PostsController < ApplicationController
     @comments_count = Comment.where(post_id: @post.id).count
     
     #その投稿のnameの数を月ごとに集計したい
-    month_aggregate = "SELECT generate_series('2019-01-01','2019-12-01', '1 month'::interval)::date AS month
-    ORDER BY month ASC;"
-    @month_data = Post.find_by_sql(month_aggregate)
+    # month_aggregate = "SELECT generate_series('2019-01-01','2019-12-01', '1 month'::interval)::date AS month
+    # ORDER BY month ASC;"
+    # @month_data = Post.find_by_sql(month_aggregate)
     
     
          
