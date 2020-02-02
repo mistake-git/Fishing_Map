@@ -1,8 +1,8 @@
-<ul class="media-list ml-4 mt-4">
+<div class="media-list ml-4 mt-4">
     <% @comments.each do |comment| %>
     <% post = Post.find_by(id: comment.post_id) %>
         <%= link_to "/posts/#{post.id}" do %>
-	        <li class="media media-comment mr-5">
+	        <div class="media media-comment mr-5">
 		        <div class="media-left">
 		            <% if comment.user.image.attached?%>
                         <%= image_tag comment.user.image,class:"comment-user-img mr-2" %>
@@ -16,7 +16,7 @@
 			            <%= comment.content %>
 			        </div>
 		        </div>
-	        </li>
+	        </div>
         <% end %>
     <% end %>
-</ul>
+</div>
