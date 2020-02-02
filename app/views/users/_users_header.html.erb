@@ -10,8 +10,8 @@
         </div>
     <% end %>
     <% if @user.id == current_user.id %>
-        <div class="bg-img-edit text-right mr-5 mt-5" data-toggle="modal" data-target="#bg_edit">編集</div>
-        <div class="bg-img-delete">
+        <div class="bg-img-edit mr-3" data-toggle="modal" data-target="#bg_edit">編集</div>
+        <div class="bg-img-delete mr-1">
             <%= link_to"削除","/users/bg.img/delete",method:"post" %>
         </div>
     <% end %>
