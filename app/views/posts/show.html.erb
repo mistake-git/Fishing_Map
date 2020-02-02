@@ -60,7 +60,7 @@
             <div class="post-show-title mt-5 mb-5">
                 <%= @post.name %>: この魚の難易度: <%= @level ?  @level : "データがありません" %>
             </div>
-                <div class ="post-main pt-5 pl-5 pb-5">
+                <div class ="post-main pt-5 pb-5 pl-5 pr-5">
                     <div class="text-center">
                         <% if @post.image.attached? %>
                             <%= image_tag @post.image,class:"post-show-img"%>
@@ -137,7 +137,7 @@
                         釣れた場所: <%= @post.address %>
                     </div>
                         <div class="post-map-area mb-4 pt-4">
-                            <div id="map" style='width: 95%; height: 500px;'></div>
+                            <div id="map" style='width: 100%; height: 500px;'></div>
                             <script type="text/javascript">
                             handler = Gmaps.build('Google');
                             handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map'}}, function(){

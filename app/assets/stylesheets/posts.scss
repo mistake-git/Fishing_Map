@@ -63,7 +63,7 @@ $application-color:#00CCCC;
 
 @media screen and (min-width:700px){
     .post-show-user{
-        height: 3225px;
+        height: 3255px;
         .show-user-card{
             margin-top: 42%;
             position: sticky;
@@ -76,6 +76,11 @@ $application-color:#00CCCC;
     }
 }
 
+.post-show-user{
+    .show-user-card{
+        width: 100%;
+    }
+}
 
 .post-main{
     background: #fff;

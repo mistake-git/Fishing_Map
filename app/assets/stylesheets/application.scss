@@ -104,40 +104,47 @@ body{
 
 
 /*一覧ページのタイトル*/
-.index-title {
-  position: relative;
-  padding: 0.25em 1em;
-  border-top: solid 4px #00CCCC;
-  border-bottom: solid 4px #00CCCC;
-  color: $application-color;
-  margin : 2% auto;
-  width: 30%;
-  font-weight: bold;
-  font-size: 1.3rem;
-
-    &:before,&:after {
-      content: '';
-      position: absolute;
-      top: -7px;
-      width: 2px;
-      height: -webkit-calc(100% + 14px);
-      height: calc(100% + 14px);
-      background-color: $application-color;
+@media screen and (min-width:700px){
+    .index-title {
+      position: relative;
+      padding: 0.25em 1em;
+      border-top: solid 4px #00CCCC;
+      border-bottom: solid 4px #00CCCC;
+      color: $application-color;
+      margin : 2% auto;
+      width: 30%;
+      font-weight: bold;
+      font-size: 1.3rem;
+    
+        &:before,&:after {
+          content: '';
+          position: absolute;
+          top: -7px;
+          width: 2px;
+          height: -webkit-calc(100% + 14px);
+          height: calc(100% + 14px);
+          background-color: $application-color;
+        }
+        &:before {
+          left: 7px;
+        }
+        &:after {
+          right: 7px;
+        }
+    
     }
-    &:before {
-      left: 7px;
-    }
-    &:after {
-      right: 7px;
-    }
-
 }
 
 @media screen and (max-width:700px){
-        .index-title{
-           font-size: 0.7rem;
-        }
+    .index-title {
+        @include application-text($application-color);
+        font-size: 1.3rem;
+        width: 100%;
+    }
 }
+
+
+
         
 
 
