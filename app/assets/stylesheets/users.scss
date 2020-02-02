@@ -257,11 +257,18 @@ $application-color:#00CCCC;
 }
 
 /*ユーザー詳細地図*/
+@media screen and (min-width:700px){
+    .user-map-title{
+        font-size: 1.4rem;
+        @include application-text($application-color);
+    }
+}
+
 .user-map-title{
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     @include application-text($application-color);
 }
-    
+
 /*フォロー,フォロワーページ*/
 
 .when-not-text-follow{

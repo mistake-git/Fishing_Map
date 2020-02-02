@@ -59,8 +59,13 @@ body{
     opacity: 0.5;
 }
 
+@media screen and (max-width:700px){
+    .when-not-text{
+        font-size: 1.5rem;
+    }
+}
 .when-not-text{
-    font-size: 1.5rem;
+    font-size: 1.0rem;
     font-weight: bold;
     opacity: 0.3;
     text-align: center;
