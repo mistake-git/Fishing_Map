@@ -255,6 +255,12 @@ $application-color:#00CCCC;
 .active{
     opacity: 1.0;
 }
+
+/*ユーザー詳細地図*/
+.user-map-title{
+    font-size: 1.4rem;
+    @include application-text($application-color);
+}
     
 /*フォロー,フォロワーページ*/
 
