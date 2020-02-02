@@ -60,7 +60,7 @@
             <div class="post-show-title mt-5 mb-5">
                 <%= @post.name %>: この魚の難易度: <%= @level ?  @level : "データがありません" %>
             </div>
-                <div class ="post-main pt-5 pb-5 pl-5 pr-5">
+                <div class ="post-main pt-5 pb-5">
                     <div class="text-center">
                         <% if @post.image.attached? %>
                             <%= image_tag @post.image,class:"post-show-img"%>
@@ -209,13 +209,12 @@
                         <% end %>
                     </div>
                 </div>
-                <div class="comment-area-title ml-5 mt-5">
-                    コメント
-                </div>
-                 <ul class="media-list mt-4 mx-auto ml-2 mr-2">
+            <div class="comment-area ml-5 mr-5">
+                <div class="comment-area-title mt-5">コメント</div>
+                 <div class="media-list mt-4">
                     <% @comments.each do |comment| %>
                         <%= link_to "/users/#{comment.user.id}" do %>
-                	        <li class="media media-comment mr-5">
+                	        <div class="media media-comment">
                 		        <div class="media-left">
                 		            <%if comment.user.image.attached?%>
                                         <%= image_tag comment.user.image,class:"comment-user-img mr-2" %>
@@ -225,7 +224,7 @@
                 		        </div>
                 		        <div class="media-body">
                 			        <h5 class="media-heading"><%= comment.user.name %></h5>
-                    			        <div class="ml-5 comment-content">
+                    			        <div class=" comment-content">
                     			            <%= comment.content %>
                     			        </div>
                 			        <div class="text-right">
@@ -234,13 +233,14 @@
                                         <% end %>
                                     </div>
                 		        </div>
-                	        </li>
+                	        </div>
             	        <% end %>
         	        <% end %>
         	        <div class="pagenation">
                         <%= paginate @comments%>
                     </div>
-                </ul>
+                </div>
+                
                 <div class="comment-form">
                     <%= form_with url:"/posts/#{@post.id}/comments",method: :post,local: true do |form| %>
                         <%= form.text_field :content,class:"form-control mt-5" ,placeholder:"コメントを入力"%>
@@ -249,8 +249,9 @@
                         </div>
                     <% end %>
                 </div>
-           </div>
+            </div>
         </div>
+    </div>
 </div>
 
    
