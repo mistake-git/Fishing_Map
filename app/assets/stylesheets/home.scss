@@ -369,8 +369,14 @@ $application-color:#00CCCC;
         padding: 5%;
         border-radius: 10px;
         box-shadow: 2px 2px 4px rgba(0,0,0,0.12);
+        
         .policy-title{
             @include application-text($application-color);
+        }
+        @media screen and (max-width:700px){
+            .policy-title{
+                font-size: 1.3rem;
+            }
         }
         
         h2{
