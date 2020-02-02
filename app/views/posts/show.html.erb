@@ -163,19 +163,19 @@
                     <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
                         <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
                             <div class="text-right like-btn-wrapper">
-                                <span class="fa fa-heart like-btn-unlike mr-5 mb-3"></span>
+                                <span class="fa fa-heart like-btn-unlike mb-3"></span>
                             </div>
                         <% end %>
                     <% else %>
                         <%= link_to("/likes/#{@post.id}/create", {method: "post"}) do %>
                             <div class="text-right like-btn-wrapper">
-                                <span class="fa fa-heart like-btn mr-5 mb-3"></span>
+                                <span class="fa fa-heart like-btn mb-3"></span>
                             </div>
                         <% end %>
                     <% end %>
                      
                     <% if @post.user.id == current_user.id %>
-                        <div class="post-btn-area text-right mb-2 mr-5">
+                        <div class="post-btn-area text-right mb-2">
                             <%= link_to '編集', edit_post_path(@post),class:"btn-sm btn-info" %> 
                             <%= link_to '削除', @post, method: :delete, data: { confirm: 'Are you sure?' },class:"btn-sm btn-danger" %>
                         </div>
