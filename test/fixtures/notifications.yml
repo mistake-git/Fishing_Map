@@ -4,10 +4,55 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: 
-  visitor_id: 1
-  visited_id: 2
+
+like:
+  one: 
+    visitor_id: 5
+    visited_id: 6
+    post_id: 2
+    action: "like"
   
-two: 
-  visitor_id: 3
-  visited_id: 4
+  two: 
+    visitor_id: 7
+    visited_id: 8
+    post_id: 3
+    action: "like"
+    
+comment:
+  one: 
+    visitor_id: 5
+    visited_id: 6
+    post_id: 2
+    comment_id: 1
+    action: "comment"
+  
+  two: 
+    visitor_id: 7
+    visited_id: 8
+    post_id: 3
+    comment_id: 2
+    action: "comment"
+    
+follow:
+  one: 
+    visitor_id: 5
+    visited_id: 6
+    action: "follow"
+  
+  two: 
+    visitor_id: 7
+    visited_id: 8
+    action: "follow"
+    
+post:
+  one: 
+    visitor_id: 5
+    visited_id: 6
+    post_id: 3
+    action: "post"
+  
+  two: 
+    visitor_id: 7
+    visited_id: 8
+    post_id: 4
+    action: "post"
