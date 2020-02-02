@@ -9,7 +9,7 @@
 <div class="form-group text-center mt-5 mb-5">
     <%= form_with url:'/posts/search_fishing_map', method: :get, local: true do |form| %>
         <div class="search-form">
-          <%= form.text_field :search ,class:"form-control" ,placeholder: "釣りたい魚で検索(カタカナで入力してください)"  %>
+          <%= form.text_field :search ,class:"form-control" ,placeholder: "魚検索(カタカナ)"  %>
         </div>
       <%= form.submit '検索' ,class:"btn btn-info ml-3 mb-1" %>
     <% end %>
