@@ -1,15 +1,19 @@
 <div class="user-info mt-3 ml-3">
     <div class="user-introduce mt-3 ml-3 mr-3">
-         <div class="introduce">
+        <div class="introduce">
             <% if @user.introduce?%>
+             <div class="user-introduce">
                 <%= @user.introduce %>
+            </div>
             <% else %>
-                <div class="user-introduce-default">
+                <div class="user-introduce default-text">
                     まだ自己紹介がありません
                 </div>
             <% end %>
         </div>
-        <div class="area"><%=@user.address %></div>
+        <div class="area user-address">
+            <%=@user.address %>
+        </div>
         </div>
     <% if @user.id == current_user.id %>
         <%= link_to"/users/edit" do%>

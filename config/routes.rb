@@ -20,7 +20,6 @@ Rails.application.routes.draw do
     resources :notifications, only: [:index]
     
     get 'ranking/:id/fish_size',to:'ranking#fish_size_ranking'
-    
     get '/users/search',to:'users#search'
     get '/users',to:'users#index'
     get '/users/:id',to:'users#show'

@@ -59,9 +59,7 @@ class PostsController < ApplicationController
     # month_aggregate = "SELECT generate_series('2019-01-01','2019-12-01', '1 month'::interval)::date AS month
     # ORDER BY month ASC;"
     # @month_data = Post.find_by_sql(month_aggregate)
-    
-    
-         
+
     @feed_data = Post.where(name: @post.name).where.not(feed: "").group(:feed).sum(:number)
     #サイズの分布データを集計したい
     @size_data = Post.where(name: @post.name).where.not(feed: "").group(:size).sum(:number)

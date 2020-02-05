@@ -2,6 +2,10 @@ require "application_system_test_case"
 
 class FishTest < ApplicationSystemTestCase
   setup do
+    visit "/users/sigin_in"
+    fill_in "one_email", with: 'masa@example.com'
+    fill_in "one_password",with:"<%= Devise::Encryptor.digest(User, 'password') %>"
+    click_on "ログイン"
     @fish = fish(:one)
   end
 
@@ -17,7 +21,7 @@ class FishTest < ApplicationSystemTestCase
     fill_in "シーズン終了", with: @fish.month
     fill_in "魚種", with: @fish.name
     click_on "登録する"
-    assert_text "魚野データを作成しました"
+    assert_text "魚のデータを作成しました"
   end
 
   test "updating a Fish" do
@@ -38,7 +42,6 @@ class FishTest < ApplicationSystemTestCase
     page.accept_confirm do
       click_on "削除", match: :first
     end
-
     assert_text "魚のデータを削除しました"
   end
 end

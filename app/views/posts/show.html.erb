@@ -71,11 +71,11 @@
                     <div class="data-area-title pt-5">
                         投稿のデータ
                     </div>
-                    <ul class="post-data-list mt-5 text-left">
-                        <li class="like-icon ml-4"><i class="fas fa-heart"> <%= @likes_count %></i></li>
-                        <li class="comment-icon ml-5"><i class="fas fa-comment"> <%= @comments_count %></i></li>
-                        <li class="post-created_at ml-5"><%= "#{time_ago_in_words(@post.created_at)}前"%></li>
-                    </ul>
+                    <div class="post-data-list mt-5 text-center">
+                        <div class="like-icon ml-5"><i class="fas fa-heart"> <%= @likes_count %></i></div>
+                        <div class="comment-icon ml-5"><i class="fas fa-comment"> <%= @comments_count %></i></div>
+                        <div class="post-created_at ml-5"><%= "#{time_ago_in_words(@post.created_at)}前"%></div>
+                    </div>
                     <div class="data-area-title mt-5">
                         釣果のデータ
                     </div>
