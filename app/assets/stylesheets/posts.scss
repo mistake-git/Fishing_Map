@@ -296,6 +296,30 @@ table *{
     }
 }
 
+.comment-area-title{
+    position: relative;
+    display: inline-block;
+    padding: 0 5%;
+    @include application-text($application-color);
+    font-size: 1.0rem;
+     &:before, &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        display: inline-block;
+        width: 20%;
+        height: 3px;
+        background-color: $application-color;
+    }
+    
+    &:before {
+        left:0;
+    }
+    &:after {
+        right: 0;
+    }
+}    
+
 .media-comment{
     width: 100%;
     background-color: #fff;
