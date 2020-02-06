@@ -1,6 +1,5 @@
 <div class="search-bg-area">
-    <img src="../assets/search-bg.jpg">
-    <div class="form-group text-center mt-5 mb-5">
+    <div class="form-group text-center mb-5">
         <%= form_with url:'/posts/search_fishing_map', method: :get, local: true do |form| %>
             <div class="search-form">
               <%= form.text_field :search ,class:"form-control" ,placeholder: "魚検索(カタカナ)"  %>
