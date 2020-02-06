@@ -3,19 +3,23 @@
     <div class="mt-3 ml-3 back-btn">Fishing Map</div>
 <% end %>
 
+<div class="search-bg-area mb-3">
+    <img src="../assets/search-bg.jpg">
+    <div class="form-group text-center mt-5 mb-5">
+        <%= form_with url:'/posts/search_fishing_map', method: :get, local: true do |form| %>
+            <div class="search-form">
+              <%= form.text_field :search ,class:"form-control" ,placeholder: "魚検索(カタカナ)"  %>
+            </div>
+          <%= form.submit '検索' ,class:"btn btn-info ml-3 mb-1" %>
+        <% end %>
+    </div>
+</div>
+
 <div class="application-description text-center">
     このページではGoogle Map上で釣果を見ることができます｡どこでどんな魚が釣れているのか確認してみましょう!
 </div>
-<div class="form-group text-center mt-5 mb-5">
-    <%= form_with url:'/posts/search_fishing_map', method: :get, local: true do |form| %>
-        <div class="search-form">
-          <%= form.text_field :search ,class:"form-control" ,placeholder: "魚検索(カタカナ)"  %>
-        </div>
-      <%= form.submit '検索' ,class:"btn btn-info ml-3 mb-1" %>
-    <% end %>
-</div>
 
- <div class="mt-5 fishing-map" id="map" style='width: 100%; height: 650px;'></div>
+ <div class=" fishing-map" id="map" style='width: 100%; height: 650px;'></div>
  <script type="text/javascript">
             
             handler = Gmaps.build('Google');

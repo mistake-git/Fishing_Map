@@ -115,6 +115,7 @@ body{
       padding: 0.25em 1em;
       border-top: solid 4px #00CCCC;
       border-bottom: solid 4px #00CCCC;
+      background: #fff;
       color: $application-color;
       margin : 2% auto;
       width: 30%;
@@ -219,19 +220,37 @@ body{
 
 /*検索フォーム*/
 @media screen and (min-width:700px){
-    .search-form{
-        display: inline-block;
-        width: 40%;
-        margin: 0 auto;
+    .search-bg-area{
+        position: relative;
+        .form-group{
+            width: 100%;
+            position: absolute;
+            top: 40%;
+            left: 0;
+            .search-form{
+                display: inline-block;
+                width: 40%;
+            }
+        }
     }
 }
+
 @media screen and (max-width:700px){
-    .search-form{
-        display: inline-block;
-        width: 60%;
-        margin: 0 auto;
+    .search-bg-area{
+        position: relative;
+        .form-group{
+            width: 100%;
+            position: absolute;
+            top: 10%;
+            left: 0;
+            .search-form{
+                display: inline-block;
+                width: 60%;
+            }
+        }
     }
 }
+
 /*ナビゲーションバー*/
 .navbar{
     background: #fff;
