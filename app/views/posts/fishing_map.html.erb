@@ -1,9 +1,4 @@
-
-<%= link_to"/fishing.map" do %>
-    <div class="mt-3 ml-3 back-btn">Fishing Map</div>
-<% end %>
-
-<div class="search-bg-area mb-3">
+<div class="search-bg-area">
     <img src="../assets/search-bg.jpg">
     <div class="form-group text-center mt-5 mb-5">
         <%= form_with url:'/posts/search_fishing_map', method: :get, local: true do |form| %>
