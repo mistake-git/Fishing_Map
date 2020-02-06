@@ -6,19 +6,19 @@
       <%= render "users/shared/error_messages", resource: resource %>
       <div class="field form-group text-left">
         <span class="badge badge-danger mr-1">※必須</span>
-        <%= form.label :name ,class:"form-text mb-3"%><br />
-        <%= form.text_field :name,class:"form-control" %>
+        <%= form.label :name ,class:"form-text mb-3" %><br />
+        <%= form.text_field :name,class:"form-control" ,id:"new-name" %>
       </div>
       
       <div class="field form-group text-left">
         <span class="badge badge-danger mr-1">※必須</span>
-        <%= form.label :email ,class:"form-text mb-3"%><br />
-        <%= form.email_field :email, autofocus: true, autocomplete: "email",class:"form-control" %>
+        <%= form.label :email ,class:"form-text mb-3" %><br />
+        <%= form.email_field :email, autofocus: true, autocomplete: "email",class:"form-control" ,id:"new-email" %>
       </div>
       
       <div class="field form-group text-left">
         <span class="badge badge-danger mr-1">※必須</span>
-        <%= form.label :address ,class:"form-text mb-3"%><br />
+        <%= form.label :address ,class:"form-text mb-3" %><br />
         <%= form.select :address,[
                                 ["北海道"],
                                 ["青森県"],
@@ -67,7 +67,7 @@
                                 ["宮崎県"],
                                 ["鹿児島県"],
                                 ["沖縄県"],
-                                 ],{:prompt => "都道府県を選択してください"},autofocus: true, autocomplete: "address",class:"form-control" %>
+                                 ],{:prompt => "都道府県を選択してください"},autofocus: true, autocomplete: "address",class:"form-control",id:"new-address" %>
       </div>
     
       <div class="field form-group text-left">
@@ -76,17 +76,17 @@
         <% if @minimum_password_length %>
         <em class="form-text">(<%= @minimum_password_length %>文字以上で入力してください)</em>
         <% end %><br />
-        <%= form.password_field :password, autocomplete: "new-password",class:"form-control" %>
+        <%= form.password_field :password, autocomplete: "new-password",class:"form-control" ,id:"new-password" %>
       </div>
     
       <div class="field form-group text-left">
         <span class="badge badge-danger mr-1">※必須</span>
         <%= form.label :password_confirmation ,class:"form-text mb-3"%><br />
-        <%= form.password_field :password_confirmation, autocomplete: "new-password" ,class:"form-control"%>
+        <%= form.password_field :password_confirmation, autocomplete: "new-password" ,class:"form-control" ,id:"new-password_confirmation"%>
       </div>
     
       <div class="actions">
-        <%= form.submit "新規登録",class:"btn-lg btn-info mb-4" %>
+        <%= form.submit "新規登録",class:"btn-lg btn-info mb-4" ,id:"user-create-btn"%>
       </div>
     <% end %>
     <%= render "users/shared/links" %>

@@ -2,10 +2,6 @@ require "application_system_test_case"
 
 class FishTest < ApplicationSystemTestCase
   setup do
-    visit "/users/sigin_in"
-    fill_in "one_email", with: 'masa@example.com'
-    fill_in "one_password",with:"<%= Devise::Encryptor.digest(User, 'password') %>"
-    click_on "ログイン"
     @fish = fish(:one)
   end
 

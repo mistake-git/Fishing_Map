@@ -3,10 +3,6 @@ require "application_system_test_case"
 class PostsTest < ApplicationSystemTestCase
   driven_by :selenium, using: :headless_chrome
   setup do
-    visit "/users/sigin_in"
-    fill_in "one_email", with: "masa@example.com"
-    fill_in "one_password",with:"<%= Devise::Encryptor.digest(User, 'password') %>"
-    click_on "ログイン"
     @post = posts(:one)
   end
   
