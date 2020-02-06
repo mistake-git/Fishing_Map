@@ -545,9 +545,11 @@ body{
 /*フラッシュ*/
 
 #flash_alert{
-    color: #FF0000;
+    padding: 10px 0;
+    color: #fff;
+    background: rgba(255,18,42,0.8);
     font-weight: bold;
-    margin-top: 1%;
+    width: 100%;
 }
 
 #flash_notice{
