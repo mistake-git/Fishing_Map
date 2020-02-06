@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :set_current_user
   before_action :authenticate_user
   before_action :ensure_correct_user, only: %i[edit update destroy]
-  PER = 8
+  PER = 16
 
   # GET /posts
   # GET /posts.json

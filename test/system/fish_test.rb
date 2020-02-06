@@ -5,11 +5,6 @@ class FishTest < ApplicationSystemTestCase
     @fish = fish(:one)
   end
 
-  test "データを作成" do
-    visit fish_url
-    assert_selector text: "データを作成"
-  end
-
   test "creating a Fish" do
     visit fish_url
     fill_in "難易度", with: @fish.level
