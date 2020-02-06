@@ -1,7 +1,7 @@
 # README
 
 
-## Fishing Map
+### Fishing Map
 
 ### アプリ概要
  地図上で釣果を共有したりデータ分析を見たりできる,SNS型釣果登録アプリケーション
