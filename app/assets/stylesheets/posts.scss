@@ -219,9 +219,10 @@ table *{
     }
 }
 
-
-.post-show-description{
-    font-size: 1.0rem;
+@media screen and (min-width:700px){
+    .post-show-description{
+        font-size: 1.0rem;
+    }
 }
 
 .post-like-count,.post-comments-count{
