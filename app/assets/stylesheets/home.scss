@@ -7,7 +7,7 @@ $application-color:#00CCCC;
     font-weight: bold;
 }
 
-@media screen and (max-width:700px){    
+@media screen and (max-width:1000px){    
     .application-logo{
         width: 180px;
         height: auto;
@@ -22,7 +22,7 @@ $application-color:#00CCCC;
         opacity: 0.8;
     }
     
-    @media screen and (min-width:700px){    
+    @media screen and (min-width:1000px){    
         .catch-copy{
             position: absolute;
             top: 30%;
@@ -84,7 +84,7 @@ $application-color:#00CCCC;
     }
 }
 
-@media screen and (max-width:700px){
+@media screen and (max-width:1000px){
     .application-about{
          width: 90%;
     }
@@ -113,7 +113,7 @@ $application-color:#00CCCC;
     }
 }
 
- @media screen and (max-width:700px){
+ @media screen and (max-width:1000px){
     .worries-title{
          margin: 20% 0; 
     }    
@@ -122,7 +122,7 @@ $application-color:#00CCCC;
 .worries-area{
     background: #fff;
     
-    @media screen and (min-width:700px){  
+    @media screen and (min-width:1000px){  
         .worries-list{
             margin: 23% auto;
             li{
@@ -196,7 +196,7 @@ $application-color:#00CCCC;
     width: 35%;
 }
 
-@media screen and (max-width:700px){
+@media screen and (max-width:1000px){
     .settle-title{
         margin: 5% auto;
         font-weight: bold;
@@ -263,7 +263,7 @@ $application-color:#00CCCC;
     }
 }
 
-@media screen and (max-width:700px){
+@media screen and (max-width:1000px){
     .step-area-title{
         width: 80%;
     }
@@ -334,7 +334,7 @@ $application-color:#00CCCC;
     }
 }
 
-@media screen and (max-width:700px){
+@media screen and (max-width:1000px){
     .application-recommend{
          background-image: url("/assets/recommend-bg-mini.jpg");
         .recommend-item{
@@ -373,7 +373,7 @@ $application-color:#00CCCC;
         .policy-title{
             @include application-text($application-color);
         }
-        @media screen and (max-width:700px){
+        @media screen and (max-width:1000px){
             .policy-title{
                 font-size: 1.3rem;
             }
@@ -382,7 +382,7 @@ $application-color:#00CCCC;
         h2{
             margin: 3% 0;
         }
-        @media screen and (max-width:700px){
+        @media screen and (max-width:1000px){
             h2{
                 margin: 3% 0;
                 font-size: 1.2rem;
@@ -407,7 +407,7 @@ $application-color:#00CCCC;
         border-radius: 10px;
         box-shadow: 2px 2px 4px rgba(0,0,0,0.12);
         
-        @media screen and (max-width:700px){
+        @media screen and (max-width:1000px){
             .rule-title{
                 font-size: 1.3rem;
             }
@@ -415,7 +415,7 @@ $application-color:#00CCCC;
          h2{
             margin: 3% 0;
         }
-        @media screen and (max-width:700px){
+        @media screen and (max-width:1000px){
             h2{
                 margin: 3% 0;
                 font-size: 1.2rem;
@@ -430,7 +430,7 @@ $application-color:#00CCCC;
 
 
 
-@media screen and (max-width:700px){
+@media screen and (max-width:1000px){
     .rule-area,.policy-area{
         width: 90%;
     }

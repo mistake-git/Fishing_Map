@@ -70,14 +70,14 @@ $application-color:#00CCCC;
         opacity: 0.1;
     }
      
-    @media screen and (min-width:700px){
+    @media screen and (min-width:1000px){
         .no-bg-text{
             font-size: 2.0rem;
             opacity: 0.1;
         }
     }
     
-     @media screen and (max-width:700px){
+     @media screen and (max-width:1000px){
         .no-bg-text{
             font-size: 1.5rem;
             opacity: 0.1;
@@ -135,7 +135,7 @@ $application-color:#00CCCC;
                }
            }
            
-           @media screen and (min-width:700px){
+           @media screen and (min-width:1000px){
                .follow-group{
                    margin-top: 12%;
                    margin-bottom: 5%;
@@ -219,7 +219,7 @@ $application-color:#00CCCC;
     }
 }
 
-@media screen and (max-width:700px){
+@media screen and (max-width:1000px){
     .user-tab-title{
         font-size: 0.8rem;
         font-weight: bold;
@@ -233,7 +233,7 @@ $application-color:#00CCCC;
     display: inline-block;
 }
 
-@media screen and (min-width:700px){
+@media screen and (min-width:1000px){
     .user-tab-title{
             font-size: 1.2rem;
             position: relative;
@@ -266,7 +266,7 @@ $application-color:#00CCCC;
 }
 
 /*ユーザー詳細地図*/
-@media screen and (min-width:700px){
+@media screen and (min-width:1000px){
     .user-map-title{
         font-size: 1.4rem;
         @include application-text($application-color);

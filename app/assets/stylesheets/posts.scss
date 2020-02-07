@@ -13,7 +13,7 @@ $application-color:#00CCCC;
     border: 5px solid #00CCCC;
 }
 
-@media screen and (min-width:700px){
+@media screen and (min-width:1000px){
     .application-description {
         position: relative;
         background: #00CCCC;
@@ -48,7 +48,7 @@ $application-color:#00CCCC;
     }
 }
 
-@media screen and (max-width:700px){
+@media screen and (max-width:1000px){
     .application-description {
         font-size: 1.0rem;
         margin-left: 5%;
@@ -61,7 +61,7 @@ $application-color:#00CCCC;
 
 /*投稿詳細*/
 
-@media screen and (min-width:700px){
+@media screen and (min-width:1000px){
     .post-show-user{
         height: 3255px;
         .show-user-card{
@@ -82,14 +82,14 @@ $application-color:#00CCCC;
     }
 }
 
-@media screen and (max-width:700px){
+@media screen and (max-width:1000px){
     .post-main{
         background: #fff;
         padding: 2rem;
     }
 }
 
-@media screen and (min-width:700px){
+@media screen and (min-width:1000px){
     .post-main{
         background: #fff;
         padding: 3rem;
@@ -119,7 +119,7 @@ $application-color:#00CCCC;
     }
 }
 
-@media screen and (max-width:700px){
+@media screen and (max-width:1000px){
     .post-show-title{
         font-size: 1.0rem;
     }
@@ -142,7 +142,7 @@ $application-color:#00CCCC;
     height: auto;
 }
 
-@media screen and (min-width:700px){
+@media screen and (min-width:1000px){
     .data-area-title {
       position: relative;
       padding-left: 25px;
@@ -202,13 +202,13 @@ table *{
 }
 
 
-@media screen and (min-width:700px){
+@media screen and (min-width:1000px){
     .post-show-description{
         font-size: 1.2rem;
     }
 }
 
-@media screen and (max-width:700px){
+@media screen and (max-width:1000px){
     .post-show-description{
         font-size: 1.0rem;
     }
@@ -219,7 +219,7 @@ table *{
 }
 
 /*データ*/
-@media screen and (min-width:700px){
+@media screen and (min-width:1000px){
     .data-label{
         font-size: 1.2rem;
     }
@@ -232,7 +232,7 @@ table *{
 
 /*投稿のコメントエリア*/
 
-@media screen and (max-width:700px){
+@media screen and (max-width:1000px){
     .comment-area-title{
         position: relative;
         display: inline-block;
@@ -259,7 +259,7 @@ table *{
     }
 }
 
-@media screen and (min-width:700px){
+@media screen and (min-width:1000px){
     .comment-area-title{
         position: relative;
         display: inline-block;
@@ -339,7 +339,7 @@ table *{
 }
 
 /*ランキング*/
-@media screen and (min-width:700px){
+@media screen and (min-width:1000px){
     .ranking-text{
     color: $application-color;
     font-size: 1.3rem;

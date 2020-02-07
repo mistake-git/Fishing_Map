@@ -59,7 +59,7 @@ body{
     opacity: 0.5;
 }
 
-@media screen and (max-width:700px){
+@media screen and (max-width:1000px){
     .when-not-text{
         font-size: 1.5rem;
     }
@@ -97,7 +97,7 @@ body{
     }
 }
 
-@media screen and (max-width:700px){
+@media screen and (max-width:1000px){
     .loading-wrapper{
         .loading-img{
             width: 40%;
@@ -109,7 +109,7 @@ body{
 
 
 /*一覧ページのタイトル*/
-@media screen and (min-width:700px){
+@media screen and (min-width:1000px){
     .index-title {
       position: relative;
       padding: 0.25em 1em;
@@ -141,7 +141,7 @@ body{
     }
 }
 
-@media screen and (max-width:700px){
+@media screen and (max-width:1000px){
     .index-title {
         @include application-text($application-color);
         font-size: 1.3rem;
@@ -220,7 +220,7 @@ body{
 
 /*検索フォーム*/
 
-@media screen and (min-width:700px){
+@media screen and (min-width:1000px){
     .search-bg-area{
         .form-group{
             background-image: url("/assets/search-bg.jpg");
@@ -236,7 +236,7 @@ body{
     }
 }
 
-@media screen and (max-width:700px){
+@media screen and (max-width:1000px){
     .search-bg-area{
         .form-group{
             background-image: url("/assets/search-bg.jpg");
@@ -275,7 +275,7 @@ body{
     
 
     
-    @media screen and (max-width:700px){
+    @media screen and (max-width:1000px){
         .nav-link-img{
            display: none;
         }
@@ -287,7 +287,7 @@ body{
 
     }
 
-    @media screen and (min-width:700px){
+    @media screen and (min-width:1000px){
         .navbar-nav .nav-link-login{
             margin: 0 1.2rem;
             padding: 0.5rem 1.5rem;
@@ -304,7 +304,7 @@ body{
             }
         }
     }
-     @media screen and (min-width:700px){
+     @media screen and (min-width:1000px){
         .navbar-nav .nav-link-signup{
             padding: 0.4rem 1.4rem;
             display: inline-block;
@@ -409,7 +409,7 @@ body{
         object-fit: cover;
     }
     
-    @media screen and (max-width:700px){
+    @media screen and (max-width:1000px){
         .post-card-img{
             width: 400px;
             height: 260px;
@@ -481,7 +481,7 @@ body{
 }
     
 
-@media screen and (max-width:700px){
+@media screen and (max-width:1000px){
     .form-wrapper{
         width: 90%;
         .form-title{
@@ -515,7 +515,7 @@ body{
      margin: 5% 18%;
 }
 
-@media screen and (min-width:700px){
+@media screen and (min-width:1000px){
     .pagenation{
         margin: 5% 35%;
     }
@@ -567,7 +567,7 @@ body{
     margin: 5% auto;
     background-color: #fff;
     width: 70%;
-    height: 700px;
+    height: 1000px;
     
         .notification-title{
                 @include application-text($application-color);
@@ -591,7 +591,7 @@ body{
         }
 }
 
-@media screen and (min-width:700px){
+@media screen and (min-width:1000px){
     .notification{
         margin: 5% 10%;
         width: 38%;
