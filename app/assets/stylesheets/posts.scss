@@ -177,20 +177,11 @@ $application-color:#00CCCC;
     border-bottom: 2px dashed #00CCCC;
 }
 
-
-
-
 .post-data-list div{
     display: inline-block;
+    font-size: 1.2rem;
 }
 
-@media screen and (max-width:700px){
-    .post-data-list li{
-        list-style: none;
-        font-size: 1.0rem;
-        display: inline-block;
-    }
-}
 
 table *{
     font-weight: bold;
