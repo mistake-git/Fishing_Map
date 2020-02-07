@@ -181,8 +181,6 @@ $application-color:#00CCCC;
 
 
 .post-data-list div{
-    list-style: none;
-    font-size: 1.5rem;
     display: inline-block;
 }
 
@@ -221,7 +219,7 @@ table *{
 
 @media screen and (max-width:700px){
     .post-show-description{
-        font-size: 0.8rem;
+        font-size: 1.0rem;
     }
 }
 
