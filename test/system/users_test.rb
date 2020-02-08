@@ -41,18 +41,18 @@ class UsersTest < ApplicationSystemTestCase
     test "sign in" do
         visit "/users/sigin_in"
         assert_selector "h4", text: "ログイン"
-        fill_in "session-email", with:  "test@example.com"
-        fill_in "session-password",with:"<%= Devise::Encryptor.digest(User, 'password') %>"
+        fill_in "session-email", with:"test@example.com"
+        fill_in "session-password",with:"testtest"
         click_on "login-btn"
         assert_text"ログアウト"
     end
     
     test "sign out" do
-        click_on "ログイン"
+        visit "/users/sigin_in"
         assert_selector "h4", text: "ログイン"
-        fill_in "one_email", with: 'masa@example.com'
-        fill_in "one_password",with:"<%= Devise::Encryptor.digest(User, 'password') %>"
-        click_on "ログイン"
+        fill_in "session-email", with: "test@example.com"
+        fill_in "session-password",with:"testtest"
+        click_on "login-btn"
         assert_selector ".nave-link",text: "ログアウト"
         click_on "ログアウト"
         assert_selector ".nave-link",text: "ログイン"

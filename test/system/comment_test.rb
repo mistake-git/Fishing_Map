@@ -4,6 +4,7 @@ class CommentsTest < ApplicationSystemTestCase
   driven_by :selenium, using: :headless_chrome
   setup do
     @post = posts(:one)
+     sign_in
   end
   
   test "creating a Comment" do

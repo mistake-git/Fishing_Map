@@ -59,13 +59,45 @@ class PostsController < ApplicationController
     # month_aggregate = "SELECT generate_series('2019-01-01','2019-12-01', '1 month'::interval)::date AS month
     # ORDER BY month ASC;"
     # @month_data = Post.find_by_sql(month_aggregate)
+    # 年またいで集計
+    
+    same_fish_posts = Post.where(name: @post.name)
+    
+    @month_data = (1..12).to_a.map do |month|
+        posts = same_fish_posts.filter do |post|
+            post.date.month == month
+        end
+        posts_number = posts.map do |post|
+            post.number
+        end
+        posts_number.sum
+        ["#{month}月",posts_number.sum]
+    end
 
-    @feed_data = Post.where(name: @post.name).where.not(feed: "").group(:feed).sum(:number)
+    @feed_data = same_fish_posts.where.not(feed: "").group(:feed).sum(:number)
+    
     #サイズの分布データを集計したい
-    @size_data = Post.where(name: @post.name).where.not(feed: "").group(:size).sum(:number)
+    @size_data = (0..100).to_a.map do |size|
+        posts = same_fish_posts.filter do |post|
+            case post.size
+            when 0..10
+                "0~10"
+            else
+                ""
+            end
+        end
+        posts_number = posts.map do |post|
+            post.number
+        end
+        posts_number.sum
+        ["#{size}",posts_number.sum]
+    end
+  
+   
     
     #どの時間帯に釣れているのか集計したい
-    @time_data = Post.where(name: @post.name).where.not(feed: "").group(:time).sum(:number)
+    @time_data = same_fish_posts.group(:time).sum(:number)
+    
   end
 
   # GET /posts/new
