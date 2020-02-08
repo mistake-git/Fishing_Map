@@ -9,7 +9,7 @@ one:
   address: one_address
   introduce: one_introduce
   encrypted_password: one_password
-  id: 1
+  id: 3
   
 # column: value
 #
@@ -25,4 +25,4 @@ two:
 test:
   email: "test@example.com"
   encrypted_password: <%= Devise::Encryptor.digest(User, 'testtest') %>
-  id: 3
+  id: 1

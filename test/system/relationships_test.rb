@@ -4,6 +4,7 @@ class RelationshipsTest < ApplicationSystemTestCase
   driven_by :selenium, using: :headless_chrome
   setup do
     @user = users(:one)
+    sign_in
   end
   
   test "creating a Relationship" do

@@ -3,6 +3,7 @@ require "application_system_test_case"
 class FishTest < ApplicationSystemTestCase
   setup do
     @fish = fish(:one)
+    sign_in
   end
 
   test "creating a Fish" do

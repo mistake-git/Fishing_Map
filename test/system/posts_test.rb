@@ -4,12 +4,12 @@ class PostsTest < ApplicationSystemTestCase
   driven_by :selenium, using: :headless_chrome
   setup do
     @post = posts(:one)
+    sign_in
   end
   
   test "creating a Post" do
-    visit posts_url
-    click_on "釣果を登録する"
-    assert_selector "h4", text: "釣果を登録する"
+    visit "/posts/new"
+    assert_selector "h4", text: "釣果を登録"
     fill_in "post_name", with: "タイ"
     fill_in "post_number",with: 3
     select('2019',from: "post_date_1i")
@@ -20,7 +20,10 @@ class PostsTest < ApplicationSystemTestCase
     select( "晴れ", from: "post_weather")
     fill_in "post_address",with: "兵庫県明石市"
     fill_in "post_size",with:30
+    fill_in "map_lat",with: 35.000000
+    fill_in "map_lng",with: 135.000000
     click_on "登録する"
+    visit "/posts/1"
     assert_selector ".post-name",text: "タイ"
     assert_selector ".post-number",text:3
     assert_selector ".post-date",text:'2019-04-02'

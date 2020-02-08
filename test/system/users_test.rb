@@ -23,6 +23,7 @@ class UsersTest < ApplicationSystemTestCase
     end
     
     test "updating a User" do
+        sign_in
         visit "/users/1"
         click_on "設定"
         assert_selector text: "アカウント"
@@ -44,18 +45,15 @@ class UsersTest < ApplicationSystemTestCase
         fill_in "session-email", with:"test@example.com"
         fill_in "session-password",with:"testtest"
         click_on "login-btn"
-        assert_text"ログアウト"
+        assert_text "ログアウト"
+        assert_text "ログインしました"
     end
     
     test "sign out" do
-        visit "/users/sigin_in"
-        assert_selector "h4", text: "ログイン"
-        fill_in "session-email", with: "test@example.com"
-        fill_in "session-password",with:"testtest"
-        click_on "login-btn"
-        assert_selector ".nave-link",text: "ログアウト"
+        sign_in
         click_on "ログアウト"
-        assert_selector ".nave-link",text: "ログイン"
+        assert_text  "ログイン"
+        assert_text "ログアウトしました"
     end
  
 end

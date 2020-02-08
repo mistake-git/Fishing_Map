@@ -9,8 +9,9 @@ one:
   weather: one_weather
   size: one_size
   user_id: 1
-  longitude: 35.000000
-  latitude: 135.00000
+  longitude: one_lat
+  latitude: one_lng
+  id: 1
 
 two:
   name: two_name
@@ -23,4 +24,5 @@ two:
   user_id: 2
   longitude: 35.000002
   latitude: 135.00002
+  id: 2
   
