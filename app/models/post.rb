@@ -42,9 +42,11 @@ class Post < ApplicationRecord
         visited_id: user_id,
         action: 'like'
       )
+      
       if notification.visitor_id == notification.visited_id
         notification.checked = true
       end
+      
       notification.save if notification.valid?
     end
   end
@@ -64,9 +66,11 @@ class Post < ApplicationRecord
       visited_id: visited_id,
       action: 'comment'
     )
+    
     if notification.visitor_id == notification.visited_id
       notification.checked = true
     end
+    
     notification.save if notification.valid?
   end
   

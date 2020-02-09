@@ -253,71 +253,11 @@ Fish.create(
 User.create(
     [
     {
-      name: 'test1',
-      email:'test1@gmail.com',
+      name: 'test',
+      email:'test@gmail.com',
       address:'兵庫県',
-      password:"test1",
+      encrypted_password:"testtest",
       admin: true,
-    },
-    {
-      name: 'test2',
-      email:'test2@gmail.com',
-      address:'兵庫県',
-      password:"test2",
-    },
-    {
-      name: 'test3',
-      email:'test3@gmail.com',
-      address:'兵庫県',
-      password:"test3",
-    },
-    {
-      name: 'test4',
-      email:'test4@gmail.com',
-      address:'兵庫県',
-      password:"test4",
-    },
-    {
-      name: 'test4',
-      email:'test4@gmail.com',
-      address:'兵庫県',
-      password:"test4",
-    },
-    {
-      name: 'test5',
-      email:'test5@gmail.com',
-      address:'兵庫県',
-      password:"test5",
-    },
-    {
-      name: 'test6',
-      email:'test6@gmail.com',
-      address:'兵庫県',
-      password:"test6",
-    },
-    {
-      name: 'test7',
-      email:'test7@gmail.com',
-      address:'兵庫県',
-      password:"test7",
-    },
-    {
-      name: 'test8',
-      email:'test8@gmail.com',
-      address:'兵庫県',
-      password:"test8",
-    },
-    {
-      name: 'test9',
-      email:'test9@gmail.com',
-      address:'兵庫県',
-      password:"test9",
-    },
-    {
-      name: 'test10',
-      email:'test10@gmail.com',
-      address:'兵庫県',
-      password:"test10",
     }
     ]
 )

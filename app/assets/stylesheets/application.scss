@@ -59,17 +59,24 @@ body{
     opacity: 0.5;
 }
 
-@media screen and (max-width:1000px){
+@media screen and (min-width:1000px){
     .when-not-text{
-        font-size: 1.5rem;
+        font-size: 1.3rem;
+        font-weight: bold;
+        opacity: 0.3;
+        text-align: center;
+        margin: 8% 0 12% 0;
     }
 }
-.when-not-text{
-    font-size: 1.0rem;
-    font-weight: bold;
-    opacity: 0.3;
-    text-align: center;
-    margin: 8% 0 12% 0;
+
+@media screen and (max-width:1000px){
+    .when-not-text{
+        font-size: 1.0rem;
+        font-weight: bold;
+        opacity: 0.3;
+        text-align: center;
+        margin: 8% 0 12% 0;
+    }
 }
 
 /*ローディング画面*/
@@ -312,7 +319,7 @@ body{
     
     .notifications-bell{
         position: relative;
-
+        
         .n-circle {
             position: absolute;
             top: 20%;
@@ -555,8 +562,9 @@ body{
     border-right: 1px solid rgba(0,204,204,0.2);
     margin: 5% auto;
     background-color: #fff;
-    width: 70%;
-    height: 1000px;
+    width: 90%;
+    height: 70vh;
+    
     
         .notification-title{
                 @include application-text($application-color);
