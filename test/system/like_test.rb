@@ -9,15 +9,15 @@ class LikesTest < ApplicationSystemTestCase
   
   test "creating a Like" do
     visit "/posts/1"
-    click_on".like-btn-unlike"
+    find("like-btn-unlike").click
     assert_selector "like-btn"
     assert_selector "like-icon",text: 1
   end
 
  test "destroying a Like" do
     visit "/posts/1"
-    click_on".unlike-btn-unlike"
-    assert_selector "like-btn"
+     find("like-btn").click
+    assert_selector "like-btn-unlike"
     assert_selector "like-icon",text: 0
   end
 end

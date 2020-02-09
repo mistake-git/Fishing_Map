@@ -164,13 +164,13 @@
                     <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
                         <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
                             <div class="text-right like-btn-wrapper">
-                                <span class="fa fa-heart like-btn-unlike mb-3"></span>
+                                <span class="fa fa-heart like-btn-unlike mb-3" id="like-btn-unlike"></span>
                             </div>
                         <% end %>
                     <% else %>
                         <%= link_to("/likes/#{@post.id}/create", {method: "post"}) do %>
                             <div class="text-right like-btn-wrapper">
-                                <span class="fa fa-heart like-btn mb-3"></span>
+                                <span class="fa fa-heart like-btn mb-3" id="like-btn"></span>
                             </div>
                         <% end %>
                     <% end %>

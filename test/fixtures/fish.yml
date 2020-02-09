@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString1
-  level: MyString2
+  name: タイ
+  level: 1
   season_begin: 2020-01-16
   season_end: 2020-02-16
 
 two:
-  name: MyString3
-  level: MyString4
+  name: イワシ
+  level: 1
   season_begin: 2020-01-16
   season_end: 2020-02-16

@@ -391,6 +391,12 @@ body{
         @include application-text($application-color);
     }
     
+    .user-introduce{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    
     .post-card-user div{
         display: inline-block;
         @include application-text($application-color);
