@@ -8,14 +8,14 @@ class LikesTest < ApplicationSystemTestCase
   end
   
   test "creating a Like" do
-    visit post_url(@post)
+    visit "/posts/1"
     click_on".like-btn-unlike"
     assert_selector "like-btn"
     assert_selector "like-icon",text: 1
   end
 
  test "destroying a Like" do
-    visit post_url(@post)
+    visit "/posts/1"
     click_on".unlike-btn-unlike"
     assert_selector "like-btn"
     assert_selector "like-icon",text: 0

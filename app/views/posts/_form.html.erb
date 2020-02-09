@@ -1,6 +1,6 @@
 <div class="text-center mt-5 mb-5">
   <div class="form-wrapper">
-    <h4 class="form-title  mb-3"><%= @form_title %></h4>      
+    <h4 class="form-title mb-3"><%= @form_title %></h4>      
     <%= form_with(model: post, local: true) do |form| %>
     <% if post.errors.any? %>
         <div id="error_explanation">
@@ -62,7 +62,7 @@
     
     <div class="field form-group text-left">
         <div class="form-text  mb-3">天気</div><br />
-        <%= form.select :weather,[["晴れ"], ["曇り"],["雨"],["その他"]],{:prompt => "天気を選択してください"},{class:"form-control"}%>
+        <%= form.select :weather,[["晴れ"], ["曇り"],["雨"],["その他"]],{:prompt => "天気を選択してください"},{class:"form-control"} %>
     </div>
     
     <div class="field form-group text-left">

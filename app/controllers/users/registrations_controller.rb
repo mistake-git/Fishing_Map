@@ -7,6 +7,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
    #GET /resource/sign_up
    def new
       @user = User.new
+      @form_title = "新規登録"
    end
 
    def create
@@ -30,6 +31,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
    def edit
     @user = current_user
+    @form_title = "アカウント"
    end
    
    def update

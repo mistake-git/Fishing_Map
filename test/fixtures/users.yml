@@ -26,3 +26,4 @@ test:
   email: "test@example.com"
   encrypted_password: <%= Devise::Encryptor.digest(User, 'testtest') %>
   id: 1
+  admin: true

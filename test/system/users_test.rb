@@ -8,7 +8,7 @@ class UsersTest < ApplicationSystemTestCase
     
     test "creating a User" do
         visit "/users/sign_up"
-        assert_selector"h4",text:"新規登録"
+        assert_selector ".form-title",text:"新規登録"
         fill_in "new-name", with: "test"
         fill_in "new-email", with: "test@gmail.com"
         fill_in "new-password",with:"testtest"
@@ -26,22 +26,21 @@ class UsersTest < ApplicationSystemTestCase
         sign_in
         visit "/users/1"
         click_on "設定"
-        assert_selector text: "アカウント"
-        fill_in "one_name", with: "masa"
-        fill_in "one_email", with: "test@gmail.com"
-        select( "兵庫県", from: 'one_address')
-        fill_in "one_introduce", with: "よろしくお願いします"
-        click_on "user-update-btn"
-        assert_selector ".user-name",text: "masa"
-        assert_selector ".user-email",text:"test@gmail.com"
+        assert_text"アカウント"
+        fill_in "edit-name", with: "masataka"
+        fill_in "edit-email", with: "masa@gmail.com"
+        select( "兵庫県", from: 'edit-address')
+        fill_in "edit-introduce", with: "こんにちは"
+        click_on "編集する"
+        assert_selector ".user-name",text: "masataka"
         assert_selector ".user-address",text:"兵庫県"
-        assert_selector ".user-introduce",text:"よろしくお願いします"
+        assert_selector ".user-introduce",text:"こんにちは"
         assert_text "ユーザー情報を編集しました"
     end
     
     test "sign in" do
         visit "/users/sigin_in"
-        assert_selector "h4", text: "ログイン"
+        assert_text"ログイン"
         fill_in "session-email", with:"test@example.com"
         fill_in "session-password",with:"testtest"
         click_on "login-btn"

@@ -79,33 +79,22 @@ body{
     width: 100%;
     height: 100vh;
     display: none;
+    position: relative;
 }
 
 .loading-wrapper{
-    text-align: center;
-    .loading-img{
-        width: 15%;
-        height: auto;
-        display: inline;
-        margin-top: 21%;
-    }
+    position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
     .loading-dot{
         margin: 1% auto;
         display: block;
-        width:   150px;
+        width: 50%;
         height: auto;
     }
 }
-
-@media screen and (max-width:1000px){
-    .loading-wrapper{
-        .loading-img{
-            width: 40%;
-            margin-top: 65%;
-        }
-    }
-}
-
 
 
 /*一覧ページのタイトル*/

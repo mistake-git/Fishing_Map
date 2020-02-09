@@ -9,7 +9,7 @@ class PostsTest < ApplicationSystemTestCase
   
   test "creating a Post" do
     visit "/posts/new"
-    assert_selector "h4", text: "釣果を登録"
+    assert_selector ".form-title", text: "釣果を登録"
     fill_in "post_name", with: "タイ"
     fill_in "post_number",with: 3
     select('2019',from: "post_date_1i")
@@ -25,9 +25,9 @@ class PostsTest < ApplicationSystemTestCase
     click_on "登録する"
     visit "/posts/1"
     assert_selector ".post-name",text: "タイ"
-    assert_selector ".post-number",text:3
+    assert_selector ".post-number",text:"3.0匹"
     assert_selector ".post-date",text:'2019-04-02'
-    assert_selector ".post-description",text: "これは魚です"
+    assert_selector ".description",text: "これは魚です"
     assert_selector ".post-feed",text: "ゴカイ"
     assert_selector ".post-weather",text:"晴れ"
     assert_selector ".post-address",text:"兵庫県明石市"
@@ -38,7 +38,7 @@ class PostsTest < ApplicationSystemTestCase
   test "updating a Post" do
     visit post_url(@post)
     click_on "編集", match: :first
-    assert_selector "h4", text: "釣果を編集"
+    assert_selector ".form-title", text: "釣果を編集"
     fill_in "post_name", with: "タイ"
     fill_in "post_number",with: 3
     select('2019',from: "post_date_1i")
@@ -50,10 +50,11 @@ class PostsTest < ApplicationSystemTestCase
     fill_in "post_address",with: "兵庫県明石市"
     fill_in "post_size",with:30
     click_on "登録する"
+    visit "/posts/1"
     assert_selector ".post-name",text: "タイ"
-    assert_selector ".post-number",text:3
-    assert_selector ".post-date",text:'2019-04-02'
-    assert_selector ".post-description",text: "これは魚です"
+    assert_selector ".post-number",text:"3.0"
+    assert_selector ".post-date",text:'2019/04/02'
+    assert_selector ".description",text: "これは魚です"
     assert_selector ".post-feed",text: "ゴカイ"
     assert_selector ".post-weather",text:"晴れ"
     assert_selector ".post-address",text:"兵庫県明石市"

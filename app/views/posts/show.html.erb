@@ -58,7 +58,7 @@
     
     <div class="col-xs-12 col-md-9">
         <div class="post-data-area mx-auto">
-            <div class="post-show-title mt-5 mb-5">
+            <div class="post-show-title mt-5 mb-5 post-name">
                 <%= @post.name %>: この魚の難易度: <%= @level ?  @level : "データがありません" %>
             </div>
                 <div class ="post-main pt-5 pb-5">
@@ -84,37 +84,37 @@
                         <tr>
                         <th class="pr-5 pt-3">サイズ</th>
                         <% if @post.size? %>
-                           <td class="pt-3"><%= @post.size %>cm</td>
+                           <td class="pt-3 post-size"><%= @post.size %>cm</td>
                         <% end %>
                         </tr>
                         <tr>
                         <th class="pr-5 pt-3">数量(匹)</th>
                         <% if @post.number? %>
-                           <td class="pt-3"><%= @post.number %>匹</td>
+                           <td class="pt-3 post-number"><%= @post.number %>匹</td>
                         <% end %>
                         </tr>
                         <tr>
                         <th class="pr-5 pt-3">日付</th>
                         <% if @post.date? %>
-                           <td class="pt-3"><%= @post.date %></td>
+                           <td class="pt-3 post-date"><%= @post.date %></td>
                         <% end %>
                         </tr>
                         <tr>
                         <th class="pr-5 pt-3">時間</th>
                         <% if @post.time? %>
-                           <td class="pt-3"><%= @post.time.to_s(:time)%></td>
+                           <td class="pt-3 post-time"><%= @post.time.to_s(:time)%></td>
                         <% end %>
                         </tr>
                         <tr>
                         <th class="pr-5 pt-3">使った餌</th>
                         <% if @post.feed?%>
-                           <td class="pt-3"><%= @post.feed %></td>
+                           <td class="pt-3 post-feed"><%= @post.feed %></td>
                         <% end %>
                         </tr>
                          <tr>
                         <th class="pr-5 pt-3">天気</th>
                         <% if @post.weather? %>
-                           <td class="pt-3"><%= @post.weather %></td>
+                           <td class="pt-3 post-weather"><%= @post.weather %></td>
                         <% end %>
                         </tr>
                     </table>
@@ -124,7 +124,7 @@
                         <div class="post-data-list mt-5">
                             <div>
                                 <% if @post.description? %>  
-                                    <div class="post-show-description">
+                                    <div class="post-show-description description">
                                         <%= @post.description %>
                                     </div>
                                 <% else %>
@@ -134,7 +134,7 @@
                                 <% end %>
                             </div>
                         </div>
-                    <div class="data-area-title mt-5">
+                    <div class="data-area-title post-address mt-5">
                         釣れた場所: <%= @post.address %>
                     </div>
                         <div class="post-map-area mb-4 pt-4">
@@ -225,7 +225,7 @@
                 		        </div>
                 		        <div class="media-body">
                 			        <h5 class="media-heading"><%= comment.user.name %></h5>
-                    			        <div class=" comment-content">
+                    			        <div class="comment-content">
                     			            <%= comment.content %>
                     			        </div>
                 			        <div class="text-right">
@@ -244,7 +244,7 @@
                 
                 <div class="comment-form">
                     <%= form_with url:"/posts/#{@post.id}/comments",method: :post,local: true do |form| %>
-                        <%= form.text_field :content,class:"form-control mt-5" ,placeholder:"コメントを入力"%>
+                        <%= form.text_field :content,class:"form-control mt-5" ,placeholder:"コメントを入力" ,id: "comment"%>
                         <div class="text-center">
                             <%= form.submit value = "コメントする",class:"btn-lg btn-info mt-5 mb-5"%>
                         </div>

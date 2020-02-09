@@ -257,6 +257,7 @@ User.create(
       email:'test1@gmail.com',
       address:'兵庫県',
       password:"test1",
+      admin: true,
     },
     {
       name: 'test2',

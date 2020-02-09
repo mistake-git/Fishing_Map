@@ -8,17 +8,18 @@ class RelationshipsTest < ApplicationSystemTestCase
   end
   
   test "creating a Relationship" do
-    visit users_url(@user)
-    click_on"フォローする"
-    assert_selector "nufollow-btn-lg",text: "フォロー中"
-    assert_selector "header-follow-text",text: "フォロワー1"
+    visit "/users/3"
+    click_on "フォローする"
+    assert_text "フォローしました｡フォローすると釣果の通知を受け取る事ができます｡"
+    assert_text "フォロワー 1"
     
   end
 
  test "destroying a Relationship" do
-    visit users_url(@user)
-    click_on"フォロー中"
-    assert_selector "follow-btn-lg",text: "フォローする"
-    assert_selector "header-follow-text",text: "フォロワー0"
+    visit "/users/3"
+    click_on "フォローする"
+    click_on "フォロー中"
+    assert_text "フォローを解除しました｡"
+    assert_text "フォロワー 0"
   end
 end

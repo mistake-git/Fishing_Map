@@ -13,21 +13,21 @@
         
           <div class="field form-group text-left">
             <%= form.label :name ,class:"form-text" %>
-            <%= form.text_field :name ,class:"form-control"%>
+            <%= form.text_field :name ,class:"form-control",id:"fish-name" %>
           </div>
         
           <div class="field form-group text-left">
             <%= form.label :level ,class:"form-text"%>
-            <%= form.select :level ,[[1], [2],[3],[4],[5]],{:prompt => "難易度を選択して下さい"},{class:"form-control"}%>
+            <%= form.select :level ,[[1], [2],[3],[4],[5]],{:prompt => "難易度を選択して下さい"},{class:"form-control",id: "fish-level"} %>
           </div>
         
           <div class="field form-grpup text-left">
             <%= form.label :season_begin ,class:"form-text"%>
-            <%= form.date_select :season_begin ,{discard_year: true,discard_day: true},{class:"form-control"}%>
+            <%= form.date_select :season_begin ,{discard_year: true,discard_day: true},{class:"form-control"} %>
           </div>
           <div class="field form-grpup text-left">
             <%= form.label :season_end ,class:"form-text"%>
-            <%= form.date_select :season_end ,{discard_year: true,discard_day: true},{class:"form-control"}%>
+            <%= form.date_select :season_end ,{discard_year: true,discard_day: true},{class:"form-control"} %>
           </div>
         
           <div class="actions">

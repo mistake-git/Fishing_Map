@@ -9,8 +9,9 @@ class CommentsTest < ApplicationSystemTestCase
   
   test "creating a Comment" do
     visit post_url(@post)
-    fill_in "MyText1", with: "いいですね"
-    assert_selector ".comment-content",text:"いいですね"
+    fill_in "comment", with: "いいですね"
+    click_on "コメントする"
+    assert_text "いいですね"
     assert_selector ".comment-icon",text:1
     assert_text "コメントを投稿しました"
    
@@ -18,8 +19,9 @@ class CommentsTest < ApplicationSystemTestCase
 
  test "destroying a Comment" do
     visit post_url(@post)
-    fill_in "MyText1", with: "いいですね"
-    assert_selector ".comment-content",text:"いいですね"
+    fill_in "comment", with: "いいですね"
+    click_on "コメントする"
+    assert_text "いいですね"
     click_on "削除", match: :first
     assert_no_text"いいですね"
     ssert_selector ".comment-icon",text:0

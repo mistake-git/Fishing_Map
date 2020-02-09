@@ -77,21 +77,14 @@ class PostsController < ApplicationController
     @feed_data = same_fish_posts.where.not(feed: "").group(:feed).sum(:number)
     
     #サイズの分布データを集計したい
-    @size_data = (0..100).to_a.map do |size|
-        posts = same_fish_posts.filter do |post|
-            case post.size
-            when 0..10
-                "0~10"
-            else
-                ""
-            end
-        end
-        posts_number = posts.map do |post|
-            post.number
-        end
-        posts_number.sum
-        ["#{size}",posts_number.sum]
-    end
+    # @size_data = (0..100).to_a.map do |size|
+    #     posts = same_fish_posts.where(0..10)
+    #     posts_number = posts.map do |post|
+    #         post.number
+    #     end
+    #     posts_number.sum
+    #     ["#{size}",posts_number.sum]
+    # end
   
    
     
