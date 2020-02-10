@@ -17,7 +17,6 @@ module NotificationsHelper
         "#{visitor}が#{post_name}を釣り上げました"
       end
     end
-    
     def unchecked_notifications
          @notifications = current_user.passive_notifications.where(checked: false)
     end  

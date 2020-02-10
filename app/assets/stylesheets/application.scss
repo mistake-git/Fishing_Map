@@ -391,7 +391,7 @@ body{
         @include application-text($application-color);
     }
     
-    .user-introduce{
+    .user-introduce,.post-description{
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
