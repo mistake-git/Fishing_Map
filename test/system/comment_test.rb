@@ -22,9 +22,9 @@ class CommentsTest < ApplicationSystemTestCase
     fill_in "comment", with: "いいですね"
     click_on "コメントする"
     assert_text "いいですね"
-    click_on "削除", match: :first
+    click_on ('comment-destroy')
     assert_no_text"いいですね"
-    ssert_selector ".comment-icon",text:0
+    assert_selector ".comment-icon",text:0
     assert_text "コメントを削除しました"
   end
 end

@@ -246,15 +246,15 @@ table *{
             top: 50%;
             display: inline-block;
             width: 20%;
-            height: 5px;
+            height: 3px;
             background-color: $application-color;
         }
         
         &:before {
-            left:0;
+            left: 1;
         }
         &:after {
-            right: 0;
+            right: 1;
         }
     }
 }

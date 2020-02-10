@@ -77,17 +77,17 @@ class PostsController < ApplicationController
     
     #サイズの分布データを集計したい
     #最終的にほしい形[["1〜10",1]]
-    @size_data = (1..100).to_a.map do |size|
-          posts = same_fish_posts.filter do |post|
-            post.size == size
-          end
-          posts_number = posts.map do |post|
-              post.number
-          end
-          posts_number.sum
-          ["#{size}",posts_number.sum]
-    end
-    pp  "  ■#{@size_data}"
+    # @size_data = (1..100).to_a.map do |size|
+    #       posts = same_fish_posts.filter do |post|
+    #         post.size == size
+    #       end
+    #       posts_number = posts.map do |post|
+    #           post.number
+    #       end
+    #       posts_number.sum
+    #       ["#{size}",posts_number.sum]
+    # end
+    # pp  "  ■#{@size_data}"
      
     # size_aggregate ="SELECT
     # CASE

@@ -20,8 +20,8 @@ class PostsTest < ApplicationSystemTestCase
     select( "晴れ", from: "post_weather")
     fill_in "post_address",with: "兵庫県明石市"
     fill_in "post_size",with:30
-    fill_in "map_lat",with: 35.000000
-    fill_in "map_lng",with: 135.000000
+    find('map_lat').set 35.000000
+    find('map_lng').set 135.000000
     click_on "登録する"
     visit "/posts/1"
     assert_selector ".post-name",text: "タイ"
