@@ -34,10 +34,12 @@
             <% end %>
         </div>
         <div class="col-xs-12 col-md-1 text-center">
-            <div class="user-name"><%= @user.name %></div>
+            <div class="user-name">
+                <%= @user.name %>
+            </div>
         </div>
-        <div class="col-xs-12 col-md-3 user-name-area text-center">
-            <div class="follow-btn-group">
+        <div class="col-xs-12 col-md-3 text-center">
+            <div class="follow-btn-group mx-auto">
                 <% if @user.id != current_user.id %>
                     <% if  Relationship.find_by(follower_id: current_user.id,followed_id: @user.id) %>
                         <%= form_with(model: current_user.active_relationships.find_by(followed_id: @user.id),local: true,html: { method: :delete }) do |form| %>

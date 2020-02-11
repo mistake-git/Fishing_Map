@@ -77,22 +77,24 @@ class PostsController < ApplicationController
     
     @size_data = (1..10).to_a.map do |size|
         posts =  same_fish_posts.where(size: (size*10-10)..(size*10))
+        #if文を用いて100以上の値を例外でひとまとめにしたい
         posts_number = posts.map do |post|
            post.number
         end
         label = "#{(size-1)*10}~#{size*10}cm"
         posts_number.sum
         [label,posts_number.sum]
-     end
+    end
 
-    # @time_data = (0..23).to_a.map do |time|
-    #      posts = same_fish_posts.where(time: time..(time+10))
-    #      posts_number = posts.map do |post|
-    #          post.number
-    #      end
-    #      posts_number.sum
-    #      ["#{size}",posts_number.sum]
-    #  end
+    @time_data = (0..23).to_a.map do |time|
+        posts = same_fish_posts.where(time: time..(time+1))
+        posts_number = posts.map do |post|
+              post.number
+        end
+          label = "#{time}~#{time+1}時"
+          posts_number.sum
+          [label,posts_number.sum]
+   end
     
   end
 
