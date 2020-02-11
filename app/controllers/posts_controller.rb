@@ -36,7 +36,6 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-      
     @post = Post.find_by(id: params[:id])
     @user = @post.user
     @fish = Fish.find_by(name: @post.name)
@@ -87,7 +86,6 @@ class PostsController < ApplicationController
     #       posts_number.sum
     #       ["#{size}",posts_number.sum]
     # end
-    # pp  "  ■#{@size_data}"
      
     # size_aggregate ="SELECT
     # CASE

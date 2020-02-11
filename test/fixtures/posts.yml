@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: one_name
-  number: one_number
+  name: "タイ"
+  number: 1
   date: <%= Date.new(2019, 1, 2) %>
   description: one_description
-  feed: one_feed
-  weather: one_weather
-  size: one_size
+  feed: "ゴカイ"
+  weather: "晴れ"
+  size: 35
   user_id: 1
   longitude: 35.000002
   latitude: 135.00002

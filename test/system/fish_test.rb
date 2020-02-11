@@ -34,7 +34,7 @@ class FishTest < ApplicationSystemTestCase
     click_on "削除", match: :first
     end
     assert_text "魚のデータを削除しました"
-    assert_no_text "タイ"
-    assert_no_text "1"
+    assert_no_text"タイ"
+    assert_no_text"1"
   end
 end
