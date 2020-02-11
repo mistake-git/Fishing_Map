@@ -74,39 +74,16 @@ class PostsController < ApplicationController
 
     @feed_data = same_fish_posts.where.not(feed: "").group(:feed).sum(:number)
     
-    #サイズの分布データを集計したい
-    #最終的にほしい形[["1〜10",1]]
-    # @size_data = (1..100).to_a.map do |size|
-    #       posts = same_fish_posts.filter do |post|
-    #         post.size == size
-    #       end
-    #       posts_number = posts.map do |post|
-    #           post.number
-    #       end
-    #       posts_number.sum
-    #       ["#{size}",posts_number.sum]
-    # end
-     
-    # size_aggregate ="SELECT
-    # CASE
-    #     WHEN size between 0 AND 9 THEN '0-9' 
-    #     WHEN size between 10 AND 19 THEN '10-19' 
-    #     WHEN size between 20 AND 29 THEN '20-29' 
-    #     WHEN size between 30 AND 39 THEN '30-39' 
-    #     WHEN size between 40 AND 49 THEN '40-49' 
-    #     WHEN size between 50 AND 59 THEN '50-59' 
-    #     WHEN size between 60 AND 69 THEN '60-69' 
-    #     WHEN size between 70 AND 79 THEN '70-79' 
-    #     WHEN size between 80 AND 89 THEN '80-89' 
-    #     WHEN size between 90 AND 99 THEN '90-99' 
-    #     WHEN size > 100 THEN '100-' 
-    # END
-    #     SUM(number)
-    #     FROM
-    #     table_posts
-    #     GROUP BY size"
-    #@size_data = Post.find_by_sql(size_aggregate)
-     
+    
+    @size_data = (0..10).to_a.map do |size|
+        posts =  same_fish_posts.where(size: (size*10-10)..(size*10))
+        posts_number = posts.map do |post|
+           post.number
+        end
+        label = "#{(size-1)*10}~#{size*10}cm"
+        posts_number.sum
+        [label,posts_number.sum]
+     end
 
     # @time_data = (0..23).to_a.map do |time|
     #      posts = same_fish_posts.where(time: time..(time+10))

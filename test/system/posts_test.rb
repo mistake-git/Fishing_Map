@@ -20,8 +20,8 @@ class PostsTest < ApplicationSystemTestCase
     select( "晴れ", from: "post_weather")
     fill_in "post_address",with: "兵庫県明石市"
     fill_in "post_size",with:30
-    fill_in("map_lat", with: 35.000000, fill_options: {ignore_hidden_elements: false})
-    fill_in("map_lng", with: 135.000000, fill_options: {ignore_hidden_elements: false})
+    page.execute_script "$('#map_lat').val(35.000000);"
+    page.execute_script "$('#map_lng').val(135.000000);"
     click_on "登録する"
     assert_selector ".post-name",text: "タイ"
     assert_selector ".post-number",text:"3.0匹"
