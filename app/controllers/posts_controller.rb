@@ -75,7 +75,7 @@ class PostsController < ApplicationController
     @feed_data = same_fish_posts.where.not(feed: "").group(:feed).sum(:number)
     
     
-    @size_data = (0..10).to_a.map do |size|
+    @size_data = (1..10).to_a.map do |size|
         posts =  same_fish_posts.where(size: (size*10-10)..(size*10))
         posts_number = posts.map do |post|
            post.number
