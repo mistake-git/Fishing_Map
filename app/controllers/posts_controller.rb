@@ -86,15 +86,15 @@ class PostsController < ApplicationController
         [label,posts_number.sum]
     end
 
-    @time_data = (0..23).to_a.map do |time|
-        posts = same_fish_posts.where(time: time..(time+1))
-        posts_number = posts.map do |post|
-              post.number
-        end
-          label = "#{time}~#{time+1}時"
-          posts_number.sum
-          [label,posts_number.sum]
-   end
+#     @time_data = (0..23).to_a.map do |time|
+#         posts = same_fish_posts.where(time: time..(time+1))
+#         posts_number = posts.map do |post|
+#               post.number
+#         end
+#           label = "#{time}~#{time+1}時"
+#           posts_number.sum
+#           [label,posts_number.sum]
+#   end
     
   end
 
