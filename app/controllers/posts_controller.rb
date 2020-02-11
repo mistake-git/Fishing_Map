@@ -76,12 +76,12 @@ class PostsController < ApplicationController
     
     
     @size_data = (1..10).to_a.map do |size|
-        posts =  same_fish_posts.where(size: (size*10-10)..(size*10))
+        posts =  same_fish_posts.where(size: (size*10-10)..(size*10)-1)
         #if文を用いて100以上の値を例外でひとまとめにしたい
         posts_number = posts.map do |post|
            post.number
         end
-        label = "#{(size-1)*10}~#{size*10}cm"
+        label = "#{(size-1)*10}~#{(size*10)-1}cm"
         posts_number.sum
         [label,posts_number.sum]
     end
