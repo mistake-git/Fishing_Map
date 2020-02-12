@@ -73,6 +73,8 @@ gem 'rails-i18n', '~> 5.1'
 
 #Google Map API
 gem "gmaps4rails"
+
+#住所変換
 gem "geocoder"
 
 #環境変数設定 
