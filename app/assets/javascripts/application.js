@@ -56,7 +56,7 @@ function previewFile2() {
 //フラッシュ
 
  $(function(){
-  setTimeout("$('.flash').css('opacity',0.01)", 5000) 
+  setTimeout("$('.flash').css('opacity',0.01)", 10000) 
  })
  
 
