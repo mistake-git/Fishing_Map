@@ -35,14 +35,13 @@ class Post < ApplicationRecord
   end
   
   def create_notification_like!(current_user)
-    #visitor_id = 1,visited_id = 1 ,post_id = 1 action = "like"
     temp = Notification.where(["visitor_id = ? and visited_id = ? and post_id = ? and action = ? ", current_user.id,user_id, id, 'like'])
     if temp.blank?
       notification = current_user.active_notifications.new(
-        post_id: id,#post_id = 1
-        visited_id: user_id, # visited_id = 1
+        post_id: id,
+        visited_id: user_id,
         action: 'like'
-      )
+    )
       if notification.visitor_id == notification.visited_id
         notification.checked = true
       end

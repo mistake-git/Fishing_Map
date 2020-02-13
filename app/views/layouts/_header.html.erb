@@ -40,7 +40,7 @@
                     <div class="notifications-bell nav-link">
                         <i class="fas fa-bell"></i>
                         <% if unchecked_notifications.any? %>
-                            <div class="n-circle"><%= @notifications.count %></div>
+                            <div class="n-circle"><%= unchecked_notifications.count %></div>
                         <% end %>
                     </div>
                 <% end %>
