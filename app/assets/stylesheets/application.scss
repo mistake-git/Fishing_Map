@@ -545,22 +545,32 @@ body{
 }
     
 /*フラッシュ*/
-
-#flash_alert{
-    padding: 10px 0;
-    color: #fff;
-    background: rgba(255, 0, 0, 0.8);
-    font-weight: bold;
-    width: 100%;
+.main{
+    position: relative;
+    .flash{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+        #flash_alert{
+            padding: 10px 0;
+            color: #fff;
+            background: rgba(255, 0, 0, 0.9);
+            font-weight: bold;
+            width: 100%;
+        }
+        
+        #flash_notice{
+            padding: 10px 0;
+            color: #fff;
+            background: rgba(0,204,204,0.9);
+            font-weight: bold;
+            width: 100%;
+        }
 }
 
-#flash_notice{
-    padding: 10px 0;
-    color: #fff;
-    background: rgba(0,204,204,0.7);
-    font-weight: bold;
-    width: 100%;
-}
+
 
 /*お知らせ詳細ページ*/
 

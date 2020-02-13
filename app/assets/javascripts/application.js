@@ -56,7 +56,7 @@ function previewFile2() {
 //フラッシュ
 
  $(function(){
-  setTimeout("$('.flash').fadeOut('slow')", 10000) 
+  setTimeout("$('.flash').css('opacity',0.01)", 5000) 
  })
  
 
@@ -74,13 +74,10 @@ function previewFile2() {
      $(this).css('display', 'block');
  });
  });
- 
  $(function(){
    setTimeout('stopload()',10000);
  });
  
-
-
 
 //トップページのアニメーション
 $(function(){

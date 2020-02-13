@@ -10,10 +10,10 @@ class FishTest < ApplicationSystemTestCase
     visit "/fish/new"
     assert_text"データを作成"
     select(1,from: "fish-level")
-    fill_in "fish-name", with:"タイ"
+    fill_in "fish-name", with:"テナガエビ"
     click_on "登録する"
     assert_text "魚のデータを作成しました"
-    assert_text "タイ"
+    assert_text "テナガエビ"
     assert_text "1"
   end
 
@@ -34,7 +34,7 @@ class FishTest < ApplicationSystemTestCase
     click_on "削除", match: :first
     end
     assert_text "魚のデータを削除しました"
-    assert_no_text"タイ"
-    assert_no_text"1"
+    assert_no_text"イワシ"
+    assert_no_text"3"
   end
 end

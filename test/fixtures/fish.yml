@@ -2,12 +2,12 @@
 
 one:
   name: タイ
-  level: 1
+  level: 5
   season_begin: 2020-01-16
   season_end: 2020-02-16
 
 two:
   name: イワシ
-  level: 1
+  level: 3
   season_begin: 2020-01-16
   season_end: 2020-02-16
