@@ -15,7 +15,7 @@ one:
   id: 1
 
 two:
-  name: "カザゴ"
+  name: "カサゴ"
   number: two_number
   date: <%= Date.new(2019, 1, 2) %>
   time: <%= Time.new %>
