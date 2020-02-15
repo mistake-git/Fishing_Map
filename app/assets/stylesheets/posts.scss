@@ -181,6 +181,13 @@ $application-color:#00CCCC;
     display: inline-block;
 }
 
+.
+@media screen and (max-width:1000px){
+   .post-data{
+        font-size: 1.2rem;
+    }
+}
+
 
 table *{
     font-weight: bold;
