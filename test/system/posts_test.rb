@@ -74,4 +74,14 @@ class PostsTest < ApplicationSystemTestCase
         assert_no_text(30)
         assert_text "投稿を削除しました"
   end
+  
+  test "Search a Post" do
+        click_on "すべての釣果"
+        assert_text "タイ"
+        assert_text "カサゴ"
+        fill_in "search", with: "タイ"
+        click_on "検索"
+        assert_text "タイ"
+        assert_no_text "カサゴ"
+  end
 end

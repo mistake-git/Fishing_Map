@@ -7,7 +7,7 @@ class FishController < ApplicationController
   # GET /fish
   # GET /fish.json
   def index
-    @fish = Fish.all
+    @fish = Fish.all.order(created_at: :desc)
   end
 
   # GET /fish/1

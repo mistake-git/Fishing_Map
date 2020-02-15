@@ -4,7 +4,7 @@
 # below each fixture, per the syntax in the comments below
 #
 one: 
-  name: one_name
+  name: "masa"
   email: one_email
   address: one_address
   introduce: one_introduce
@@ -14,13 +14,12 @@ one:
 # column: value
 #
 two:
-  name: two_name
+  name: "taka"
   email: two_email
   address: two_address
   introduce: two_introduce
   encrypted_password: two_password
   id: 2
-# column: value
 
 test:
   email: "test@example.com"

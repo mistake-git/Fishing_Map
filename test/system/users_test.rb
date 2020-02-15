@@ -38,6 +38,17 @@ class UsersTest < ApplicationSystemTestCase
         assert_text "ユーザー情報を編集しました"
     end
     
+    test "Search a User" do
+        sign_in
+        visit "/users"
+        assert_text "masa"
+        assert_text "taka"
+        fill_in "search", with: "masa"
+        click_on "検索"
+        assert_text "masa"
+        assert_no_text "taka"
+    end
+    
     test "sign in" do
         visit "/users/sigin_in"
         assert_text"ログイン"

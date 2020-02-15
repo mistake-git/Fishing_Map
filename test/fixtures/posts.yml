@@ -4,6 +4,7 @@ one:
   name: "タイ"
   number: 1
   date: <%= Date.new(2019, 1, 2) %>
+  time: <%= Time.new %>
   description: one_description
   feed: "ゴカイ"
   weather: "晴れ"
@@ -14,9 +15,10 @@ one:
   id: 1
 
 two:
-  name: two_name
+  name: "カザゴ"
   number: two_number
   date: <%= Date.new(2019, 1, 2) %>
+  time: <%= Time.new %>
   description: two_description
   feed: two_feed
   weather: two_weather
