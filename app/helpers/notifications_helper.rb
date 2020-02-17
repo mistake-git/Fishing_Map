@@ -4,13 +4,14 @@ module NotificationsHelper
       visitor = link_to notification.visitor.name, "/users/#{notification.visitor.id}",style:"font-weight: bold; color: #00CCCC"
       your_post = link_to 'あなたの投稿',notification.post, style:"font-weight: bold; color: #00CCCC"
       fish_name = link_to "#{notification.post.name}",notification.post ,style:"font-weight: bold; color: #00CCCC"
+      pp "■#{notification.post}"
       case notification.action
         when "follow" then
           "#{visitor}があなたをフォローしました"
         when "like" then
           "#{visitor}が#{your_post}にいいね！しました"
         when "comment" then
-          @comment=Comment.find_by(id:notification.comment_id).content
+          @comment = Comment.find_by(id:notification.comment_id).content
           "#{visitor}が#{your_post}にコメントしました"
         when "post" then
         "#{visitor}が#{fish_name}を釣り上げました"
