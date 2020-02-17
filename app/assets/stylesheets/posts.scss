@@ -224,6 +224,13 @@ table *{
     opacity: 0.5;
 }
 
+.post-like-count{
+    .active{
+        color: #8899a6;
+        opacity: 1.0;
+    }
+}
+
 /*データ*/
 @media screen and (min-width:1000px){
     .data-label{
