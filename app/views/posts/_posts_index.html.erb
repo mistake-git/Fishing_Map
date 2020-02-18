@@ -46,18 +46,18 @@
                             </div>
                         <% end %>
                         <% if post.size? %>
-                            <div class="badge badge-info size-badge">
+                            <div class="badge badge-info">
                                 サイズ: <%= post.size %>cm
                             </div>
                         <% end %>
                         <% if post.number? %>
                             <div class="badge badge-info">
-                                数量: <%= post.number %>
+                                数量: <%= post.number.to_i %>
                             </div>
                         <% end %>
                         <% if post.date? %>
                             <div class="badge badge-info">
-                                釣った日: <%= post.date %>
+                                日付: <%= post.date %>
                             </div>
                         <% end %>
                         <% if post.time? %>
