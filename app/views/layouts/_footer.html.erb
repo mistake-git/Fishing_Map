@@ -1,7 +1,7 @@
 <footer class="footer">
     <%= link_to(image_tag("fmap-site-logo.png",class:"footer-site-logo ml-3"),"/") %>
    <% if user_signed_in? %> 
-       <div class="row ml-5 text-center">
+       <div class="row text-center">
             <div class="col-xs-12 col-md-2 col-md-offset-2">
                 <%= link_to "/fishing.map", class: "footer-link" do %>
                     <i class="fas fa-chevron-right mt-3"></i>MAP
@@ -27,7 +27,7 @@
             </div>
         </div>
    <% else %>
-        <div class="row ml-5 text-center">
+        <div class="row text-center">
             <div class="col-xs-12 col-md-2 col-md-offset-2  mt-3">
                 <%= link_to "/users/sign_up", class: "footer-link" do %>
                     <i class="fas fa-chevron-right"></i>新規登録
