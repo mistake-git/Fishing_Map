@@ -73,10 +73,9 @@ class User < ApplicationRecord
         post_id: post_id,
         visitor_id: current_user.id,
         visited_id: follower_id,
-        action: 'post'
+        action:'post'
       )
       notification.save if notification.valid?
-
   end
   
 end

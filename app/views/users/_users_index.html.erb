@@ -1,12 +1,12 @@
 <div class="container">
     <div class="row no-gutters">
         <% @users.each do |user| %>
-            <div class="col-xs-12 col-md-6 col-lg-3 mt-3 user-index">
+            <div class="col-xs-12 col-md-6 col-lg-3 user-index">
                 <div class="card user-card mt-1 ml-1 mr-1 mb-1">
                     <% if user.image.attached? %>
-                        <%= image_tag user.image, class:"card-img-top user-card-img mx-auto mt-3"%>
+                        <%= image_tag user.image, class:"card-img-top user-card-img mx-auto"%>
                     <% else %>
-                        <img src="/assets/user-image.png" class="card-img-top user-card-img mx-auto mt-3 default-img">
+                        <img src="/assets/user-image.png" class="card-img-top user-card-img mx-auto default-img">
                     <% end %>
                     <div class="card-body">
                         <h6 class="card-title text-center card-label"><%= link_to"#{user.name}","/users/#{user.id}"%></h6>
@@ -42,7 +42,7 @@
                                 <div class="follow-btn">自分</div>
                             <% end %>
                         </div>
-                        <div class="user-status-summary text-center">
+                        <div class="user-status-summary text-center mt-1">
                             <div class="summary-item">
                                 <div class="summary-title">フォロー</div>
                                 <%= user.following.count %>

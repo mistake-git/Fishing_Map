@@ -45,9 +45,6 @@ class Post < ApplicationRecord
         visited_id: user_id,
         action: 'like'
     )
-    logger.debug("■#{id}")
-    logger.debug("■#{user_id}")
-    
       notification.save if notification.valid?
     end
   end
@@ -72,6 +69,7 @@ class Post < ApplicationRecord
     )
     notification.save if notification.valid?
   end
+  
   
   private
     def delete_whitespace
