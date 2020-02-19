@@ -51,6 +51,11 @@ $application-color:#00CCCC;
             @include ranking-icon;
         }
         
+        .size-badge{
+            background-color: #FFD700;
+            font-size: 1.1rem;
+        }
+        
     }
 
 }
