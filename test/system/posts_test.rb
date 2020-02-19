@@ -24,7 +24,7 @@ class PostsTest < ApplicationSystemTestCase
     page.execute_script "$('#map_lng').val(135.000000);"
     click_on "登録する"
     assert_selector ".post-name",text: "タイ"
-    assert_selector ".post-number",text:"3.0匹"
+    assert_selector ".post-number",text:"3匹"
     assert_selector ".post-date",text:'2019/04/02'
     assert_selector ".description",text: "これは魚です"
     assert_selector ".post-feed",text: "ゴカイ"
@@ -32,6 +32,8 @@ class PostsTest < ApplicationSystemTestCase
     assert_selector ".post-address",text:"兵庫県明石市"
     assert_selector ".post-size",text: 30
     assert_text "投稿を作成しました"
+    visit "/posts"
+    assert_text"タイ"
   end
 
   test "updating a Post" do
@@ -50,7 +52,7 @@ class PostsTest < ApplicationSystemTestCase
     fill_in "post_size",with:25
     click_on "登録する"
     assert_selector ".post-name",text: "カサゴ"
-    assert_selector ".post-number",text:"3.0"
+    assert_selector ".post-number",text:"3匹"
     assert_selector ".post-date",text:'2019/05/02'
     assert_selector ".description",text: "これは魚です"
     assert_selector ".post-feed",text: "貝"
@@ -58,6 +60,8 @@ class PostsTest < ApplicationSystemTestCase
     assert_selector ".post-address",text:"兵庫県神戸"
     assert_selector ".post-size",text: 25
     assert_text "投稿を編集しました"
+    visit "/posts"
+    assert_text "カサゴ"
  end
 
  test "destroying a Post" do

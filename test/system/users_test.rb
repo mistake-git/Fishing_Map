@@ -18,8 +18,10 @@ class UsersTest < ApplicationSystemTestCase
         assert_text "アカウントを作成しました"
         click_on "マイページ"
         assert_selector ".user-name",text: "test"
-        assert_selector ".user-address",text:'兵庫県'
-        
+        assert_selector ".user-address",text:"兵庫県"
+        visit "/users"
+        assert_text "test"
+        assert_text'兵庫県'
     end
     
     test "updating a User" do
@@ -36,6 +38,10 @@ class UsersTest < ApplicationSystemTestCase
         assert_selector ".user-address",text:"兵庫県"
         assert_selector ".user-introduce",text:"こんにちは"
         assert_text "ユーザー情報を編集しました"
+        visit "/users"
+        assert_text "masataka"
+        assert_text "兵庫県"
+        assert_text "こんにちは"
     end
     
     test "Search a User" do
