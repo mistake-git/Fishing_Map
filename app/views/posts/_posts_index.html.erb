@@ -35,6 +35,11 @@
                                 説明がありません
                             </div>
                         <% end %>
+                        <% if post.size? %>
+                            <div class="badge badge-info size-badge">
+                                サイズ: <%= post.size %>cm
+                            </div>
+                        <% end %>
                         <% if post.feed? %>
                             <div class="badge badge-info">
                                 餌: <%= post.feed %>
@@ -43,11 +48,6 @@
                         <% if post.weather? %>
                             <div class="badge badge-info">
                                 天気: <%= post.weather %>
-                            </div>
-                        <% end %>
-                        <% if post.size? %>
-                            <div class="badge badge-info">
-                                サイズ: <%= post.size %>cm
                             </div>
                         <% end %>
                         <% if post.number? %>
