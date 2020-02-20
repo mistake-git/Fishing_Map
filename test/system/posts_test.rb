@@ -35,6 +35,17 @@ class PostsTest < ApplicationSystemTestCase
     visit "/posts"
     assert_text"タイ"
   end
+  
+  test "creating a Post failure" do
+    visit "/posts/new"
+    assert_selector ".form-title", text: "釣果を登録"
+    click_on "登録する"
+    assert_text"魚種が入力されていません。"
+    assert_text"魚種はカタカナで入力して下さい。"
+    assert_text"住所が入力されていません。"
+    assert_text"緯度が入力されていません。"
+    assert_text"経度が入力されていません。"
+  end
 
   test "updating a Post" do
     visit "/posts/1"
@@ -63,7 +74,7 @@ class PostsTest < ApplicationSystemTestCase
     visit "/posts"
     assert_text "カサゴ"
  end
-
+ 
  test "destroying a Post" do
     page.accept_confirm do
         visit "/posts/1"

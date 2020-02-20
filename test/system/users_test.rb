@@ -24,6 +24,20 @@ class UsersTest < ApplicationSystemTestCase
         assert_text'兵庫県'
     end
     
+    test "creating a User failure" do
+        visit "/users/sign_up"
+        assert_selector ".form-title",text:"新規登録"
+        fill_in "new-name", with: ""
+        fill_in "new-email", with: ""
+        fill_in "new-password",with:""
+        fill_in "new-password_confirmation",with:""
+        click_on "user-create-btn"
+        assert_text "メールアドレスが入力されていません。"
+        assert_text "パスワードが入力されていません。"
+        assert_text "名前が入力されていません。"
+        assert_text "主な活動エリアが入力されていません"
+    end
+    
     test "updating a User" do
         sign_in
         visit "/users/1"
@@ -42,6 +56,18 @@ class UsersTest < ApplicationSystemTestCase
         assert_text "masataka"
         assert_text "兵庫県"
         assert_text "こんにちは"
+    end
+    
+    test "updating a User failure" do
+        sign_in
+        visit "/users/1"
+        click_on "設定"
+        assert_text"アカウント"
+        fill_in "edit-name", with: ""
+        fill_in "edit-email", with: ""
+        click_on "編集する"
+        assert_text "メールアドレスが入力されていません。"
+        assert_text "名前が入力されていません。"
     end
     
     test "Search a User" do

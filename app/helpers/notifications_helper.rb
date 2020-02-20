@@ -2,7 +2,7 @@ module NotificationsHelper
     def notification_form(notification)
       @comment = nil
       visitor = link_to notification.visitor.name, "/users/#{notification.visitor.id}",style:"font-weight: bold; color: #00CCCC"
-      your_post = link_to "あなたの#{notification.post.name}の投稿",notification.post, style:"font-weight: bold; color: #00CCCC"
+      your_post = link_to "あなたの投稿",notification.post, style:"font-weight: bold; color: #00CCCC"
       fish_name = link_to "#{notification.post.name}",notification.post ,style:"font-weight: bold; color: #00CCCC"
       case notification.action
         when "follow" then

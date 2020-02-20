@@ -118,9 +118,9 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.save
         @user.followers.each do |follower|
-            follower_id = follower.id
+            visited_id = follower.id
             post_id = @post.id
-            @user.create_notification_post!(follower_id,current_user,post_id)
+            @user.create_notification_post!(visited_id,current_user,post_id)
         end
         format.html { redirect_to @post, notice: '投稿を作成しました' }
         format.json { render :show, status: :created, location: @post }

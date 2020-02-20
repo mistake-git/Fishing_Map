@@ -1,5 +1,4 @@
 <% visitor = notification.visitor %>
-<% post = notification.post %>
 <div class="media">
     <div class="media-left mr-3">
         <%= link_to "users/#{notification.visitor.id}" do %>
@@ -10,6 +9,7 @@
             <% end %>
         <% end %>
     </div>
+
     <div class="media-body">
         <%== notification_form(notification) %><span class="moderate-font"><%= " (#{time_ago_in_words(notification.created_at)}前)" %></span>
     <% if !@comment.nil? %>

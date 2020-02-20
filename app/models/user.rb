@@ -25,8 +25,7 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
-  #has_many :notifications, dependent: :destroy
-         
+  
   def posts
     return Post.where(user_id: self.id)
   end
@@ -64,14 +63,14 @@ class User < ApplicationRecord
     end
   end
   
-  def create_notification_post!(follower_id,current_user,post_id)
+  def create_notification_post!(visited_id,current_user,post_id)
       current_user.followers.each do |follower|
-          follower_id = follower.id
+          visited_id = follower.id
       end 
       notification = current_user.active_notifications.new(
         post_id: post_id,
         visitor_id: current_user.id,
-        visited_id: follower_id,
+        visited_id: visited_id,
         action:'post'
       )
       notification.save if notification.valid?
