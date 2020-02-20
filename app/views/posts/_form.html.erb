@@ -42,7 +42,9 @@
     
     <div class="field form-group text-left">
         <div class="form-text  mb-3">日付</div><br />
-        <%= form.date_select :date ,{}, {class: "form-control"} %>
+        <div class= "row no-gutters">
+            <%= form.date_select :date ,{}, {class: "form-control col-4"} %>
+        </div>
     </div>
     
     <div class="field form-group text-left">
