@@ -94,8 +94,9 @@ class UsersTest < ApplicationSystemTestCase
     test "sign out" do
         sign_in
         click_on "ログアウト"
-        assert_text  "ログイン"
         assert_text "ログアウトしました"
+        assert_text "ログイン"
+        assert_text "新規登録"
     end
  
 end

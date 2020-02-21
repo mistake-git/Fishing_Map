@@ -4,7 +4,7 @@ one:
   name: "タイ"
   number: 1
   date: <%= Date.new(2019, 1, 2) %>
-  time: <%= Time.new %>
+  time: <%= Time.new%>
   description: one_description
   feed: "ゴカイ"
   weather: "晴れ"

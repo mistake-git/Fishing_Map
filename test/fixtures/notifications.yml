@@ -9,7 +9,9 @@
 one: 
   visitor_id: 1
   visited_id: 2
+  post_id: 5
   
 two: 
   visitor_id: 3
   visited_id: 4
+  post_id: 6

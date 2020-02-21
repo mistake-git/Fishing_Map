@@ -5,23 +5,24 @@
 #
 one: 
   name: "masa"
-  email: one_email
-  address: one_address
-  introduce: one_introduce
-  encrypted_password: one_password
+  email: "masataka@gmail.com"
+  address: "岡山県"
+  introduce: "よろしくおねがいします"
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'masamasa') %>
   id: 3
   
 # column: value
 #
 two:
   name: "taka"
-  email: two_email
-  address: two_address
-  introduce: two_introduce
-  encrypted_password: two_password
+  email: "taka@gmail.com"
+  address: "兵庫県"
+  introduce: "お願いします"
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'takataka') %>
   id: 2
 
 test:
+  name: "test"
   email: "test@example.com"
   encrypted_password: <%= Devise::Encryptor.digest(User, 'testtest') %>
   id: 1

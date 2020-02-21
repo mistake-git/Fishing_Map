@@ -12,7 +12,8 @@ class RelationshipsTest < ApplicationSystemTestCase
     click_on "フォローする"
     assert_text "フォローしました｡フォローすると釣果の通知を受け取る事ができます｡"
     assert_text "フォロワー 1"
-    
+    find('.notification').click
+    assert_text "通知はありません"
   end
 
  test "destroying a Relationship" do

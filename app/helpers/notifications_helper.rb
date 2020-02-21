@@ -7,7 +7,7 @@ module NotificationsHelper
             "#{visitor}があなたをフォローしました"
         when "like" then
              your_post = link_to "あなたの#{notification.post.name}の投稿",notification.post, style:"font-weight: bold; color: #00CCCC"
-            "#{visitor}が#{your_post}にいいね！しました"
+            "#{visitor}が#{your_post}にいいね!しました"
         when "comment" then
              your_post = link_to "あなたの#{notification.post.name}の投稿",notification.post, style:"font-weight: bold; color: #00CCCC"
             @comment = Comment.find_by(id:notification.comment_id).content

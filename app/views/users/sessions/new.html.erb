@@ -6,12 +6,12 @@
      
       <div class="field form-group users_email text-left">
         <%= form.label :email ,class:"form-text mb-4"%><br />
-        <%= form.email_field :email, autofocus: true, autocomplete: "email" ,class:"form-control",id:"session-email" ,value:"test@gmail.com"%>
+        <%= form.email_field :email, autofocus: true, autocomplete: "email" ,class:"form-control",id:"session-email"%>
       </div>
     
       <div class="field form-group users_password text-left">
         <%= form.label :password,class:"form-text mb-4" %><br />
-        <%= form.password_field :password, autocomplete: "current-password" ,class:"form-control",id:"session-password" ,value:"testtest"%>
+        <%= form.password_field :password, autocomplete: "current-password" ,class:"form-control",id:"session-password"%>
       </div>
     
       <% if devise_mapping.rememberable? %>
