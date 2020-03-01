@@ -9,15 +9,6 @@
             <% end %>
         <% end %>
     </div>
-    <div class="media-right mr-3">
-        <%= link_to "users/#{notification.visitor.id}" do %>
-            <% if notification.post.image.attached? %>
-                <%=  image_tag notification.post.image, class:"notification-user-img", style:"width: 60px;height:60px;border-radius: 50%;"%>
-            <% else %>
-                <img src="/assets/sakana-img.jpg" class="notification-user-img" style="width: 60px;height:60px;border-radius: 50%;">
-            <% end %>
-        <% end %>
-    </div>
     <div class="media-body">
         <%== notification_form(notification) %><span class="moderate-font"><%= " (#{time_ago_in_words(notification.created_at)}前)" %></span>
     <% if !@comment.nil? %>
