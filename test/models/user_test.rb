@@ -10,7 +10,7 @@ class UserTest < ActiveSupport::TestCase
    
     test "update_user" do
     user = users :one
-    user.update!(name: 'masataka',email:'test@gmail.com',address:'兵庫県')
+    user.update(name: 'masataka',email:'test@gmail.com',address:'兵庫県')
     assert_equal('masataka',user.name)
     assert_equal('test@gmail.com',user.email)
     assert_equal('兵庫県',user.address)

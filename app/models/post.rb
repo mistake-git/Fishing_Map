@@ -4,7 +4,7 @@ class Post < ApplicationRecord
     validates :address, presence: true
     validates :latitude, presence: true
     validates :longitude,presence: true
-    validates :user_id, {presence: true}
+    validates :user_id, presence: true
     validates :size,numericality:{greater_than_or_equal_to:1 ,message:'は1以上の値を入力して下さい'},allow_nil: true
     validates :size,numericality:{less_than:200 ,message:'は想定されない値です｡'},allow_nil: true
     validates :number,numericality:{greater_than_or_equal_to:1 ,message:'は1以上の値を入力して下さい'} 
