@@ -15,4 +15,11 @@
         <p class="moderate-font"><%= @comment %></p>
     <% end %>
   </div>
+  <div class="media-right mr-3">
+        <% if notification.visitor.image.attached? %>
+            <%=  image_tag notification.visitor.image, class:"notification-user-img", style:"width:100px;height:auto"%>
+        <% else %>
+            <img src="/assets/sakana-img.jpg" style="width: 60px;height:60px;border-radius: 50%;">
+        <% end %>
+    </div>
 </div>
