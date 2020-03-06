@@ -22,5 +22,11 @@ test:
 
 production:
   <<: *default
-  adapter: postgresql
-  database: simple_board_production
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: aws_mysql_production
+  pool: 5
+  username: root
+  password:
+  host: localhost
