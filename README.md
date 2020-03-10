@@ -50,6 +50,8 @@
 * bootstrap
 * chartkick
 * JQuery
-* PG
-* E3
-* heroku
+* SQLite
+* S3
+* VPC
+* EC2
+* IAM
