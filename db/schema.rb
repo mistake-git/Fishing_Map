@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 2020_01_31_075746) do
     t.datetime "updated_at", null: false
     t.string "weather"
     t.string "description"
-    t.decimal "number"
+    t.integer "number"
     t.date "date"
     t.string "address"
     t.float "latitude"

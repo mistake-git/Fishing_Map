@@ -1,8 +1,8 @@
-<div class="text-center mt-5 mb-5">
-  <div class="form-wrapper mt-5 mb-5">     
-    <h4 class="form-title mb-5">ログイン</h4>
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |form| %>
+ <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |form| %>
      <%= render "devise/shared/error_messages", resource: resource %>
+<div class="text-center mt-5  mb-5">
+  <div class="form-wrapper mb-5">     
+    <h4 class="form-title mb-5">ログイン</h4>
      
       <div class="field form-group users_email text-left">
         <%= form.label :email ,class:"form-text mb-4"%><br />
