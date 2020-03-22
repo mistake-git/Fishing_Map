@@ -72,7 +72,8 @@
                         <% end %>
                     </div>
                         <div class="card-bottom ml-5">
-                            <% if Like.find_by(user_id: current_user.id, post_id: post.id) %>
+                            
+                            <% if current_user && Like.find_by(user_id: current_user.id, post_id: post.id) %>
                                 <div class ="post-like-count ml-1 ml-2">
                                     <% @likes_count = Like.where(post_id: post.id).count %>
                                     <i class="fas fa-heart ml-1 mr-2 active"></i><%= @likes_count %>
@@ -83,6 +84,7 @@
                                     <i class="fas fa-heart ml-1 mr-2"></i><%= @likes_count %>
                                 </div>
                             <% end %>
+                            
                             <div class="post-comments-count ml-2">
                                 <% @comments_count = Comment.where(post_id: post.id).count %>
                                 <i class="fas fa-comment ml-1 mr-2"></i><%= @comments_count %>

@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :set_current_user
-  before_action :authenticate_user
+  before_action :authenticate_user,only:[:new, :edit, :create, :update,:destroy]
   before_action :ensure_correct_user, only: %i[edit update destroy]
   PER = 16
 
@@ -45,10 +45,10 @@ class PostsController < ApplicationController
         @level = nil
     end
     
-    if current_user.id == @user.id
-            @title = "あなた"
-        else
-            @title = "#{@user.name}さん"
+    if current_user && current_user.id == @user.id
+       @title = "あなた"
+    else
+       @title = "#{@user.name}さん"
     end
     @likes_count = @post.likes.count
     @comments = Comment.where(post_id: @post.id).page(params[:page]).per(5)

@@ -21,7 +21,7 @@
                 </p>
                 <p>
                     <div class="follow-btn-wrapper text-center">    
-                        <% if @post.user.id != current_user.id %>
+                        <% if current_user && @post.user.id != current_user.id %>
                             <% if  Relationship.find_by(follower_id: current_user.id,followed_id: @post.user.id) %>
                                 <%= form_with(model: current_user.active_relationships.find_by(followed_id: @post.user.id),local: true,html: { method: :delete }) do |form| %>
                                 <%= form.submit "フォロー中", class: " unfollow-btn" %>
@@ -160,7 +160,7 @@
                             </script>
                         </div>
                         
-                    <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
+                    <% if current_user && Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
                         <%= link_to("/likes/#{@post.id}/destroy", {method: "post"},class:"like-btn-nulike") do %>
                             <div class="text-right like-btn-wrapper">
                                 <i class="fa fa-heart like-btn-unlike mb-3"></i>
@@ -174,7 +174,7 @@
                         <% end %>
                     <% end %>
                      
-                    <% if @post.user.id == current_user.id %>
+                    <% if current_user && @post.user.id == current_user.id %>
                         <div class="post-btn-area text-right mb-2">
                             <%= link_to '編集', edit_post_path(@post),class:"btn-sm btn-info" %> 
                             <%= link_to '削除', @post, method: :delete, data: { confirm: '投稿を削除します｡よろしいですか?' },class:"btn-sm btn-danger" %>

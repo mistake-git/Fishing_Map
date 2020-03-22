@@ -9,7 +9,7 @@
             まだ画像がありません
         </div>
     <% end %>
-    <% if @user.id == current_user.id %>
+    <% if current_user && @user.id == current_user.id %>
         <div class="bg-img-edit mr-3" data-toggle="modal" data-target="#bg_edit">編集</div>
         <div class="bg-img-delete mr-1">
             <%= link_to"削除","/users/bg.img/delete",method:"post" %>
@@ -26,7 +26,7 @@
                     <img src="/assets/user-image.png" class="user-image">
                 <% end %>
             </div>
-            <% if @user.id == current_user.id %>
+            <% if current_user && @user.id == current_user.id %>
                 <div class="profile-img-edit" data-toggle="modal" data-target="#img_edit">設定</div>
                 <div class ="profile-img-delete">
                     <%= link_to"削除","/users/profile.img/delete",method:"post" %>
@@ -40,7 +40,7 @@
         </div>
         <div class="col-xs-12 col-md-3 text-center">
             <div class="follow-btn-group mx-auto">
-                <% if @user.id != current_user.id %>
+                <% if current_user &&  @user.id != current_user.id %>
                     <% if  Relationship.find_by(follower_id: current_user.id,followed_id: @user.id) %>
                         <%= form_with(model: current_user.active_relationships.find_by(followed_id: @user.id),local: true,html: { method: :delete }) do |form| %>
                         <%= form.submit "フォロー中", class: " unfollow-btn-lg" %>

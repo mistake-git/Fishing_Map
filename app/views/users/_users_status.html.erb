@@ -15,7 +15,7 @@
             <%=@user.address %>
         </div>
         </div>
-    <% if @user.id == current_user.id %>
+    <% if current_user && @user.id == current_user.id %>
         <%= link_to"/users/edit" do%>
             <div class="setting">
                 <i class="fas fa-cog"></i>設定
