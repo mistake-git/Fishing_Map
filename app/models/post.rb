@@ -8,7 +8,7 @@ class Post < ApplicationRecord
     validates :size,numericality:{greater_than_or_equal_to:1 ,message:'は1以上の値を入力して下さい'},allow_nil: true
     validates :size,numericality:{less_than:200 ,message:'は想定されない値です｡'},allow_nil: true
     validates :number,numericality:{greater_than_or_equal_to:1 ,message:'は1以上の値を入力して下さい'} 
-    has_one_attached :image
+    has_many_attached :images
     belongs_to :user
     has_many :likes, dependent: :destroy
     has_many :comments, dependent: :destroy
