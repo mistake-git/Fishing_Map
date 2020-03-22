@@ -18,11 +18,29 @@
                         <%= post.user.address %>
                     </div>
                 </div>
-                <% if post.image.attached? %>
-                    <%= image_tag post.image,class:"post-card-img card-img-top" %>
+                
+                <% if post.images.attached? %>
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                      <div class="carousel-inner">
+                        <% post.images.each_with_index do |image,i| %>
+                            <div class="carousel-item <%= i == 0 ? 'active' :''%>">
+                                <%= image_tag image ,class:"post-card-img card-img-top"%>
+                            </div>
+                        <% end %>
+                      </div>
+                      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">前へ</span>
+                      </a>
+                      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">次へ</span>
+                      </a>
+                    </div>
                 <% else %>
-                    <img src="/assets/sakana-img.jpg" class="post-card-img card-img-top default-img">
+                    <img src="../assets/sakana-img.jpg" class="post-card-img card-img-top">
                 <% end %>
+    
                   <div class="card-body">
                     <h6 class="card-title text-center card-label"><%= link_to"#{post.name}",post %></h6>
                     <div class="card-tag">
