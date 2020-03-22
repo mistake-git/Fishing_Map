@@ -38,7 +38,7 @@ $application-color:#00CCCC;
         }
         
         .catch-text{
-            font-size: 4vmin;
+            font-size: calc(1.8rem + ((1vw - 0.64rem) * 2.1429));
             font-weight: bold;
             line-height: 2;
             
