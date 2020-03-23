@@ -20,14 +20,14 @@ class CommentsController < ApplicationController
   end
       
   def destroy
-    @comment = Comment.find_by(id: params[:id])
+    @comment = Comment.find(params[:id])
     @comment.destroy
     flash[:success] = 'コメントを削除しました'
     redirect_to("/posts/#{params[:post_id]}")
   end
 
   def ensure_correct_user
-    @comment = Comment.find_by(id: params[:id])
+    @comment = Comment.find(params[:id])
     if @comment.user_id != @current_user.id
       flash[:error] = '権限がありません'
       redirect_to("/posts/#{params[:post_id]}")

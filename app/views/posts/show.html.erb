@@ -247,7 +247,7 @@
                     			        </div>
                 			        <div class="text-right">
                                         <% if comment.user.id == current_user.id %>
-                                            <%= link_to("削除", "/posts/#{@post.id}/comments/#{comment.id}",method:"delete",class:"btn-sm btn-danger",id:"comment-destroy") %>
+                                            <%= link_to("削除", "/posts/#{@post.id}/comments/#{comment.id}",method: :delete ,class:"btn-sm btn-danger",id:"comment-destroy") %>
                                         <% end %>
                                     </div>
                 		        </div>

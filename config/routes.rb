@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     get '/posts/search',to:'posts#search'
     
     resources :posts do
-        resource :comments,except: [:index, :show]
+        resources :comments,except: [:index, :show]
     end
     
     get '/',to:'home#top',as:'root'
