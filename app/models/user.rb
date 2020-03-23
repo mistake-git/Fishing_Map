@@ -4,7 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :name, presence: true ,length: { maximum: 20 ,message: 'は20文字以内で入力して下さい｡'}
-  validates :address, presence: true
   validates :email,  length: { maximum: 50 }
   has_one_attached :image
   has_one_attached :bg_image
