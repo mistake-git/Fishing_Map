@@ -3,9 +3,9 @@ module ApplicationHelper
       case flash_key
       when "success"
         "alert-success"
-      when "error"
-        "alert-danger"
       when "alert"
+        "alert-danger"
+      when "error"
        "alert-warning"
       when "notice"
        "alert-info"
