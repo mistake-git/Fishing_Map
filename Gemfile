@@ -93,3 +93,5 @@ gem 'kaminari', '~> 1.1', '>= 1.1.1'
 
 #E3
 gem "aws-sdk-s3", require: false
+
+gem 'http'
