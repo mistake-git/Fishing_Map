@@ -6,8 +6,8 @@
     <div class="ranking-title text-center mb-5">
         <i class="fas fa-crown ranking-icon"></i><%= @post.name %>のサイズランキング(上位8件表示されます)
     </div>
-    <div class="ranking-card-list">
-        <%= render "posts/posts_index" %>
+    <div class="ranking-card">
+        <%= render "ranking_posts_index" %>
     </div>
     <% if @posts.empty? %>
         <div class="when-not-text-follow text-center">

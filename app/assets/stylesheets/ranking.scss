@@ -12,7 +12,7 @@ $application-color:#00CCCC;
     font-family: "Font Awesome 5 Free";
     position: absolute;
     top: 3%;
-    left: 75%;
+    right: 5%;
     font-weight: 900;
     font-size: 1.1rem;
 }
@@ -20,7 +20,7 @@ $application-color:#00CCCC;
 @mixin ranking-icon2{
     position: absolute;
     top: 3%;
-    left: 75%;
+    right: 5%;
     font-weight: bold;
     font-size: 1.1rem;
     opacity: 0.5;
@@ -45,7 +45,7 @@ $application-color:#00CCCC;
         border-radius : 50%;
     }
 
-    .ranking-card-list{
+    .ranking-card{
         position: relative;
         .ranking-icon{
             @include ranking-icon;
@@ -53,12 +53,57 @@ $application-color:#00CCCC;
         
         .size-badge{
             background-color: #FFD700;
-            font-size: 1.1rem;
         }
         
     }
 
 }
 
- 
+.ranking-card{
+    position: relative;
+    
+    .rank-1{
+        @include ranking-icon ;
+        content: '\f521 1位';
+        color: #FFD700;
+    }
+    
+    .rank-2{
+        @include ranking-icon ;
+        content: '\f521 2位';
+        color: #C0C0C0;
+    }
+    
+    .rank-3{
+        @include ranking-icon ;
+        content: '\f521 3位';
+        color: #815A2B;
+    }
+    
+    .rank-4{
+        content: '4位';
+        @include ranking-icon2 ;
+    }
+    
+    .rank-5{
+        content: '5位';
+        @include ranking-icon2 ;
+    }
+    
+    .rank-6{
+        content: '6位';
+        @include ranking-icon2 ;
+    }
+    
+    .rank-7{
+        content: '7位';
+        @include ranking-icon2 ;
+    }
+    
+    .rank-8{
+        content: '8位';
+        @include ranking-icon2 ;
+    }
+    
+}
   

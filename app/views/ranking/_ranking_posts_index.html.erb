@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row no-gutters">
-        <% @posts.each do |post| %>
+        <% @posts.each_with_index do |post,i| %>
         <div class="col-xs-12 col-md-6 col-lg-3 mt-3"> 
             <div class="card m-1">
                 <div class="post-card-user mt-1 ml-1">
