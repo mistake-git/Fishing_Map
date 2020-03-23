@@ -3,7 +3,11 @@ Rails.application.routes.draw do
     get '/fishing.map',to:'posts#fishing_map',as:'fmap_path'
     get '/posts/search_fishing_map',to:'posts#search_fishing_map'
     get '/posts/search',to:'posts#search'
-    resources :posts
+    
+    resources :posts do
+        resource :comments,except: [:index, :show]
+    end
+    
     get '/',to:'home#top',as:'root'
     get '/rule',to:'home#rule'
     get '/policy',to:'home#policy'
@@ -28,8 +32,6 @@ Rails.application.routes.draw do
     get '/users/:id/following',to:'users#following'
     get '/users/:id/followers',to:'users#followers'
     
-    post '/posts/:post_id/comments',to:'comments#create'
-    delete '/posts/:post_id/comments/:comment_id',to:'comments#destroy'
     post '/likes/:post_id/create',to:'likes#create'
     post '/likes/:post_id/destroy',to:'likes#destroy'
     
