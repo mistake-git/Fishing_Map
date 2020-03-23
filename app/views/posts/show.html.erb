@@ -1,57 +1,57 @@
 <div class="page-title ml-4 mt-4 mb-4"><%= @title %>の釣果</div>
-<div class="row">
-    <div class="post-show-user col-xs-12 col-md-3">
-        <div class=" card show-user-card " style="height:auto;">
-            <% if @post.user.image.attached? %>
-                    <%= image_tag @post.user.image, class:" post-user-img"%>
-            <% else %>
-                    <img src="../assets/user-image.png" class=" post-user-img">
-            <% end %>
-            <div class="card-body">
-                <h5 class="card-title text-center card-label"><%= link_to "#{@post.user.name}","/users/#{@post.user.id}"%></h5>
-                <div class="area text-center"><%= @user.address %></div>
-                <p class="card-text text-center">
-                    <% if @post.user.introduce? %>
-                        <%= @post.user.introduce %>
-                    <% else %>
-                        <div class="user-introduce-default text-center">
-                            まだ自己紹介がありません
-                        </div>
-                    <% end %>
-                </p>
-                <p>
-                    <div class="follow-btn-wrapper text-center">    
-                        <% if @post.user.id != current_user.id %>
-                            <% if  Relationship.find_by(follower_id: current_user.id,followed_id: @post.user.id) %>
-                                <%= form_with(model: current_user.active_relationships.find_by(followed_id: @post.user.id),local: true,html: { method: :delete }) do |form| %>
-                                <%= form.submit "フォロー中", class: " unfollow-btn" %>
-                            <% end %>
+    <div class="row">
+        <div class="post-show-user col-xs-12 col-md-3">
+            <div class=" card show-user-card " style="height:auto;">
+                <% if @post.user.image.attached? %>
+                        <%= image_tag @post.user.image, class:" post-user-img"%>
+                <% else %>
+                        <img src="../assets/user-image.png" class="post-user-img">
+                <% end %>
+                <div class="card-body">
+                    <h5 class="card-title text-center card-label"><%= link_to "#{@post.user.name}","/users/#{@post.user.id}"%></h5>
+                    <div class="area text-center"><%= @user.address %></div>
+                    <p class="card-text text-center">
+                        <% if @post.user.introduce? %>
+                            <%= @post.user.introduce %>
                         <% else %>
-                            <%= form_with(model: current_user.active_relationships.build,local: true) do|form| %>
-                                <%= hidden_field_tag :followed_id, @post.user.id %>
-                                <%= form.submit "フォローする", class: " follow-btn" %>
-                                <% end %>
-                           <% end %>
+                            <div class="user-introduce-default text-center">
+                                まだ自己紹介がありません
+                            </div>
                         <% end %>
-                    </div>
-                </p>
-                <p>
-                    <div class="user-status-summary text-center">
-                        <div class="summary-item">
-                            <div class="summary-title">フォロー</div>
-                                <%= @post.user.following.count %>
-                            </div>
-                        <div class="summary-item">
-                            <div class="summary-title">フォロワー</div>
-                                <%= @post.user.followers.count %>
-                            </div>
-                        <div class="summary-item">
-                        <div class="summary-title">釣果</div>
-                            <%= @post.user.posts.count %>
+                    </p>
+                    <p>
+                        <div class="follow-btn-wrapper text-center">    
+                            <% if current_user && @post.user.id != current_user.id %>
+                                <% if  Relationship.find_by(follower_id: current_user.id,followed_id: @post.user.id) %>
+                                    <%= form_with(model: current_user.active_relationships.find_by(followed_id: @post.user.id),local: true,html: { method: :delete }) do |form| %>
+                                    <%= form.submit "フォロー中", class: " unfollow-btn" %>
+                                <% end %>
+                            <% else %>
+                                <%= form_with(model: current_user.active_relationships.build,local: true) do|form| %>
+                                    <%= hidden_field_tag :followed_id, @post.user.id %>
+                                    <%= form.submit "フォローする", class: " follow-btn" %>
+                                    <% end %>
+                               <% end %>
+                            <% end %>
                         </div>
-                    </div>
-                </p>
-           </div>
+                    </p>
+                    <p>
+                        <div class="user-status-summary text-center">
+                            <div class="summary-item">
+                                <div class="summary-title">フォロー</div>
+                                    <%= @post.user.following.count %>
+                                </div>
+                            <div class="summary-item">
+                                <div class="summary-title">フォロワー</div>
+                                    <%= @post.user.followers.count %>
+                                </div>
+                            <div class="summary-item">
+                            <div class="summary-title">釣果</div>
+                                <%= @post.user.posts.count %>
+                            </div>
+                        </div>
+                    </p>
+                </div>
         </div>
     </div>
     
@@ -62,11 +62,27 @@
             </div>
                 <div class ="post-main pt-5 pb-5">
                     <div class="text-center">
-                        <% if @post.image.attached? %>
-                            <%= image_tag @post.image,class:"post-show-img"%>
+                        <% if @post.images.attached? %>
+                            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                              <div class="carousel-inner">
+                                <% @post.images.each_with_index do |image,i|%>
+                                    <div class="carousel-item <%= i == 0 ? 'active' :''%>">
+                                        <%= image_tag image ,class:"post-show-img" ,style:"5vmin;"%>
+                                    </div>
+                                <% end %>
+                              </div>
+                              <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">前へ</span>
+                              </a>
+                              <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">次へ</span>
+                              </a>
+                            </div>
                         <% else %>
                             <img src="../assets/sakana-img.jpg" class=" post-show-img default-img">
-                        <% end %> 
+                        <% end %>
                     </div>
                     <div class="data-area-title pt-5">
                         投稿のデータ
@@ -160,7 +176,7 @@
                             </script>
                         </div>
                         
-                    <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
+                    <% if current_user && Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
                         <%= link_to("/likes/#{@post.id}/destroy", {method: "post"},class:"like-btn-nulike") do %>
                             <div class="text-right like-btn-wrapper">
                                 <i class="fa fa-heart like-btn-unlike mb-3"></i>
@@ -174,7 +190,7 @@
                         <% end %>
                     <% end %>
                      
-                    <% if @post.user.id == current_user.id %>
+                    <% if current_user && @post.user.id == current_user.id %>
                         <div class="post-btn-area text-right mb-2">
                             <%= link_to '編集', edit_post_path(@post),class:"btn-sm btn-info" %> 
                             <%= link_to '削除', @post, method: :delete, data: { confirm: '投稿を削除します｡よろしいですか?' },class:"btn-sm btn-danger" %>
@@ -209,6 +225,8 @@
                         <% end %>
                     </div>
                 </div>
+                
+                
             <div class="comment-area ml-5 mr-5">
                 <div class="comment-area-title mt-5">コメント</div>
                  <div class="media-list mt-4">
@@ -229,7 +247,7 @@
                     			        </div>
                 			        <div class="text-right">
                                         <% if comment.user.id == current_user.id %>
-                                            <%= link_to("削除", "/posts/#{@post.id}/comments/#{comment.id}",method:"delete",class:"btn-sm btn-danger",id:"comment-destroy") %>
+                                            <%= link_to("削除", "/posts/#{@post.id}/comments/#{comment.id}",method: :delete ,class:"btn-sm btn-danger",id:"comment-destroy") %>
                                         <% end %>
                                     </div>
                 		        </div>
@@ -256,7 +274,36 @@
 
    
 
+<script type="text/javascript">
+  function initMap() {
 
+    var test = {lat: <%= @post.latitude %>, lng: <%= @post.longitude %>};
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 15,
+      center: test
+    });
+    var transitLayer = new google.maps.TransitLayer();
+    transitLayer.setMap(map);
+
+    var contentString = '住所：<%= @post.address %>';
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+
+    var marker = new google.maps.Marker({
+      position:test,
+      map: map,
+      title: contentString
+    });
+
+    marker.addListener('click', function() {
+      infowindow.open(map, marker);
+    });
+  }
+</script>
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=[<%=ENV['KEY'] %>]&callback=initMap">
+</script>
 
 
 

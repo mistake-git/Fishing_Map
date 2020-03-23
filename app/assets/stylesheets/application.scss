@@ -226,7 +226,7 @@ body{
                 display: inline-block;
                 width: 40%;
                 margin: 0 auto;
-                padding: 10% 0;
+                padding: 5% 0;
             }
         }
     }
@@ -588,7 +588,6 @@ body{
 /*画像プレビュー*/
 .img-preview,.img-preview2{
     width: 100%;
-    height: auto;
 }
 
 /*ページネーション*/
@@ -625,27 +624,15 @@ body{
 }
     
 /*フラッシュ*/
-.main{
+.flash-wrapper{
     position: relative;
     .flash{
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
-        z-index: 1;
+        z-index: 3;
     }
-        #flash_alert{
-            padding: 10px 0;
-            color: #fff;
-            background: rgba(255, 0, 0, 0.9);
-            font-weight: bold;
-            width: 100%;
-        }
-        
-        #flash_notice{
-            padding: 10px 0;
-            color: #fff;
-            background: rgba(0,204,204,0.9);
-            font-weight: bold;
-            width: 100%;
-        }
 }
 
 

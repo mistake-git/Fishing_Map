@@ -6,23 +6,23 @@
   </button>
   <div class="collapse navbar-collapse" id="Navber">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+        <li class="nav-item"> 
+            <%= link_to"/fishing.map",class:"nav-link" do %>
+                <i class="fas fa-map-marked-alt"></i>地図
+            <% end %>
+        </li> 
+        <li class="nav-item"> 
+            <%= link_to"すべての釣果" ,posts_path,class:"nav-link"%>
+        </li>  
+        <li class="nav-item"> 
+            <%= link_to "釣り人一覧", "/users",class:"nav-link" %>
+        </li>  
       <% if user_signed_in? %> 
             <% if current_user.admin? %>
                 <li class="nav-item"> 
                     <%= link_to"データを作成","/fish/new",class:"nav-link"%>
                 </li>
             <% end %>
-            <li class="nav-item"> 
-                <%= link_to"/fishing.map",class:"nav-link" do %>
-                    <i class="fas fa-map-marked-alt"></i>地図
-                <% end %>
-            </li> 
-            <li class="nav-item"> 
-                <%= link_to"すべての釣果" ,posts_path,class:"nav-link"%>
-            </li>  
-            <li class="nav-item"> 
-                <%= link_to "釣り人一覧", "/users",class:"nav-link" %>
-            </li>  
             <li class="nav-item"> 
                 <%= link_to "釣果を登録", new_post_path,class:"nav-link" %>
             </li>
@@ -37,7 +37,7 @@
                 <%= link_to "マイページ", "/users/#{current_user.id}", class: "nav-link" %>
             </li>
             <li class="nav-item">
-                <%=link_to"/notifications",class:"notification" do %>
+                <%= link_to"/notifications" do %>
                     <div class="notifications-bell nav-link">
                         <i class="fas fa-bell"></i>
                         <% if unchecked_notifications.any? %>

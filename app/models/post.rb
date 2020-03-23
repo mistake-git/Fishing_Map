@@ -1,18 +1,20 @@
 class Post < ApplicationRecord
     before_validation :delete_whitespace
     validates :name, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: 'はカタカナで入力して下さい。'}
-    validates :address, presence: true
     validates :latitude, presence: true
     validates :longitude,presence: true
     validates :user_id, presence: true
     validates :size,numericality:{greater_than_or_equal_to:1 ,message:'は1以上の値を入力して下さい'},allow_nil: true
     validates :size,numericality:{less_than:200 ,message:'は想定されない値です｡'},allow_nil: true
     validates :number,numericality:{greater_than_or_equal_to:1 ,message:'は1以上の値を入力して下さい'} 
-    has_one_attached :image
+    has_many_attached :images
     belongs_to :user
     has_many :likes, dependent: :destroy
     has_many :comments, dependent: :destroy
     has_many :notifications, dependent: :destroy
+    geocoded_by :address
+    after_validation :geocode, if: Proc.new { |a| a.address_changed? }
+
 
     
   def user
@@ -76,5 +78,13 @@ class Post < ApplicationRecord
     def delete_whitespace
       self.name = name.strip
     end
+    
+  def geocode
+    uri = URI.escape("https://maps.googleapis.com/maps/api/geocode/json?address="+self.address.gsub(" ", "")+"&key=<%=ENV['KEY'] %>")
+    res = HTTP.get(uri).to_s
+    response = JSON.parse(res)
+    self.latitude = response["results"][0]["geometry"]["location"]["lat"]
+    self.longitude = response["results"][0]["geometry"]["location"]["lng"]
+  end
   
 end

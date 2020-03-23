@@ -24,14 +24,12 @@
     <div id="contents">
         <div class ="main">
           <%= render 'layouts/header' %>
-            <div class="flash text-center">
-            <% flash.each do |name, msg|%>
-             <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
-            <% end %> 
-           </div>
+          <div class="flash-wrapper border-top">
+            <%= render 'layouts/flash' %>
             <%= yield %>
+            <%= render 'layouts/footer' %>
+          </div>
         </div>
-        <%= render 'layouts/footer' %>
     </div>
     
   </body>

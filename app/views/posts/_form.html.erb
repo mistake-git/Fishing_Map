@@ -13,16 +13,33 @@
             </ul>
         </div>
     <% end %>
+    
     <img src="" class="img-preview">
     
-    <% if post.image.attached? %>
+    <% if @post.images.attached? %>
         <div class="form-text">現在の画像</div>
-        <%= image_tag post.image,class:"img-preview" %>
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <% @post.images.each_with_index do |image,i| %>
+                <div class="carousel-item <%= i == 0 ? 'active' :''%>">
+                    <%= image_tag image ,class:"post-show-img" ,style:"height:300px";%>
+                </div>
+            <% end %>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">前へ</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">次へ</span>
+          </a>
+        </div>
     <% end %>
     
     <div class="field form-group text-left" onchange="previewFile()">
        <div class="form-text mb-3">画像を選択してください</div><br />
-       <%= form.file_field :image,class:"image",id:"file" ,class:"form-control-file"%>
+       <%= form.file_field :images,class:"images",id:"file" ,class:"form-control-file" ,multiple: true %>
     </div>
       
     <div class="field form-group text-left">
@@ -106,8 +123,13 @@
                     function initMap() {
                         map = new google.maps.Map(document.getElementById('map'), { 
                             center: { 
-                                lat: <%= @user.latitude %>,
-                                lng: <%= @user.longitude %>
+                                <% if @user.address %>
+                                    lat: <%= @user.latitude %>,
+                                    lng: <%= @user.longitude %>
+                                <% else %>
+                                    lat: 35.593111,
+                                    lng: 139.829865
+                                <% end %>
                             },
                             zoom: 8 
                         });

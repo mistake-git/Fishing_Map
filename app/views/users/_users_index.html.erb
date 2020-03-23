@@ -15,6 +15,10 @@
                                 <div class="user-address text-center">
                                     <%= user.address %>
                                 </div>
+                            <% else %>
+                                <div class="text-secondary text-center font-weight-bold">
+                                    未設定
+                                </div>
                             <% end %>
                             <% if user.introduce? %>
                                 <div class="user-introduce text-center">
@@ -27,21 +31,22 @@
                             <% end %>
                         </p>
                         <div class="follow-btn-wrapper text-center">    
-                            <% if user.id != current_user.id %>
-                                <% if  Relationship.find_by(follower_id: current_user.id,followed_id: user.id) %>
-                                        <%= form_with(model: current_user.active_relationships.find_by(followed_id: user.id),local: true,html: { method: :delete }) do |form| %>
-                                        <%= form.submit "フォロー中", class: " unfollow-btn" %>
-                                    <% end %>
-                                <% else %>
-                                    <%= form_with(model: current_user.active_relationships.build,local: true) do|form| %>
-                                        <%= hidden_field_tag :followed_id, user.id %>
-                                        <%= form.submit "フォローする", class: " follow-btn" %>
-                                        <% end %>
-                                   <% end %>
-                            <% elsif %>
-                                <div class="follow-btn">自分</div>
+                            <% if current_user && user.id == current_user.id && !Relationship.find_by(follower_id: current_user.id,followed_id: user.id) %>
+                            <div class="follow-btn">自分</div>
+                            <% elsif current_user && user.id != current_user.id && Relationship.find_by(follower_id: current_user.id,followed_id: user.id) %>
+                                <%= form_with(model: current_user.active_relationships.find_by(followed_id: user.id),local: true,html: { method: :delete }) do |form| %>
+                                    <%= form.submit "フォロー中", class: " unfollow-btn" %>
+                                <% end %>
+                            <% elsif current_user %>
+                               <%= form_with(model: current_user.active_relationships.build,local: true) do|form| %>
+                                    <%= hidden_field_tag :followed_id, user.id %>
+                                    <%= form.submit "フォロー", class: "follow-btn" %>
+                                <% end %>
+                            <% else %>
+                                <% link_to"フォロー","/users/sign_in" ,class:"follow-btn" %>
                             <% end %>
                         </div>
+                        
                         <div class="user-status-summary text-center mt-1">
                             <div class="summary-item">
                                 <div class="summary-title">フォロー</div>
@@ -62,3 +67,4 @@
         <% end %> 
     </div>
 </div> 
+

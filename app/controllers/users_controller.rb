@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :authenticate_user, only: %i[index show edit update]
+    before_action :authenticate_user, only: %i[ edit update]
     before_action :forbid_login_user, only: %i[new create login_form login]
     before_action :ensure_correct_user, only: %i[edit update]
     PER = 16
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     
     def show
         @user = User.find_by(id: params[:id])
-        if current_user.id == @user.id
+        if current_user && current_user.id == @user.id
             @title = "あなたのページ"
         else
             @title = "#{@user.name}さんのページ"

@@ -23,7 +23,7 @@
                 {
                   "lat": <%= post.latitude %>,
                   "lng": <%= post.longitude %>,
-        		  "infowindow": '<p><%= link_to "#{post.user.name}さんの釣果","/users/#{post.user.id}",class:"badge badge-info mx-auto" %></p><br/><% if post.image.attached? %><%= image_tag post.image,class:"map-icon-img" %><br><% else %><img src="../assets/sakana-img.jpg" class="default-img map-icon-img"><% end %><p><div class="text-center"><%= link_to "#{post.name}",post ,class:"map-post-name"%></div></p>',
+        		  "infowindow": '<p><%= link_to "#{post.user.name}さんの釣果","/users/#{post.user.id}",class:"badge badge-info mx-auto" %><div class="text-center"><%= link_to "#{post.name}",post ,class:"map-post-name"%></div></p>',
         		  "picture": {
         		       "url": '<%= asset_path "map-icon.png" %>',
 		                "width":  48,
@@ -34,7 +34,11 @@
               ]);
               handler.bounds.extendWith(markers);
               handler.fitMapToBounds();
-              var latlng = new google.maps.LatLng(<%= @user.latitude %>,<%= @user.longitude %>); 
+              <% if @user.address %>
+                    var latlng = new google.maps.LatLng(<%= @user.latitude %>,<%= @user.longitude %>); 
+              <% else %>
+                    var latlng = new google.maps.LatLng(35.593111,139.829865); 
+              <% end %>
               <% if @is_search.nil? %>
               handler.getMap().setCenter(latlng);
               <% end %>

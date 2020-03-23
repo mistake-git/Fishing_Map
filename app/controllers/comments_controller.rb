@@ -11,25 +11,25 @@ class CommentsController < ApplicationController
     )
     if @comment.save
       @post.create_notification_comment!(current_user, @comment.id)
-      flash[:notice] = 'コメントを投稿しました'
+      flash[:success] = 'コメントを投稿しました'
       redirect_to("/posts/#{params[:post_id]}")
     else
-       flash[:alert] = 'コメントの投稿に失敗しました'
+       flash[:error] = 'コメントの投稿に失敗しました'
       redirect_to("/posts/#{params[:post_id]}")
     end
   end
       
   def destroy
-    @comment = Comment.find_by(id: params[:comment_id])
+    @comment = Comment.find(params[:id])
     @comment.destroy
-    flash[:notice] = 'コメントを削除しました'
+    flash[:success] = 'コメントを削除しました'
     redirect_to("/posts/#{params[:post_id]}")
   end
 
   def ensure_correct_user
-    @comment = Comment.find_by(id: params[:comment_id])
+    @comment = Comment.find(params[:id])
     if @comment.user_id != @current_user.id
-      flash[:alert] = '権限がありません'
+      flash[:error] = '権限がありません'
       redirect_to("/posts/#{params[:post_id]}")
     end
   end
