@@ -55,13 +55,6 @@ function previewFile2() {
 }
 //フラッシュ
 
- $(function(){
-  setTimeout("$('.flash').css('opacity',0.01)", 10000) 
- })
- 
-
-
-
  $(function() {
  var h = $(window).height();
    $('#contents').css('display','none');
