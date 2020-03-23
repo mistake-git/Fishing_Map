@@ -142,7 +142,7 @@ $application-color:#00CCCC;
 
 .post-show-img{
     width: 100%;
-    height: 500px;
+    height: auto;
 }
 
 @media screen and (min-width:1000px){
@@ -373,5 +373,7 @@ table *{
     height: auto;
     margin: 0 auto;
 }
+
+
 
 

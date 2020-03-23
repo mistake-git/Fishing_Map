@@ -62,24 +62,8 @@
             </div>
                 <div class ="post-main pt-5 pb-5">
                     <div class="text-center">
-                        <% if @post.images.attached? %>
-                            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                              <div class="carousel-inner">
-                                <% @post.images.each_with_index do |image,i|%>
-                                    <div class="carousel-item <%= i == 0 ? 'active' :''%>">
-                                        <%= image_tag image ,class:"post-show-img" ,style:"5vmin;"%>
-                                    </div>
-                                <% end %>
-                              </div>
-                              <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">前へ</span>
-                              </a>
-                              <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">次へ</span>
-                              </a>
-                            </div>
+                        <% if @post.image.attached? %>
+                            <%= image_tag @post.image ,class:"post-show-img"%>
                         <% else %>
                             <img src="../assets/sakana-img.jpg" class=" post-show-img default-img">
                         <% end %>
@@ -272,38 +256,6 @@
     </div>
 </div>
 
-   
-
-<script type="text/javascript">
-  function initMap() {
-
-    var test = {lat: <%= @post.latitude %>, lng: <%= @post.longitude %>};
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 15,
-      center: test
-    });
-    var transitLayer = new google.maps.TransitLayer();
-    transitLayer.setMap(map);
-
-    var contentString = '住所：<%= @post.address %>';
-    var infowindow = new google.maps.InfoWindow({
-      content: contentString
-    });
-
-    var marker = new google.maps.Marker({
-      position:test,
-      map: map,
-      title: contentString
-    });
-
-    marker.addListener('click', function() {
-      infowindow.open(map, marker);
-    });
-  }
-</script>
-<script async defer
-  src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=[<%=ENV['KEY'] %>]&callback=initMap">
-</script>
 
 
 
