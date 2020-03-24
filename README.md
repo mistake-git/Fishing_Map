@@ -55,4 +55,4 @@
 * unicorn
 * EC2
 * S3
-* heroku
+* MySQL
