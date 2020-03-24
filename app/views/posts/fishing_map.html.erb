@@ -34,13 +34,13 @@
               ]);
               handler.bounds.extendWith(markers);
               handler.fitMapToBounds();
-              <% if @user.address %>
+              <% if current_user && @user.address%>
                     var latlng = new google.maps.LatLng(<%= @user.latitude %>,<%= @user.longitude %>); 
               <% else %>
                     var latlng = new google.maps.LatLng(35.593111,139.829865); 
               <% end %>
               <% if @is_search.nil? %>
-              handler.getMap().setCenter(latlng);
+                  handler.getMap().setCenter(latlng);
               <% end %>
               
               handler.getMap().setZoom(8);
