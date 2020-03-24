@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row no-gutters">
-        <% @posts.each do |post| %>
+        <% @posts.each_with_index do |post,i| %>
         <div class="col-xs-12 col-md-6 col-lg-3 mt-3"> 
             <div class="card m-1">
                 <div class="post-card-user mt-1 ml-1">
@@ -15,15 +15,26 @@
                         <%=link_to "#{post.user.name}","/users/#{post.user.id}" %>
                     </div>
                     <div class="post-card-user-area mr-1">
-                        <%= post.user.address %>
+                        <% if post.user.address %>
+                            <%= post.user.address %>
+                        <% else %>
+                            <div class="text-secondary" %>
+                                未設定
+                            </div>
+                        <% end %>
                     </div>
+                    <span class="<%= "rank#{i+1}" %> font-weight-bold">
+                        <i class="fas fa-crown"></i><%= "#{i+1}位"%>
+                    </span>
                 </div>
+                
+               
+                
                 <% if post.image.attached? %>
                     <%= image_tag post.image ,class:"post-card-img card-img-top"%>
                 <% else %>
                     <img src="/assets/sakana-img.jpg" class="post-card-img card-img-top">
                 <% end %>
-    
                   <div class="card-body">
                     <h6 class="card-title text-center card-label"><%= link_to"#{post.name}",post %></h6>
                     <div class="card-tag">

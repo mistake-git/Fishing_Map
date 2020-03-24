@@ -8,27 +8,6 @@ $application-color:#00CCCC;
     font-weight: bold;
 }
 
-@mixin ranking-icon{
-    font-family: "Font Awesome 5 Free";
-    position: absolute;
-    top: 3%;
-    left: 75%;
-    font-weight: 900;
-    font-size: 1.1rem;
-}
-
-@mixin ranking-icon2{
-    position: absolute;
-    top: 3%;
-    left: 75%;
-    font-weight: bold;
-    font-size: 1.1rem;
-    opacity: 0.5;
-}
-
-
-
-
 /*サイズランキング*/
 .ranking-area{
     .ranking-title{
@@ -44,21 +23,28 @@ $application-color:#00CCCC;
         height: 70px;
         border-radius : 50%;
     }
-
-    .ranking-card-list{
-        position: relative;
-        .ranking-icon{
-            @include ranking-icon;
-        }
         
-        .size-badge{
-            background-color: #FFD700;
-            font-size: 1.1rem;
-        }
-        
+    .size-badge{
+        background-color: #FFD700;
     }
 
 }
 
- 
+.rank1{
+    color: #FFD700;
+}
+
+.rank2{
+    color: #c0c0c0;
+}
+
+.rank3{
+     color :#7A592F;
+}
+
+    
+   
+    
+    
+
   

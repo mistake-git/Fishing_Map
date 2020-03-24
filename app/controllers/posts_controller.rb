@@ -37,6 +37,7 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.find_by(id: params[:id])
+    @comment = Comment.new
     @user = @post.user
     @fish = Fish.find_by(name: @post.name)
     if @fish 
@@ -53,8 +54,6 @@ class PostsController < ApplicationController
     @likes_count = @post.likes.count
     @comments = Comment.where(post_id: @post.id).page(params[:page]).per(5)
     @comments_count = Comment.where(post_id: @post.id).count
-    
-    
     same_fish_posts = Post.where(name: @post.name)
     @month_data = (1..12).to_a.map do |month|
         posts = same_fish_posts.filter do |post|
@@ -164,14 +163,14 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:name, :feed,:weather,:description,:number,:date,:address, :latitude, :longitude,:user_id,:size,:time, images: [])
+      params.require(:post).permit(:name, :feed,:weather,:description,:number,:date,:address, :latitude, :longitude,:user_id,:size,:time, :image)
     end
     
-  def ensure_correct_user
-    @post = Post.find_by(id: params[:id])
-    if @post.user_id != current_user.id
-      flash[:alert] = '権限がありません'
-      redirect_to('/posts')
+    def ensure_correct_user
+      @post = Post.find_by(id: params[:id])
+      if @post.user_id != current_user.id
+        flash[:alert] = '権限がありません'
+        redirect_to('/posts')
+      end
     end
-  end
 end

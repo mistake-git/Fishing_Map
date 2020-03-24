@@ -14,7 +14,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
       @user = User.new(
       name: params[:user][:name],
       email: params[:user][:email],
-      address: params[:user][:address],
       password: params[:user][:password],
       password_confirmation: params[:user][:password_confirmation]
      )
@@ -131,6 +130,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:name],keys:[:address])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
 end

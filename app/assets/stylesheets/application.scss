@@ -711,4 +711,22 @@ body{
     }
 }
 
+/*twitter認証*/
+.twitter-btn { 
+  display: inline-block;
+  height: 50px;
+  font-size: 1.0rem;
+  line-height: 50px;
+  margin: 1em;
+  background:#1da1f3;
+  border-radius: 5px;
+  
+  &:hover{
+      opacity: 0.8;
+  }
+  
+  .twitter-btn-text{
+      color: #FFF;
+  }
+}
 
