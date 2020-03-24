@@ -1,7 +1,16 @@
 class CommentsController < ApplicationController
   before_action :ensure_correct_user, only: [:destroy]
   before_action :authenticate_user
-
+  before_action :set_comment, only:[:edit, :update, :destroy]
+  
+  def new
+    
+  end
+  
+  def edit
+    
+  end
+  
   def create
     @post = Post.find_by(id: [params[:post_id]])
     @comment = Comment.new(
@@ -12,25 +21,43 @@ class CommentsController < ApplicationController
     if @comment.save
       @post.create_notification_comment!(current_user, @comment.id)
       flash[:success] = 'コメントを投稿しました'
-      redirect_to("/posts/#{params[:post_id]}")
+      @status = true
     else
-       flash[:error] = 'コメントの投稿に失敗しました'
-      redirect_to("/posts/#{params[:post_id]}")
+      flash[:alert] = 'コメントの投稿に失敗しました'
+      @status = false
     end
   end
+  
+  
+  def update
+    if @comment = Comment.update(comment_params)
+      @post.create_notification_comment!(current_user, @comment.id)
+      flash[:success] = 'コメントを投稿しました'
+      @status = true
+    else
+       flash[:alert] = 'コメントの投稿に失敗しました'
+       @status =false
+    end
+  end
+  
       
   def destroy
-    @comment = Comment.find(params[:id])
     @comment.destroy
     flash[:success] = 'コメントを削除しました'
-    redirect_to("/posts/#{params[:post_id]}")
+    @status = true
   end
 
   def ensure_correct_user
-    @comment = Comment.find(params[:id])
     if @comment.user_id != @current_user.id
-      flash[:error] = '権限がありません'
+      flash[:alert] = '権限がありません'
       redirect_to("/posts/#{params[:post_id]}")
     end
   end
+  
+  private
+  
+  def set_comment
+    @comment = Comment.find(params[:id])
+  end
+  
 end
