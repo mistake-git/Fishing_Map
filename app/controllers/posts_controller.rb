@@ -116,7 +116,9 @@ class PostsController < ApplicationController
     )
     respond_to do |format|
       if @post.save
-        @twitter.update("#{@post.name}を釣ったよ!")
+        if @post.share == true
+          @twitter.update("#{@post.name}を釣ったよ!")
+        end
         @user.followers.each do |follower|
             visited_id = follower.id
             post_id = @post.id
