@@ -1,8 +1,10 @@
 class PostsController < ApplicationController
+  before_action :set_twitter_client,only: [:create]
   before_action :set_post, only: [:show, :edit, :update, :destroy, :ensure_correct_user]
   before_action :set_current_user
   before_action :authenticate_user!,only:[:new, :edit, :create, :update,:destroy]
   before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+  
   PER = 16
 
   # GET /posts
@@ -114,6 +116,7 @@ class PostsController < ApplicationController
     )
     respond_to do |format|
       if @post.save
+        @twitter.update("#{@post.name}を釣ったよ!")
         @user.followers.each do |follower|
             visited_id = follower.id
             post_id = @post.id
@@ -153,13 +156,14 @@ class PostsController < ApplicationController
     end
   end
   
+
   def ensure_correct_user
     if @post.user_id != current_user.id
       flash[:alert] = '権限がありません'
       redirect_to('/posts')
     end
   end
-
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
@@ -171,5 +175,20 @@ class PostsController < ApplicationController
       params.require(:post).permit(:name, :feed,:weather,:description,:number,:date,:address, :latitude, :longitude,:user_id,:size,:time, :image)
     end
     
+    def ensure_correct_user
+      @post = Post.find_by(id: params[:id])
+      if @post.user_id != current_user.id
+        flash[:alert] = '権限がありません'
+        redirect_to('/posts')
+      end
+    end
     
+    def set_twitter_client
+      @twitter = Twitter::REST::Client.new do |config|
+        config.consumer_key        =  ENV['TWITTER_API_KEY']
+        config.consumer_secret     =  ENV['TWITTER_API_SECRET']
+        config.access_token        =  ENV['ACCESS_TOKEN']
+        config.access_token_secret =  ENV['ACCESS_SECRET'] 
+      end
+    end
 end

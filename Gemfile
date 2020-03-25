@@ -100,3 +100,6 @@ gem 'http'
 #twitter認証
 gem 'omniauth'
 gem 'omniauth-twitter'
+
+#twitter投稿連携
+gem 'twitter'

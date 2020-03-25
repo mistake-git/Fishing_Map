@@ -146,19 +146,18 @@ $application-color:#00CCCC;
         }
     }
     
-.fadein-left {
-    opacity : 0;
-    transform : translateX(-100px);
-    transition : all 1s;
-}
-
-.fadein-left.active{
-    opacity : 1;
-    transform : translateX(0);
-}
+    .fadein-left {
+        opacity : 0;
+        transform : translateX(-100px);
+        transition : all 1s;
+    }
+    
+    .fadein-left.active{
+        opacity : 1;
+        transform : translateX(0);
+    }
     
     
-        
     .worries-item{
         position: relative;
         padding-left: 1.2em;
@@ -273,7 +272,6 @@ $application-color:#00CCCC;
 
 
 .step-area{
-    margin: 5% 0%;
     
     .step-copy{
         font-size: 1.3rem;
