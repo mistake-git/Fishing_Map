@@ -1,11 +1,9 @@
 class PostsController < ApplicationController
   before_action :set_twitter_client,only: [:create]
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :ensure_correct_user]
   before_action :set_current_user
-  before_action :authenticate_user,only:[:new, :edit, :create, :update,:destroy]
+  before_action :authenticate_user!,only:[:new, :edit, :create, :update,:destroy]
   before_action :ensure_correct_user, only: [:edit, :update, :destroy]
- 
-  
   
   PER = 16
 
@@ -40,7 +38,6 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @post = Post.find_by(id: params[:id])
     @comment = Comment.new
     @user = @post.user
     @fish = Fish.find_by(name: @post.name)
@@ -107,7 +104,6 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
     @user = current_user
-    @post = Post.find_by(id: params[:id])
     @form_title ='釣果を編集'
   end
 
@@ -160,6 +156,14 @@ class PostsController < ApplicationController
     end
   end
   
+
+  def ensure_correct_user
+    if @post.user_id != current_user.id
+      flash[:alert] = '権限がありません'
+      redirect_to('/posts')
+    end
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
@@ -187,5 +191,4 @@ class PostsController < ApplicationController
         config.access_token_secret =  ENV['ACCESS_SECRET'] 
       end
     end
-    
 end

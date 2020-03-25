@@ -1,7 +1,10 @@
 class UsersController < ApplicationController
-    before_action :authenticate_user, only: %i[ edit update]
-    before_action :forbid_login_user, only: %i[new create login_form login]
-    before_action :ensure_correct_user, only: %i[edit update]
+    before_action :set_user,only: [:show, :likes, :comments, :following, :followers]
+    before_action :authenticate_user!, only: [ :edit, :update]
+    before_action :forbid_login_user, only: [:new, :create,]
+    before_action :ensure_correct_user, only: [:edit, :update]
+    before_action :set_data, only:[:show, :likes, :comment]
+    
     PER = 16
     
     def index
@@ -16,55 +19,36 @@ class UsersController < ApplicationController
     end
     
     def show
-        @user = User.find_by(id: params[:id])
         if current_user && current_user.id == @user.id
             @title = "あなたのページ"
         else
             @title = "#{@user.name}さんのページ"
         end
         @posts = @user.posts.order(created_at: :desc).page(params[:page]).per(PER)
-        @fishes = @user.posts
-        @user_data = @fishes.group(:name).sum(:number)
-        @user_posts_count = Post.where(user_id: @user.id).count
-        @user_likes_count = Like.where(user_id: @user.id).count
-        @user_comments_count = Comment.where(user_id: @user.id).count
         @when_not_text ="釣果が登録されていません"
     end   
     
     def likes
-        @user = User.find_by(id: params[:id])
-        @fishes = @user.posts
-        @user_data = @fishes.group(:name).sum(:number)
         @likes = @user.likes
         @posts = @user.likes_posts.order(created_at: :desc).page(params[:page]).per(PER)
         @title="#{@user.name}さんのページ"
-        @user_posts_count = Post.where(user_id: @user.id).count
-        @user_likes_count = Like.where(user_id: @user.id).count
-        @user_comments_count = Comment.where(user_id: @user.id).count
         @when_not_text ="いいねした釣果がありません"
     end  
     
     def comments
-        @user = User.find_by(id: params[:id])
         @posts = @user.posts
-        @user_data = @posts.group(:name).sum(:number)
         @comments = Comment.where(user_id: @user.id).order(created_at: :desc).page(params[:page]).per(5)
         @title="#{@user.name}さんのページ"
-        @user_posts_count = Post.where(user_id: @user.id).count
-        @user_likes_count = Like.where(user_id: @user.id).count
-        @user_comments_count = Comment.where(user_id: @user.id).count
         @when_not_text ="まだコメントがありません"
     end  
     
     def following
-        @user  = User.find_by(id: params[:id])
         @users = @user.following.page(params[:page]).per(PER)
         @title ="#{@user.name}がフォロー中"
         @when_not_text = "フォローしているユーザーがいません"
     end
 
     def followers
-        @user  = User.find_by(id: params[:id])
         @users = @user.followers.page(params[:page]).per(PER)
         @title ="#{@user.name}のフォロワー"
         @when_not_text = "フォロワーがいません"
@@ -76,4 +60,19 @@ class UsersController < ApplicationController
           redirect_to('/posts')
         end
     end
+    
+    private
+    
+    def set_user
+        @user = User.find(params[:id])
+    end
+    
+    def set_data
+        @user_posts_count = Post.where(user_id: @user.id).count
+        @user_likes_count = Like.where(user_id: @user.id).count
+        @user_comments_count = Comment.where(user_id: @user.id).count
+        @fish = @user.posts
+        @user_data = @fish.group(:name).sum(:number)
+    end
+    
 end

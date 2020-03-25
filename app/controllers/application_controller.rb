@@ -6,14 +6,6 @@ class ApplicationController < ActionController::Base
       current_user
   end
   
-  
-  def authenticate_user
-    if current_user.nil?
-      flash[:alert] = 'ログインが必要です'
-      redirect_to('/users/sign_in')
-    end
-  end
-  
   def forbid_login_user
     if current_user
       flash[:alert] = "すでにログインしています"

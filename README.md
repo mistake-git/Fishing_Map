@@ -23,7 +23,7 @@
 * いいね
 * コメントフォロー
 * 投稿通知
-* コメント通位置
+* コメント通知
 * いいね通知
 * フォロー通知
 * ユーザー検索
@@ -51,6 +51,8 @@
 * bootstrap
 * chartkick
 * JQuery
-* PG
-* E3
-* heroku
+* Nginx
+* unicorn
+* EC2
+* S3
+* MySQL

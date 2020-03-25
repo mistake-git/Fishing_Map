@@ -136,43 +136,33 @@
                 <div class="data-area-title post-address mt-5">
                     釣れた場所: <%= @post.address %>
                 </div>
-                    <div class="post-map-area mb-4 pt-4">
-                        <div id="map" style='width: 100%; height: 500px;'></div>
-                        <script type="text/javascript">
-                        handler = Gmaps.build('Google');
-                        handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map'}}, function(){
-                          markers = handler.addMarkers([
-                            {
-                              "lat": <%= @post.latitude %>,
-                              "lng": <%= @post.longitude %>,
-                        	  "infowindow": '<%= @post.address %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@post.latitude},#{@post.longitude}&iwloc=J",target: "_blank" ,class:"gmap-link"%></p>',
-                        	  "picture": {
-                        	       "url": '<%= asset_path "map-icon.png" %>',
-                                    "width":  48,
-                                    "height": 48
-                                }
+                <div class="post-map-area mb-4 pt-4">
+                    <div id="map" style='width: 100%; height: 500px;'></div>
+                    <script type="text/javascript">
+                    handler = Gmaps.build('Google');
+                    handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map'}}, function(){
+                      markers = handler.addMarkers([
+                        {
+                          "lat": <%= @post.latitude %>,
+                          "lng": <%= @post.longitude %>,
+                    	  "infowindow": '<%= @post.address %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@post.latitude},#{@post.longitude}&iwloc=J",target: "_blank" ,class:"gmap-link"%></p>',
+                    	  "picture": {
+                    	       "url": '<%= asset_path "map-icon.png" %>',
+                                "width":  48,
+                                "height": 48
                             }
-                          ]);
-                          handler.bounds.extendWith(markers);
-                          handler.fitMapToBounds();
-                          handler.getMap().setZoom(17);
-                        });
-                        </script>
-                    </div>
+                        }
+                      ]);
+                      handler.bounds.extendWith(markers);
+                      handler.fitMapToBounds();
+                      handler.getMap().setZoom(17);
+                    });
+                    </script>
+                </div>
                     
-                <% if current_user && Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
-                    <%= link_to("/likes/#{@post.id}/destroy", {method: "post"},class:"like-btn-nulike") do %>
-                        <div class="text-right like-btn-wrapper">
-                            <i class="fa fa-heart like-btn-unlike mb-3"></i>
-                        </div>
-                    <% end %>
-                <% else %>
-                    <%= link_to("/likes/#{@post.id}/create", {method: "post"},class:"like-btn") do %>
-                        <div class="text-right like-btn-wrapper">
-                            <i class="fa fa-heart like-btn mb-3"></i>
-                        </div>
-                    <% end %>
-                <% end %>
+                <div id="likes_buttons_<%= @post.id %>">
+                    <%= render partial: 'likes/like', locals: { post: @post} %>
+                </div>
                  
                 <% if current_user && @post.user.id == current_user.id %>
                     <div class="post-btn-area text-right mb-2">
@@ -215,16 +205,17 @@
             </div>
             
             <div class="text-center">
-                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModalCenter">
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#commentModal">
                   コメントする
                 </button>
             </div>
             
-            <%= link_to "/posts/#{@post.id}/comments/new", remote: true do %>
+            <%= link_to "/posts/#{@post.id}/comments/new",remote: true do %>
                 <div class="text-center">
                     <button class="btn btn-info">コメントする</button>
                 </div>
             <% end %>
+            
         </div>
     </div>
 </div>

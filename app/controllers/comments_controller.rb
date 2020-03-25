@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :ensure_correct_user, only: [:destroy]
-  before_action :authenticate_user
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!
   before_action :set_comment, only:[:edit, :update, :destroy]
   
   def new
@@ -48,7 +48,7 @@ class CommentsController < ApplicationController
   end
 
   def ensure_correct_user
-    if @comment.user_id != @current_user.id
+    if @comment.user_id != current_user.id
       flash[:alert] = '権限がありません'
       redirect_to("/posts/#{params[:post_id]}")
     end
@@ -58,6 +58,10 @@ class CommentsController < ApplicationController
   
   def set_comment
     @comment = Comment.find(params[:id])
+  end
+  
+  def comment_params
+    params.require(:comment).permit(:user_id, :post_id, :content)
   end
   
 end
