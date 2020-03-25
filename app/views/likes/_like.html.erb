@@ -1,0 +1,13 @@
+<% if current_user && Like.find_by(user_id: current_user.id, post_id: @post.id) %>
+    <%= link_to "/likes/#{@post.id}/destroy", {method: "post"},class:"like-btn-nulike",remote: true do %>
+        <div class="text-right like-btn-wrapper">
+            <i class="fa fa-heart like-btn-unlike mb-3"></i>
+        </div>
+    <% end %>
+<% else %>
+    <%= link_to "/likes/#{@post.id}/create", {method: "post"},class:"like-btn",remote: true do %>
+        <div class="text-right like-btn-wrapper">
+            <i class="fa fa-heart like-btn mb-3"></i>
+        </div>
+    <% end %>
+<% end %>
