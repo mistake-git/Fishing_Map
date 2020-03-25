@@ -215,16 +215,17 @@
             </div>
             
             <div class="text-center">
-                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModalCenter">
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#commentModal">
                   コメントする
                 </button>
             </div>
             
-            <%= link_to "/posts/#{@post.id}/comments/new", remote: true do %>
+            <%= link_to "/posts/#{@post.id}/comments/new",remote: true do %>
                 <div class="text-center">
                     <button class="btn btn-info">コメントする</button>
                 </div>
             <% end %>
+            
         </div>
     </div>
 </div>
