@@ -99,12 +99,14 @@ class PostsController < ApplicationController
     @user = current_user
     @post = Post.new
     @form_title = '釣果を登録'
+    @is_new = "true"
   end
 
   # GET /posts/1/edit
   def edit
     @user = current_user
     @form_title ='釣果を編集'
+    @is_new = "false"
   end
 
   # POST /posts
@@ -116,12 +118,19 @@ class PostsController < ApplicationController
     )
     respond_to do |format|
       if @post.save
-        @twitter.update("#{@post.name}を釣ったよ!")
+        
+        #Twitterにも共有
+        if @post.share == "true"
+          @twitter.update("#{@post.name}を釣ったよ!")
+        end
+        
+        #通知がフォロワーに行く
         @user.followers.each do |follower|
             visited_id = follower.id
             post_id = @post.id
             @user.create_notification_post!(visited_id,current_user,post_id)
         end
+        
         format.html { redirect_to @post, notice: '投稿を作成しました' }
         format.json { render :show, status: :created, location: @post }
       else
@@ -172,7 +181,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:name, :feed,:weather,:description,:number,:date,:address, :latitude, :longitude,:user_id,:size,:time, :image)
+      params.require(:post).permit(:name, :feed,:weather,:description,:number,:date,:address, :latitude, :longitude,:user_id,:size,:time, :image,:share)
     end
     
     def ensure_correct_user
