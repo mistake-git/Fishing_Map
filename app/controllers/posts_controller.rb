@@ -121,7 +121,11 @@ class PostsController < ApplicationController
         
         #Twitterにも共有
         if @post.share == "true"
-          @twitter.update("#{@post.name}を釣ったよ!")
+          @twitter.update("
+            #{@post.address}で
+            #{@post.name}を釣ったよ!
+            
+          ")
         end
         
         #通知がフォロワーに行く
