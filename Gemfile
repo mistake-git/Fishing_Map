@@ -91,10 +91,10 @@ gem "jquery-rails"
 # ページネーション
 gem 'kaminari', '~> 1.1', '>= 1.1.1'
 
-#E3
+#S3
 gem "aws-sdk-s3", require: false
 
-#緯度経度から住所を取得しようとしている
+#緯度経度から住所を取得
 gem 'http'
 
 #twitter認証

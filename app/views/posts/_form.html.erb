@@ -76,6 +76,11 @@
       <span class="badge badge-danger mr-1">※必須</span>地図で場所を選択する
     </div>
     
+    <div class="field">
+        <%= form.check_box :share %>
+        <span class="twitter-share font-weight-bold"><i class="fab fa-twitter"></i>Twitterに共有</span>
+    </div>
+
     <%= form.hidden_field :latitude,id:"map_lat" %>
     <%= form.hidden_field :longitude,id:"map_lng" %>
     
