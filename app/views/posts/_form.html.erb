@@ -86,6 +86,8 @@
             <span class="twitter-share font-weight-bold"><i class="fab fa-twitter"></i>Twitterに共有</span>
         </div>
     <% end %>
+    
+
 
     <%= form.hidden_field :latitude,id:"map_lat" %>
     <%= form.hidden_field :longitude,id:"map_lng" %>
@@ -140,12 +142,25 @@
                             }
                         }
                         
-                        
                          google.maps.event.addListener(map, 'click', function(event) {
                             placeMarker(event.latLng, map);
                             document.getElementById("map_lat").value = event.latLng.lat();
                             document.getElementById("map_lng").value = event.latLng.lng();
                           })
+                          
+                          
+                          function getAddress() {
+                          var latLngInput = new google.maps.LatLng(event.latlng.lat(),event.latLng.lng());
+                          var geocoder = new google.maps.Geocoder();
+                        
+                          geocoder.geocode({
+                            latLng: latLngInput
+                          }, function(results) {
+                              var address = results[0].formatted_address;
+                              document.getElementById( "address" ).value = address;
+                          });
+                        }
+                        
                     }
                     initMap()
                 </script>
@@ -161,25 +176,3 @@
 
 
 
-
-
-
-<!--ここのコードを利用して住所を登録したときにaddressに勝手に文字列を入れたい-->
-
-<div class="text-center btn btn-primary">
-  <div class="text-center" onclick="getAddress();">住所取得</div>
-</div>
-
-<script>
-function getAddress() {
-  var latLngInput = new google.maps.LatLng(35.000000, 135.000000);
-  var geocoder = new google.maps.Geocoder();
-
-  geocoder.geocode({
-    latLng: latLngInput
-  }, function(results) {
-      var address = results[0].formatted_address;
-      console.log(address)
-  });
-}
-</script>
