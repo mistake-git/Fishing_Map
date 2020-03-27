@@ -7,24 +7,24 @@
   <div class="collapse navbar-collapse" id="Navber">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
         <li class="nav-item"> 
-            <%= link_to"/fishing.map",class:"nav-link" do %>
+            <%= link_to"/fishing.map",class:"nav-link font-weight-bold" do %>
                 <i class="fas fa-map-marked-alt"></i>地図
             <% end %>
         </li> 
         <li class="nav-item"> 
-            <%= link_to"すべての釣果" ,posts_path,class:"nav-link"%>
+            <%= link_to"すべての釣果" ,posts_path,class:"nav-link font-weight-bold "%>
         </li>  
         <li class="nav-item"> 
-            <%= link_to "釣り人一覧", "/users",class:"nav-link" %>
+            <%= link_to "釣り人一覧", "/users",class:"nav-link font-weight-bold"%>
         </li>  
       <% if user_signed_in? %> 
             <% if current_user.admin? %>
                 <li class="nav-item"> 
-                    <%= link_to"データを作成","/fish/new",class:"nav-link"%>
+                    <%= link_to"データを作成","/fish/new",class:"nav-link font-weight-bold"%>
                 </li>
             <% end %>
             <li class="nav-item"> 
-                <%= link_to "釣果を登録", new_post_path,class:"nav-link" %>
+                <%= link_to "釣果を登録", new_post_path,class:"nav-link font-weight-bold"%>
             </li>
             <li class="nav-item"> 
                 <% if @current_user.image.attached? %>
@@ -34,11 +34,11 @@
                 <% end %>
             </li> 
             <li class="nav-item">
-                <%= link_to "マイページ", "/users/#{current_user.id}", class: "nav-link" %>
+                <%= link_to "マイページ", "/users/#{current_user.id}", class: "nav-link font-weight-bold" %>
             </li>
             <li class="nav-item">
                 <%= link_to"/notifications" do %>
-                    <div class="notifications-bell nav-link">
+                    <div class="notifications-bell nav-link font-weight-bold">
                         <i class="fas fa-bell"></i>
                         <% if unchecked_notifications.any? %>
                             <div class="n-circle"><%= unchecked_notifications.count %></div>
@@ -47,14 +47,14 @@
                 <% end %>
             </li>
             <li class="nav-item">
-                <%= link_to "ログアウト","/users/sign_out", class: "nav-link",method: :"delete"%>
+                <%= link_to "ログアウト","/users/sign_out", class: "nav-link font-weight-bold",method: :"delete"%>
             </li>
             <% else %> 
             <li class="nav-item">
-                <%= link_to "新規登録", "/users/sign_up", class: "nav-link nav-link-signup" %>
+                <%= link_to "新規登録", "/users/sign_up", class: "nav-link nav-link-signup font-weight-bold" %>
             </li>
             <li class="nav-item">
-                <%= link_to "ログイン","/users/sign_in", class: "nav-link nav-link-login"%>
+                <%= link_to "ログイン","/users/sign_in", class: "nav-link nav-link-login font-weight-bold"%>
             </li>
         <% end %>
     </ul>
