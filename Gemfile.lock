@@ -349,7 +349,6 @@ DEPENDENCIES
   dotenv-rails
   geocoder
   gmaps4rails
-  http
   jbuilder (~> 2.5)
   jquery-rails
   kaminari (~> 1.1, >= 1.1.1)

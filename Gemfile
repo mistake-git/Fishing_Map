@@ -94,9 +94,6 @@ gem 'kaminari', '~> 1.1', '>= 1.1.1'
 #S3
 gem "aws-sdk-s3", require: false
 
-#緯度経度から住所を取得
-gem 'http'
-
 #twitter認証
 gem 'omniauth'
 gem 'omniauth-twitter'
