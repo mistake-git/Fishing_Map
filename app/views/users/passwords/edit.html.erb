@@ -1,6 +1,6 @@
 <div class="password-edit-wrapper">
-    <div class="text-center mt-5 mb-5">
-        <div class="form-wrapper pt-5 pb-5">     
+    <div class="text-center my-5">
+        <div class="form-wrapper py-5">     
             <h4 class="form-title mb-3">パスワードを変更</h4>
             <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |form| %>
                 <%= render "devise/shared/error_messages", resource: resource %>
