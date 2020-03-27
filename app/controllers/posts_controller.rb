@@ -122,9 +122,7 @@ class PostsController < ApplicationController
         #Twitterにも共有
         if @post.share == "true"
           @twitter.update("
-            #{@post.address}で
-            #{@post.name}を釣ったよ!
-            
+            #{@post.address}で#{@post.name}を釣ったよ!#{ENV['HOST']}/posts/#{@post.id}
           ")
         end
         
