@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -25,9 +24,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
       render('users/registrations/new')
       end
    end
-
-
-
+   
+   
    def edit
     @user = current_user
     @form_title = "アカウント"
@@ -87,10 +85,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
        redirect_to("/users/#{current_user.id}")
    end
    
-   
- 
-   
-
   # DELETE /resource
   # def destroy
   #   super
