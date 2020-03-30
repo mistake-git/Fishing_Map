@@ -48,7 +48,7 @@
                     <% end %>
                 <% else %>
                    <%= form_with(model: Relationship.new(follower_id: current_user&.id, followed_id: @user.id),local: true) do|form| %>
-                        <%= hidden_field_tag :followed_id, user.id %>
+                        <%= hidden_field_tag :followed_id, @user.id %>
                         <%= form.submit "フォロー", class: "follow-btn-lg" %>
                     <% end %>
                 <% end %>  
