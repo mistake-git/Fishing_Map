@@ -142,26 +142,36 @@
                             }
                         }
                         
-                         google.maps.event.addListener(map, 'click', function(event) {
+                         function getAddress( getLatLng, latLngInput{
+                              var latLngInput = new google.maps.LatLng(event.latlng.lat(),event.latLng.lng());
+                              var geocoder = new google.maps.Geocoder();
+                              geocoder.geocode({
+                                latLng: latLngInput
+                              }, 
+                              function(results) {
+                                  var address = results[0].formatted_address;
+                                  document.getElementById( "address" ).value = address;
+                              });
+                          });
+                          
+                          var getLatLng = google.maps.event.addListener(map, 'click', function(event) {
                             placeMarker(event.latLng, map);
                             document.getElementById("map_lat").value = event.latLng.lat();
                             document.getElementById("map_lng").value = event.latLng.lng();
                           })
+                         
+                          
+                          getAddress( function(){ getLatLng(map, 'click', function(event){
+                            placeMarker(event.latLng, map);
+                            document.getElementById("map_lat").value = event.latLng.lat();
+                            document.getElementById("map_lng").value = event.latLng.lng();
+                          }));
                           
                           
-                          function getAddress() {
-                          var latLngInput = new google.maps.LatLng(event.latlng.lat(),event.latLng.lng());
-                          var geocoder = new google.maps.Geocoder();
-                        
-                          geocoder.geocode({
-                            latLng: latLngInput
-                          }, function(results) {
-                              var address = results[0].formatted_address;
-                              document.getElementById( "address" ).value = address;
-                          });
-                        }
-                        
+                          getAddress(getLatLng)
+                          
                     }
+                    
                     initMap()
                 </script>
             </div>
