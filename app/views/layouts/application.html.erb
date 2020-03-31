@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Fishing map</title>
+    <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+    <title>Fishing Map</title>
+    <meta property="og:title" content="Fishing Map"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="<%= ENV['HOST']%>"/>
+    <meta property="og:image" content="<%= ENV['HOST'] %>/assets/images/top-img.jpg"/>
+    <meta property="og:site_name" content="Fishing Map"/>
+    <meta property="og:description" content="地図上で釣果を投稿、共有できるSNS型釣りアプリケーション" />
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -20,7 +27,6 @@
             <img src="/assets/loading_dot.gif" alt="loading" class="loading-dot">
         </div>
     </div>
-    
     <div id="contents">
         <div class ="main">
           <%= render 'layouts/header' %>

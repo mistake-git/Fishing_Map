@@ -12,6 +12,9 @@
             <% end %>
         </li> 
         <li class="nav-item"> 
+            <%= link_to "釣果を登録", new_post_path,class:"nav-link font-weight-bold"%>
+        </li>
+        <li class="nav-item"> 
             <%= link_to"すべての釣果" ,posts_path,class:"nav-link font-weight-bold "%>
         </li>  
         <li class="nav-item"> 
@@ -23,9 +26,6 @@
                     <%= link_to"データを作成","/fish/new",class:"nav-link font-weight-bold"%>
                 </li>
             <% end %>
-            <li class="nav-item"> 
-                <%= link_to "釣果を登録", new_post_path,class:"nav-link font-weight-bold"%>
-            </li>
             <li class="nav-item"> 
                 <% if @current_user.image.attached? %>
                     <div class="nav-item"><%= link_to(image_tag(@current_user.image,class:"nav-link-img img-fluid "),"/users/#{current_user.id}")%></div>

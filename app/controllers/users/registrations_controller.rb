@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -25,9 +24,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
       render('users/registrations/new')
       end
    end
-
-
-
+   
+   
    def edit
     @user = current_user
     @form_title = "アカウント"
@@ -41,7 +39,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       introduce: params[:user][:introduce],
       address: params[:user][:address]
     )
-      flash[:notice] = 'ユーザー情報を編集しました'
+      flash[:notice] = "ユーザー情報を編集しました"
       redirect_to("/users/#{current_user.id}")
     else
       render('users/registrations/edit')
@@ -54,7 +52,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
             @user.image.purge
             @user.image.attach(params[:user][:image])
        end
-       flash[:notice] = 'プロフィール画像を変更しました'
+       flash[:notice] = "プロフィール画像を変更しました"
        redirect_to("/users/#{current_user.id}")
    end
    
@@ -64,7 +62,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
             @user.bg_image.purge
             @user.bg_image.attach(params[:user][:bg_image])
        end
-       flash[:notice] = '背景画像を変更しました'
+       flash[:notice] = "背景画像を変更しました"
        redirect_to("/users/#{current_user.id}")
    end
    
@@ -74,7 +72,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
        if @user.image.attached?
             @user.image.purge
        end
-       flash[:notice] = 'プロフィール画像を削除しました'
+       flash[:notice] = "プロフィール画像を削除しました"
        redirect_to("/users/#{current_user.id}")
    end
    
@@ -83,14 +81,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
        if @user.bg_image.attached?
             @user.bg_image.purge
        end
-       flash[:notice] = '背景画像を削除しました'
+       flash[:notice] = "背景画像を削除しました"
        redirect_to("/users/#{current_user.id}")
    end
    
-   
- 
-   
-
   # DELETE /resource
   # def destroy
   #   super

@@ -17,6 +17,7 @@
 //= require gmaps/google
 //= require chartkick
 //= require Chart.bundle
+//= require turbolinks
 //= require chartkick
 //= require Chart.bundle
 //= require jquery

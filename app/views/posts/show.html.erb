@@ -1,209 +1,22 @@
 <div class="page-title ml-4 my-4"><%= @title %>の釣果</div>
-    <div class="row">
-        <div class="post-show-user col-xs-12 col-lg-3">
-            <div class=" card show-user-card " style="height:auto;">
-                <% if @post.user.image.attached? %>
-                        <%= image_tag @post.user.image, class:" post-user-img"%>
-                <% else %>
-                        <img src="../assets/user-image.png" class="post-user-img">
-                <% end %>
-                <div class="card-body">
-                    <h5 class="card-title text-center card-label"><%= link_to "#{@post.user.name}","/users/#{@post.user.id}"%></h5>
-                    <div class="area text-center"><%= @user.address %></div>
-                    <p class="card-text text-center">
-                        <% if @post.user.introduce? %>
-                            <%= @post.user.introduce %>
-                        <% else %>
-                            <div class="user-introduce-default text-center">
-                                まだ自己紹介がありません
-                            </div>
-                        <% end %>
-                    </p>
-                    <p>
-                        <div class="follow-btn-wrapper text-center">    
-                            <% if current_user && @post.user.id != current_user.id %>
-                                <% if  Relationship.find_by(follower_id: current_user.id,followed_id: @post.user.id) %>
-                                    <%= form_with(model: current_user.active_relationships.find_by(followed_id: @post.user.id),local: true,html: { method: :delete }) do |form| %>
-                                    <%= form.submit "フォロー中", class: " unfollow-btn" %>
-                                <% end %>
-                            <% else %>
-                                <%= form_with(model: current_user.active_relationships.build,local: true) do|form| %>
-                                    <%= hidden_field_tag :followed_id, @post.user.id %>
-                                    <%= form.submit "フォローする", class: " follow-btn" %>
-                                    <% end %>
-                               <% end %>
-                            <% end %>
-                        </div>
-                    </p>
-                    <p>
-                        <div class="user-status-summary text-center">
-                            <div class="summary-item">
-                                <div class="summary-title">フォロー</div>
-                                    <%= @post.user.following.count %>
-                                </div>
-                            <div class="summary-item">
-                                <div class="summary-title">フォロワー</div>
-                                    <%= @post.user.followers.count %>
-                                </div>
-                            <div class="summary-item">
-                            <div class="summary-title">釣果</div>
-                                <%= @post.user.posts.count %>
-                            </div>
-                        </div>
-                    </p>
-                </div>
-        </div>
-    </div>
+<div class="row">
     
+    <div class="post-show-user col-xs-12 col-lg-3">
+        <%= render "user_card" %>
+    </div>
+
     <div class="col-xs-12 col-lg-9">
         <div class="post-data-area mx-auto">
             <div class="post-show-title mt-5 mb-5 post-name">
                 <%= @post.name %>: この魚の難易度: <%= @level ?  @level : "データがありません" %>
             </div>
-            <div class ="post-main pt-5 pb-5">
-                <div class="text-center">
-                    <% if @post.image.attached? %>
-                        <%= image_tag @post.image ,class:"post-show-img"%>
-                    <% else %>
-                        <img src="../assets/sakana-img.jpg" class=" post-show-img default-img">
-                    <% end %>
-                </div>
-                <div class="data-area-title pt-5">
-                    投稿のデータ
-                </div>
-                <div class="post-data-list mt-5 text-center">
-                    <div class="post-data like-icon ml-5"><i class="fas fa-heart"> <%= @likes_count %></i></div>
-                    <div class="post-data comment-icon ml-5"><i class="fas fa-comment"> <%= @comments_count %></i></div>
-                    <div class="post-data post-created_at ml-5"><%= "#{time_ago_in_words(@post.created_at)}前"%></div>
-                </div>
-                <div class="data-area-title mt-5">
-                    釣果のデータ
-                </div>
-                <table class="post-data-list mt-5 ml-5">
-                    <tr>
-                    <th class="pr-5 pt-3">サイズ</th>
-                    <% if @post.size? %>
-                       <td class="pt-3 post-size"><%= @post.size %>cm</td>
-                    <% end %>
-                    </tr>
-                    <tr>
-                    <th class="pr-5 pt-3">数量(匹)</th>
-                    <% if @post.number? %>
-                       <td class="pt-3 post-number"><%= @post.number.to_i %>匹</td>
-                    <% end %>
-                    </tr>
-                    <tr>
-                    <th class="pr-5 pt-3">日付</th>
-                    <% if @post.date? %>
-                       <td class="pt-3 post-date"><%= @post.date %></td>
-                    <% end %>
-                    </tr>
-                    <tr>
-                    <th class="pr-5 pt-3">時間</th>
-                    <% if @post.time? %>
-                       <td class="pt-3 post-time"><%= @post.time.to_s(:time)%></td>
-                    <% end %>
-                    </tr>
-                    <tr>
-                    <th class="pr-5 pt-3">使った餌</th>
-                    <% if @post.feed?%>
-                       <td class="pt-3 post-feed"><%= @post.feed %></td>
-                    <% end %>
-                    </tr>
-                     <tr>
-                    <th class="pr-5 pt-3">天気</th>
-                    <% if @post.weather? %>
-                       <td class="pt-3 post-weather"><%= @post.weather %></td>
-                    <% end %>
-                    </tr>
-                </table>
-                <div class="data-area-title mt-5">
-                    説明
-                </div>
-                    <div class="post-data-list mt-5">
-                        <div>
-                            <% if @post.description? %>  
-                                <div class="post-show-description description">
-                                    <%= @post.description %>
-                                </div>
-                            <% else %>
-                                <div class="post-show-description default-text">
-                                    説明がありません
-                                </div>
-                            <% end %>
-                        </div>
-                    </div>
-                <div class="data-area-title post-address mt-5">
-                    釣れた場所: <%= @post.address %>
-                </div>
-                <div class="post-map-area mb-4 pt-4">
-                    <div id="map" style='width: 100%; height: 500px;'></div>
-                    <script type="text/javascript">
-                    handler = Gmaps.build('Google');
-                    handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map'}}, function(){
-                      markers = handler.addMarkers([
-                        {
-                          "lat": <%= @post.latitude %>,
-                          "lng": <%= @post.longitude %>,
-                    	  "infowindow": '<%= @post.address %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@post.latitude},#{@post.longitude}&iwloc=J",target: "_blank" ,class:"gmap-link"%></p>',
-                    	  "picture": {
-                    	       "url": '<%= asset_path "map-icon.png" %>',
-                                "width":  48,
-                                "height": 48
-                            }
-                        }
-                      ]);
-                      handler.bounds.extendWith(markers);
-                      handler.fitMapToBounds();
-                      handler.getMap().setZoom(17);
-                    });
-                    </script>
-                </div>
-                    
-                <div id="likes_buttons_<%= @post.id %>">
-                    <%= render partial: 'likes/like', locals: { post: @post} %>
-                </div>
-                 
-                <% if current_user && @post.user.id == current_user.id %>
-                    <div class="post-btn-area text-right mb-2">
-                        <%= link_to '編集', edit_post_path(@post),class:"btn-sm btn-info" %> 
-                        <%= link_to '削除', @post, method: :delete, data: { confirm: '投稿を削除します｡よろしいですか?' },class:"btn-sm btn-danger" %>
-                    </div>
-                <% end %>
-                <div class="data-area-title mt-5">
-                    <%= @post.name %>のデータ
-                </div>
-                <div class="row no-gutters mb-5">
-                    <div class="col-xs-12 col-md-6">
-                        <div class="data-label my-5"><%= @post.name%>がよく釣れる時期</div>
-                            <%= column_chart @month_data, width: "100%", height: "300px"%>
-                    </div>
-                    <div class="col-xs-12 col-md-6">
-                        <div class="data-label my-5"><%= @post.name%>がよく釣れる餌</div>
-                            <%= pie_chart @feed_data, width: "100%", height: "300px"%>
-                     </div>
-                </div>
-                <div class="row no-gutters mb-5">
-                    <div class="col-xs-12 col-md-6">
-                        <div class="data-label my-5"><%= @post.name%>のサイズ分布</div>
-                            <%= line_chart @size_data, width: "100%", height: "300px"%>
-                    </div>
-                    <div class="col-xs-12 col-md-6">
-                        <div class="data-label my-5"><%= @post.name%>がよく釣れる時間</div>
-                            <%= line_chart @time_data, width: "100%", height: "300px"%>
-                     </div>
-                </div>
-                <div class="text-center">
-                    <%= link_to"/ranking/#{@post.id}/fish_size",class:"ranking-text" do %>
-                    <i class="fas fa-crown"></i>この魚のランキングを見る
-                    <% end %>
-                </div>
-            </div>
+            <%= render "post_main" %>
             <div class="comment-area mx-5">
                 <%= render "comments/index" %>
                 <%= render "comments/form" %>
             </div>
             
+            <% if current_user %>
             <div class="text-center">
                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#commentModal">
                   コメントする
@@ -215,9 +28,16 @@
                     <button class="btn btn-info">コメントする</button>
                 </div>
             <% end %>
-            
+            <% else %>
+                <div class="rounded py-5" style="background: #FFF;">
+                    <div class="text-info text-center font-weight-bold">
+                        コメントするには<%= link_to "ログイン","/users/sign_in" ,style:"color: #007bff" %>か<%= link_to "新規登録", "/users/sigin_up" ,style:"color:#007bff;" %>が必要です。
+                    </div>
+                </div>
+            <% end %>
         </div>
     </div>
+    
 </div>
 
 
