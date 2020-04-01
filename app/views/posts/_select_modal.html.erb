@@ -45,20 +45,13 @@
                             placeMarker(event.latLng, map);
                             document.getElementById("map_lat").value = event.latLng.lat();
                             document.getElementById("map_lng").value = event.latLng.lng();
-                            
-                            var lat = event.latLng.lat();
-                            var lng = event.latLng.lng();
-                            console.log(lat)
-                            console.log(lng)
-                            var latLngInput = [lat,lng]
-                            console.log(latLngInput)
+                            getAddress(event.latLng)
                         })
                         
-                         function getAddress( getLatLng, latLngInput){
-                              var latLngInput = new google.maps.LatLng(34.75874,135.849589);
+                         function getAddress( getLatLng){
                               var geocoder = new google.maps.Geocoder();
                               geocoder.geocode({
-                                latLng: latLngInput
+                                latLng: getLatLng
                               }, 
                               function(results) {
                                   var address = results[0].formatted_address;
