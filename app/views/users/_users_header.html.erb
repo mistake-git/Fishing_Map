@@ -10,10 +10,7 @@
         </div>
     <% end %>
     <% if current_user && @user.id == current_user.id %>
-        <div class="bg-img-edit mr-3" data-toggle="modal" data-target="#bg_edit">編集</div>
-        <div class="bg-img-delete mr-1">
-            <%= link_to"削除","/users/bg.img/delete",method:"post" %>
-        </div>
+        <div class="text-secondary font-weight-bold" data-toggle="modal" data-target="#bg_edit">編集</div>
     <% end %>
 </div>
 <div class="user-header">
@@ -28,9 +25,6 @@
             </div>
             <% if current_user && @user.id == current_user.id %>
                 <div class="profile-img-edit" data-toggle="modal" data-target="#img_edit">設定</div>
-                <div class ="profile-img-delete">
-                    <%= link_to"削除","/users/profile.img/delete",method:"post" %>
-                </div>
             <% end %>
         </div>
         <div class="col-xs-12 col-md-1 text-center">

@@ -20,7 +20,8 @@
                 </div>
                  <div class="modal-footer">
                     <div class="actions">
-                        <%= form.submit "編集する" ,class:"btn btn-info mb-4"%>
+                        <%= form.submit "編集" ,class:"btn btn-info"%>
+                        <%= link_to"削除","/users/profile.img/delete",method:"post" ,class:"btn btn-danger"%>
                     </div>
                 </div>
           <% end %>
