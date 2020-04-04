@@ -431,8 +431,11 @@ body{
         position: relative;
         padding: 0.3em;
         background: $application-color;
-        color: #fff;
         font-weight: bold;
+        
+        a{
+            color: #FFF;
+        }
         
         &::before {
             position: absolute;
