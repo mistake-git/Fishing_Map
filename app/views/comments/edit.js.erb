@@ -1,5 +1,5 @@
 $("#modalArea").html(
-  "<%= j(render 'form', comment: @comment) %>"
+  "<%= j(render 'comments/form', comment: @comment) %>"
 );
 $("#modalArea").find(".modal").on('shown.bs.modal', () => {
   $("#modalArea").find("form input[type=text]")[0].focus();
