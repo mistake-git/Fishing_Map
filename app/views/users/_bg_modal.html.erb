@@ -15,7 +15,6 @@
                     <div class="form-text">現在の画像</div>
                     <%= image_tag @user.bg_image,class:"img-preview2" %>
                 <% end %>
-                
                 <div class="field form-group" onchange="previewFile2()">
                     <%= form.file_field :bg_image ,class:"preview2",id:"bg" ,class:"form-control-file mt-3" %>
                 </div>

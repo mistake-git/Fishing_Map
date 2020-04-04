@@ -27,9 +27,8 @@
 //プレビュー
 function previewFile() {
   var preview = document.querySelector('.img-preview');
-  var file    = document.querySelector('input[type=file]').files[0];
+  var file    = document.querySelector('#profile').files[0];
   var reader  = new FileReader();
-
   reader.addEventListener("load", function () {
     preview.src = reader.result;
   }, false);
@@ -40,20 +39,20 @@ function previewFile() {
 }
 
 function previewFile2() {
-  var preview = document.querySelector('.img-preview2');
-  console.log(preview);
+  var preview2 = document.querySelector('.img-preview2');
   var file    = document.querySelector('#bg').files[0];
-  console.log(file);
   var reader  = new FileReader();
 
   reader.addEventListener("load", function () {
-    preview.src = reader.result;
+    preview2.src = reader.result;
   }, false);
 
   if (file) {
     reader.readAsDataURL(file);
   }
 }
+
+
 //フラッシュ
 
  $(function() {
