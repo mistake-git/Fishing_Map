@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     before_action :authenticate_user!, only: [ :edit, :update]
     before_action :forbid_login_user, only: [:new, :create,]
     before_action :ensure_correct_user, only: [:edit, :update]
-    before_action :set_data, only:[:show, :likes, :comment]
+    before_action :set_data, only:[:show, :likes, :comments]
     
     PER = 16
     

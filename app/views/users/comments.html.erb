@@ -16,7 +16,7 @@
 <div class="container">
     <div class="user-tab-list text-center mt-5">
         <%= link_to "/users/#{@user.id}",class:"decoration-none" do %>
-            <div class="user-tab-title">
+            <div class="user-tab-title active">
                 <div class="tab-title">釣果</div>
                 <div class="badge badge-light"><%= @user_posts_count %></div>
             </div>
@@ -28,7 +28,7 @@
             </div>
         <% end %>
         <%= link_to "/users/#{@user.id}/comments" do %>
-            <div class="user-tab-title active">
+            <div class="user-tab-title">
                 <div class="tab-text">コメント</div>
                 <div class="badge badge-light"><%= @user_comments_count %></div>
             </div>
