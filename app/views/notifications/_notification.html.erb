@@ -16,29 +16,12 @@
     <% end %>
   </div>
   <div class="media-right mr-3">
-      <% if post.images.attached? %>
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-          <div class="carousel-inner">
-            <% post.images.each_with_index do |image,i|%>
-                <div class="carousel-item <%= i == 0 ? 'active' :''%>">
-                    <%= image_tag image ,class:"post-show-img" , style:"width:100px;height:auto" %>
-                </div>
-            <% end %>
-          </div>
-          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">前へ</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">次へ</span>
-          </a>
-        </div>
-    <% else %>
-        <img src="../assets/sakana-img.jpg" class=" post-show-img default-img" style = "width:100px;height:auto">
+    <% unless notification.post.nil? %>
+        <% if notification.post.image.attached? %>
+            <%=  image_tag notification.post.image, style:"width:100px;height:auto"%>
+        <% else %>
+            <img src="/assets/user-image.png" style="width: 100px;height:auto;">
+        <% end %>
     <% end %>
-  </div>
+    </div>
 </div>
-
-
-
