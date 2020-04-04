@@ -7,7 +7,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-             <%= form_with(model: @comment, url: [@post, @comment], local: true,remote: true) do |form| %>
+             <%= form_with(url: [@post, @comment], local: true,remote: true) do |form| %>
                 <div class="modal-body">
                     <%= form.text_area :content,class:"form-control",rows:6, placeholder:"コメントを入力" ,id: "comment", required: true %>
                 </div>

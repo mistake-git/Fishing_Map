@@ -4,6 +4,6 @@ $('.modal-backdrop').remove();
 <% if @status %>
 $("#goalsIndex").append("<%= j(render @comment) %>");
 <% else %>
-$("#modalArea").html("<%= j(render "comments/form", goal: @comment) %>")
+$("#modalArea").html("<%= j(render "comments/form", comment: @comment) %>")
 $("#modalArea").find(".modal").modal('show')
 <% end %>
