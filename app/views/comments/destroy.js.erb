@@ -1,4 +1,1 @@
-$("#commentModal").modal("hide");
-$("body").removeClass("modal-open");
-$(".modal-backdrop").remove();
-$('[data-model_name="comment"]').filter('[data-id="<%= @comment.id %>"]').remove();
+$('[data-model_name="todo"]').filter('[data-goal_id="<%= @post.id %>"][data-id="<%= @comment.id %>"]').remove();
