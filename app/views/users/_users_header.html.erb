@@ -2,15 +2,12 @@
     <% if @user.bg_image.attached? %>
         <%= image_tag @user.bg_image,class:"bg-image"%>
     <% else %>
-        <div>
-            <i class="far fa-image no-bg-img"></i>
-        </div>
         <div class="no-bg-text">
             まだ画像がありません
         </div>
     <% end %>
     <% if current_user && @user.id == current_user.id %>
-        <div class="text-secondary font-weight-bold" data-toggle="modal" data-target="#bg_edit">編集</div>
+        <div class="text-secondary font-weight-bold mt-5" data-toggle="modal" data-target="#bg_edit"> <i class="far fa-image"></i>背景画像編集</div>
     <% end %>
 </div>
 <div class="user-header">
