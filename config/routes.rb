@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     
     resources :posts do
         resources :comments,except: [:index, :show]
+        resources :likes,only: [:create, :destroy]
     end
     
     get '/',to:'home#top',as:'root'
@@ -35,9 +36,6 @@ Rails.application.routes.draw do
     get '/users/:id/comments',to:'users#comments'
     get '/users/:id/following',to:'users#following'
     get '/users/:id/followers',to:'users#followers'
-    
-    post '/likes/:post_id/create',to:'likes#create'
-    post '/likes/:post_id/destroy',to:'likes#destroy'
     
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
     end

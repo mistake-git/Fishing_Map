@@ -10,8 +10,8 @@
         投稿のデータ
     </div>
     <div class="post-data-list mt-5 text-center">
-        <div class="post-data like-icon ml-5"><i class="fas fa-heart"> <%= @likes_count %></i></div>
-        <div class="post-data comment-icon ml-5"><i class="fas fa-comment"> <%= @comments_count %></i></div>
+        <div class="post-data like-icon ml-5"><i class="fas fa-heart"><%= @likes_count %></i></div>
+        <div class="post-data comment-icon ml-5"><i class="fas fa-comment"><%= @comments_count %></i></div>
         <div class="post-data post-created_at ml-5"><%= "#{time_ago_in_words(@post.created_at)}前"%></div>
     </div>
     <div class="data-area-title mt-5">
@@ -99,7 +99,7 @@
     </div>
         
     <div id="likes_buttons_<%= @post.id %>">
-        <%= render partial: 'likes/like', locals: { post: @post} %>
+        <%= render partial: 'likes/like', locals: {post: @post} %>
     </div>
      
     <% if current_user && @post.user.id == current_user.id %>

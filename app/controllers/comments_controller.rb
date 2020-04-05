@@ -3,7 +3,6 @@ class CommentsController < ApplicationController
   before_action :set_comment, only:[:edit, :update, :destroy, :ensure_correct_user]
   before_action :ensure_correct_user, only: [:edit, :update, :destroy]
   before_action :authenticate_user!
- 
   
   def new
     @comment = Comment.new
@@ -36,7 +35,7 @@ class CommentsController < ApplicationController
       @status = true
     else
        flash[:alert] = "コメントの投稿に失敗しました"
-       @status =false
+       @status = false
     end
   end
   

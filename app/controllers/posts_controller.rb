@@ -40,6 +40,7 @@ class PostsController < ApplicationController
   def show
     @comment = Comment.new
     @user = @post.user
+    @like = Like.find_by(user_id: current_user.id, post_id: params[:post_id])
     @fish = Fish.find_by(name: @post.name)
     if @fish 
         @level = "★"*@fish.level
