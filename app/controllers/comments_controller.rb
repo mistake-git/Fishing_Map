@@ -4,6 +4,8 @@ class CommentsController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update, :destroy]
   before_action :authenticate_user!
   
+  PER = 16
+  
   def new
     @comment = Comment.new
   end
@@ -13,6 +15,7 @@ class CommentsController < ApplicationController
   end
   
   def create
+    @comments = Comment.where(post_id: @post.id).page(params[:page]).per(5)
     @comment = Comment.new(
       content: params[:content],
       user_id: current_user.id,

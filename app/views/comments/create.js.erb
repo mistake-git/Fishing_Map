@@ -2,7 +2,6 @@
 <% if @status %>
 $('[data-model_name="post"]').filter('[data-id="<%= @post.id %>"]').find('form [name="comment[content]"]').val("")
 $('[data-model_name="post"]').filter('[data-id="<%= @post.id %>"]').find('form [name="comment[content]"]').eq(0).focus();
-
 $('[data-model_name="post"]').filter('[data-id="<%= @post.id %>"]').find("comment-area").html("<%= j(render partial: 'comments/index', collection: @post.comments, as: :comments) %>");
 <% else %>
 $('[data-model_name="post"]').filter('[data-id="<%= @post.id %>"]').find('form [name="comment[content]"]').eq(0).focus();

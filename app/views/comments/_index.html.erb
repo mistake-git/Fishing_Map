@@ -10,7 +10,7 @@
                 <% end %>
 	        </div>
 	        <div class="media-body">
-		        <h5 class="media-heading"> <%= link_to"#{comment.user.name}", "/users/#{comment.user.id}" %></h5>
+		        <h5 class="media-heading"><%= link_to"#{comment.user.name}", "/users/#{comment.user.id}" ,style:"color: #00CCCC;"%></h5>
 			        <div class="comment-content">
 			            <%= comment.content %>
 			        </div>
