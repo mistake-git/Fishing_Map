@@ -1,7 +1,9 @@
 class LikesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_post,only: [:create, :destroy, :ensure_correct_user]
+  before_action :set_post,only: [:create, :destroy, :ensure_correct_user,:set_data]
   before_action :set_like,only: [:destroy, :ensure_correct_user]
+  before_action :set_data,only: [:create, :destroy]
+  
 
  
   
@@ -15,10 +17,15 @@ class LikesController < ApplicationController
     @like.destroy
   end
   
-  def ensure_correct_user
-    if @like.user_id != current_user.id
-      redirect_to("/posts/#{params[:post_id]}")
-    end
+  # def ensure_correct_user
+  #   if @like.user_id != current_user.id
+  #     redirect_to("/posts/#{params[:post_id]}")
+  #   end
+  # end
+  
+  def set_data
+    @likes_count = @post.likes.count
+    @comments_count = Comment.where(post_id: @post.id).count
   end
     
   
