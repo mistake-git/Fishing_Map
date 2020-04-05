@@ -11,10 +11,10 @@
                 <%= @post.name %>: この魚の難易度: <%= @level ?  @level : "データがありません" %>
             </div>
             <%= render "post_main" %>
-            <div class="comment-area mx-5">
+            <div id="comment-area_<%= @post.id %>">
                 <%= render "comments/index" %>
             </div>
-             <%= render "comments/form" %>
+            <%= render "comments/form" %>
             <% if current_user %>
             <%= link_to "/posts/#{@post.id}/comments/new",remote: true do %>
                 <div class="text-center">

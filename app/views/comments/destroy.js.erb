@@ -1,1 +1,1 @@
-$('[data-model_name="todo"]').filter('[data-goal_id="<%= @post.id %>"][data-id="<%= @comment.id %>"]').remove();
+('#comment-area_<%= @post.id %>').html("<%= j(render partial: 'comments/index', locals: {post: @post}) %>");

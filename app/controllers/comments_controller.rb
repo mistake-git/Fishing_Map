@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_post, only:[ :new, :create, :edit, :update, :destroy]
   before_action :set_comment, only:[:edit, :update, :destroy, :ensure_correct_user]
+  before_action :set_comments, only:[:create, :update,:destroy]
   before_action :ensure_correct_user, only: [:edit, :update, :destroy]
   before_action :authenticate_user!
   
@@ -15,7 +16,6 @@ class CommentsController < ApplicationController
   end
   
   def create
-    @comments = Comment.where(post_id: @post.id).page(params[:page]).per(5)
     @comment = Comment.new(
       content: params[:content],
       user_id: current_user.id,
@@ -44,6 +44,7 @@ class CommentsController < ApplicationController
   
       
   def destroy
+    @comment = Comment.find(params[:id])
     @comment.destroy
     flash[:success] = "コメントを削除しました"
     @status = true
@@ -64,6 +65,10 @@ class CommentsController < ApplicationController
   
   def set_comment
     @comment = Comment.find(params[:id])
+  end
+  
+  def set_comments
+    @comments = Comment.where(post_id: @post.id).page(params[:page]).per(PER)
   end
   
   def comment_params

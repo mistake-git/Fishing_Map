@@ -33,6 +33,7 @@ class LikesController < ApplicationController
   private
   def set_like
      @like = Like.find_by(user_id: current_user.id, post_id: params[:post_id])
+     pp "set_like: #{@like}"
   end
   
   def set_post
