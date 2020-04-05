@@ -53,7 +53,7 @@ class PostsController < ApplicationController
        @title = "#{@user.name}さん"
     end
     @comments = Comment.where(post_id: @post.id).page(params[:page]).per(PER)
-    @like = Like.find_by(user_id: current_user.id, post_id: params[:post_id])
+    @like = Like.find_by(user_id: current_user.id, post_id: @post.id)
     @likes_count = @post.likes.count
     @comments_count = Comment.where(post_id: @post.id).count
     same_fish_posts = Post.where(name: @post.name)
