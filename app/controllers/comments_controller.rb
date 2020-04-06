@@ -17,12 +17,12 @@ class CommentsController < ApplicationController
   
   def create
     @comment = Comment.new(
-      content: params[:content],
       user_id: current_user.id,
-      post_id: params[:post_id]
+      post_id: params[:post_id],
+      content: params[:content]
     )
-    if @comment.save
-      @post.create_notification_comment!(current_user, @comment.id)
+    if @comment.save!
+      @post.create_notification_comment(current_user, @comment.id)
       flash[:success] = "コメントを投稿しました"
       @status = true
     else

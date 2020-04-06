@@ -9,7 +9,7 @@
             </div>
              <%= form_with(model: [@comment], url:[@post, @comment], remote: true) do |form| %>
                 <div class="modal-body">
-                    <%= form.text_area :content,class:"form-control",rows:6, placeholder:"コメントを入力" ,id: "comment", required: true %>
+                    <%= form.text_area :content ,class:"form-control",rows:6, placeholder:"コメントを入力" ,id: "comment", required: true %>
                 </div>
                 <div class="modal-footer">
                     <%= form.submit value = "コメントする",class:"btn btn-info my-3"%>
