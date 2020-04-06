@@ -44,7 +44,6 @@ class CommentsController < ApplicationController
   
       
   def destroy
-    @comment = Comment.find(params[:id])
     @comment.destroy
     flash[:success] = "コメントを削除しました"
     @status = true
@@ -68,7 +67,7 @@ class CommentsController < ApplicationController
   end
   
   def set_comments
-    @comments = Comment.where(post_id: @post.id).page(params[:page]).per(PER)
+    @comments = Comment.where(post_id: @post.id).order(created_at: :desc).page(params[:page]).per(PER)
   end
   
   def comment_params

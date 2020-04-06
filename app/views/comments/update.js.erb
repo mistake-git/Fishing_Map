@@ -1,9 +1,8 @@
 $("#commentModal").modal("hide");
 $('body').removeClass('modal-open');
 $('.modal-backdrop').remove();
-
 <% if @status %>
-$('[data-model_name="comment"]').filter('[data-id="<%= @comment.id %>"]').replaceWith("<%= j(render @comment) %>");
+$('#comment-area_<%= @post.id %>').html("<%= j(render partial: 'comments/index', locals: {post: @post}) %>");
 <% else %>
 $("#modalArea").html("<%= j(render 'comments/form', comment: @comment) %>")
 $("#modalArea").find(".modal").modal('show')
