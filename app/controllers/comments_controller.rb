@@ -17,12 +17,10 @@ class CommentsController < ApplicationController
   
   def create
     @comment = Comment.new(
-      user_id: current_user.id,
-      post_id: params[:post_id],
-      content: params[:content]
+      comment_params.merge(user_id: current_user.id,post_id: @post.id)
     )
-    if @comment.save!
-      @post.create_notification_comment(current_user, @comment.id)
+    if @comment.save
+      @post.create_notification_comment!(current_user, @comment.id)
       flash[:success] = "コメントを投稿しました"
       @status = true
     else
@@ -57,7 +55,6 @@ class CommentsController < ApplicationController
   end
   
   private
-  
   def set_post
     @post = Post.find(params[:post_id])
   end
