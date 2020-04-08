@@ -16,37 +16,6 @@
                 </div>
             <% end %>
         </p>
-        <p>
-            <div class="follow-btn-wrapper text-center">    
-                <% if current_user && @user.id == current_user.id && !Relationship.find_by(follower_id: current_user.id,followed_id: @user.id) %>
-                    <div class="follow-btn-lg">自分</div>
-                <% elsif current_user && @user.id != current_user.id && Relationship.find_by(follower_id: current_user.id,followed_id: @user.id) %>
-                    <%= form_with(model: current_user.active_relationships.find_by(followed_id: @user.id),local: true,html: { method: :delete }) do |form| %>
-                        <%= form.submit "フォロー中", class: "unfollow-btn-lg" %>
-                    <% end %>
-                <% else %>
-                   <%= form_with(model: Relationship.new(follower_id: current_user&.id, followed_id: @user.id),local: true) do|form| %>
-                        <%= hidden_field_tag :followed_id, @user.id %>
-                        <%= form.submit "フォロー", class: "follow-btn-lg" %>
-                    <% end %>
-                <% end %>  
-            </div>
-        </p>
-        <p>
-            <div class="user-status-summary text-center">
-                <div class="summary-item">
-                    <div class="summary-title">フォロー</div>
-                        <%= @post.user.following.count %>
-                    </div>
-                <div class="summary-item">
-                    <div class="summary-title">フォロワー</div>
-                        <%= @post.user.followers.count %>
-                    </div>
-                <div class="summary-item">
-                <div class="summary-title">釣果</div>
-                    <%= @post.user.posts.count %>
-                </div>
-            </div>
-        </p>
+       <%= render "relationships/posts" %>
     </div>
 </div>

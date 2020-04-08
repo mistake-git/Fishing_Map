@@ -30,6 +30,7 @@
                                 </div>
                             <% end %>
                         </p>
+                        
                         <div class="follow-btn-wrapper text-center">    
                             <% if current_user && user.id == current_user.id && !Relationship.find_by(follower_id: current_user.id,followed_id: user.id) %>
                             <div class="follow-btn">自分</div>
