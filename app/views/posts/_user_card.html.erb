@@ -6,7 +6,15 @@
     <% end %>
     <div class="card-body">
         <h5 class="card-title text-center card-label"><%= link_to "#{@post.user.name}","/users/#{@post.user.id}"%></h5>
-        <div class="area text-center"><%= @user.address %></div>
+        <% if @user.address? %>
+            <div class="user-address text-center">
+                <%= @user.address %>
+            </div>
+        <% else %>
+            <div class="text-secondary text-center font-weight-bold">
+                未設定
+            </div>
+        <% end %>
         <p class="card-text text-center">
             <% if @post.user.introduce? %>
                 <%= @post.user.introduce %>

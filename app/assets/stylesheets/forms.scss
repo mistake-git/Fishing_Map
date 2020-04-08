@@ -13,6 +13,5 @@ div.field {
 div.actions {
   input[type="submit"] {
     @extend .my-2 !optional;
-    @extend .btn !optional;
   }
 }

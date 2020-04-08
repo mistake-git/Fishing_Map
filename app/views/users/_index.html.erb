@@ -30,7 +30,35 @@
                                 </div>
                             <% end %>
                         </p>
-                        <%= render "relationships/index" %>
+                        <div class="follow-btn-wrapper text-center">    
+                            <% if current_user && user.id == current_user.id && !Relationship.find_by(follower_id: current_user.id,followed_id: user.id) %>
+                               <div class="btn-sm btn-outline-info btn-block">自分</div>
+                            <% elsif current_user && user.id != current_user.id && Relationship.find_by(follower_id: current_user.id,followed_id: user.id) %>
+                                <%= form_with(model: current_user.active_relationships.find_by(followed_id: user.id),local: true,html: { method: :delete }) do |form| %>
+                                    <%= form.submit "フォロー中", class: "btn btn-info btn-block" %>
+                                <% end %>
+                            <% else %>
+                               <%= form_with(model: Relationship.new(follower_id: current_user&.id, followed_id: user.id),local: true) do|form| %>
+                                    <%= hidden_field_tag :followed_id, user.id %>
+                                    <%= form.submit "フォロー", class: "btn-sm btn-outline-info btn-block" %>
+                                <% end %>
+                            <% end %>    
+                        </div>
+                        
+                        <div class="user-status-summary text-center mt-1">
+                            <div class="summary-item">
+                                <div class="summary-title">フォロー</div>
+                                <%= user.following.count %>
+                            </div>
+                            <div class="summary-item">
+                                <div class="summary-title">フォロワー</div>
+                                <%= user.followers.count %>
+                            </div>
+                            <div class="summary-item">
+                                <div class="summary-title">釣果</div>
+                                <%= user.posts.count %>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

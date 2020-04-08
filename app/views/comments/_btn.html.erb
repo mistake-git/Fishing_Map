@@ -1,0 +1,13 @@
+ <% if current_user %>
+    <%= link_to "/posts/#{@post.id}/comments/new",remote: true do %>
+        <div class="text-center">
+            <button class="btn btn-info">コメントする</button>
+        </div>
+    <% end %>
+<% else %>
+    <div class="rounded py-5" style="background: #FFF;">
+        <div class="text-info text-center font-weight-bold">
+            コメントするには<%= link_to "ログイン","/users/sign_in" ,style:"color: #007bff" %>か<%= link_to "新規登録", "/users/sigin_up" ,style:"color:#007bff;" %>が必要です。
+        </div>
+    </div>
+<% end %>
