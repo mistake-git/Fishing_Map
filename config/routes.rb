@@ -32,8 +32,8 @@ Rails.application.routes.draw do
     get '/users/:id/comments',to:'users#comments'
     get '/users/:id/following',to:'users#following'
     get '/users/:id/followers',to:'users#followers'
-    post '/users/profile.img/edit',to:'users#img_update'
-    post '/users/bg.img/edit',to:'users#bg_img_update'
+    post '/users/profile.img/update',to:'users#img_update'
+    post '/users/bg.img/update',to:'users#bg_img_update'
     post '/users/profile.img/delete',to:'users#img_delete'
     post '/users/bg.img/delete',to:'users#bg_img_delete'
     

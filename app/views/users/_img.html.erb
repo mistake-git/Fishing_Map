@@ -1,5 +1,5 @@
 <% if @user.image.attached? %>
-    <%= image_tag @user.image,class:"user-image"%>
+    <%= image_tag @user.image ,style:"height: 180px; width: 180px; border-radius: 50%;"%>
 <% else %>
-    <img src="/assets/user-image.png" class="user-image">
+    <img src="/assets/user-image.png" style="height: 180px; width: 180px; border-radius: 50%;">
 <% end %>
