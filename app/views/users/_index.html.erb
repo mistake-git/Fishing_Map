@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row no-gutters">
+        <% @users.each do |user| %>
+            <div class="col-xs-12 col-md-6 col-lg-3 user-index">
+                <div class="card user-card m-1">
+                    <% if user.image.attached? %>
+                        <%= image_tag user.image, class:"card-img-top user-card-img mx-auto mt-1"%>
+                    <% else %>
+                        <img src="/assets/user-image.png" class="card-img-top user-card-img mx-auto default-img mt-1">
+                    <% end %>
+                    <div class="card-body">
+                        <h6 class="card-title text-center card-label"><%= link_to"#{user.name}","/users/#{user.id}"%></h6>
+                        <p class="card-text text-center">
+                             <% if user.address? %>
+                                <div class="user-address text-center">
+                                    <%= user.address %>
+                                </div>
+                            <% else %>
+                                <div class="text-secondary text-center font-weight-bold">
+                                    未設定
+                                </div>
+                            <% end %>
+                            <% if user.introduce? %>
+                                <div class="user-introduce text-center">
+                                    <%= user.introduce %>
+                                </div>
+                            <% else %>
+                                <div class="user-introduce-default text-center">
+                                    まだ自己紹介がありません
+                                </div>
+                            <% end %>
+                        </p>
+                        <%= render "relationships/index" %>
+                    </div>
+                </div>
+            </div>
+        <% end %> 
+    </div>
+</div> 
+

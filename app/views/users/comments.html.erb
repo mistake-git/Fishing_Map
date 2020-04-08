@@ -1,10 +1,10 @@
 <div class="page-title ml-4 mt-4"><%= @title %></div>
-<%= render partial: 'users_header'%>
+<%= render partial: 'header'%>
 <div class="container">
     <div class="row no-gutters">
         <div class="col-xs-12 col-md-6 mt-5 text-center">
             <div class="text-center mb-3 profile-title">プロフィール</div>
-           <%= render partial: 'users_status'%>
+           <%= render partial: 'status'%>
         </div> 
         <div class="col-xs-12 col-md-6 mt-5 data-title">
             <div class="text-center mb-3"><%= @user.name %>さんの釣果データ</div>
@@ -40,7 +40,7 @@
             <%= @when_not_text %>
         </div>
     <% end %>
-    <%= render partial: "user_map" %>
+    <%= render partial: "map" %>
     <div class="pagenation">
         <%= paginate @comments%>
     </div>
