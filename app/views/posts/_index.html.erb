@@ -1,8 +1,7 @@
-
 <div class="row no-gutters">
     <% @posts.each do |post| %>
-    <div class="col-xs-12 col-md-6 col-lg-3 mt-3"> 
-        <div class="card m-1">
+    <div class="col-12 col-md-6 col-lg-3 mt-3"> 
+        <div class="card">
             <div class="post-card-user mt-1 ml-1">
                 <div class="card-user-img-wrapper mr-1">
                     <% if post.user.image.attached? %>
@@ -99,11 +98,10 @@
         </div>
     <% end %>
 </div>
-
 <% if @posts.empty?%>
-    <div class="when-not-text">
+    <h4 class="text-secondary text-center font-weight-bold my-5">
         <%= @when_not_text %>
-    </div>
+    </h4>
 <% end %>
 <div class="pagenation ">
     <%= paginate @posts%>

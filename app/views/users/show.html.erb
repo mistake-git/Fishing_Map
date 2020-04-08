@@ -6,11 +6,6 @@
         <%= render "status" %>
         <%= render "tab" %>
         <%= render "posts/index" %>
-        <% if @user.posts.empty? %>
-            <div class="when-not-text">
-                <%= @when_not_text %>
-            </div>
-        <% end %>
         <%= render partial: "map" %>
     </div>
 </div>

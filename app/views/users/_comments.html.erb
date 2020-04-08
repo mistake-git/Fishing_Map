@@ -20,6 +20,11 @@
         <% end %>
     <% end %>
 </div>
+<% if @user.comments.empty? %>
+    <h4 class="text-secondary text-center font-weight-bold my-5">
+        <%= @when_not_text %>
+    </h4>
+<% end %>
 <div class="pagenation">
     <%= paginate @comments%>
 </div>
