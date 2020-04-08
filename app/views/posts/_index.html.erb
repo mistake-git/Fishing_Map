@@ -99,9 +99,9 @@
     <% end %>
 </div>
 <% if @posts.empty?%>
-    <h4 class="text-secondary text-center font-weight-bold my-5">
+    <h5 class="text-secondary text-center font-weight-bold my-5">
         <%= @when_not_text %>
-    </h4>
+    </h5>
 <% end %>
 <div class="pagenation ">
     <%= paginate @posts%>

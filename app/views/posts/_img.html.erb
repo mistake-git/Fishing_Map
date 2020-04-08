@@ -1,0 +1,7 @@
+<div class="text-center">
+    <% if @post.image.attached? %>
+        <%= image_tag @post.image ,class:"post-show-img"%>
+    <% else %>
+        <img src="../assets/sakana-img.jpg" class=" post-show-img default-img">
+    <% end %>
+</div>

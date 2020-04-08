@@ -15,6 +15,7 @@
  */
 
 @import "bootstrap";
+@import "forms";
 $application-color:#00CCCC;
 
 @mixin application-text($application-color){
@@ -59,26 +60,6 @@ body{
 
 .default-text{
     opacity: 0.5;
-}
-
-@media screen and (min-width:1000px){
-    .when-not-text{
-        font-size: 1.3rem;
-        font-weight: bold;
-        opacity: 0.3;
-        text-align: center;
-        margin: 8% 0 12% 0;
-    }
-}
-
-@media screen and (max-width:1000px){
-    .when-not-text{
-        font-size: 1.0rem;
-        font-weight: bold;
-        opacity: 0.3;
-        text-align: center;
-        margin: 8% 0 12% 0;
-    }
 }
 
 /*ローディング画面*/

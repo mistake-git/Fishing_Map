@@ -1,0 +1,38 @@
+<table class="post-data-list mt-5 ml-5">
+    <tr>
+    <th class="pr-5 pt-3">サイズ</th>
+    <% if @post.size? %>
+       <td class="pt-3 post-size"><%= @post.size %>cm</td>
+    <% end %>
+    </tr>
+    <tr>
+    <th class="pr-5 pt-3">数量(匹)</th>
+    <% if @post.number? %>
+       <td class="pt-3 post-number"><%= @post.number.to_i %>匹</td>
+    <% end %>
+    </tr>
+    <tr>
+    <th class="pr-5 pt-3">日付</th>
+    <% if @post.date? %>
+       <td class="pt-3 post-date"><%= @post.date %></td>
+    <% end %>
+    </tr>
+    <tr>
+    <th class="pr-5 pt-3">時間</th>
+    <% if @post.time? %>
+       <td class="pt-3 post-time"><%= @post.time.to_s(:time)%></td>
+    <% end %>
+    </tr>
+    <tr>
+    <th class="pr-5 pt-3">使った餌</th>
+    <% if @post.feed?%>
+       <td class="pt-3 post-feed"><%= @post.feed %></td>
+    <% end %>
+    </tr>
+     <tr>
+    <th class="pr-5 pt-3">天気</th>
+    <% if @post.weather? %>
+       <td class="pt-3 post-weather"><%= @post.weather %></td>
+    <% end %>
+    </tr>
+</table>
