@@ -10,11 +10,13 @@ class LikesController < ApplicationController
   def create
     @like = Like.new(user_id: current_user.id, post_id: @post.id)
     @like.save
+     flash[:success] = "いいね!しました"
     @post.create_notification_like!(current_user)
   end
   
   def destroy
     @like.destroy
+    flash[:success] = "いいね!を取り消しました"
   end
   
   # def ensure_correct_user

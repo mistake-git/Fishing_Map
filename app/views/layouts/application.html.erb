@@ -31,7 +31,9 @@
         <div class ="main">
           <%= render 'layouts/header' %>
           <div class="flash-wrapper border-top">
-            <%= render 'layouts/flash' %>
+            <div id="flash-area">
+              <%= render 'layouts/flash' %>
+            </div>
             <div id="modalArea"></div>
             <%= yield %>
             <%= render 'layouts/footer' %>

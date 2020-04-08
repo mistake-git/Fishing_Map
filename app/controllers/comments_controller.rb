@@ -24,7 +24,6 @@ class CommentsController < ApplicationController
       flash[:success] = "コメントを投稿しました"
       @status = true
     else
-      flash[:alert] = "コメントの投稿に失敗しました"
       @status = false
     end
   end
@@ -32,10 +31,9 @@ class CommentsController < ApplicationController
   
   def update
     if @comment = Comment.update(comment_params)
-      flash[:success] = "コメントを投稿しました"
+      flash[:success] = "コメントを編集しました"
       @status = true
     else
-       flash[:alert] = "コメントの投稿に失敗しました"
        @status = false
     end
   end

@@ -3,6 +3,7 @@ $('body').removeClass('modal-open');
 $('.modal-backdrop').remove();
 <% if @status %>
 $('#comment-area_<%= @post.id %>').html("<%= j(render partial: 'comments/index', locals: {post: @post}) %>");
+$('#flash-area').html("<%= j(render 'layouts/flash') %>");
 <% else %>
 $("#modalArea").html("<%= j(render 'comments/form', comment: @comment) %>")
 $("#modalArea").find(".modal").modal('show')
