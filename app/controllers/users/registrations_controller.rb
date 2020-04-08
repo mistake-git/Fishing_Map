@@ -46,44 +46,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
    end
    
-   def img_update
-       @user = current_user
-       if params[:user] && params[:user][:image]
-            @user.image.purge
-            @user.image.attach(params[:user][:image])
-       end
-       flash[:notice] = "プロフィール画像を変更しました"
-       redirect_to("/users/#{current_user.id}")
-   end
-   
-   def bg_img_update
-       @user = current_user
-       if params[:user] && params[:user][:bg_image]
-            @user.bg_image.purge
-            @user.bg_image.attach(params[:user][:bg_image])
-       end
-       flash[:notice] = "背景画像を変更しました"
-       redirect_to("/users/#{current_user.id}")
-   end
-   
-   
-   def img_delete
-       @user = current_user
-       if @user.image.attached?
-            @user.image.purge
-       end
-       flash[:notice] = "プロフィール画像を削除しました"
-       redirect_to("/users/#{current_user.id}")
-   end
-   
-   def bg_img_delete
-       @user = current_user
-       if @user.bg_image.attached?
-            @user.bg_image.purge
-       end
-       flash[:notice] = "背景画像を削除しました"
-       redirect_to("/users/#{current_user.id}")
-   end
    
   # DELETE /resource
   # def destroy

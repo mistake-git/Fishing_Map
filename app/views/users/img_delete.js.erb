@@ -1,0 +1,2 @@
+$('#user-img-area_<%= @user.id%>').html("<%= j(render partial: 'users/img', locals: {user: @user}) %>");
+$('#flash-area').html("<%= j(render 'layouts/flash') %>");

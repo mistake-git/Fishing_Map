@@ -19,10 +19,6 @@ Rails.application.routes.draw do
     
     devise_scope :user do
         post '/users/profile/edit',to:'users/registrations#update'
-        post '/users/profile.img/edit',to:'users/registrations#img_update'
-        post '/users/bg.img/edit',to:'users/registrations#bg_img_update'
-        post '/users/profile.img/delete',to:'users/registrations#img_delete'
-        post '/users/bg.img/delete',to:'users/registrations#bg_img_delete'
     end 
     
     resources :relationships, only: [:create, :destroy]
@@ -36,6 +32,10 @@ Rails.application.routes.draw do
     get '/users/:id/comments',to:'users#comments'
     get '/users/:id/following',to:'users#following'
     get '/users/:id/followers',to:'users#followers'
+    post '/users/profile.img/edit',to:'users#img_update'
+    post '/users/bg.img/edit',to:'users#bg_img_update'
+    post '/users/profile.img/delete',to:'users#img_delete'
+    post '/users/bg.img/delete',to:'users#bg_img_delete'
     
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
     end
