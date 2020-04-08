@@ -29,7 +29,15 @@
                 <%= @user.name %>
             </div>
         </div>
-        <%= render "relationships/users" %>
+        <div class="col-xs-12 col-md-3 text-center">
+            <div id="follow_buttons_<%= @user.id %>">
+               <%= render "relationships/users" %>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6 text-center">
+          <%= render "relationships/follow_count" %>
+        </div>
+        
     </div>
 </div>
 <%= render "bg_modal" %>

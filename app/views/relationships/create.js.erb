@@ -1,0 +1,2 @@
+$('#follows_buttons_<%= @user.id %>').html("<%= j(render partial: 'relationships/users', locals: {post: @post}) %>");
+$('#flash-area').html("<%= j(render 'layouts/flash') %>");

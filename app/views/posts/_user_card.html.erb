@@ -16,6 +16,8 @@
                 </div>
             <% end %>
         </p>
-       <%= render "relationships/posts" %>
+       <div id="follow_buttons_<%= @user.id %>">
+           <%= render "relationships/posts" %>
+       </div>
     </div>
 </div>

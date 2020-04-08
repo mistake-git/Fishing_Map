@@ -10,7 +10,9 @@
 </div>
 
 <div class="text-center index-title mb-3"><%= @title %></div>
-<%= render "index" %>
+
+<%= render "relationships/index" %>
+
 
 <div class="pagenation">
     <%= paginate @users %>
