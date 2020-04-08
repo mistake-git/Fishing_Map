@@ -1,31 +1,40 @@
-<div class="user-info mt-3 ml-3">
-    <div class="user-introduce mt-3 mx-3">
-        <div class="introduce">
-            <% if @user.introduce?%>
-             <div class="user-introduce">
-                <%= @user.introduce %>
+<div class="row no-gutters">
+    <div class="col-xs-12 col-md-6 mt-5 text-center">
+       <div class="text-center mb-3 profile-title">プロフィール</div>
+       <div class="user-info mt-3 ml-3">
+            <div class="user-introduce mt-3 mx-3">
+                <div class="introduce">
+                    <% if @user.introduce?%>
+                     <div class="user-introduce">
+                        <%= @user.introduce %>
+                    </div>
+                    <% else %>
+                        <div class="user-introduce text-secondary">
+                            まだ自己紹介がありません
+                        </div>
+                    <% end %>
+                </div>
+                <div class="area user-address">
+                    <% if @user.address %>
+                        <%= @user.address %>
+                    <% else %>
+                        <div class="text-secondary">
+                            未設定
+                        </div>
+                    <% end %>
+                </div>
             </div>
-            <% else %>
-                <div class="user-introduce text-secondary">
-                    まだ自己紹介がありません
+        <% if current_user && @user.id == current_user.id %>
+            <%= link_to"/users/edit" do%>
+                <div class="setting">
+                    <i class="fas fa-cog"></i>設定
                 </div>
             <% end %>
-        </div>
-        <div class="area user-address">
-            <% if @user.address %>
-                <%= @user.address %>
-            <% else %>
-                <div class="text-secondary">
-                    未設定
-                </div>
-            <% end %>
-        </div>
-        </div>
-    <% if current_user && @user.id == current_user.id %>
-        <%= link_to"/users/edit" do%>
-            <div class="setting">
-                <i class="fas fa-cog"></i>設定
-            </div>
         <% end %>
-    <% end %>
+        </div>
+    </div> 
+    <div class="col-xs-12 col-md-6 mt-5 data-title">
+        <div class="text-center mb-3"><%= @user.name %>さんの釣果データ</div>
+         <%= pie_chart @user_data, width: "100%", height: "300px"%>
+    </div> 
 </div>

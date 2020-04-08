@@ -1,15 +1,3 @@
-<div class="bg-area text-center mt-5">
-    <% if @user.bg_image.attached? %>
-        <%= image_tag @user.bg_image,class:"bg-image"%>
-    <% else %>
-        <div class="no-bg-text">
-            まだ画像がありません
-        </div>
-    <% end %>
-    <% if current_user && @user.id == current_user.id %>
-        <div class="text-secondary font-weight-bold mt-5" data-toggle="modal" data-target="#bg_edit"> <i class="far fa-image"></i>背景画像編集</div>
-    <% end %>
-</div>
 <div class="user-header">
     <div class="user-status row no-gutters">
         <div class="col-xs-12 col-md-2 text-center">
@@ -37,9 +25,10 @@
         <div class="col-xs-12 col-md-6 text-center">
           <%= render "relationships/follow_count" %>
         </div>
-        
     </div>
 </div>
+
+
 <%= render "bg_modal" %>
 <%= render "profile_modal" %>
 

@@ -1,48 +1,17 @@
 <div class="page-title ml-4 mt-4"><%= @title %></div>
-<%= render partial: 'header'%>
-<div class="container">
-    <div class="row no-gutters">
-        <div class="col-xs-12 col-md-6 mt-5 text-center">
-            <div class="text-center mb-3 profile-title">プロフィール</div>
-           <%= render partial: 'status'%>
-        </div> 
-        <div class="col-xs-12 col-md-6 mt-5 data-title">
-            <div class="text-center mb-3"><%= @user.name %>さんの釣果データ</div>
-             <%= pie_chart @user_data, width: "100%", height: "300px"%>
-        </div> 
-    </div>
-</div>
-
-<div class="container">
-    <div class="user-tab-list text-center mt-5">
-        <%= link_to "/users/#{@user.id}",class:"decoration-none" do %>
-            <div class="user-tab-title"  style="color: #FFF;">
-                <div class="tab-title">釣果</div>
-                <div class="badge badge-light"><%= @user_posts_count %></div>
+<%= render "bg" %>
+<div class="row">
+    <div class="col-12 col-lg-8 col-lg-offset-4 mx-auto">
+        <%= render  'header'%>
+        <%= render "status" %>
+        <%= render "tab" %>
+        <%= render "posts/index" %>
+        <% if @user.posts.empty? %>
+            <div class="when-not-text">
+                <%= @when_not_text %>
             </div>
         <% end %>
-        <%= link_to "/users/#{@user.id}/likes" do %>
-            <div class="user-tab-title active" style="color: #FFF;">
-                <div class="tab-title">いいね</div>
-                <div class="badge badge-light"><%= @user_likes_count %></div>
-            </div>
-        <% end %>
-        <%= link_to "/users/#{@user.id}/comments" do %>
-            <div class="user-tab-title" style="color: #FFF;">
-                <div class="tab-text">コメント</div>
-                <div class="badge badge-light"><%= @user_comments_count %></div>
-            </div>
-        <% end %>
-    </div>
-    <%= render "posts/posts_index" %>
-    <% if @posts.empty?%>
-        <div class="when-not-text">
-            <%= @when_not_text %>
-        </div>
-    <% end %>
-    <%= render partial: "map" %>
-    <div class="pagenation">
-        <%= paginate @posts%>
+        <%= render partial: "map" %>
     </div>
 </div>
     

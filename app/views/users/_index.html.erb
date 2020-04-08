@@ -37,4 +37,12 @@
         <% end %> 
     </div>
 </div> 
+<% if @users.empty? %>
+    <div class="when-not-text-follow text-center">
+        <%= @when_not_text %>
+    </div>
+<% end %>
+<div class="pagenation">
+    <%= paginate @users%>
+</div>
 
