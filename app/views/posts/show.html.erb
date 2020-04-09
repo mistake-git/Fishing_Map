@@ -1,11 +1,11 @@
 <div class="page-title ml-4 my-4"><%= @title %>の釣果</div>
 
-<div class="row no-gutters">
-    <div class="col-11 offset-1 col-lg-10 col-lg-offset-2 ">
+<div class="row">
+    <div class="col-12 offset-1 col-lg-11 col-lg-offset-1 mx-auto">
         <div class="post-show-title mb-3 text-center">
             <%= @post.name %>: この魚の難易度: <%= @level ?  @level : "データがありません" %>
         </div>
-        <div class="row no-gutters">
+        <div class="row">
             <div class="col-12 col-lg-3">
                 <%= render "user_card" %>
             </div>

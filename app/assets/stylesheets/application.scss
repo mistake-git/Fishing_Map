@@ -28,6 +28,10 @@ $application-color:#00CCCC;
     color: #00CCCC;
 }
 
+a{
+    text-decoration: none;
+}
+
 /*ローディング画面*/
 
 #loading{
@@ -410,12 +414,4 @@ $application-color:#00CCCC;
     }
 }
 
-/*twitter認証*/
-.twitter-btn { 
-  background:#1da1f3;
- 
-  .twitter-btn-text{
-      color: #FFF;
-  }
-}
 

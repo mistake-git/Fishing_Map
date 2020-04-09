@@ -1,7 +1,7 @@
 <div class="text-center">
     <% if @post.image.attached? %>
-        <%= image_tag @post.image%>
+        <%= image_tag @post.image ,class:"card-img-top"%>
     <% else %>
-        <img src="../assets/sakana-img.jpg">
+        <img src="../assets/sakana-img.jpg" class="card-img-top">
     <% end %>
 </div>
