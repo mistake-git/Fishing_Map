@@ -376,15 +376,6 @@ body{
             border-right: solid 15px rgb(149, 158, 155);
         }
     }
-
-     .user-status-summary {
-        .summary-item{
-            display: inline-block;
-            color: $application-color;
-            font-size: 0.9rem;
-            font-weight: bold;
-        }
-    }
     .user-card-img{
         width: 150px;
         height: 150px;
@@ -433,12 +424,6 @@ body{
         opacity: 0.5;
     }
     
-    .card-tag{
-        margin: 5%;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
     
     .card-bottom{
         position: absolute;

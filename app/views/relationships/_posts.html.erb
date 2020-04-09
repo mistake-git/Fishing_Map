@@ -1,7 +1,7 @@
 <p>
     <div class="follow-btn-wrapper text-center">    
         <% if current_user && @user.id == current_user.id && !Relationship.find_by(follower_id: current_user.id,followed_id: @user.id) %>
-            <div class="btn btn-outline-info btn-block">自分</div>
+             <%= link_to "マイページ","/users/#{@user.id}" ,class:"btn btn-info btn-block"%>
         <% elsif current_user && @user.id != current_user.id && Relationship.find_by(follower_id: current_user.id,followed_id: @user.id) %>
             <%= form_with(model: current_user.active_relationships.find_by(followed_id: @user.id),remote: true,html: { method: :delete }) do |form| %>
                 <%= form.submit "フォロー中", class: "btn btn-info btn-block" %>
@@ -14,19 +14,14 @@
         <% end %>  
     </div>
 </p>
-<p>
-    <div class="user-status-summary text-center">
-        <div class="summary-item">
-            <div class="summary-title">フォロー</div>
-                <%= @post.user.following.count %>
-            </div>
-        <div class="summary-item">
-            <div class="summary-title">フォロワー</div>
-                <%= @post.user.followers.count %>
-            </div>
-        <div class="summary-item">
-        <div class="summary-title">釣果</div>
-            <%= @post.user.posts.count %>
-        </div>
+<div class="d-flex justify-content-center">
+    <div class="text-info font-weight-bold m-1">フォロー
+        <%= @post.user.following.count %>
     </div>
-</p>
+    <div class="text-info font-weight-bold m-1">フォロワー
+        <%= @post.user.followers.count %>
+    </div>
+    <div class="text-info font-weight-bold m-1">釣果
+        <%= @post.user.posts.count %>
+    </div>
+</div>

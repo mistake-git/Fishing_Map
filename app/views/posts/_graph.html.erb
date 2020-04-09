@@ -1,20 +1,20 @@
 <div class="row no-gutters mb-5">
     <div class="col-xs-12 col-md-6">
-        <div class="data-label my-5"><%= @post.name%>がよく釣れる時期</div>
+        <div class="text-info font-weight-bold my-5"><%= @post.name%>がよく釣れる時期</div>
             <%= column_chart @month_data, width: "100%", height: "300px"%>
     </div>
     <div class="col-xs-12 col-md-6">
-        <div class="data-label my-5"><%= @post.name%>がよく釣れる餌</div>
+        <div class="text-info my-5 font-weight-bold"><%= @post.name%>がよく釣れる餌</div>
             <%= pie_chart @feed_data, width: "100%", height: "300px"%>
      </div>
 </div>
 <div class="row no-gutters mb-5">
-    <div class="col-xs-12 col-md-6">
-        <div class="data-label my-5"><%= @post.name%>のサイズ分布</div>
+    <div class="text-info col-md-6">
+        <div class="text-info my-5 font-weight-bold"><%= @post.name%>のサイズ分布</div>
             <%= line_chart @size_data, width: "100%", height: "300px"%>
     </div>
     <div class="col-xs-12 col-md-6">
-        <div class="data-label my-5"><%= @post.name%>がよく釣れる時間</div>
+        <div class="text-info my-5 font-weight-bold"><%= @post.name%>がよく釣れる時間</div>
             <%= line_chart @time_data, width: "100%", height: "300px"%>
      </div>
 </div>

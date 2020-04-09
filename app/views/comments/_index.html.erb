@@ -1,17 +1,19 @@
-<div class="comment-area-title mt-5">コメント</div>
+<div class="text-info font-weight-bold mt-5">コメント</div>
  <div class="media-list mt-4">
     <% @comments.each do |comment| %>
-        <div class="media media-comment">
+        <div class="media">
 	        <div class="media-left">
 	            <%if comment.user.image.attached?%>
-                    <%= image_tag comment.user.image,class:"comment-user-img mr-2" %>
+                    <%= link_to image_tag(comment.user.image,style:"width: 50px; height: 50px; border-radius: 50%;"),"/users/#{comment.user.id}" %>
                 <% else %>
-                    <img src="../assets/user-image.png" class="comment-user-img">
+                    <%= link_to "/users/#{comment.user.id}" do %>
+                        <img src="../assets/user-image.png"  style="width: 50px; height: 50px; border-radius: 50%;">
+                    <% end %>
                 <% end %>
 	        </div>
 	        <div class="media-body">
-		        <h5 class="media-heading"><%= link_to"#{comment.user.name}", "/users/#{comment.user.id}" ,style:"color: #00CCCC;"%></h5>
-			        <div class="comment-content">
+		        <h5 class="media-heading ml-2"><%= link_to"#{comment.user.name}", "/users/#{comment.user.id}" ,class:"text-info"%></h5>
+		            <div class="ml-5 text-secondary">
 			            <%= comment.content %>
 			        </div>
 		        <div class="text-right">

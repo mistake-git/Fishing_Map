@@ -1,6 +1,6 @@
-<div class="post-data-list mt-5 text-center">
+<div class="mt-5 text-secondary d-flex justify-content-center">
  <% @likes_count = Like.where(post_id: @post.id).count %>
- <div class="post-data like-icon ml-5"><i class="fas fa-heart"></i><%= @likes_count %></div>
- <div class="post-data comment-icon ml-5"><i class="fas fa-comment"><%= @comments_count %></i></div>
- <div class="post-data post-created_at ml-5"><%= "#{time_ago_in_words(@post.created_at)}前"%></div>
+ <div class="mx-3"><i class="fas fa-heart"></i><%= @likes_count %></div>
+ <div class="mx-3"><i class="fas fa-comment"><%= @comments_count %></i></div>
+ <div class="mx-3"><%= "#{time_ago_in_words(@post.created_at)}前"%></div>
 </div>
