@@ -54,11 +54,11 @@
                             <%= @post.name %>のデータ
                         </div>
                         <%= render "graph" %>
-                        <div class="text-center">
+                        <h5 class="text-center">
                             <%= link_to"/ranking/#{@post.id}/fish_size",class:"text-info" do %>
                             <i class="fas fa-crown"></i>この魚のランキングを見る
                             <% end %>
-                        </div>
+                        </h5>
                         <div id="comment-area_<%= @post.id %>">
                             <%= render "comments/index" %>
                         </div>

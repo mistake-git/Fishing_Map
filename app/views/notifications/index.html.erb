@@ -1,12 +1,12 @@
 <div class ="row">
     <div class="col-12 col-md-8 col-md-offset-4 mx-auto">
-        <div class="notification">
-            <h4 class="notification-title text-center mx-auto">お知らせ</h4>
-            <div class="media-list">
+        <div class="card mt-5">
+            <h4 class="text-info font-weight-bold text-center mx-auto my-5">お知らせ</h4>
+            <div class="media-list m-5">
                 <% if @notifications.exists? %>
                         <%= render @notifications %>
                 <% else %>
-                        <div class="when-not-text pb-5">通知はありません</div>
+                        <div class="text-secondary pb-5">通知はありません</div>
                 <% end %>
             </div>
         </div>

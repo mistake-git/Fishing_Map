@@ -3,9 +3,9 @@
     <div class="media-left mr-3">
         <%= link_to "users/#{notification.visitor.id}" do %>
             <% if notification.visitor.image.attached? %>
-                <%=  image_tag notification.visitor.image, class:"notification-user-img", style:"width: 60px;height:60px;border-radius: 50%;"%>
+                <%=  image_tag notification.visitor.image, style:"width: 60px;height:60px;border-radius: 50%;"%>
             <% else %>
-                <img src="/assets/user-image.png" class="notification-user-img" style="width: 60px;height:60px;border-radius: 50%;">
+                <img src="/assets/user-image.png"  style="width: 60px;height:60px;border-radius: 50%;">
             <% end %>
         <% end %>
     </div>

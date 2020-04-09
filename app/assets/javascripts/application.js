@@ -25,6 +25,20 @@
 //= require bootstrap
 
 //プレビュー
+function PostPreview() {
+  var preview = document.querySelector('.img-preview');
+  var file    = document.querySelector('#img').files[0];
+  var reader  = new FileReader();
+  reader.addEventListener("load", function () {
+    preview.src = reader.result;
+  }, false);
+
+  if (file) {
+    reader.readAsDataURL(file);
+  }
+}
+
+
 function previewFile() {
   var preview = document.querySelector('.img-preview');
   var file    = document.querySelector('#profile').files[0];
