@@ -1,4 +1,4 @@
-<dic class="row no-gutters">
+<div class="row no-gutters">
     <% @posts.each_with_index do |post,i| %>
         <div class="col-12 col-md-4 col-lg-3 mt-2">
             <div class="card h-100 m-1">
@@ -102,9 +102,12 @@
             </div>
         </div>
     <% end %>
-</dic>
+</div>
+
 <% if @posts.empty?%>
-    <h5 class="text-secondary text-center font-weight-bold my-5">
-        <%= @when_not_text %>
-    </h5>
+    <div style="height: 30vh;">
+        <h5 class="text-secondary font-weight-bold text-center">
+            サイズが登録された釣果がありません
+        </h5>
+    </div>
 <% end %>
