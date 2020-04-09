@@ -2,14 +2,12 @@
     <h5 class="text-info text-center my-5 font-weight-bold">
         <i class="fas fa-crown ranking-icon"></i><%= @post.name %>のサイズランキング(上位8件表示されます)
     </h5>
-    <div class="ranking-card">
-        <%= render "ranking_posts_index" %>
-    </div>
-    <% if @posts.empty? %>
-        <div class="my-5 text-secondary font-weight-bold text-center">
-            <%= @when_not_text %>
+    
+    <div class="row no-gutters">
+        <div class="col-12 col-lg-8 col-lg-offset-4 mx-auto">
+            <%= render "ranking_posts_index" %>
         </div>
-    <% end %>
+    </div>
 </div>
 
 

@@ -25,7 +25,7 @@
                                 </div>
                             <% end %>
                             <% if user.introduce? %>
-                                <div class="user-introduce text-center">
+                                <div class="user-introduce text-center" style="overflow: hidden;text-overflow: ellipsis; white-space: nowrap;">
                                     <%= user.introduce %>
                                 </div>
                             <% else %>

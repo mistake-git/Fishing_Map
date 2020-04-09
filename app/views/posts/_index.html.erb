@@ -10,27 +10,27 @@
                             <img src="/assets/user-image.png" class="rounded-circle" style="width: 40px; height:40px; object-fit: cover;" >
                         <% end %>
                     <% end %>
+                   
                     <span class="font-weight-bold"><%=link_to"#{post.user.name}","/users/#{post.user.id}" ,class:"text-info"%></span>
                     <% if post.user.address %>
-                        <span class="font-weight-bold text-info"><%= post.user.address %></div>
+                        <span class="font-weight-bold text-info"><%= post.user.address %></span>
                     <% else %>
                         <span class="font-weight-bold text-info">未登録</span>
                     <% end %>
                 </div>
-                <% if post.image.attached? %>
-                    <%= link_to image_tag(post.image ,class:"card-img-top"),"/posts/#{post.id}" %>
-                <% else %>
-                    <%= link_to"/posts/#{post.id}" do%>
-                        <img src="/assets/sakana-img.jpg" class="card-img-top">
+                    <% if post.image.attached? %>
+                        <%= link_to image_tag(post.image ,class:"card-img-top"),"/posts/#{post.id}" %>
+                    <% else %>
+                        <%= link_to"/posts/#{post.id}" do%>
+                            <img src="/assets/sakana-img.jpg" class="card-img-top">
+                        <% end %>
                     <% end %>
-                <% end %>
-                
                 <div class="font-weight-bold text-center">
                     <%= link_to "#{post.name}","/posts/#{post.id}" ,class:"text-info"%>
                 </div>
                 
                  <% if post.description? %>  
-                    <div class="text-secondary font-weight-bold text-center">
+                    <div class="text-secondary font-weight-bold text-center" style="overflow: hidden;text-overflow: ellipsis; white-space: nowrap;">
                         <%= post.description %>
                     </div>
                 <% else %>
