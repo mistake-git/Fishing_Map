@@ -1,13 +1,9 @@
 <% @user ||= current_user %>
-<div class="follow-group">
+<div class="inline-block my-2 font-weight-bold">
     <%= link_to("/users/#{@user.id}/following") do %>
-        <div class="header-follow-text mr-5">
-            フォロー <%= @user.following.count %>
-        </div>
+        <span class="mr-1">フォロー <%= @user.following.count %></span>
     <% end %>
     <%= link_to("/users/#{@user.id}/followers") do %>
-        <div class="header-follow-text">
-            フォロワー <%= @user.followers.count %>
-        </div>
+        <span class="ml-1">フォロワー <%= @user.followers.count %></span>
     <% end %>
 </div>

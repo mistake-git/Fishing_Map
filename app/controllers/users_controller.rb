@@ -3,7 +3,6 @@ class UsersController < ApplicationController
     before_action :authenticate_user!, only: [ :edit, :update]
     before_action :forbid_login_user, only: [:new, :create,]
     before_action :ensure_correct_user, only: [:edit, :update]
-    before_action :set_data, only:[:show, :likes, :comments]
     
     PER = 16
     
@@ -25,22 +24,15 @@ class UsersController < ApplicationController
             @title = "#{@user.name}さんのページ"
         end
         @posts = @user.posts.order(created_at: :desc).page(params[:page]).per(PER)
-        @when_not_text ="釣果が登録されていません"
-    end   
-    
-    def likes
-        @likes = @user.likes
-        @posts = @user.likes_posts.order(created_at: :desc).page(params[:page]).per(PER)
-        @title="#{@user.name}さんのページ"
-        @when_not_text ="いいねした釣果がありません"
-    end  
-    
-    def comments
-        @posts = @user.posts
+        @user_posts_count = Post.where(user_id: @user.id).count
+        @user_likes_count = Like.where(user_id: @user.id).count
+        @user_comments_count = Comment.where(user_id: @user.id).count
+        @fish = @user.posts
+        @user_data = @fish.group(:name).sum(:number)
         @comments = Comment.where(user_id: @user.id).order(created_at: :desc).page(params[:page]).per(5)
-        @title="#{@user.name}さんのページ"
-        @when_not_text ="まだコメントがありません"
-    end  
+        @likes = @user.likes
+        @likes_posts = @user.likes_posts.order(created_at: :desc).page(params[:page]).per(PER)
+    end   
     
     def following
         @users = @user.following.page(params[:page]).per(PER)
@@ -105,14 +97,6 @@ private
     
     def set_user
         @user = User.find(params[:id])
-    end
-    
-    def set_data
-        @user_posts_count = Post.where(user_id: @user.id).count
-        @user_likes_count = Like.where(user_id: @user.id).count
-        @user_comments_count = Comment.where(user_id: @user.id).count
-        @fish = @user.posts
-        @user_data = @fish.group(:name).sum(:number)
     end
     
 end

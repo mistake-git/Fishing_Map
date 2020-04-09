@@ -1,15 +1,14 @@
-
 <div class="follow-btn-group mx-auto">
      <% if current_user && @user.id == current_user.id && !Relationship.find_by(follower_id: current_user.id,followed_id: @user.id) %>
-    <div class="follow-btn-lg">自分</div>
+    <div class="btn btn-block btn-outline-info font-weight-bold  mx-auto">自分</div>
     <% elsif current_user && @user.id != current_user.id && Relationship.find_by(follower_id: current_user.id,followed_id: @user.id) %>
         <%= form_with(model: current_user.active_relationships.find_by(followed_id: @user.id),remote: true,html: { method: :delete }) do |form| %>
-            <%= form.submit "フォロー中", class: " unfollow-btn-lg" %>
+            <%= form.submit "フォロー中", class: "btn btn-block btn-info font-weight-bold  mx-auto" %>
         <% end %>
     <% else %>
        <%= form_with(model: Relationship.new(follower_id: current_user&.id, followed_id: @user.id),remote: true) do|form| %>
             <%= hidden_field_tag :followed_id, @user.id %>
-            <%= form.submit "フォロー", class: "follow-btn-lg" %>
+            <%= form.submit "フォロー", class: "btn btn-block btn-outline-info font-weight-bold  mx-auto" %>
         <% end %>
     <% end %>  
 </div>

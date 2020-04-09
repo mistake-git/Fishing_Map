@@ -1,31 +1,49 @@
-<div class="user-header mt-5">
-    <div class="user-status row no-gutters">
-        <div class="col-xs-12 col-md-2 text-center">
-            <div id="user_img_area_<%= @user.id%>">
-                <%= render "img" %>
-            </div>
-            <% if current_user && @user.id == current_user.id %>
-                <div class="profile-img-edit" data-toggle="modal" data-target="#img_edit">設定</div>
+<div class="row no-gutters my-4">
+    <div class="col-12 col-lg-3 text-center">
+        <div id="user_img_area_<%= @user.id%>">
+            <%= render "img" %>
+        </div>
+        
+        <% if current_user && @user.id == current_user.id %>
+            <div class="btn text-secondary" data-toggle="modal" data-target="#img_edit"><i class="fas fa-edit"></i></div>
+        <% end %>
+        <h2 class="text-info font-weight-bold">
+            <%= @user.name %>
+        </h2>
+        <%= render "relationships/follow_count" %>
+        <% if @user.address %>
+             <div class="text-info font-weight-bold"><%= @user.address %></div>
+        <% else %>
+            <div class="text-secondary font-weight-bold">未設定</div>
+        <% end %>
+        <div id="follow_buttons_<%= @user.id %>">
+            <%= render "relationships/users" %>
+        </div>
+    </div>
+    
+    <div class="col-12 col-lg-4">  
+        <div class="text-info font-weight-bold">自己紹介</div>
+        <% if @user.introduce?%>
+            <%= @user.introduce %>
+        <% else %>
+            まだ自己紹介がありません
+        <% end %>
+           <% if current_user && @user.id == current_user.id %>
+            <%= link_to"/users/edit" do %>
+                <div class="mt-5">
+                    <i class="fas fa-cog"></i>ユーザー情報設定
+                </div>
             <% end %>
+        <% end %>
+    </div>
+    
+    <div class="col-12 col-lg-5">
+        <div class="text-center text-info font-weight-bold">
+            <%= @user.name %>さんの釣果データ
         </div>
-        <div class="col-xs-12 col-md-1 text-center">
-            <div class="user-name">
-                <%= @user.name %>
-            </div>
-        </div>
-        <div class="col-xs-12 col-md-3 text-center">
-            <div id="follow_buttons_<%= @user.id %>">
-               <%= render "relationships/users" %>
-            </div>
-        </div>
-        <div class="col-xs-12 col-md-6 text-center">
-          <%= render "relationships/follow_count" %>
-        </div>
+        <%= pie_chart @user_data, width: "100%", height: "300px"%>
     </div>
 </div>
 
-
 <%= render "bg_modal" %>
 <%= render "profile_modal" %>
-
-

@@ -26,8 +26,6 @@ Rails.application.routes.draw do
     get '/users/search',to:'users#search'
     get '/users',to:'users#index'
     get '/users/:id',to:'users#show'
-    get '/users/:id/likes',to:'users#likes'
-    get '/users/:id/comments',to:'users#comments'
     get '/users/:id/following',to:'users#following'
     get '/users/:id/followers',to:'users#followers'
     post '/users/profile.img/update',to:'users#img_update'

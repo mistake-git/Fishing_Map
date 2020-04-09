@@ -1,35 +1,37 @@
-<div class="text-info font-weight-bold mt-5 text-center">
-    <%= @user.name %>さんの釣果(MAP)
-</div>
-<div class="mt-3 fishing-map" id="map" style='width: 100%; height: 650px;'></div>
- <script type="text/javascript">
-            handler = Gmaps.build('Google');
-            handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map'}}, function(){
-              markers = handler.addMarkers([
-                  <% @posts.each do |post| %>
-                {
-                  "lat": <%= post.latitude %>,
-                  "lng": <%= post.longitude %>,
-        		  "infowindow": '<p><%= link_to "#{post.user.name}さんの釣果","/users/#{post.user.id}",class:"badge badge-info mx-auto" %><div class="text-center"><%= link_to "#{post.name}",post ,class:"map-post-name"%></div></p>',
-        		  "picture": {
-        		       "url": '<%= asset_path "map-icon.png" %>',
-		                "width":  48,
-                        "height": 48
-                    }
-                },
+<div class="mx-5 mb-5">
+  <div class="text-info font-weight-bold text-center">
+      <%= @user.name %>さんの釣果(MAP)
+  </div>
+  <div class="mt-3 fishing-map" id="map" style='width: 100%; height: 650px;'></div>
+   <script type="text/javascript">
+              handler = Gmaps.build('Google');
+              handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map'}}, function(){
+                markers = handler.addMarkers([
+                    <% @posts.each do |post| %>
+                  {
+                    "lat": <%= post.latitude %>,
+                    "lng": <%= post.longitude %>,
+          		  "infowindow": '<p><%= link_to "#{post.user.name}さんの釣果","/users/#{post.user.id}",class:"badge badge-info mx-auto" %><div class="text-center"><%= link_to "#{post.name}",post ,class:"map-post-name"%></div></p>',
+          		  "picture": {
+          		       "url": '<%= asset_path "map-icon.png" %>',
+  		                "width":  48,
+                          "height": 48
+                      }
+                  },
+                  <% end %>
+                ]);
+                handler.bounds.extendWith(markers);
+                handler.fitMapToBounds()
+                <% if @user.address %>
+                  var latlng = new google.maps.LatLng(<%= @user.latitude %>,<%= @user.longitude %>); 
+                <% else %>
+                  var latlng = new google.maps.LatLng(35.593111,139.829865); 
                 <% end %>
-              ]);
-              handler.bounds.extendWith(markers);
-              handler.fitMapToBounds()
-              <% if @user.address %>
-                var latlng = new google.maps.LatLng(<%= @user.latitude %>,<%= @user.longitude %>); 
-              <% else %>
-                var latlng = new google.maps.LatLng(35.593111,139.829865); 
-              <% end %>
-              <% if @is_search.nil? %>
-              handler.getMap().setCenter(latlng);
-              <% end %>
-              
-              handler.getMap().setZoom(8);
-            });
- </script>
+                <% if @is_search.nil? %>
+                handler.getMap().setCenter(latlng);
+                <% end %>
+                
+                handler.getMap().setZoom(8);
+              });
+   </script>
+ </div>

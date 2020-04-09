@@ -1,7 +1,9 @@
 <div id="bg_area_<%= @user.id %>">
     <div class="bg-area text-center">
         <% if @user.bg_image.attached? %>
-            <%= image_tag @user.bg_image,class:"card-img-top rounded"%>
+            <%= image_tag @user.bg_image,class:"card-img-top rounded" %>
+        <% else %>
+            <img src="/assets/bg.jpg" class="card-img-top">
         <% end %>
     </div>
 </div>

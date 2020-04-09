@@ -1,5 +1,5 @@
 <dic class="row no-gutters">
-    <% @posts.each do |post| %>
+    <% @likes_posts.each do |post| %>
         <div class="col-12 col-md-4 col-lg-3 mt-2">
             <div class="card h-100 m-1">
                 <div class="inline-block text-info ml-1">
@@ -102,9 +102,10 @@
 </dic>
 <% if @posts.empty?%>
     <h5 class="text-secondary text-center font-weight-bold my-5">
-        釣果がありません
+        いいねした釣果がありません
     </h5>
 <% end %>
 <div class="pagenation ">
-    <%= paginate @posts%>
+    <%= paginate @likes_posts%>
 </div>
+    

@@ -1,20 +1,22 @@
-<div class="media-list mt-4">
+<div class="media-list m-4">
     <% @comments.each do |comment| %>
     <% post = Post.find_by(id: comment.post_id) %>
         <%= link_to "/posts/#{post.id}" do %>
-	        <div class="media media-comment mr-5">
-		        <div class="media-left">
-		            <% if comment.user.image.attached?%>
-                        <%= image_tag comment.user.image,class:"comment-user-img mr-2" %>
-                    <% else %>
-                        <img src="/assets/user-image.png" class="comment-user-img">
-                    <% end %>
-		        </div>
-		        <div class="media-body">
-			        <h5 class="media-heading"><%= comment.user.name %></h5>
-			        <div class="ml-5 comment-content">
-			            <%= comment.content %>
-			        </div>
+	        <div class="border-top">
+	            <div class="media my-3">
+    		        <div class="media-left">
+    		            <% if comment.user.image.attached?%>
+                            <%= image_tag comment.user.image, style:"width: 50px; height: 50px; border-radius: 50%;"%>
+                        <% else %>
+                            <img src="/assets/user-image.png" style="width: 50px; height: 50px; border-radius: 50%;">
+                        <% end %>
+    		        </div>
+    		        <div class="media-body">
+    			        <h5 class="media-heading text-info font-weight-bold"><%= comment.user.name %></h5>
+    			        <div class="ml-5 text-secondary">
+    			            <%= comment.content %>
+    			        </div>
+    		        </div>
 		        </div>
 	        </div>
         <% end %>
@@ -22,9 +24,9 @@
 </div>
 <% if @user.comments.empty? %>
     <h5 class="text-secondary text-center font-weight-bold my-5">
-        <%= @when_not_text %>
+        コメントがありません
     </h5>
 <% end %>
 <div class="pagenation">
-    <%= paginate @comments%>
+    <%= paginate @comments %>
 </div>
