@@ -9,12 +9,14 @@
     </div>
 </div>
 
-<div class="application-description text-center">
-    このページではGoogle Map上で釣果を見ることができます｡どこでどんな魚が釣れているのか確認してみましょう!
+<div class="font-weight-bold text-info text-center my-3" style="font-size: 2.7vmin;">
+  <i class="fas fa-map-marker-alt"></i>このページではGoogle Map上で釣果を見ることができます｡どこでどんな魚が釣れているのか確認してみましょう!
 </div>
 
- <div class=" fishing-map" id="map" style='width: 100%; height: 650px;'></div>
- <script type="text/javascript">
+<div class="row">
+    <div class="col-12 col-md-9 col-md-offset-3 col-lg-8 col-lg-offset-4 mx-auto">
+        <div class=" fishing-map" id="map" style='width: 100%; height: 650px;'></div>
+        <script type="text/javascript">
             
             handler = Gmaps.build('Google');
             handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map'}}, function(){
@@ -26,7 +28,7 @@
         		  "infowindow": '<p><%= link_to "#{post.user.name}さんの釣果","/users/#{post.user.id}",class:"badge badge-info mx-auto" %></p><br/><% if post.image.attached? %><%= image_tag post.image,style:"width: 100px;" %><br><% else %><img src="../assets/sakana-img.jpg" style="width: 100px;"><% end %><p><div class="text-center"><%= link_to "#{post.name}",post ,class:"text-info font-weight-bold"%></div></p>',
         		  "picture": {
         		       "url": '<%= asset_path "map-icon.png" %>',
-		                "width":  48,
+                        "width":  48,
                         "height": 48
                     }
                 },
@@ -45,7 +47,9 @@
               
               handler.getMap().setZoom(8);
             });
- </script>
+        </script>
+    </div>
+</div>
  
 <div class="pagenation">
     <%= paginate @posts %>
