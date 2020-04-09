@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+    devise_scope :user do
+        post '/users/profile/edit',to:'users/registrations#update'
+    end 
     resources :fish,except: [:show]
     get '/fishing.map',to:'posts#fishing_map',as:'fmap_path'
     get '/posts/search_fishing_map',to:'posts#search_fishing_map'
@@ -16,11 +19,6 @@ Rails.application.routes.draw do
     devise_for :users, controllers: { registrations: 'users/registrations',
                                       omniauth_callbacks: 'users/omniauth_callbacks' 
     }
-    
-    devise_scope :user do
-        post '/users/profile/edit',to:'users/registrations#update'
-    end 
-    
     resources :relationships, only: [:create, :destroy]
     resources :notifications, only: [:index]
     

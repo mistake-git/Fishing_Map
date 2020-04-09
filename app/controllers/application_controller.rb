@@ -1,7 +1,9 @@
 class ApplicationController < ActionController::Base
   before_action :set_current_user
   protect_from_forgery with: :exception
-    
+  
+  include AjaxHelper 
+  
   def set_current_user
       current_user
   end
@@ -17,6 +19,15 @@ class ApplicationController < ActionController::Base
     unless current_user.admin?
       flash[:alert] = '管理者権限がありません'
       redirect_to("/fishing.map")
+    end
+  end
+  
+  def authenticate_user
+    if current_user==nil
+      flash[:notice]="ログインが必要です"
+      respond_to do |format|
+        format.js { render ajax_redirect_to"/users/sign_in" }
+      end
     end
   end
     
