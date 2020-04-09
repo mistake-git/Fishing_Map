@@ -29,9 +29,8 @@ $application-color:#00CCCC;
 }
 
 a{
-    text-decoration: none;
     &:hover{
-        opacity: 0.9;
+        text-decoration: none;
     }
 }
 
@@ -410,5 +409,7 @@ a{
         margin: 0 auto;
     }
 }
+
+
 
 
