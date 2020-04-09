@@ -11,7 +11,9 @@
         <div class="area"><%= @user.address %></div>
         <p class="card-text text-center">
             <% if @post.user.introduce? %>
-                <%= @post.user.introduce %>
+                <div style="overflow: hidden;text-overflow: ellipsis; white-space: nowrap;">
+                    <%= @post.user.introduce %>
+                </div>
             <% else %>
                 <div class="user-introduce-default text-center">
                     まだ自己紹介がありません

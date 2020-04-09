@@ -18,7 +18,7 @@
     
     <% if @post.image.attached? %>
         <div class="">現在の画像</div>
-        <%= image_tag @post.image,class:"post-show-img" ,style:"height:300px";%>
+        <%= image_tag @post.image,class:"w-100"%>
     <% end %>
     
     <div class="field  text-left" onchange="PostPreview()">
