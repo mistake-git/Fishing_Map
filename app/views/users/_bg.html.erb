@@ -1,10 +1,11 @@
 <div id="bg_area_<%= @user.id %>">
     <div class="bg-area text-center">
         <% if @user.bg_image.attached? %>
-            <%= image_tag @user.bg_image,class:"bg-image"%>
-        <% end %>
-        <% if current_user && @user.id == current_user.id %>
-            <button class="text-secondary font-weight-bold" data-toggle="modal" data-target="#bg_edit"> <i class="far fa-image"></i>背景画像編集</button>
+            <%= image_tag @user.bg_image,class:"card-img-top rounded"%>
         <% end %>
     </div>
 </div>
+
+ <% if current_user && @user.id == current_user.id %>
+    <button class="text-secondary font-weight-bold" data-toggle="modal" data-target="#bg_edit"> <i class="far fa-image"></i>背景画像編集</button>
+<% end %>
