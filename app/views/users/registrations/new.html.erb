@@ -1,9 +1,8 @@
 <div class="text-center my-5">
-  <div class="form-wrapper py-3">     
   <h4 class="form-title mb-3"><%= @form_title %></h4>
-  
   <%= form_for(@user,url:{controller: 'registrations', action: 'create'}) do |form| %>
     <%= render "users/shared/error_messages", resource: resource %>
+    
     <div class="field  text-left">
       <span class="badge badge-danger mr-1">※必須</span>
       <%= form.label :name ,class:"mb-3" %><br />
@@ -36,6 +35,5 @@
     </div>
   <% end %>
   <%= render "users/shared/links" %>
-  </div>    
 </div>    
 

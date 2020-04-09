@@ -5,7 +5,7 @@ div.field {
   textarea,
   select,
   input[type="email"],
-   input[type="number"],
+  input[type="number"],
   input[type="password"] {
     @extend .form-control !optional;
   }

@@ -326,13 +326,7 @@ a{
     margin: 0 auto;
 }
 
-.form-text{
-    display: inline-block;
-    @include application-text($application-color);
-    font-size: 1.1rem;
-}
-
-.form-error-message{
+.div#error_explanation{
     color: red;
 }
 
