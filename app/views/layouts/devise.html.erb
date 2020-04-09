@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+    <title>Fishing Map</title>
+    <meta property="og:title" content="Fishing Map"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="<%= ENV['HOST']%>"/>
+    <meta property="og:image" content="<%= ENV['HOST'] %>/assets/images/top-img.jpg"/>
+    <meta property="og:site_name" content="Fishing Map"/>
+    <meta property="og:description" content="地図上で釣果を投稿、共有できるSNS型釣りアプリケーション" />
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="//maps.google.com/maps/api/js?key=<%=ENV['KEY'] %>"></script>
+    <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+  </head>
+  <body>
+
+    <div id="loading">
+        <div class="loading-wrapper">
+            <img src="/assets/fmap-site-logo.png" alt="loading" class="loading-img">
+            <img src="/assets/loading_dot.gif" alt="loading" class="loading-dot">
+        </div>
+    </div>
+    <div id="contents">
+        <div class ="main">
+          <%= render 'layouts/header' %>
+          <div class="flash-wrapper border-top">
+            <div id="flash-area">
+              <%= render 'layouts/flash' %>
+            </div>
+            <div id="modalArea"></div>
+            <div class="d-flex align-items-center w-100 h-100">
+              <div class="container">
+                <div class="row">
+                  <div class="col-11 col-lg-5 rounded mx-auto mt-4 text-info font-weight-bold border" style="box-shadow: 2px 2px 4px rgba(0,0,0,0.12);">
+                      <%= yield %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <%= render 'layouts/footer' %>
+          </div>
+        </div>
+    </div>
+    
+  </body>
+</html>

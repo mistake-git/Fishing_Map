@@ -2,7 +2,7 @@
   <%- resource_class.omniauth_providers.each do |provider| %>
 
   <%= link_to omniauth_authorize_path(resource_name, provider) do %>
-      <div class="btn btn-block" style="background-color: #1da1f3; color: #fff;">
+      <div class="btn btn-block font-weight-bold" style="background-color: #1da1f3; color: #fff;">
         <i class="fab fa-twitter"></i><%=" #{OmniAuth::Utils.camelize(provider)}でログイン"%>
       </div>
   <% end %>

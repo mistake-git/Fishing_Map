@@ -5,6 +5,7 @@ div.field {
   textarea,
   select,
   input[type="email"],
+   input[type="number"],
   input[type="password"] {
     @extend .form-control !optional;
   }
@@ -13,5 +14,7 @@ div.field {
 div.actions {
   input[type="submit"] {
     @extend .my-2 !optional;
+    @extend .font-weight-bold !optional;
+   
   }
 }

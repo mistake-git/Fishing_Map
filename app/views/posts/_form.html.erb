@@ -17,64 +17,64 @@
     <img src="" class="img-preview">
     
     <% if @post.image.attached? %>
-        <div class="form-text">現在の画像</div>
+        <div class="">現在の画像</div>
         <%= image_tag @post.image,class:"post-show-img" ,style:"height:300px";%>
     <% end %>
     
-    <div class="field form-group text-left" onchange="previewFile()">
-       <div class="form-text mb-3">画像を選択</div><br />
-       <%= form.file_field :image,class:"image",id:"file" ,class:"form-control-file" %>
+    <div class="field  text-left" onchange="previewFile()">
+       <div class=" mb-3">画像を選択</div><br />
+       <%= form.file_field :image,class:"image",id:"file" ,class:"-file" %>
     </div>
       
-    <div class="field form-group text-left">
-        <div class="form-text  mb-3"><span class="badge badge-danger mr-1">※必須</span> 魚種</div><br />
-        <%= form.text_field :name,class:"form-control",placeholder:"カタカナで入力"%>
+    <div class="field  text-left">
+        <div class="  mb-3"><span class="badge badge-danger mr-1">※必須</span> 魚種</div><br />
+        <%= form.text_field :name,class:"",placeholder:"カタカナで入力"%>
     </div>
     
     <div class="row no-gutters">
-        <div class="field form-group text-left col-6">
-            <div class="form-text  mb-3"><span class="badge badge-danger">※必須</span> 数量</div><br />
-            <%= form.number_field :number,class:"form-control" ,value:1 %>
+        <div class="field  text-left col-6">
+            <div class="  mb-3"><span class="badge badge-danger">※必須</span> 数量</div><br />
+            <%= form.number_field :number,class:"",value:1 %>
         </div>
-        <div class="field form-group text-left col-6">
-            <div class="form-text  mb-3">サイズ(cm)</div><br />
-            <%= form.number_field :size,class:"form-control" %>
+        <div class="field  text-left col-6">
+            <div class="  mb-3">サイズ(cm)</div><br />
+            <%= form.number_field :size,class:"" %>
         </div>
     </div>
     
      <div class="row no-gutters">
-        <div class="field form-group text-left col-6">
-            <div class="form-text  mb-3">使った餌</div><br />
-            <%= form.select :feed, [["アオイソメ"], ["ゴカイ"],["オキアミ"],["カニ"],["貝"],["配合エサ"],["ミミズ"],["アカムシ"],["練エサ"],["ルアー"],["魚切り身"]],{:prompt => "エサを選択"},{class:"form-control"} %>
+        <div class="field  text-left col-6">
+            <div class="  mb-3">使った餌</div><br />
+            <%= form.select :feed, [["アオイソメ"], ["ゴカイ"],["オキアミ"],["カニ"],["貝"],["配合エサ"],["ミミズ"],["アカムシ"],["練エサ"],["ルアー"],["魚切り身"]],{:prompt => "エサを選択"},{class:""} %>
         </div>
         
-        <div class="field form-group text-left col-6">
-            <div class="form-text  mb-3">天気</div><br />
-            <%= form.select :weather,[["晴れ"], ["曇り"],["雨"],["その他"]],{:prompt => "天気を選択"},{class:"form-control"} %>
+        <div class="field  text-left col-6">
+            <div class="  mb-3">天気</div><br />
+            <%= form.select :weather,[["晴れ"], ["曇り"],["雨"],["その他"]],{:prompt => "天気を選択"},{class:""} %>
         </div>
     </div>
     
-    <div class="field form-group text-left">
-        <div class="form-text  mb-3">日付</div><br />
+    <div class="field  text-left">
+        <div class="  mb-3">日付</div><br />
         <div class= "row no-gutters">
-            <%= form.date_select :date ,{}, {class: "form-control col-4"} %>
+            <%= form.date_select :date ,{}, {class: " col-4"} %>
         </div>
     </div>
 
     
-    <div class="field form-group text-left">
-        <div class="form-text  mb-3">時間帯(時)</div><br />
-        <%= form.time_select :time ,{}, {class: "form-control"} %>
+    <div class="field  text-left">
+        <div class="  mb-3">時間帯(時)</div><br />
+        <%= form.time_select :time ,{}, {class: ""} %>
     </div>
     
-    <div class="field form-group text-left">
-        <div class="form-text  mb-3">説明</div><br />
-        <%= form.text_area :description, rows:3,class:"form-control" %>
+    <div class="field  text-left">
+        <div class="  mb-3">説明</div><br />
+        <%= form.text_area :description, rows:3,class:"" %>
     </div>
     
-    <div class="field form-group text-left">
-        <div class="form-text  mb-3"><span class="badge badge-danger mr-1">※必須</span>住所</div><br />
-        <%= form.text_field :address,class:"form-control",id:"address" ,value:"アドレス",placeholder:"住所を入力してください"%>
+    <div class="field  text-left">
+        <div class=" mb-3"><span class="badge badge-danger mr-1">※必須</span>住所</div><br />
+        <%= form.text_field :address,class:"",id:"address" ,value:"アドレス",placeholder:"住所を入力してください"%>
     </div>
     <div data-toggle="modal" data-target="#modal1" class="btn btn-info mt-3 mb-3">
       <span class="badge badge-danger mr-1">※必須</span>地図で場所を選択する
