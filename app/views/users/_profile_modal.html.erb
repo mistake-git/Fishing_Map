@@ -12,7 +12,7 @@
           <%= form_with(model: @user,url:"/users/profile.img/update",remote: true ,method: :post) do |form| %>
                 <img src="" class="img-preview">
                 <% if @user.image.attached? %>
-                    <div class="form-text">現在の画像</div>
+                    <div class="text-info font-weight-bold">現在の画像</div>
                     <%= image_tag @user.image,class:"img-preview" %>
                 <% end %>
                 <div class="field form-group" onchange="previewFile()">
