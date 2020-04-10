@@ -1,27 +1,29 @@
 <% visitor = notification.visitor %>
-<div class="media">
-    <div class="media-left mr-3">
-        <%= link_to "users/#{notification.visitor.id}" do %>
-            <% if notification.visitor.image.attached? %>
-                <%=  image_tag notification.visitor.image, style:"width: 60px;height:60px;border-radius: 50%;"%>
+<div class="border-top">
+    <div class="media my-3">
+        <div class="media-left-3">
+            <%= link_to "users/#{notification.visitor.id}" do %>
+                <% if notification.visitor.image.attached? %>
+                    <%=  image_tag notification.visitor.image, style:"width: 50px;height:50px;border-radius: 50%;"%>
+                <% else %>
+                    <img src="/assets/user-image.png"  style="width: 50px;height:50px;border-radius: 50%;">
+                <% end %>
+            <% end %>
+        </div>
+        <div class="media-body">
+            <%== notification_form(notification) %><span class="moderate-font"><%= " (#{time_ago_in_words(notification.created_at)}前)" %></span>
+        <% if !@comment.nil? %>
+            <p class="moderate-font"><%= @comment %></p>
+        <% end %>
+      </div>
+      <div class="media-right mr-3">
+        <% unless notification.post.nil? %>
+            <% if notification.post.image.attached? %>
+                <%=  image_tag notification.post.image, style:"width:100px;height:auto"%>
             <% else %>
-                <img src="/assets/user-image.png"  style="width: 60px;height:60px;border-radius: 50%;">
+                <img src="/assets/sakana-img.jpg" style="width: 100px;height:auto;">
             <% end %>
         <% end %>
-    </div>
-    <div class="media-body">
-        <%== notification_form(notification) %><span class="moderate-font"><%= " (#{time_ago_in_words(notification.created_at)}前)" %></span>
-    <% if !@comment.nil? %>
-        <p class="moderate-font"><%= @comment %></p>
-    <% end %>
-  </div>
-  <div class="media-right mr-3">
-    <% unless notification.post.nil? %>
-        <% if notification.post.image.attached? %>
-            <%=  image_tag notification.post.image, style:"width:100px;height:auto"%>
-        <% else %>
-            <img src="/assets/sakana-img.jpg" style="width: 100px;height:auto;">
-        <% end %>
-    <% end %>
+        </div>
     </div>
 </div>
