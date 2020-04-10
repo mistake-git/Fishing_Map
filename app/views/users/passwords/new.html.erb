@@ -5,7 +5,7 @@
             <%= form_for(resource, as: resource_name, url: user_password_path, html: { method: :post }) do |form| %>
             <%= render "users/shared/error_messages", resource: resource %>
         
-            <div class="field ">
+            <div class="field text-left">
                 <%= form.label :email %><br />
                 <%= form.email_field :email, autofocus: true, autocomplete: "email" ,class:"mt-3"%>
             </div>
