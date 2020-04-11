@@ -124,9 +124,8 @@ class PostsController < ApplicationController
           if @post.image.attached?
            image = @post.image
           end
-          @twitter.update("
-          
-            #{@post.address}で#{@post.name}を釣ったよ!#{ENV['HOST']}/posts/#{@post.id}\r\r#{image}\r
+          @twitter.update_with_media("
+            #{@post.address}で#{@post.name}を釣ったよ!#{ENV['HOST']}/posts/#{@post.id},#{image}
           ")
         end
         
