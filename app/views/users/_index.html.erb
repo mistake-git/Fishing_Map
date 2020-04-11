@@ -16,7 +16,7 @@
                         <h5 class="text-center font-weight-bold"><%= link_to"#{user.name}","/users/#{user.id}" ,class:"text-info" %></h5>
                         <p class="card-text text-center">
                              <% if user.address? %>
-                                <div class="user-address text-center">
+                                <div class="text-info font-weight-bold text-center">
                                     <%= user.address %>
                                 </div>
                             <% else %>
@@ -29,7 +29,7 @@
                                     <%= user.introduce %>
                                 </div>
                             <% else %>
-                                <div class="user-introduce-default text-center">
+                                <div class="text-secondary text-center">
                                     まだ自己紹介がありません
                                 </div>
                             <% end %>
