@@ -121,8 +121,12 @@ class PostsController < ApplicationController
         
         #Twitterにも共有
         if @post.share == "true"
+          if @post.image.attached?
+           image = @post.image
+          end
           @twitter.update("
-            #{@post.address}で#{@post.name}を釣ったよ!#{ENV['HOST']}/posts/#{@post.id}
+          
+            #{@post.address}で#{@post.name}を釣ったよ!#{ENV['HOST']}/posts/#{@post.id}\r\r#{image}\r
           ")
         end
         

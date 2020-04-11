@@ -1,5 +1,9 @@
 <div class="page-title ml-4 my-3"><%= @title %></div>
 
+<% if @user.uid != nil %>
+ <img src="<%= @user[:image_url] %>" >
+<% end %>
+
 <div class="row no-gutters">
     <div class="col-12 col-lg-8 col-lg-offset-4 mx-auto">
         <div class="card">
