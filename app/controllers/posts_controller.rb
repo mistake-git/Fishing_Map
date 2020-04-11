@@ -18,7 +18,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all.order(created_at: :desc).page(params[:page]).per(PER)
     @title ="すべての釣果"
-    @when_not_text = "まだ投稿がありません"
+    @when_not_text = "まだ釣果の投稿がありません"
   end
   
   def search_fishing_map
@@ -133,7 +133,7 @@ class PostsController < ApplicationController
             @user.create_notification_post!(visited_id,current_user,post_id)
         end
         
-        format.html { redirect_to @post, notice: '投稿を作成しました' }
+        format.html { redirect_to @post, notice: '釣果を投稿しました' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
@@ -148,7 +148,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to @post, notice: '投稿を編集しました' }
+        format.html { redirect_to @post, notice: '釣果を編集しました' }
         format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit }
@@ -162,7 +162,7 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: '投稿を削除しました' }
+      format.html { redirect_to posts_url, notice: '釣果を削除しました' }
       format.json { head :no_content }
     end
   end
