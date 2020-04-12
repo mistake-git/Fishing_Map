@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'contacts/new'
+  get 'contacts/create'
     devise_scope :user do
         post '/users/profile/edit',to:'users/registrations#update'
     end 
@@ -21,6 +23,7 @@ Rails.application.routes.draw do
     }
     resources :relationships, only: [:create, :destroy]
     resources :notifications, only: [:index]
+    resources :contacts, only: [:new, :create]
     
     get 'ranking/:id/fish_size',to:'ranking#fish_size_ranking'
     get '/users/search',to:'users#search'
