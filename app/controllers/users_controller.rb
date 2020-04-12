@@ -24,14 +24,16 @@ class UsersController < ApplicationController
             @title = "#{@user.name}さんのページ"
         end
         @posts = @user.posts.order(created_at: :desc).page(params[:page]).per(PER)
+        @likes_posts = @user.likes_posts.order(created_at: :desc).page(params[:page]).per(PER)
+        @comments = Comment.where(user_id: @user.id).order(created_at: :desc).page(params[:page]).per(5)
+        
         @user_posts_count = Post.where(user_id: @user.id).count
         @user_likes_count = Like.where(user_id: @user.id).count
         @user_comments_count = Comment.where(user_id: @user.id).count
         @fish = @user.posts
         @user_data = @fish.group(:name).sum(:number)
-        @comments = Comment.where(user_id: @user.id).order(created_at: :desc).page(params[:page]).per(5)
         @likes = @user.likes
-        @likes_posts = @user.likes_posts.order(created_at: :desc).page(params[:page]).per(PER)
+
     end   
     
     def following
