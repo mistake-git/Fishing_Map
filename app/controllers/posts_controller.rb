@@ -22,7 +22,12 @@ class PostsController < ApplicationController
   end
   
   def search_fishing_map
-    @posts = Post.search(params[:search]).order(created_at: :desc).page(params[:page]).per(1)
+    @posts = Post.search(params[:name]).order(created_at: :desc).page(params[:page]).per(1)
+    @posts = Post.search(params[:feed]).order(created_at: :desc).page(params[:page]).per(1)
+    @posts = Post.search(params[:date]).order(created_at: :desc).page(params[:page]).per(1)
+    @posts = Post.search(params[:season]).order(created_at: :desc).page(params[:page]).per(1)
+    @posts = Post.search(params[:adress]).order(created_at: :desc).page(params[:page]).per(1)
+    @posts = Post.search(params[:time]).order(created_at: :desc).page(params[:page]).per(1)
     @user = current_user
     @title ="検索結果"
     @is_search = true

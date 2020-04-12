@@ -23,7 +23,12 @@ class Post < ApplicationRecord
   
   def self.search(search)
     if search
-      Post.where(['name LIKE ?', "%#{search}%"])
+      Post.where(['name LIKE ?', "%#{name}%"])
+      Post.where(['feed LIKE ?', "%#{feed}%"])
+      Post.where(['date LIKE ?', "%#{date}%"])
+      Post.where(['time LIKE ?', "%#{time}%"])
+      Post.where(['season LIKE ?', "%#{season}%"])
+      Post.where(['address LIKE ?', "%#{address}%"])
     else
       Post.all
     end
@@ -78,14 +83,5 @@ class Post < ApplicationRecord
     def delete_whitespace
       self.name = name.strip
     end
-    
-    
-  # def geocode
-  #   uri = URI.escape("https://maps.googleapis.com/maps/api/geocode/json?address="+self.address.gsub(" ", "")+"&key=<%=ENV['KEY'] %>")
-  #   res = HTTP.get(uri).to_s
-  #   response = JSON.parse(res)
-  #   self.latitude = response["results"][0]["geometry"]["location"]["lat"]
-  #   self.longitude = response["results"][0]["geometry"]["location"]["lng"]
-  # end
   
 end
