@@ -121,9 +121,11 @@ class PostsController < ApplicationController
         
         #Twitterにも共有
         if @post.share == "true"
-          @twitter.update("
-            #{@post.address}で#{@post.name}を釣ったよ!#{ENV['HOST']}/posts/#{@post.id}
-          ")
+          image = File.new("app/assets/images/top-img.jpg", "r")
+          @twitter.update_with_media("
+          #{@post.address}で#{@post.name}を釣ったよ!
+          #{ENV['HOST']}/posts/#{@post.id}
+          ",image)
         end
         
         #通知がフォロワーに行く

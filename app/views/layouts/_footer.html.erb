@@ -1,59 +1,36 @@
-<footer class="footer">
-    <%= link_to(image_tag("fmap-site-logo.png",class:"footer-site-logo ml-3"),"/") %>
-   <% if user_signed_in? %> 
-       <div class="row text-center">
-            <div class="col-xs-12 col-md-2 col-md-offset-2">
+<footer class="footer mt-5 bg-white border-top">
+    <%= link_to(image_tag("fmap-site-logo.png",class:"footer-site-logo ml-3 mt-3"),"/") %>
+
+       <div class="row text-center mb-5"> 
+            <div class="col-12 col-md-2 mt-3">
                 <%= link_to "/fishing.map", class: "footer-link" do %>
-                    <i class="fas fa-chevron-right mt-3"></i>MAP
+                    <i class="fas fa-chevron-right"></i>MAP
                 <% end %>
             </div>
-             <div class="col-xs-12 col-md-2  mt-3">
+             <div class="col-12 col-md-2 mt-3">
                 <%= link_to "/posts/new", class: "footer-link" do %>
                     <i class="fas fa-chevron-right"></i>釣果を登録する
                 <% end %>
             </div>
-            <div class="col-xs-12 col-md-2  mt-3">
+            <div class="col-12 col-md-2 mt-3">
                 <%= link_to "/rule", class: "footer-link" do %>
                     <i class="fas fa-chevron-right"></i>利用規約
                 <% end %>
             </div>
-            <div class="col-xs-12 col-md-2  mt-3">
+            <div class="col-12 col-md-2 mt-3">
                 <%= link_to "/policy", class: "footer-link" do %>
                     <i class="fas fa-chevron-right"></i>プライバシーポリシー
                 <% end %>
             </div>
-            <div class="col-xs-12 col-md-2  mt-3">
+            <div class="col-12 col-md-2 mt-3">
                 <a class="fab fa-twitter footer-link" href="https://twitter.com/map_fishing">twitter</a>
             </div>
-        </div>
-   <% else %>
-        <div class="row text-center">
-            <div class="col-xs-12 col-md-2 col-md-offset-2  mt-3">
-                <%= link_to "/users/sign_up", class: "footer-link" do %>
-                    <i class="fas fa-chevron-right"></i>新規登録
-                <% end %>
-            </div>
-             <div class="col-xs-12 col-md-2 col-md-offset-4  mt-3">
-                <%= link_to "/users/sign_in", class: "footer-link" do %>
-                    <i class="fas fa-chevron-right"></i>ログイン
-                <% end %>
-            </div>
-            <div class="col-xs-12 col-md-2 col-md-offset-4  mt-3">
-                <%= link_to "/rule", class: "footer-link" do %>
-                    <i class="fas fa-chevron-right"></i>利用規約
-                <% end %>
-            </div>
-           <div class="col-xs-12 col-md-2 col-md-offset-4  mt-3">
-                <%= link_to "/policy", class: "footer-link" do %>
-                    <i class="fas fa-chevron-right"></i>プライバシーポリシー
-                <% end %>
-            </div>
-            <div class="col-xs-12 col-md-2 col-md-offset-4  mt-3">
-                <a class="fab fa-twitter footer-link" href="https://twitter.com/map_fishing">twitter</a>
+            <div class="col-12 col-md-2 mt-3">
+                <a class="footer-link" href="https://twitter.com/map_fishing">お問い合わせ</a>
             </div>
         </div>
-   <% end %>
-    <div class="text-center web-copyright pt-5 pb-3">
+
+    <div class="text-center text-secondary pb-3">
         Copyright © 2019-2020 Fishing Map. All Rights Reserved.
     </div>
 </footer>

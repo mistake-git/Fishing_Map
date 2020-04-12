@@ -369,21 +369,14 @@ body{
     }
 }
 
+.card .noborder{
+    border: none;
+}
+
 /*フッター*/
 
 .footer{
-   margin-top: 10%;    
-   background-color: #fff;
-   border-top: 1px solid #DDDDDD;
-   position: relative;
-   
-    .footer-site-logo{
-        width: 15%;
-        height: auto;
-        margin: 1%;
-    }
-    
-    a.footer-link{
+    .footer-link{
         @include application-text($application-color);
         border-bottom: 2px dashed #00CCCC;
         &:hover{
@@ -391,14 +384,6 @@ body{
         }
     }
     
-    .web-copyright{
-        padding-top: 20px;
-        font-size: 0.8rem;
-        font-weight: bold;
-        opacity: 0.5;
-        width: 80%;
-        margin: 0 auto;
-    }
 }
 
 
