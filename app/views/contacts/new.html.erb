@@ -1,0 +1,30 @@
+<div class="d-flex align-items-center w-100 h-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-11 col-lg-5 rounded mx-auto mt-4 text-info bg-white font-weight-bold border" style="box-shadow: 2px 2px 4px rgba(0,0,0,0.12);">
+                <div class="my-5">
+                    <h4 class="form-title"><%= @form_title %></h4>
+                    <%= form_with model: @contact do |form| %>
+                        <div class="field">
+                           <div><span class="badge badge-danger mr-1">※必須</span>名前</div><br />
+                            <%= form.text_field :name %>
+                        </div>
+                        <div class="field">
+                            <div><span class="badge badge-danger mr-1">※必須</span> メールアドレス</div><br />
+                            <%= form.text_field :email %>
+                        </div>
+                        
+                        <div class="field">
+                           <div><span class="badge badge-danger mr-1">※必須</span> お問い合わせ内容</div><br />
+                            <%= form.text_area :message, rows:4 %>
+                        </div>
+                        
+                        <div class="actions">
+                            <%= form.submit "送信",class:"btn-block mt-4 btn btn-info"%>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
