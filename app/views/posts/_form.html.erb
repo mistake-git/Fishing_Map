@@ -26,17 +26,21 @@
       
     <div class="field text-left">
         <div><span class="badge badge-danger mr-1">※必須</span> 魚種</div><br />
-        <%= form.text_field :name,class:"",placeholder:"カタカナで入力"%>
+        <%= form.text_field :name,placeholder:"カタカナで入力"%>
     </div>
     
     <div class="row no-gutters">
         <div class="field text-left col-6">
             <div><span class="badge badge-danger">※必須</span> 数量</div><br />
-            <%= form.number_field :number,class:"",value:1 %>
+            <div  onchange='isRegNum(this)'>
+                <%= form.number_field :number,value:1 %>
+            </div>
         </div>
         <div class="field  text-left col-6">
             <div >サイズ(cm)</div><br />
-            <%= form.number_field :size,class:"" %>
+            <div  onchange='isRegNum(this)'>
+                <%= form.number_field :size %>
+            </div>
         </div>
     </div>
     
