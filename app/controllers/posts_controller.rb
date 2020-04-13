@@ -11,14 +11,15 @@ class PostsController < ApplicationController
   # GET /posts.json
   
   def fishing_map
-    @q = Post.ransack(params[:q])
-    @posts = @q.result(distinct: true).order(created_at: :desc).limit(100).page(params[:page]).per(100)
+    @search = Post.ransack(params[:q])
+    @posts = @search.result(distinct: true).order(created_at: :desc).limit(100).page(params[:page]).per(100)
     @user = current_user
   end
   
   def index
-    @q = Post.ransack(params[:q])
-    @posts= @q.result(distinct: true).order(created_at: :desc).page(params[:page]).per(PER)
+    @search = Post.ransack(params[:q])
+    @posts = @search.result(distinct: true).order(created_at: :desc).limit(PER).page(params[:page]).per(PER)
+    @user = current_user
     @title ="すべての釣果"
     @when_not_text = "まだ釣果の投稿がありません"
   end

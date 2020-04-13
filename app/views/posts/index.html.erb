@@ -2,7 +2,61 @@
 
 <div class="row no-gutters">
     <div class="col-12 col-lg-3 col-lg-offset-1 mx-auto">
-        <%= render "search_bar" ,posts: @posts%>
+        <div class="card text-info font-weight-bold">
+            <%= search_form_for @search do |form| %>
+                <div class="p-3">
+                    <h4 class="font-weight-bold py-3">検索</h4>
+                    <div class="field">
+                        <div>魚種</div>
+                        <%= form.search_field :name_cont %>
+                    </div>
+                    <div class="field">
+                      <div>釣った餌</div>
+                       <%= form.select :feed_cont, [["アオイソメ"], ["ゴカイ"],["オキアミ"],["カニ"],["貝"],["配合エサ"],["ミミズ"],["アカムシ"],["練エサ"],["ルアー"],["魚切り身"]],{:prompt => "エサを選択"} %>
+                    </div>
+                  
+                    <div class="field">
+                      <div>サイズ</div>
+                      <div class="row">
+                          <div class="col-6">
+                              <%= form.number_field :size_gteq %>以上〜
+                          </div>
+                          <div  class="col-6">
+                              <%= form.number_field :size_lt %>未満
+                          </div>
+                      </div>
+                    </div>
+                    
+                    <div class="field">
+                      <div>天気</div>
+                    　<%= form.radio_button :weather_eq, '', {:checked => true} %>指定なし
+                      <%= form.radio_button :weather_eq, 1 %>晴れ
+                      <%= form.radio_button :weather_eq, 2 %>雨
+                      <%= form.radio_button :weather_eq, 3 %>曇り
+                      <%= form.radio_button :weather_eq, 4 %>他
+                    </div>
+                    
+                    <div class="field">
+                      <div>時期</div>
+                       <%= form.select :date_cont, [[1],[2],[3],[4],[5],[6],[7],[8],[9],[10],[11],[12]],{:prompt => "時期を選択"} %>
+                    </div>
+                    
+                    <div class="field">
+                      <div>時間</div>
+                       <%= form.select :time_cont, [[1],[2],[3],[4],[5],[6],[7],[8],[9],[10],[11],[12],[11],[12],[13],[14],[15],[16],[17],[18],[19],[20],[21],[22],[23],[24]],{:prompt => "時期を選択"} %>
+                    </div>
+                  
+                    <div class="field">
+                      <div>住所</div>
+                      <%= form.search_field :address_cont %>
+                    </div>
+                 
+                    <div class="action">
+                      <%= form.submit "検索" ,class:"btn btn-block btn-info"%>
+                    </div>
+                </div>
+            <% end %>
+        </div>
     </div>
     <div class="col-12 col-lg-8 mx-auto">
         <%= render "index" ,posts: @posts%>

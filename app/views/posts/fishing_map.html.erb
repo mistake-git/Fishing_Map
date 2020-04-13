@@ -33,7 +33,7 @@
               <% else %>
                     var latlng = new google.maps.LatLng(35.593111,139.829865); 
               <% end %>
-              <% if @is_search.nil? %>
+              <% if @search %>
                   handler.getMap().setCenter(latlng);
               <% end %>
               
