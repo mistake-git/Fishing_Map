@@ -1,0 +1,33 @@
+<div class="card text-info font-weight-bold">
+    <h5 class="p-3 font-weight-bold">条件で検索</h5>
+    <%= form_with url:'/posts/search_fishing_map', method: :get, local: true do |form| %>
+        <div class="p-3">
+            <div>名前で絞り込む</div> 
+            <div class="field">
+                <%= form.text_field :name ,placeholder: "魚検索(カタカナ)"  %>
+            </div>
+    
+            <div>サイズで絞り込む</div>
+            <div class="field">
+                <%= form.select :size, [["1~10"], ["11~20"],["21~30"],["31~40"],["41~50"],["51~60"],["61~70"],["71~80"],["81~90"],["91~100"],["100~"]],{:prompt => "サイズ(cm)を選択"}%>
+            </div>
+         
+            <div>釣れた餌で絞り込む</div>
+            <div class="field">
+                   <%= form.select :feed, [["アオイソメ"], ["ゴカイ"],["オキアミ"],["カニ"],["貝"],["配合エサ"],["ミミズ"],["アカムシ"],["練エサ"],["ルアー"],["魚切り身"]],{:prompt => "エサを選択"}%>
+            </div>
+            <div>時間帯で絞り込む</div>
+            <div class="field">
+                <%= form.select :time, [["1時"], ["2時"],["3時"],["4時"],["5時"],["6時"],["7時"],["8時"],["9時"],["10時"],["11時"],["12時"],["13時"],["14時"],["15時"],["16時"],["17時"],["18時"],["19時"],["20時"],["21時"],["22時"],["23時"],["24時"]],{:prompt => "時間帯を選択"}%>
+            </div>
+            <div>時期で絞り組む</div>
+            <div class="field">
+                <%= form.select :season, [["1月"], ["2月"],["3月"],["4月"],["5月"],["6月"],["7月"],["8月"],["9月"],["10月"],["11月"],["12月"]],{:prompt => "時期を選択"}%>
+            </div>
+            <div>場所で絞り組む</div>
+            <div class="field">
+                <%= form.text_field :address ,placeholder: "地名検索"  %>
+            </div>
+        </div>
+    <% end %>
+</div>
