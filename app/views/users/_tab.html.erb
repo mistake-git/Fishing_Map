@@ -1,8 +1,8 @@
 <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
-    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"><span class="font-weight-bold text-info"><i class="fas fa-fish"></i>釣果</span><span class="badge badge-light"><%= @user_posts_count %></span></a>
-    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"><span class="font-weight-bold text-info"><i class="fas fa-heart"></i>いいね</span><span class="badge badge-light"><%= @user_likes_count %></span></a>
-    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"><span class="font-weight-bold text-info"><i class="fas fa-comments"></i>コメント</span><span class="badge badge-light"><%= @user_comments_count %></span></a>
+    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"><span class="font-weight-bold text-info"><i class="fas fa-fish"></i>釣果</span><span class="badge badge-light"><%= @user.posts.count %></span></a>
+    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"><span class="font-weight-bold text-info"><i class="fas fa-heart"></i>いいね</span><span class="badge badge-light"><%= @user.likes.count %></span></a>
+    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"><span class="font-weight-bold text-info"><i class="fas fa-comments"></i>コメント</span><span class="badge badge-light"><%= @user.comments.count %></span></a>
   </div>
 </nav>
 <div class="tab-content" id="nav-tabContent">
