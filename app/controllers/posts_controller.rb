@@ -21,26 +21,6 @@ class PostsController < ApplicationController
     @when_not_text = "まだ釣果の投稿がありません"
   end
   
-  def search_fishing_map
-    
-    @posts = Post.search(params[:name]).order(created_at: :desc).page(params[:page]).per(1)
-    @posts = Post.search(params[:feed]).order(created_at: :desc).page(params[:page]).per(1)
-    @posts = Post.search(params[:date]).order(created_at: :desc).page(params[:page]).per(1)
-    @posts = Post.search(params[:season]).order(created_at: :desc).page(params[:page]).per(1)
-    @posts = Post.search(params[:adress]).order(created_at: :desc).page(params[:page]).per(1)
-    @posts = Post.search(params[:time]).order(created_at: :desc).page(params[:page]).per(1)
-    
-    @user = current_user
-    @title ="検索結果"
-    @is_search = true
-    render('posts/fishing_map')
-  end
-  
-  def search
-    @posts = Post.search(params[:search]).order(created_at: :desc).page(params[:page]).per(PER)
-    @title ="検索結果"
-    render('posts/index')
-  end
 
   # GET /posts/1
   # GET /posts/1.json
@@ -63,7 +43,7 @@ class PostsController < ApplicationController
     @likes_count = @post.likes.count
     @comments_count = Comment.where(post_id: @post.id).count
     same_fish_posts = Post.where(name: @post.name)
-    @month_data = (1..12).to_a.map do |month|
+    @month_data = (1..12).map do |month|
         posts = same_fish_posts.filter do |post|
             post.date.month == month
         end

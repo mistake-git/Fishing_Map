@@ -21,32 +21,6 @@ class Post < ApplicationRecord
     return User.find_by(id: self.user_id)
   end
   
-  def self.search_fishing_map(search)
-    case search params
-    
-    when [:name] then
-      Post.where(['name LIKE ?', "%#{name}%"])
-    when [:feed] then
-      Post.where(['feed LIKE ?', "%#{feed}%"])
-    when [:date] then
-      Post.where(['date LIKE ?', "%#{date}%"])
-    when [:time] then
-       Post.where(['time LIKE ?', "%#{time}%"])
-    when [:season] then
-      Post.where(['season LIKE ?', "%#{season}%"])
-    when [:address] then
-    else
-      Post.all
-    end
-  end
-  
-  def self.search(search)
-    if search
-      Post.where(['name LIKE ?', "%#{search}%"])
-    else
-      Post.all
-    end
-  end
   
   def create_notification_like!(current_user)
     if user_id == current_user.id
