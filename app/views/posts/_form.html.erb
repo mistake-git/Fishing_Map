@@ -70,16 +70,17 @@
         <%= form.text_area :description, rows:3%>
     </div>
     
-    <div class="field  text-left">
-        <div ><span class="badge badge-danger mr-1">※必須</span>住所</div><br />
-        <%= form.text_field :address ,id:"address" ,value:"アドレス",placeholder:"住所を入力してください"%>
-    </div>
-    <div data-toggle="modal" data-target="#modal1" class="btn btn-info mt-3 mb-2">
-      <span class="badge badge-danger mr-1 font-weight-bold">※必須</span>地図で場所を選択する
+    <div data-toggle="modal" data-target="#modal1" class="btn btn-info btn-block mt-3 mb-2 font-weight-bold">
+      <span class="badge badge-danger mr-1 ">※必須</span>地図で場所を選択する
     </div>
     
+    <div class="field  text-left">
+        <div ><span class="badge badge-danger mr-1">※必須</span>住所</div><br />
+        <%= form.text_field :address ,id:"address",placeholder:"住所を入力してください"%>
+    </div>
+   
     <% if @is_new == "true" %>
-        <div class="field">
+        <div class="field text-left">
             <%= form.check_box :share, {} , "true", "false" %>
             <span class="twitter-share font-weight-bold" style="color: #1da1f3;"><i class="fab fa-twitter"></i>Twitterに共有</span>
         </div>

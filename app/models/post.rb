@@ -21,20 +21,26 @@ class Post < ApplicationRecord
     return User.find_by(id: self.user_id)
   end
   
-  def self.search(search)
-    if search
+  def self.search_fishing_map(search)
+    case search params
+    
+    when [:name] then
       Post.where(['name LIKE ?', "%#{name}%"])
+    when [:feed] then
       Post.where(['feed LIKE ?', "%#{feed}%"])
+    when [:date] then
       Post.where(['date LIKE ?', "%#{date}%"])
-      Post.where(['time LIKE ?', "%#{time}%"])
+    when [:time] then
+       Post.where(['time LIKE ?', "%#{time}%"])
+    when [:season] then
       Post.where(['season LIKE ?', "%#{season}%"])
-      Post.where(['address LIKE ?', "%#{address}%"])
+    when [:address] then
     else
       Post.all
     end
   end
   
-  def self.search_fishing_map(search)
+  def self.search(search)
     if search
       Post.where(['name LIKE ?', "%#{search}%"])
     else

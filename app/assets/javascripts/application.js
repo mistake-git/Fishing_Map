@@ -76,13 +76,13 @@ function previewFile2() {
  });
  
  $(window).load(function () {
-    $('#loading').delay(0).fadeOut(500);
-    $('#contents').delay(500).queue(function(){
+    $('#loading').delay(0).fadeOut(200);
+    $('#contents').delay(200).queue(function(){
      $(this).css('display', 'block');
  });
  });
  $(function(){
-   setTimeout('stopload()',5000);
+   setTimeout('stopload()',1000);
  });
  
 
