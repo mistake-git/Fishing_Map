@@ -101,4 +101,5 @@ gem 'omniauth-twitter'
 #twitter投稿連携
 gem 'twitter'
 
+#検索
 gem 'ransack'

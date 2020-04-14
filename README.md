@@ -20,6 +20,7 @@
 * kaminari
 * bootstrap
 * chartkick
+* ransack
 * JQuery
 
 ### 機能一覧
@@ -48,5 +49,6 @@
 * 魚のサイズランキング機能
 * Twitter認証機能
 * 投稿作成時Twitterにも投稿
+* お問い合わせ機能
 * モデルテスト
 * システムテスト
