@@ -30,7 +30,9 @@ class PostsController < ApplicationController
   def show
     @comment = Comment.new
     @user = @post.user
+
     @fish = Fish.find_by(name: @post.name)
+    
     if @fish 
         @level = "★"*@fish.level
     else
@@ -42,9 +44,9 @@ class PostsController < ApplicationController
     else
        @title = "#{@user.name}さん"
     end
-    @comments = Comment.where(post_id: @post.id).order(created_at: :desc).page(params[:page]).per(PER)
-    @likes_count = @post.likes.count
-    @comments_count = Comment.where(post_id: @post.id).count
+    
+    @comments = @post.comments.order(created_at: :desc).page(params[:page]).per(PER)
+    
     same_fish_posts = Post.where(name: @post.name)
     @month_data = (1..12).map do |month|
         posts = same_fish_posts.filter do |post|

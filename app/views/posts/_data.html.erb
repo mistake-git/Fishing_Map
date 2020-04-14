@@ -1,6 +1,5 @@
 <div class="mt-5 text-secondary d-flex justify-content-center">
- <% @likes_count = Like.where(post_id: @post.id).count %>
- <div class="mx-2"><i class="fas fa-heart"></i><%= @likes_count %></div>
- <div class="mx-2"><i class="fas fa-comment"><%= @comments_count %></i></div>
+ <div class="mx-2"><i class="fas fa-heart"></i><%= @post.likes.count %></div>
+ <div class="mx-2"><i class="fas fa-comment"><%= @post.comments.count %></i></div>
  <div class="mx-2"><%= "#{time_ago_in_words(@post.created_at)}前"%></div>
 </div>
