@@ -13,7 +13,10 @@
                             <div><span class="badge badge-danger mr-1">※必須</span> メールアドレス</div><br />
                             <%= form.text_field :email %>
                         </div>
-                        
+                        <div class="field">
+                            <div><span class="badge badge-danger mr-1">※必須</span>お問い合わせ項目</div><br />
+                            <%= form.select :category ,[["ご意見･ご要望"], ["不具合･バグ"],["問題のある投稿の報告"],["その他"]],{:prompt => "項目を選択"} %>
+                        </div>
                         <div class="field">
                            <div><span class="badge badge-danger mr-1">※必須</span> お問い合わせ内容</div><br />
                             <%= form.text_area :message, rows:4 %>
