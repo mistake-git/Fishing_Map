@@ -14,7 +14,7 @@
     	        </div>
     	        <div class="media-body">
     		        <div class="media-heading ml-2">
-        		        <%= link_to"#{comment.user.name}", "/users/#{comment.user.id}" ,class:"text-info"%>
+        		        <%= link_to"#{comment.user.name}", "/users/#{comment.user.id}" ,class:"text-info font-weight-bold"%>
         		        <div class="text-right">
             		        <% if comment.user.id == current_user.id %>
                                 <%= link_to "/posts/#{@post.id}/comments/#{comment.id}/edit",class:"text-secondary",id:"comment-edit",remote: true do %>
