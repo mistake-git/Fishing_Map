@@ -1,7 +1,7 @@
 <div class="card text-info font-weight-bold">
     <%= search_form_for @search, url: url do |form| %>
         <div class="p-3">
-            <h4 class="font-weight-bold py-3">検索</h4>
+            <h4 class="font-weight-bold py-3">釣りたい魚を検索</h4>
             <div class="field">
                 <div>魚種</div>
                 <%= form.search_field :name_cont %>
@@ -39,7 +39,7 @@
             
             <div class="field">
               <div>時間</div>
-               <%= form.select :time_cont, [[1],[2],[3],[4],[5],[6],[7],[8],[9],[10],[11],[12],[11],[12],[13],[14],[15],[16],[17],[18],[19],[20],[21],[22],[23],[24]],{:prompt => "時期を選択"} %>
+               <%= form.select :time_cont, [[1],[2],[3],[4],[5],[6],[7],[8],[9],[10],[11],[12],[13],[14],[15],[16],[17],[18],[19],[20],[21],[22],[23],[24]],{:prompt => "時間sを選択"} %>
             </div>
           
             <div class="field">
