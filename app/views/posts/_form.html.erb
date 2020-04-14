@@ -26,17 +26,17 @@
       
     <div class="field text-left">
         <div><span class="badge badge-danger mr-1">※必須</span> 魚種</div><br />
-        <%= form.text_field :name,class:"",placeholder:"カタカナで入力"%>
+        <%= form.text_field :name,placeholder:"カタカナで入力"%>
     </div>
     
     <div class="row no-gutters">
         <div class="field text-left col-6">
             <div><span class="badge badge-danger">※必須</span> 数量</div><br />
-            <%= form.number_field :number,class:"",value:1 %>
+            <%= form.number_field :number,value:1 %>
         </div>
         <div class="field  text-left col-6">
             <div >サイズ(cm)</div><br />
-            <%= form.number_field :size,class:"" %>
+            <%= form.number_field :size %>
         </div>
     </div>
     
@@ -48,38 +48,39 @@
         
         <div class="field text-left col-6">
             <div>天気</div><br />
-            <%= form.select :weather,[["晴れ"], ["曇り"],["雨"],["その他"]],{:prompt => "天気を選択"},{class:""} %>
+            <%= form.select :weather,[["晴れ"], ["曇り"],["雨"],["その他"]],{:prompt => "天気を選択"} %>
         </div>
     </div>
     
     <div class="field  text-left">
         <div >日付</div><br />
         <div class= "row no-gutters">
-            <%= form.date_select :date ,{}, {class: " col-4"} %>
+            <%= form.date_select :date ,{}, {class: "col-4"} %>
         </div>
     </div>
 
     
     <div class="field text-left">
         <div >時間帯(時)</div><br />
-        <%= form.time_select :time ,{}, {class: ""} %>
+        <%= form.time_select :time %>
     </div>
     
     <div class="field text-left">
         <div >説明</div><br />
-        <%= form.text_area :description, rows:3,class:"" %>
+        <%= form.text_area :description, rows:3%>
+    </div>
+    
+    <div data-toggle="modal" data-target="#modal1" class="btn btn-info btn-block mt-3 mb-2 font-weight-bold">
+      <span class="badge badge-danger mr-1 ">※必須</span>地図で場所を選択する
     </div>
     
     <div class="field  text-left">
         <div ><span class="badge badge-danger mr-1">※必須</span>住所</div><br />
-        <%= form.text_field :address,class:"",id:"address" ,value:"アドレス",placeholder:"住所を入力してください"%>
+        <%= form.text_field :address ,id:"address",placeholder:"住所を入力してください"%>
     </div>
-    <div data-toggle="modal" data-target="#modal1" class="btn btn-info mt-3 mb-2">
-      <span class="badge badge-danger mr-1 font-weight-bold">※必須</span>地図で場所を選択する
-    </div>
-    
+   
     <% if @is_new == "true" %>
-        <div class="field">
+        <div class="field text-left">
             <%= form.check_box :share, {} , "true", "false" %>
             <span class="twitter-share font-weight-bold" style="color: #1da1f3;"><i class="fab fa-twitter"></i>Twitterに共有</span>
         </div>

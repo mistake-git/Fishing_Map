@@ -21,21 +21,6 @@ class Post < ApplicationRecord
     return User.find_by(id: self.user_id)
   end
   
-  def self.search(search)
-    if search
-      Post.where(['name LIKE ?', "%#{search}%"])
-    else
-      Post.all
-    end
-  end
-  
-  def self.search_fishing_map(search)
-    if search
-      Post.where(['name LIKE ?', "%#{search}%"])
-    else
-      Post.all
-    end
-  end
   
   def create_notification_like!(current_user)
     if user_id == current_user.id
@@ -78,14 +63,5 @@ class Post < ApplicationRecord
     def delete_whitespace
       self.name = name.strip
     end
-    
-    
-  # def geocode
-  #   uri = URI.escape("https://maps.googleapis.com/maps/api/geocode/json?address="+self.address.gsub(" ", "")+"&key=<%=ENV['KEY'] %>")
-  #   res = HTTP.get(uri).to_s
-  #   response = JSON.parse(res)
-  #   self.latitude = response["results"][0]["geometry"]["location"]["lat"]
-  #   self.longitude = response["results"][0]["geometry"]["location"]["lng"]
-  # end
   
 end

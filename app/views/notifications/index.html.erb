@@ -6,7 +6,9 @@
                 <% if @notifications.exists? %>
                         <%= render @notifications %>
                 <% else %>
-                        <div class="text-secondary pb-5">通知はありません</div>
+                        <div style="height: 30vh">
+                            <div class="text-secondary pb-5 text-center font-weight-bold">通知はありません</div>
+                        </div>
                 <% end %>
             </div>
         </div>

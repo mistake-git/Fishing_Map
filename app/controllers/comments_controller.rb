@@ -62,7 +62,7 @@ class CommentsController < ApplicationController
   end
   
   def set_comments
-    @comments = Comment.where(post_id: @post.id).order(created_at: :desc).page(params[:page]).per(PER)
+    @comments = @post.comments.order(created_at: :desc).page(params[:page]).per(PER)
   end
   
   def comment_params

@@ -3,6 +3,7 @@ div.field {
   @extend .form-group !optional;
 
   input[type="text"],
+  input[type="search"],
   textarea,
   select,
   input[type="email"],

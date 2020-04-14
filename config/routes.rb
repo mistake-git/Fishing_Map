@@ -6,8 +6,6 @@ Rails.application.routes.draw do
     end 
     resources :fish,except: [:show]
     get '/fishing.map',to:'posts#fishing_map',as:'fmap_path'
-    get '/posts/search_fishing_map',to:'posts#search_fishing_map'
-    get '/posts/search',to:'posts#search'
     
     resources :posts do
         resources :comments,except: [:index, :show]

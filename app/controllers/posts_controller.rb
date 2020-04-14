@@ -11,36 +11,28 @@ class PostsController < ApplicationController
   # GET /posts.json
   
   def fishing_map
-    @posts = Post.all.order(created_at: :desc).limit(100).page(params[:page]).per(100)
+    @search = Post.ransack(params[:q])
+    @posts = @search.result(distinct: true).order(created_at: :desc).limit(100).page(params[:page]).per(100)
     @user = current_user
   end
   
   def index
-    @posts = Post.all.order(created_at: :desc).page(params[:page]).per(PER)
+    @search = Post.ransack(params[:q])
+    @posts = @search.result(distinct: true).order(created_at: :desc).limit(PER).page(params[:page]).per(PER)
+    @user = current_user
     @title ="すべての釣果"
     @when_not_text = "まだ釣果の投稿がありません"
   end
   
-  def search_fishing_map
-    @posts = Post.search(params[:search]).order(created_at: :desc).page(params[:page]).per(1)
-    @user = current_user
-    @title ="検索結果"
-    @is_search = true
-    render('posts/fishing_map')
-  end
-  
-  def search
-    @posts = Post.search(params[:search]).order(created_at: :desc).page(params[:page]).per(PER)
-    @title ="検索結果"
-    render('posts/index')
-  end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
     @comment = Comment.new
     @user = @post.user
+
     @fish = Fish.find_by(name: @post.name)
+    
     if @fish 
         @level = "★"*@fish.level
     else
@@ -52,11 +44,11 @@ class PostsController < ApplicationController
     else
        @title = "#{@user.name}さん"
     end
-    @comments = Comment.where(post_id: @post.id).order(created_at: :desc).page(params[:page]).per(PER)
-    @likes_count = @post.likes.count
-    @comments_count = Comment.where(post_id: @post.id).count
+    
+    @comments = @post.comments.order(created_at: :desc).page(params[:page]).per(PER)
+    
     same_fish_posts = Post.where(name: @post.name)
-    @month_data = (1..12).to_a.map do |month|
+    @month_data = (1..12).map do |month|
         posts = same_fish_posts.filter do |post|
             post.date.month == month
         end
