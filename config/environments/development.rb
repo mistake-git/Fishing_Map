@@ -64,7 +64,7 @@ Rails.application.configure do
   config.cache_classes = false
   config.reload_classes_only_on_change = false
   
-  config.action_mailer.default_url_options = {protocol: 'https', host: 'https://limitless-refuge-32929.herokuapp.com/'}
+  config.action_mailer.default_url_options = {protocol: 'https', host: 'https://1e875dfb35654fc1857bd82a920ac8b3.vfs.cloud9.ap-northeast-1.amazonaws.com/'}
   # mail setting
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp

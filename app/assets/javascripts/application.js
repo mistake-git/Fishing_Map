@@ -112,14 +112,3 @@ $(function(){
         });
     });
 });
-
-
-//フォムの入力値チェック
-  function isRegNum(obj){
-    var str=obj.value; /* 入力値 */
-    if(str.match(/[^0-9]/g)){ /* 数値以外の文字列が含まれていた場合 */
-        alert (str.match(/[^0-9]/g)+'\n\n数値以外が含まれています'); /* アラート表示 */
-        obj.value=""; /* テキストボックスを空にする */
-        return false;
-    }
-}

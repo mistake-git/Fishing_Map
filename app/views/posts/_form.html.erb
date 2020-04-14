@@ -32,15 +32,11 @@
     <div class="row no-gutters">
         <div class="field text-left col-6">
             <div><span class="badge badge-danger">※必須</span> 数量</div><br />
-            <div  onchange='isRegNum(this)'>
-                <%= form.number_field :number,value:1 %>
-            </div>
+            <%= form.number_field :number,value:1 %>
         </div>
         <div class="field  text-left col-6">
             <div >サイズ(cm)</div><br />
-            <div  onchange='isRegNum(this)'>
-                <%= form.number_field :size %>
-            </div>
+            <%= form.number_field :size %>
         </div>
     </div>
     
