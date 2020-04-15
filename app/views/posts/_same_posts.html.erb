@@ -1,0 +1,30 @@
+<ul class="list-unstyled">
+    <% posts.each do |post| %>
+        <li class="media my-2 border bg-white text-info font-weight-bold">
+            <div class="mr-3">
+                <div>
+                    <% if post.user.image.attached? %>
+                        <%=link_to image_tag(post.user.image,class:"mt-1",style:"width: 50px; height: 50px; border-radius: 50%;"),"/users/#{post.user.id}" %>
+                    <% else %>
+                        <%= link_to "/users/#{post.user.id}" do %>
+                            <img src="/assets/user-image.png" class="mt-1" style="width: 50px; height: 50px; border-radius: 50%">
+                        <% end %>
+                    <% end %>
+                    <%= post.user.name %>
+                </div>
+                <% if post.image.attached? %>
+                    <%= image_tag post.image ,style:"width: 150px;"%>
+                <% else %>
+                    <img src="../assets/sakana-img.jpg" style = "width: 150px;">
+                <% end %>
+                <%= render "data" ,post: post %>
+            </div>
+            <div class="media-body p-1">
+                <div><%= post.name %></div>
+                <div class="h-75">
+                    <%= render "index_info" ,post: post %>
+                </div>
+            </div>
+        </li>
+    <% end %>
+</ul>

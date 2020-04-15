@@ -43,46 +43,12 @@
                             説明がありません
                         </div>
                     <% end %>
-                
-                
                     <div class="inline-block m-1" style="overflow: hidden;text-overflow: ellipsis; white-space: nowrap;">
-                        <% if post.size? %>
-                            <div class="badge badge-info size-badge">
-                                サイズ: <%= post.size %>cm
-                            </div>
-                        <% end %>
-                        <% if post.feed? %>
-                            <div class="badge badge-info">
-                                餌: <%= post.feed %>
-                            </div>
-                        <% end %>
-                        <% if post.weather? %>
-                            <div class="badge badge-info">
-                                天気: <%= post.weather %>
-                            </div>
-                        <% end %>
-                        <% if post.number? %>
-                            <div class="badge badge-info">
-                                <%= post.number.to_i %>匹
-                            </div>
-                        <% end %>
-                        <% if post.date? %>
-                            <div class="badge badge-info">
-                                日付: <%= post.date %>
-                            </div>
-                        <% end %>
-                        <% if post.time? %>
-                            <div class="badge badge-info">
-                                時間: <%= post.time.to_s(:time)%>
-                            </div>
-                        <% end %>
-                        <% if post.address? %>
-                            <div class="badge badge-info">
-                                場所: <%= post.address%>
-                            </div>
-                        <% end %>
+                        <%= render "index_info" ,post: post %>
                     </div>
+                    
                 </div>
+                
                 <div class="d-flex justify-content-around">
                     <% if current_user && Like.find_by(user_id: current_user.id, post_id: post.id) %>
                         <div class="text-danger">

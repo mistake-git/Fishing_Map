@@ -29,7 +29,7 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @comment = Comment.new
-    @user = @post.user
+    @same_posts = Post.where(name: @post.name).where.not(id: @post.id).order(created_at: :desc).limit(10)
 
     @fish = Fish.find_by(name: @post.name)
     
@@ -39,10 +39,10 @@ class PostsController < ApplicationController
         @level = nil
     end
     
-    if current_user && current_user.id == @user.id
+    if current_user && current_user.id == @post.user.id
        @title = "あなた"
     else
-       @title = "#{@user.name}さん"
+       @title = "#{@post.user.name}さん"
     end
     
     @comments = @post.comments.order(created_at: :desc).page(params[:page]).per(PER)
