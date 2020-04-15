@@ -20,7 +20,7 @@
                 <%= render "data" ,post: post %>
             </div>
             <div class="media-body p-1">
-                <div><%= post.name %></div>
+                <div class="font-weight-bold"><%= link_to "#{post.name}","/posts/#{post.id}" ,class:"text-info"%></div>
                 <div class="h-75">
                     <%= render "index_info" ,post: post %>
                 </div>
