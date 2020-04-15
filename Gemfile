@@ -103,3 +103,7 @@ gem 'twitter'
 
 #検索
 gem 'ransack'
+
+#例外処理をslackに通知
+gem 'exception_notification'
+gem 'slack-notifier'

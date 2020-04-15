@@ -30,6 +30,16 @@ class ApplicationController < ActionController::Base
       end
     end
   end
+  
+  def server_error(e)
+    
+    ExceptionNotifier.notify_exception(e, :env => request.env, :data => {:message => "error"})
+    respond_to do |format|
+      format.html { render template: 'front/errors/500', layout: 'front/layouts/error', status: 500 }
+      format.all { render nothing: true, status: 500 }
+    end
+  
+  end
     
   def after_sign_in_path_for(resource)
         fmap_path_url
