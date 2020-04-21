@@ -12,16 +12,12 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require_tree .
 //= require underscore
 //= require gmaps/google
-//= require chartkick
-//= require Chart.bundle
 //= require turbolinks
 //= require chartkick
 //= require Chart.bundle
 //= require jquery
-//= require jquery_ujs
 //= require bootstrap
 
 //プレビュー
