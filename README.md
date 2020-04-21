@@ -8,7 +8,8 @@
  
 ### 技術一覧
 * Ruby on rails [5.2]
-* AWS(VPC,EC2,S3)
+* AWS(VPC,EC2,S3,RDS)
+* MySQL
 * Nginx
 * unicorn
 * MySQL
