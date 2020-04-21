@@ -50,6 +50,7 @@ test:
 production:
   <<: *default
   database: pro_production
-  username: root
-  password: <%= ENV['PRO_DATABASE_PASSWORD'] %>
-
+  username: admin
+  password: Masataka42
+  host: database-1.cgqmhqaffqkv.ap-northeast-1.rds.amazonaws.com
+ 
