@@ -59,23 +59,10 @@ $application-color:#00CCCC;
 /*釣り人悩み*/
 
 .worries-title{
-    margin: 12% 0;
-    font-size: 1.5rem;
-    position: relative;
-    font-weight: bold;
-    text-shadow: 0 0 2px white;
-    &:before{
-        content: "";
-        position: absolute;
-        background: #9de5ff;
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-        z-index: -1;
-    }
+    background-image: url("/assets/q-img.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
     
