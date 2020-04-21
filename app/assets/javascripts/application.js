@@ -82,7 +82,7 @@ function previewFile2() {
  });
  });
  $(function(){
-   setTimeout('stopload()',1000);
+   setTimeout('stopload()',500);
  });
  
 
