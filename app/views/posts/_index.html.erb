@@ -49,7 +49,7 @@
                     
                 </div>
                 
-                <div class="d-flex justify-content-around">
+                <div class="d-flex justify-content-around mb-2">
                     <% if current_user && Like.find_by(user_id: current_user.id, post_id: post.id) %>
                         <div class="text-danger">
                             <% @likes_count = Like.where(post_id: post.id).count %>
