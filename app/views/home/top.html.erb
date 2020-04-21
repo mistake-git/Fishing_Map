@@ -1,113 +1,147 @@
-<div class="application-top mb-5">
+<div class="application-top">
     <img src="../assets/top-img" style="width: 100%;">
-    <div class="catch-copy">
-    <div class="catch-text font-weight-bold">
-        <div>地図上で釣果が見れるSNS型釣りアプリ</div>
-    </div>
-    <div class="text-center font-weight-bold">
-        <%= link_to"今すぐ始めてみる","/users/sign_up", class: "top-page-btn mt-5"%>
-    </div>
+    <div class="catch-copy my-3">
+        <h3 class="catch-text font-weight-bold text-center">
+            <div>地図上で釣果が見れるSNS型釣りアプリ</div>
+        </h3>
+        <div class="text-center font-weight-bold">
+            <%= link_to"今すぐ始めてみる","/users/sign_up", class: "top-page-btn mt-5"%>
+        </div>
     </div>
 </div>
 
-<div class="application-about">
-    <div class="about-title text-center">
-         <img src="../assets/fmap-site-logo.png" class="application-logo"><span class="about-title-text">とは?</span>
+<div class="row no-gutters bg-white">
+    <div class="col-12 col-lg-11 col-lg-offset-1">
+        <div class="row">
+            <div class="col-12">
+                <h4 class="text-center my-auto">
+                    <img src="../assets/fmap-site-logo.png"><span class="text-info font-weight-bold">とは?</span>
+                </h4>
+            </div>
+            <div class="col-12 col-lg-6 d-flex align-items-center">
+                <div class="m-3 text-center font-weight-bold" style="line-height: 2;">
+                    <h4>総合SNS型WEBサービス<span class="text-info">Fishing Map</span></h4>
+                    どこでどんな魚が釣れるか地図で一目瞭然!!
+                    釣果を地図上に投稿､シェアしたりデータ分析を見たり､他の釣り人と交流できるWEBサービスです!!
+                </div>
+            </div>
+            <div class="col-12  col-lg-6">
+                <img src="../assets/screen-img.jpg" class="w-100 mx-auto">
+            </div>
+        </div>
     </div>
-    <p class="text-center about-description">どこでどんな魚が釣れるか地図で一目瞭然!!
-    釣果を地図上に投稿､シェアしたりデータ分析を見たり､他の釣り人と交流できる釣りの総合SNS型WEBサービスです!!</p>
 </div>
+
+
 
 <div class="worries-title text-center">釣りをしていてこんな悩みはありませんか<strong>?</strong></div>
-<div class="angler-worries row">
+<div class="row bg-white no-gutters">
     <div class="col-xs-12 col-md-6 worries-img-area text-center">
         <img src="../assets/angler-worries.jpg" class="worries-img">
     </div>
-    <div class="col-xs-12 col-md-6 worries-area">
-       <ul class="worries-list">
-           <li class="worries-item fadein-left">釣りたい魚があるけどどこで釣れるのかがわからない...</li>
-           <li class="worries-item fadein-left">釣具屋でオススメスポットを聞いたが釣れなかった...</li>
-           <li class="worries-item fadein-left">釣り初心者なのでどんな餌や時期がいいのかわからない...</li>
-       </ul>
+    <div class="col-xs-12 col-md-6 align-self-center">
+       <div class="m-5">
+           <h5 class="worries-item fadein-left">釣りたい魚があるけどどこで釣れるのかがわからない...</h5>
+           <h5 class="worries-item fadein-left my-5">釣具屋でオススメスポットを聞いたが釣れなかった...</h5>
+           <h5 class="worries-item fadein-left">釣り初心者なのでどんな餌や時期がいいのかわからない...</h5>
+       </div>
     </div>
 </div>
 
-<div class="settle-title text-center fadein">そんな人に <img src="../assets/fmap-site-logo.png" class="application-logo">です!!</div>
-<div class="container-fluid">
-    <div class="settle-area row text-center">
-        <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-3 mt-3 mx-auto">
-            <div class="settle fadein">
-                <div class="settle-heading pt-4">地図上で釣果が見れる</div>
-                <img src="../assets/screen-img.jpg" class="settle-img">
-                <p class="settle-description mt-3">実際の釣果実績に基づいているから
-                信頼性が高い!!</p>
-            </div>
-        </div>
-        <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-3 mt-3 mx-auto">
-            <div class="settle fadein">
-                <div class="settle-heading pt-4">データ分析が見れる</div>
-                <img src="../assets/graph-img.jpg" class="settle-img">
-                <p class="settle-description mt-3">餌や天候､季節や時間帯などどんな条件で釣れたのかが
-                グラフで分かります</p>
-            </div>
-        </div>
-        <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-3 mt-3 mx-auto">
-             <div class="settle fadein">
-                <div class="settle-heading pt-4">気になる釣り人の釣果を通知</div>
-                <img src="../assets/bell-img.jpg" class="settle-img">
-                <p class="settle-description mt-3">気になる釣り人がいたらフォローしてみよう!その人が釣果を投稿したときに通知が来ます</p>
-            </div>
-        </div>
-        <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-3 mt-3 mx-auto">
-            <div class="settle fadein">
-                <div class="settle-heading pt-4">魚のサイズランキング</div>
-                <img src="../assets/ranking-img.jpg" class="settle-img">
-                <p class="settle-description mt-3">釣果を投稿したらランキングを見てみましょう｡
-                同じ魚を釣った人がどのくらいのサイズの魚を釣っているのかがわかります</p>
-            </div>
-        </div>
-    </div>
-</div>
 
-<div class="step-area-title text-center fadein">
-    <span class="title-header my-3">かんたん!!</span>アプリの使い方<strong class="title-num">3</strong>Step
-</div>
-<div class="step-area row no-gutters mb-5">
-    <div class="col-xs-12 col-lg-4 mt-3">
-        <div class="step text-center mt-3 fadein">
-            <div class="step-title">Step <strong class="step-num">1</strong></div>
-            <div class="step-copy">魚を釣る</div>
-            <img src="/assets/step-img1.jpg" class="step-img">  
-            <div class="step-description">魚を釣る｡(過去の釣果でも構いません)</div>
-        </div>
-    </div>
-    <div class="col-xs-12 col-lg-4 mt-3">
-        <div class="step text-center mt-3 fadein">
-            <div class="step-title">Step <strong class="step-num">2</strong></div>
-            <div class="step-copy">アプリに記録</div>
-            <img src="/assets/step-img2.jpg" class="step-img">  
-             <div class="step-description">アプリに釣果を記録｡
-             場所はもちろん､
-             写真や釣ったときの餌 ､天候､日時など
-             を記録する事ができます</div>
-        </div>
-    </div>
-    <div class="col-xs-12 col-lg-4 mt-3">
-        <div class="step text-center mt-3 fadein">
-            <div class="step-title">Step <strong class="step-num">3</strong></div>
-            <div class="step-copy">地図で確認</div>
-            <img src="/assets/step-img3.jpg" class="step-img">
-             <div class="step-description">みんなの釣果も確認してみよう!MAP上にはみんなの釣果が表示されます｡</div>
+<div class="container-fluid bg-white">
+    <div class="tryangle mx-auto"></div>
+    <h5 class="text-center col-12 font-weight-bold py-3">そんな人に<img src="../assets/fmap-site-logo.png" class="application-logo">です!!</h5>
+    <div class="row bg-white">
+        <div class="col-11 col-lg-10 col-lg-offset-2 mx-auto">
+            <div class="row text-center py-3">
+                <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-3 mt-3 mx-auto">
+                    <div class="fadein">
+                        <h5 class="py-3  font-weight-bold">地図に釣果を登録</h5>
+                        <img src="../assets/map-img.jpg" style="width: 150px; height:150px;">
+                        <p class="p-4">実際の釣果実績に基づいているから
+                        信頼性が高い!!</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-3 mt-3 mx-auto">
+                    <div class="fadein">
+                        <h5 class="py-3  font-weight-bold">データ分析</h5>
+                        <img src="../assets/graph-img.jpg" style="width: 150px; height:150px;">
+                        <p class="p-4">餌や天候､季節や時間帯などどんな条件で釣れたのかが
+                        グラフで分かります</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-3 mt-3 mx-auto">
+                     <div class="fadein">
+                        <h5 class="py-3   font-weight-bold">釣果を通知</h5>
+                        <img src="../assets/bell-img.jpg" style="width: 150px; height:150px;">
+                        <p class="p-4">気になる釣り人がいたらフォローしてみよう!その人が釣果を投稿したときに通知が来ます</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-3 mt-3 mx-auto">
+                    <div class="fadein">
+                        <h5 class="py-3  font-weight-bold">サイズランキング</h5>
+                        <img src="../assets/ranking-img.jpg" style="width: 150px; height:150px;">
+                        <p class="p-4">釣果を投稿したらランキングを見てみましょう｡
+                        同じ魚を釣った人がどのくらいのサイズの魚を釣っているのかがわかります</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
-<div class="application-recommend text-center">
+<div class="bg-info text-white text-center my-5">
+    <h4 class="py-3 font-weight-bold">かんたん!!アプリの使い方3Step</h4>
+</div>
+
+<div class="row">
+    <div class="col-11 offset-1 col-lg-10 col-lg-offset-2 mx-auto">
+        <div class="row text-center">
+            <div class="col-xs-12 col-lg-4 mt-3">
+                <div class="card h-100 mx-auto fadein" style="box-shadow: 2px 2px 4px rgba(0,0,0,0.12);">
+                    <h5 class="font-weight-bold text-info py-2">Step1</h5>
+                    <div class="font-weight-bold mb-2">魚を釣る</div>
+                    <img src="/assets/step-img1.jpg" class="step-img mx-auto">
+                    <div class="text-secondary p-4">魚を釣る｡(過去の釣果でも構いません)</div>
+                </div>
+            </div>
+            
+            <div class="col-xs-12 col-lg-4 mt-3">
+                <div class="card h-100 mx-auto fadein" style="box-shadow: 2px 2px 4px rgba(0,0,0,0.12);">
+                    <h5 class="font-weight-bold text-info py-2">Step2</h5>
+                    <div class="font-weight-bold mb-2">アプリに記録</div>
+                    <img src="/assets/step-img2.jpg" class="step-img mx-auto">  
+                    <div class="text-secondary p-4">
+                        アプリに釣果を記録｡
+                         場所はもちろん､
+                         写真や釣ったときの餌 ､天候､日時など
+                         を記録する事ができます
+                     </div>
+                </div>
+            </div>
+            
+            <div class="col-xs-12 col-lg-4 mt-3">
+                <div class="card h-100 mx-auto fadein" style="box-shadow: 2px 2px 4px rgba(0,0,0,0.12);">
+                    <h5 class="font-weight-bold text-info py-2">Step3</h5>
+                    <div class="font-weight-bold mb-2">地図で確認</div>
+                    <img src="/assets/step-img3.jpg" class="step-img mx-auto">
+                    <div class="text-secondary p-4">
+                        みんなの釣果も確認してみよう!MAP上にはみんなの釣果が表示されます｡
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="application-recommend text-center mt-5">
     <div class="recommend-item">
-    <div class="recommend-title mb-3">Google Map 釣果投稿WEBアプリケーション</div>
-    <div class="application-logo mx-auto">
-        <img src="../assets/fmap-site-logo.png">
-    </div>
+        <div class="recommend-title mb-3">Google Map 釣果投稿WEBアプリケーション</div>
+        <div class="application-logo mx-auto">
+            <img src="../assets/fmap-site-logo.png">
+        </div>
         <div class="font-weight-bold">
             <%= link_to"今すぐ始めてみる","/users/sign_up", class: "top-page-btn mt-5"%>
         </div>

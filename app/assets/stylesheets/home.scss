@@ -26,8 +26,8 @@ $application-color:#00CCCC;
     @media screen and (min-width:1000px){    
         .catch-copy{
             position: absolute;
-            top: 25%;
-            left: 8%;
+            top: 40%;
+            left: 5%;
             background-color:rgba(255,255,255,0.8);
             padding: 2%;
             border-radius: 15px;
@@ -46,51 +46,20 @@ $application-color:#00CCCC;
     }
 }
 
-.catch-copy{
-    margin: 5% auto;
-    text-align: center;
-    font-size: 1.2rem;
-}
-        
-
-
-/*アバウトアプリケーション*/
-
-.application-about{
-    border: 3px dashed #00CCCC;
-    width: 70%;
-    margin: 2% auto;
-    background: #fff;
-    .about-title{
-        padding: 1%;
-        .about-title-text{
-            @include application-text($application-color);
-            font-size: 1.8rem;
-            vertical-align: middle;
-        }
-    }
-    
-    .about-description{
-        padding: 0 3%;
-        line-height: 2;
-        font-weight: bold;
-        font-size: 1.2rem;
-        letter-spacing: 2px;
-        text-decoration: underline solid  red;
-    }
+.tryangle{
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 50px 50px 0 50px;
+    border-color: #00cccc transparent transparent transparent;
 }
 
-@media screen and (max-width:1000px){
-    .application-about{
-         width: 90%;
-    }
-}
 
 
 /*釣り人悩み*/
 
 .worries-title{
-    margin: 10% 0;
+    margin: 12% 0;
     font-size: 1.5rem;
     position: relative;
     font-weight: bold;
@@ -109,37 +78,8 @@ $application-color:#00CCCC;
     }
 }
 
- @media screen and (max-width:1000px){
-    .worries-title{
-         margin: 20% 0; 
-    }    
- }
-
-.worries-area{
-    background: #fff;
     
-    @media screen and (min-width:1000px){  
-        .worries-list{
-            margin: 23% auto;
-            li{
-                list-style: none;
-                margin: 7% 0 0 10% ;
-                text-decoration: underline solid  red;
-                font-size: 1.3rem;
-            }
-        }
-    }
-    
-    .worries-list{
-        margin: 20% auto;
-        width: 90%;
-        
-        li{
-            list-style: none;
-            text-decoration: underline solid  red;
-            margin: 5% 0;
-        }
-    }
+   
     
     .fadein-left {
         opacity : 0;
@@ -151,7 +91,6 @@ $application-color:#00CCCC;
         opacity : 1;
         transform : translateX(0);
     }
-    
     
     .worries-item{
         position: relative;
@@ -170,7 +109,6 @@ $application-color:#00CCCC;
             color: $application-color;
         }
     }
-}
 
     
 .worries-img-area{
@@ -182,50 +120,6 @@ $application-color:#00CCCC;
 }
 
 /*解決*/
-
-.settle-title{
-    margin: 5% auto;
-    font-size: 1.5rem;
-    font-weight: bold;
-    border-bottom: 3px solid red;
-    width: 35%;
-}
-
-@media screen and (max-width:1000px){
-    .settle-title{
-        margin: 5% auto;
-        font-weight: bold;
-        font-size: 1.2rem;
-        border-bottom: 3px solid red;
-        width: 90%;
-    }
-}
-
-.settle-area{
-    .settle{
-        background: #fff;
-        box-shadow: 2px 2px 4px rgba(0,0,0,0.12);
-        height: 100%;
-        
-        .settle-heading{
-            font-size: 1.2rem;
-           font-weight: bold;
-            margin: 5% 0;
-        }
-    
-        .settle-img{
-            height: 200px;
-            width: 85%;
-        }
-        
-        .settle-description{
-            line-height: 1.5;
-            opacity: 0.8;
-            padding: 5%;
-        }
-    }
-}
-
 .fadein {
   opacity : 0;
   transform : translate(0, 100px);
@@ -239,80 +133,21 @@ $application-color:#00CCCC;
 
 
 /*使い方ステップ*/
-
-.step-area-title{
-    margin: 3% auto;
-    font-size: 1.5rem;
-    @include application-text($application-color);
-    border-bottom: 3px solid #00CCCC;
-    width: 30%;
     
-    .title-header{
-        font-weight: bold;
-        color: #FF0000;
-        font-size: 1.8rem;
-    }
-    
-    .title-num{
-        font-size: 3rem;
-        color: #FF0000	;
-    }
+.step-img{
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
 }
-
-@media screen and (max-width:1000px){
-    .step-area-title{
-        width: 80%;
-    }
-}
-
-
-.step-area{
     
-    .step-copy{
-        font-size: 1.3rem;
-        margin-top: 3%;
-        font-weight: bold;
-    }
-    
-    .step-title{
-        @include application-text($application-color);
-        font-size: 1.3rem;
-        padding-top: 5%;
-        border-bottom: 3px solid #00CCCC;
-        width: 20%;
-        margin: 0 auto;
-        .step-num{
-            font-size: 1.5rem;
-        }
-    }
 
-    .step{
-        background: #fff;
-        width: 80%;
-        margin: auto;
-        box-shadow: 2px 2px 4px rgba(0,0,0,0.12);
-        height: 100%;
-    }
-    
-    .step-img{
-        width: 280px;
-        height: 280px;
-        border-radius: 50%;
-        margin: 5% 3%;
-    }
-    
-     .step-description{
-        padding: 5%;
-        opacity: 0.8;
-    }
-
-}
 
 /*レコメンド*/
+
 .application-recommend{
     background-image: url("/assets/recommend-bg.jpg");
     background-size: cover;
-    margin-bottom: -10%;
+
     .recommend-item{
         padding: 5% 0;
         background-color: rgba(255,255,255,0.5);
