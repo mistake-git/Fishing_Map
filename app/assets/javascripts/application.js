@@ -10,7 +10,6 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
 //= require activestorage
 //= require underscore
 //= require gmaps/google
@@ -19,6 +18,7 @@
 //= require Chart.bundle
 //= require jquery
 //= require bootstrap
+//= require rails-ujs
 
 //プレビュー
 function PostPreview() {

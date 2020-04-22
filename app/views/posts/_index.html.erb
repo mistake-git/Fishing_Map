@@ -19,15 +19,17 @@
                     <% end %>
                 </div>
                 
-                <div class="h-50">
+                
+                <div class="text-center">
                     <% if post.image.attached? %>
-                        <%= link_to image_tag(post.image ,class:"card-img-top"),"/posts/#{post.id}" %>
+                        <%= link_to image_tag(post.image ,class:"card-img-top" ,style:"object-fit: cover; height:150px; width: 220px;"),"/posts/#{post.id}" %>
                     <% else %>
-                        <%= link_to"/posts/#{post.id}" do%>
-                            <img src="/assets/sakana-img.jpg" class="card-img-top">
+                        <%= link_to"/posts/#{post.id}" do %>
+                            <img src="/assets/sakana-img.jpg" style="object-fit: cover; height:150px; width: 220px;">
                         <% end %>
                     <% end %>
                 </div>
+    
             
                 <div class="ml-4">
                     <div class="font-weight-bold  card-heading">
