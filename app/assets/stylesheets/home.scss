@@ -16,34 +16,10 @@ $application-color:#00CCCC;
 
 /*トップページ*/
 .application-top{
-    position: relative;
-    
-    .top-img{
-        opacity: 0.8;
-        z-index: 1;
-    }
-    
-    @media screen and (min-width:1000px){    
-        .catch-copy{
-            position: absolute;
-            top: 40%;
-            left: 5%;
-            background-color:rgba(255,255,255,0.8);
-            padding: 2%;
-            border-radius: 15px;
-            text-align: center;
-            padding: 2%;
-            border-radius: 15px;
-            width: 31%;
-        }
-        
-        .catch-text{
-            font-size: calc(1.8rem + ((1vw - 0.64rem) * 2.1429));
-            font-weight: bold;
-            line-height: 2;
-            
-        }
-    }
+    background-image: url("/assets/top-img.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .tryangle{
