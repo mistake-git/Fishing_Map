@@ -43,35 +43,35 @@ $application-color:#00CCCC;
 
     
    
-    
-    .fadein-left {
-        opacity : 0;
-        transform : translateX(-100px);
-        transition : all 1s;
-    }
-    
-    .fadein-left.active{
-        opacity : 1;
-        transform : translateX(0);
-    }
-    
-    .worries-item{
-        position: relative;
-        padding-left: 1.2em;
-        line-height: 1.4;
-        font-weight: bold;
 
-        &:before {
-            font-family: "Font Awesome 5 Free";
-            content: "\f00c";
-            font-weight: 900;
-            position: absolute;
-            font-size: 1em;
-            left: 0;
-            top: 0;
-            color: $application-color;
-        }
+.fadein-left {
+    opacity : 0;
+    transform : translateX(-100px);
+    transition : all 1s;
+}
+
+.fadein-left.active{
+    opacity : 1;
+    transform : translateX(0);
+}
+
+.worries-item{
+    position: relative;
+    padding-left: 1.2em;
+    line-height: 1.4;
+    font-weight: bold;
+
+    &:before {
+        font-family: "Font Awesome 5 Free";
+        content: "\f00c";
+        font-weight: 900;
+        position: absolute;
+        font-size: 1em;
+        left: 0;
+        top: 0;
+        color: $application-color;
     }
+}
 
     
 .worries-img-area{
@@ -93,17 +93,6 @@ $application-color:#00CCCC;
   opacity : 1;
   transform : translate(0, 0);
 }
-
-
-/*使い方ステップ*/
-    
-.step-img{
-    width: 280px;
-    height: 280px;
-    border-radius: 50%;
-}
-    
-
 
 /*レコメンド*/
 
