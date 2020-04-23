@@ -1,30 +1,66 @@
-<ul class="list-unstyled">
-    <% posts.each do |post| %>
-        <li class="media my-2 border bg-white text-info font-weight-bold">
-            <div class="mr-3">
-                <div>
-                    <% if post.user.image.attached? %>
-                        <%=link_to image_tag(post.user.image,class:"mt-1",style:"width: 50px; height: 50px; border-radius: 50%;"),"/users/#{post.user.id}" %>
-                    <% else %>
-                        <%= link_to "/users/#{post.user.id}" do %>
-                            <img src="/assets/user-image.png" class="mt-1" style="width: 50px; height: 50px; border-radius: 50%">
-                        <% end %>
-                    <% end %>
-                    <%= post.user.name %>
-                </div>
-                <% if post.image.attached? %>
-                    <%= image_tag post.image ,style:"width: 150px;"%>
-                <% else %>
-                    <img src="../assets/sakana-img.jpg" style = "width: 150px;">
+<% posts.each_with_index do |post,i| %>
+    <div class="card h-100 m-1">
+        <div class="inline-block text-info ml-1">
+            <% if post.user.image.attached? %>
+                <%= link_to image_tag(post.user.image ,class:"rounded-circle",style:"width: 40px; height: 40px;object-fit: cover;"),"/users/#{post.user.id}"%>
+            <% else %>
+                <%= link_to "/users/#{post.user.id}" do %> 
+                    <img src="/assets/user-image.png" class="rounded-circle" style="width: 40px; height:40px; object-fit: cover;" >
                 <% end %>
-                <%= render "data" ,post: post %>
+            <% end %>
+           
+            <span class="font-weight-bold"><%=link_to"#{post.user.name}","/users/#{post.user.id}" ,class:"text-info"%></span>
+            <% if post.user.address %>
+                <span class="font-weight-bold text-info"><%= post.user.address %></span>
+            <% else %>
+                <span class="font-weight-bold text-info">未登録</span>
+            <% end %>
+        </div>
+       
+        <div class="text-center">
+            <% if post.image.attached? %>
+                <%= link_to image_tag(post.image ,class:"card-img-top" ,style:"object-fit: cover; height:150px; width: 210px;"),"/posts/#{post.id}" %>
+            <% else %>
+                <%= link_to"/posts/#{post.id}" do %>
+                    <img src="/assets/sakana-img.jpg" style="object-fit: cover; height:150px; width: 210px;">
+                <% end %>
+            <% end %>
+        </div>
+        <div class="ml-4">
+            <div class="font-weight-bold  card-heading">
+                <%= link_to "#{post.name}","/posts/#{post.id}" ,class:"text-info"%>
             </div>
-            <div class="media-body p-1">
-                <div class="font-weight-bold"><%= link_to "#{post.name}","/posts/#{post.id}" ,class:"text-info"%></div>
-                <div class="h-75">
-                    <%= render "index_info" ,post: post %>
+            
+            <% if post.description? %>  
+                <div class="text-secondary font-weight-bold" style="overflow: hidden;text-overflow: ellipsis; white-space: nowrap;">
+                    <%= post.description %>
                 </div>
+            <% else %>
+                <div class="text-secondary font-weight-bold">
+                    説明がありません
+                </div>
+            <% end %>
+            <div class="inline-block m-1" style="overflow: hidden;text-overflow: ellipsis; white-space: nowrap;">
+                <%= render "posts/index_info" ,post: post %>
             </div>
-        </li>
-    <% end %>
-</ul>
+            
+        </div>
+           <div class="d-flex justify-content-around mb-2">
+            <% if current_user && Like.find_by(user_id: current_user.id, post_id: post.id) %>
+                <div class="text-danger">
+                    <i class="fas fa-heart"></i><%= post.likes.count %>
+                </div>
+            <% else %>
+                <div class="text-secondary">
+                    <i class="fas fa-heart"></i><%= post.likes.count %>
+                </div>
+            <% end %>
+            <div class="text-secondary">
+                <i class="fas fa-comment"></i><%= post.comments.count %>
+            </div>
+            <div class="text-secondary">
+                <%= "#{time_ago_in_words(post.created_at)}前"%>
+            </div>
+        </div>
+    </div>
+<% end %>

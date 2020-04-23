@@ -53,24 +53,20 @@
                 <div class="d-flex justify-content-around mb-2">
                     <% if current_user && Like.find_by(user_id: current_user.id, post_id: post.id) %>
                         <div class="text-danger">
-                            <% @likes_count = Like.where(post_id: post.id).count %>
-                            <i class="fas fa-heart"></i><%= @likes_count %>
+                            <i class="fas fa-heart"></i><%= post.likes.count %>
                         </div>
                     <% else %>
                         <div class="text-secondary">
-                            <% @likes_count = Like.where(post_id: post.id).count %>
-                            <i class="fas fa-heart"></i><%= @likes_count %>
+                            <i class="fas fa-heart"></i><%= post.likes.count %>
                         </div>
                     <% end %>
                     <div class="text-secondary">
-                        <% @comments_count = Comment.where(post_id: post.id).count %>
-                        <i class="fas fa-comment"></i><%= @comments_count %>
+                        <i class="fas fa-comment"></i><%= post.comments.count %>
                     </div>
                     <div class="text-secondary">
                         <%= "#{time_ago_in_words(post.created_at)}前"%>
                     </div>
                 </div>
-           
             </div>
         </div>
     <% end %>
