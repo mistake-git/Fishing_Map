@@ -21,26 +21,12 @@
   </head>
   <body>
 
-    <div id="loading">
-        <div class="loading-wrapper">
-            <img src="/assets/fmap-site-logo.png" alt="loading" class="loading-img">
-            <img src="/assets/loading_dot.gif" alt="loading" class="loading-dot">
-        </div>
-    </div>
+ 
     
-    <div id="contents">
-        <div class ="main">
-          <%= render 'layouts/header' %>
-          <div class="flash-wrapper border-top">
-            <div id="flash-area">
-              <%= render 'layouts/flash' %>
-            </div>
-            <div id="modalArea"></div>
+    
             <%= yield %>
-            <%= render 'layouts/footer' %>
-          </div>
-        </div>
-    </div>
+         
+  
     
   </body>
 </html>
