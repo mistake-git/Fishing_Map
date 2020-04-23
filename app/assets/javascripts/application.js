@@ -72,8 +72,8 @@ function previewFile2() {
  });
  
  $(window).load(function () {
-    $('#loading').delay(300).fadeOut(300);
-    $('#contents').delay(600).queue(function(){
+    $('#loading').delay(0).fadeOut(0);
+    $('#contents').delay(0).queue(function(){
      $(this).css('display', 'block');
  });
  });
