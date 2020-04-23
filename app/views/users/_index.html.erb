@@ -8,10 +8,11 @@
     </div>
 </div> 
 <% if @users.empty? %>
-    <div class="text-center">
+    <div class="text-center" style="height: 30vh;">
         <%= @when_not_text %>
     </div>
 <% end %>
+
 <div class="pagenation">
     <%= paginate @users%>
 </div>
