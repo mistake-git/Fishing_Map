@@ -34,9 +34,13 @@ a{
     }
 }
 
+html{
+    overflow: auto; 
+}
+
 body{
     background: #F2F5F7;
-    overflow-x: hidden;
+    overflow: hidden;
     min-width: 100vw;
 }
 
