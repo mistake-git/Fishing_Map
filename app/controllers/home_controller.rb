@@ -11,7 +11,7 @@ before_action :forbid_login_user, only: [:top]
   end
   
   def health
-    render(text: 'OK')
+    render json: {result: "success"},statu: :ok
   end
   
 end
