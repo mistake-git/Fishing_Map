@@ -3,7 +3,7 @@
         <% if @user.bg_image.attached? %>
             <%= image_tag @user.bg_image,class:"card-img-top rounded" %>
         <% else %>
-            <img src="/assets/bg.jpg" class="card-img-top">
+            <img src="/assets/bg.jpg" class="card-img-top" style="opacity: 0.3;">
         <% end %>
     </div>
 </div>
