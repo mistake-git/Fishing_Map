@@ -1,5 +1,5 @@
 <% posts.each_with_index do |post,i| %>
-    <div class="card h-100 m-1">
+    <div class="card h-100 m-1" style="border: none;">
         <div class="inline-block text-info ml-1">
             <% if post.user.image.attached? %>
                 <%= link_to image_tag(post.user.image ,class:"rounded-circle",style:"width: 40px; height: 40px;object-fit: cover;"),"/users/#{post.user.id}"%>
