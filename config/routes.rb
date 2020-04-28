@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get'/health',to:"home#health"
   get 'contacts/new'
   get 'contacts/create'
     devise_scope :user do

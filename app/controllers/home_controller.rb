@@ -10,4 +10,8 @@ before_action :forbid_login_user, only: [:top]
   def policy
   end
   
+  def health
+    render(text: 'OK')
+  end
+  
 end
