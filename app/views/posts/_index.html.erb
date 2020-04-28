@@ -2,7 +2,7 @@
     <% posts.each_with_index do |post,i| %>
         <div class="col-12 col-md-4 col-lg-3 my-1">
             <div class="card h-100 m-1">
-                <div class="inline-block text-info ml-1">
+                <div class="inline-block text-info m-2">
                     <% if post.user.image.attached? %>
                         <%= link_to image_tag(post.user.image ,class:"rounded-circle",style:"width: 40px; height: 40px;object-fit: cover;"),"/users/#{post.user.id}"%>
                     <% else %>
@@ -36,37 +36,38 @@
                     </div>
                     
                     <% if post.description? %>  
-                        <div class="text-secondary font-weight-bold" style="overflow: hidden;text-overflow: ellipsis; white-space: nowrap;">
+                        <div style="overflow: hidden;text-overflow: ellipsis; white-space: nowrap;">
                             <%= post.description %>
                         </div>
                     <% else %>
-                        <div class="text-secondary font-weight-bold">
+                        <div class="text-secondary">
                             説明がありません
                         </div>
                     <% end %>
-                    <div class="inline-block m-1" style="overflow: hidden;text-overflow: ellipsis; white-space: nowrap;">
+                    
+                    <div class="inline-block mr-1" style="overflow: hidden;text-overflow: ellipsis; white-space: nowrap;">
                         <%= render "posts/index_info" ,post: post %>
                     </div>
-                    
+            
+                    <div class="d-flex justify-content-start mb-1">
+                        <% if current_user && Like.find_by(user_id: current_user.id, post_id: post.id) %>
+                            <div class="text-danger mr-4">
+                                <i class="fas fa-heart"></i><%= post.likes.count %>
+                            </div>
+                        <% else %>
+                            <div class="text-secondary mr-4">
+                                <i class="fas fa-heart"></i><%= post.likes.count %>
+                            </div>
+                        <% end %>
+                        <div class="text-secondary mr-4">
+                            <i class="fas fa-comment"></i><%= post.comments.count %>
+                        </div>
+                        <div class="text-secondary mr-4">
+                            <%= "#{time_ago_in_words(post.created_at)}前"%>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="d-flex justify-content-around mb-2">
-                    <% if current_user && Like.find_by(user_id: current_user.id, post_id: post.id) %>
-                        <div class="text-danger">
-                            <i class="fas fa-heart"></i><%= post.likes.count %>
-                        </div>
-                    <% else %>
-                        <div class="text-secondary">
-                            <i class="fas fa-heart"></i><%= post.likes.count %>
-                        </div>
-                    <% end %>
-                    <div class="text-secondary">
-                        <i class="fas fa-comment"></i><%= post.comments.count %>
-                    </div>
-                    <div class="text-secondary">
-                        <%= "#{time_ago_in_words(post.created_at)}前"%>
-                    </div>
-                </div>
             </div>
         </div>
     <% end %>
