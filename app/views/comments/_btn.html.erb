@@ -1,7 +1,7 @@
  <% if current_user %>
     <%= link_to "/posts/#{@post.id}/comments/new",remote: true do %>
         <div class="text-center">
-            <button class="btn btn-info">コメントする</button>
+            <button class="btn btn-info font-weight-bold">コメントする</button>
         </div>
     <% end %>
 <% else %>
