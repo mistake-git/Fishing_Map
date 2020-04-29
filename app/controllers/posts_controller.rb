@@ -14,7 +14,8 @@ class PostsController < ApplicationController
     @search = Post.ransack(params[:q])
     @posts = @search.result(distinct: true).order(created_at: :desc).limit(100).page(params[:page]).per(100)
     @user = current_user
-    @popular = @posts.group(:name).order('count(name) desc').limit(5)
+    #釣れている魚(投稿が多い順に取得したい)
+    @popular = @posts.group(:name).order('count(name) desc').limit(4)
   end
   
   def index
@@ -106,6 +107,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @user = current_user
+    #name: params[:name].gsub(" ", "").strip(,)
     @post = Post.new(
         post_params.merge(user_id: current_user.id)
     )

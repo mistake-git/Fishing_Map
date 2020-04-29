@@ -51,6 +51,6 @@ production:
   <<: *default
   database: pro_production
   username: admin
-  password: Masataka42
+  password: <%= ENV['DBPASS'] %>
   host: database-1.cgqmhqaffqkv.ap-northeast-1.rds.amazonaws.com
  
