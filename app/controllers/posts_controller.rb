@@ -14,8 +14,8 @@ class PostsController < ApplicationController
     @search = Post.ransack(params[:q])
     @posts = @search.result(distinct: true).order(created_at: :desc).limit(100).page(params[:page]).per(100)
     @user = current_user
-    #釣れている魚(投稿が多い順に取得したい)
-    @popular = @posts.group(:name).order('count(name) desc').limit(4)
+    @news = @posts.order(created_at: :desc).limit(4)
+    @new = true
   end
   
   def index
