@@ -9,6 +9,7 @@
     <meta property="og:image" content="http://fishing-map.info/assets/images/ogp.jpg"/>
     <meta property="og:site_name" content="Fishing Map"/>
     <meta property="og:description" content="地図上で釣果を投稿、共有できるSNS型釣りアプリケーション" />
+    <%= analytics_init if Rails.env.production? %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>

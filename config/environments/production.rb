@@ -87,6 +87,8 @@ Rails.application.configure do
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
+  
+  GA.tracker="UA-158734330-1"
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
@@ -103,3 +105,4 @@ Rails.application.configure do
     :enable_starttls_auto => true
   }
 end
+

@@ -107,3 +107,6 @@ gem 'ransack'
 #例外処理をslackに通知
 gem 'exception_notification'
 gem 'slack-notifier'
+
+#Google Analytics
+gem 'google-analytics-rails'
