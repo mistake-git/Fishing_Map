@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="row no-gutters">
+    <div class="row">
         <% @users.each do |user| %>
             <div class="col-12 col-md-6 col-lg-4 col-xl-3 mt-1">
                 <%= render "card" , user: user ,introduction: true %>
