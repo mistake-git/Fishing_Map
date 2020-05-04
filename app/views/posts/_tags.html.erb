@@ -1,3 +1,4 @@
+ <span class="font-weight-bold text-info">タグ:</span>
 <% post.tags.each do |tag| %>
-  <span class="badge badge-secondary"><%= link_to "#{tag.tag_name}","/posts/#{tag.id}/tag" ,style:"color: #fff; text-decoration: none;"%></span>
+ <span class="badge badge-secondary"><%= link_to "#{tag.tag_name}","/posts/#{tag.id}/tag" ,style:"color: #fff; text-decoration: none;"%></span>
 <% end %>

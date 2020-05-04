@@ -16,6 +16,10 @@ class Post < ApplicationRecord
     has_many :tags, through: :post_tag_relations
     geocoded_by :address
     after_validation :geocode, if: Proc.new { |a| a.address_changed? }
+    
+  def user
+    return User.find_by(id: self.user_id)
+  end
   
   def save_tags(tag_list)
     tag_list.each do |tag|
