@@ -1,4 +1,4 @@
- <div class="card mx-1" style="border: none;">
+ <div class="card mx-1 mt-1" style="border: none;">
     <div class="inline-block text-info m-2">
         <% if post.user.image.attached? %>
             <%= link_to image_tag(post.user.image ,class:"rounded-circle",style:"width: 40px; height: 40px;object-fit: cover;"),"/users/#{post.user.id}"%>
@@ -7,7 +7,6 @@
                 <img src="/assets/user-image.png" class="rounded-circle" style="width: 40px; height:40px; object-fit: cover;" >
             <% end %>
         <% end %>
-       
         <span class="font-weight-bold"><%=link_to"#{post.user.name}","/users/#{post.user.id}" ,class:"text-info"%></span>
         <% if post.user.address %>
             <span class="font-weight-bold text-info"><%= post.user.address %></span>

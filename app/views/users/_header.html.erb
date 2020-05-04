@@ -1,6 +1,6 @@
 <div class="row no-gutters my-4">
     <div class="col-12 col-lg-4 text-center">
-        <%= render "card" ,user: @user ,introduction: false %>
+        <%= render "users/card" ,user: @user, introduction: false %>
         <div class="btn text-secondary" data-toggle="modal" data-target="#img_edit"><i class="fas fa-edit"></i>プロフィール画像編集</div>
     </div>
     
@@ -30,5 +30,5 @@
     </div>
 </div>
 
-<%= render "bg_modal" %>
-<%= render "profile_modal" %>
+<%= render "users/bg_modal" %>
+<%= render "users/profile_modal" %>
