@@ -29,6 +29,11 @@
         <%= form.text_field :name,placeholder:"カタカナで入力"%>
     </div>
     
+    <div class="field text-left">
+        <div>タグ(,で区切ってください)</div><br />
+        <%= form.text_field :tag_names,placeholder:"タイ,カサゴ"%>
+    </div>
+    
     <div class="row no-gutters">
         <div class="field text-left col-6">
             <div><span class="badge badge-danger">※必須</span> 数量</div><br />

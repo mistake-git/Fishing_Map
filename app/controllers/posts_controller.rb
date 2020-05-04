@@ -18,6 +18,12 @@ class PostsController < ApplicationController
     @new = true
   end
   
+  def same_tag
+    @tag = Tag.find(params[:tag_id])
+    @posts = @tag.posts.page(params[:page]).per(PER)
+    @title = "#{@tag.tag_name}に関連した釣果"
+  end
+  
   def index
     @search = Post.ransack(params[:q])
     @posts = @search.result(distinct: true).order(created_at: :desc).limit(PER).page(params[:page]).per(PER)
@@ -114,6 +120,10 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.save
         
+      #tag_list = tag_params[:tag_names].split(/[[:blank:]]+/).select(&:present?)
+      tag_list = tag_params[:tag_names].delete(" ").split(",")
+      
+      @post.save_tags(tag_list)
         #Twitterにも共有
         if @post.share == "true"
           image = File.new("app/assets/images/top-img.jpg", "r")
@@ -181,6 +191,10 @@ class PostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.require(:post).permit(:name, :feed,:weather,:description,:number,:date,:address, :latitude, :longitude,:user_id,:size,:time, :image,:share)
+    end
+    
+    def tag_params
+      params.require(:post).permit(:tag_names)
     end
     
     def ensure_correct_user

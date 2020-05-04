@@ -8,6 +8,7 @@
                     <div class="h5 text-info font-weight-bold text-center">
                          <%= @post.name %> 【難易度】<%= @level ?  @level : "データがありません" %>
                     </div>
+                    <%= render 'tags' ,post: @post %>
                     <%= render "img" %>
                     <div class="data-area-title pt-5">
                         投稿のデータ

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get'/health',to:"home#health"
   get 'contacts/new'
   get 'contacts/create'
     devise_scope :user do
@@ -12,6 +11,8 @@ Rails.application.routes.draw do
         resources :comments,except: [:index, :show]
         resources :likes,only: [:create, :destroy]
     end
+    
+    get '/posts/:tag_id/tag',to:'posts#same_tag'
     
     get '/',to:'home#top',as:'root'
     get '/rule',to:'home#rule'

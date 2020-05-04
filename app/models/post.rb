@@ -12,13 +12,23 @@ class Post < ApplicationRecord
     has_many :likes, dependent: :destroy
     has_many :comments, dependent: :destroy
     has_many :notifications, dependent: :destroy
+    has_many :post_tag_relations, dependent: :destroy
+    has_many :tags, through: :post_tag_relations
     geocoded_by :address
     after_validation :geocode, if: Proc.new { |a| a.address_changed? }
-
-
-    
-  def user
-    return User.find_by(id: self.user_id)
+  
+  def save_tags(tag_list)
+    tag_list.each do |tag|
+      unless find_tag = Tag.find_by(tag_name: tag)
+        begin
+          self.tags.create!(tag_name: tag)
+        rescue
+          nil
+        end
+      else
+        PostTagRelation.create!(post_id: self.id, tag_id: find_tag.id)
+      end
+    end
   end
   
   
