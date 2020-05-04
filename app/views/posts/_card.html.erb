@@ -7,7 +7,6 @@
                 <img src="/assets/user-image.png" class="rounded-circle" style="width: 40px; height:40px; object-fit: cover;" >
             <% end %>
         <% end %>
-       
         <span class="font-weight-bold"><%=link_to"#{post.user.name}","/users/#{post.user.id}" ,class:"text-info"%></span>
         <% if post.user.address %>
             <span class="font-weight-bold text-info"><%= post.user.address %></span>

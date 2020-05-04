@@ -1,7 +1,7 @@
 <div class="row no-gutters">
     <% posts.each_with_index do |post,i| %>
         <div class="col-12 col-md-6 col-lg-4 col-xl-3 my-1">
-           <%= render"card",post: post %>
+           <%= render"posts/card",post: post %>
         </div>
     <% end %>
 </div>
@@ -13,5 +13,5 @@
     </div>
 <% end %>
 <div class="pagenation ">
-    <%= paginate @posts%>
+    <%= paginate @posts %>
 </div>
