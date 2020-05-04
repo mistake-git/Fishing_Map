@@ -30,8 +30,10 @@
     </div>
     
     <div class="field text-left">
+        <% @post.tags.each do |tag| %>
         <div>タグ(,で区切ってください)</div><br />
-        <%= form.text_field :tag_names,placeholder:"タイ,カサゴ"%>
+            <%= form.text_field :tag_names,placeholder:"タイ,カサゴ" ,value:"#{tag.tag_name}"%>
+        <% end %>
     </div>
     
     <div class="row no-gutters">

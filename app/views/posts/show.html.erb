@@ -42,8 +42,16 @@
                      
                     <% if current_user && @post.user.id == current_user.id %>
                         <div class="text-right mb-2">
-                            <%= link_to '編集', edit_post_path(@post),class:"btn-sm btn-info" %> 
-                            <%= link_to '削除', @post, method: :delete, data: { confirm: '投稿を削除します｡よろしいですか?' },class:"btn-sm btn-danger" %>
+                            <%= link_to edit_post_path(@post) do %> 
+                                <span class="text-info">
+                                    <i class="fas fa-edit"></i>
+                                </span>
+                            <% end %>
+                            <%= link_to @post, method: :delete, data: { confirm: '投稿を削除します｡よろしいですか?' } do %>
+                                <span class="text-info">
+                                    <i class="fas fa-trash"></i>
+                                </span>
+                            <% end %>
                         </div>
                     <% end %>
                     <%= render "posts/map" %>

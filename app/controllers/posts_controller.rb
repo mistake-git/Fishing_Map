@@ -107,6 +107,7 @@ class PostsController < ApplicationController
     @user = current_user
     @form_title ='釣果を編集'
     @is_new = "false"
+    
   end
 
   # POST /posts
