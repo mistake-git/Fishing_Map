@@ -16,7 +16,8 @@ default: &default
   username: root
   password:
   socket: /var/lib/mysql/mysql.sock
-
+  host: db
+  
 development:
   <<: *default
   database: fmap_development
