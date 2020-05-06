@@ -56,14 +56,14 @@
 
 ### Dockerで立ち上げる場合
 
-docker-compose build
-docker-compose up
-docker-compose run app bash
-rails db:create
-rails db:migrate
-上記のコマンドを順に実行してください
+docker-compose build  <br>
+docker-compose up  <br>
+docker-compose run app bash  <br>
+rails db:create  <br>
+rails db:migrate  <br>
+上記のコマンドを順に実行してください。  <br>
 
 
-docker-compose build
-docker-compose up
+docker-compose build  <br>
+docker-compose up  <br>
 再度上記を実行することでDockerを使ってアプリケーションを起動する事ができます。
