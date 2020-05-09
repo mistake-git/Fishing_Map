@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     
     get '/posts/:tag_id/tag',to:'posts#same_tag'
     
-    get '/',to:'home#top',as:'root'
+    get '/',to:'posts#index',as:'root'
     get '/rule',to:'home#rule'
     get '/policy',to:'home#policy'
     
