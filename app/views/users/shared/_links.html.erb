@@ -1,19 +1,20 @@
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
 
-<%= link_to omniauth_authorize_path(resource_name, provider) do %>
-    <div class="btn btn-block font-weight-bold" style="background-color: #1da1f3; color: #fff;">
-      <i class="fab fa-twitter"></i><%=" #{OmniAuth::Utils.camelize(provider)}でログイン"%>
-    </div>
+  <%= link_to omniauth_authorize_path(resource_name, provider) do %>
+      <div class="btn btn-block font-weight-bold" style="background-color: #1da1f3; color: #fff;">
+        <i class="fab fa-twitter"></i><%=" #{OmniAuth::Utils.camelize(provider)}でログイン"%>
+      </div>
+  <% end %>
 <% end %>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |form| %>
-    <%= form.hidden_field :email ,value:"test@example.com"%>
-    <%= form.hidden_field :password ,value:"testtest" %>
-    <%= form.submit "テストログイン" ,class:"btn btn-warning text-white font-weight-bold  mt-2 btn-block"%>
+  <%= form.hidden_field :email ,value:"test@example.com"%>
+  <%= form.hidden_field :password ,value:"testtest" %>
+  <%= form.submit "テストログイン" ,class:"btn btn-warning text-white font-weight-bold  mt-2 btn-block"%>
 <% end %>
-  
-  <% end %>
+ 
+ 
 <% end %>
 <%- if controller_name != 'sessions' %>
   <%= link_to "ログイン", new_session_path(resource_name) %><br />
