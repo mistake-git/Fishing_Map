@@ -1,31 +1,32 @@
- <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |form| %>
-     <%= render "devise/shared/error_messages", resource: resource %>
-<div class="text-center my-5">
-  <div class="form-wrapper mb-5">     
-    <h4 class="form-title mb-5">ログイン</h4>
-     
-      <div class="field form-group users_email text-left">
-        <%= form.label :email %><br />
-        <%= form.email_field :email, autofocus: true, autocomplete: "email" ,class:"form-control",id:"session-email"%>
-      </div>
-    
-      <div class="field form-group users_password text-left">
-        <%= form.label :password%><br />
-        <%= form.password_field :password, autocomplete: "current-password" ,class:"form-control",id:"session-password"%>
-      </div>
-    
-      <% if devise_mapping.rememberable? %>
-        <div class="field form-group">
-          <%= form.check_box :remember_me %>
-          <%= form.label :remember_me %>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |form| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="text-center my-5">
+    <div class="form-wrapper mb-5">     
+      <h4 class="form-title mb-5">ログイン</h4>
+       
+        <div class="field form-group users_email text-left">
+          <%= form.label :email %><br />
+          <%= form.email_field :email, autofocus: true, autocomplete: "email" ,class:"form-control",id:"session-email"%>
         </div>
-      <% end %>
-    
-      <div class="actions">
-        <%= form.submit "ログイン" ,class:"btn btn-info mb-4 btn-block" ,id:"login-btn"%>
-      </div>
-    <% end %>
-    
-    <%= render "users/shared/links"%>
+      
+        <div class="field form-group users_password text-left">
+          <%= form.label :password %><br />
+          <%= form.password_field :password, autocomplete: "current-password" ,class:"form-control",id:"session-password"%>
+        </div>
+      
+        <% if devise_mapping.rememberable? %>
+          <div class="field form-group">
+            <%= form.check_box :remember_me %>
+            <%= form.label :remember_me %>
+          </div>
+        <% end %>
+      
+        <div class="actions">
+          <%= form.submit "ログイン" ,class:"btn btn-info mb-4 btn-block" ,id:"login-btn"%>
+        </div>
+         <%= render "users/shared/links"%>
+    </div>    
   </div>    
-</div>    
+<% end %>
+      
+     
