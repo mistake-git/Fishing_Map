@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'contacts/new'
-  get 'contacts/create'
     devise_scope :user do
         post '/users/profile/edit',to:'users/registrations#update'
     end 
