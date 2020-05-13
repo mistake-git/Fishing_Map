@@ -9,6 +9,7 @@
 ### 技術一覧
 * Ruby on rails [5.2]
 * AWS(VPC,EC2,S3,RDS,Route53,ACM,ALB)
+* Google Analytics
 * Docker
 * MySQL
 * Nginx
