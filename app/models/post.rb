@@ -35,6 +35,21 @@ class Post < ApplicationRecord
     end
   end
   
+  def update_tags(tag_list)
+    self.post_tag_relations.delete_all
+    tag_list.each do |tag|
+      unless find_tag = Tag.find_by(tag_name: tag)
+        begin
+          self.tags.create!(tag_name: tag)
+        rescue
+          nil
+        end
+      else
+        PostTagRelation.create!(post_id: self.id, tag_id: find_tag.id)
+      end
+    end
+  end
+  
   
   def create_notification_like!(current_user)
     if user_id == current_user.id

@@ -107,23 +107,24 @@ class PostsController < ApplicationController
     @user = current_user
     @form_title ='釣果を編集'
     @is_new = "false"
+    tag_names = @post.tags.map do |tag|
+      tag.tag_name
+    end 
+    @tag_names = tag_names.join(",")
   end
 
   # POST /posts
   # POST /posts.json
   def create
     @user = current_user
-    #name: params[:name].gsub(" ", "").strip(,)
     @post = Post.new(
         post_params.merge(user_id: current_user.id)
     )
     respond_to do |format|
       if @post.save
-        
-      #tag_list = tag_params[:tag_names].split(/[[:blank:]]+/).select(&:present?)
-      tag_list = tag_params[:tag_names].delete(" ").split(",")
-      
+      tag_list = tag_params[:tags].delete(" ").split(",")
       @post.save_tags(tag_list)
+      
         #Twitterにも共有
         if @post.share == "true"
           image = File.new("app/assets/images/top-img.jpg", "r")
@@ -155,6 +156,8 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
+        tag_list = tag_params[:tags].delete(" ").split(",")
+        @post.update_tags(tag_list)
         format.html { redirect_to @post, notice: '釣果を編集しました' }
         format.json { render :show, status: :ok, location: @post }
       else
@@ -194,7 +197,7 @@ class PostsController < ApplicationController
     end
     
     def tag_params
-      params.require(:post).permit(:tag_names)
+      params.require(:post).permit(:tags)
     end
     
     def ensure_correct_user
