@@ -13,7 +13,7 @@
 * Docker
 * MySQL
 * Nginx
-* unicorn
+* unicorn5.4.1
 * MySQL
 * device
 * google Map API
@@ -21,7 +21,7 @@
 * Active Storage
 * geocode
 * kaminari
-* bootstrap
+* bootstrap4
 * chartkick
 * ransack
 * JQuery
