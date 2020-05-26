@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+    get '/top',to:'home#top'
     devise_scope :user do
         post '/users/profile/edit',to:'users/registrations#update'
     end 
