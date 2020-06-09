@@ -89,7 +89,7 @@ gem "chartkick"
 gem "jquery-rails"
 
 # ページネーション
-gem 'kaminari', '~> 1.1', '>= 1.1.1'
+gem 'kaminari', '~> 1.2'
 
 #S3
 gem "aws-sdk-s3", require: false
