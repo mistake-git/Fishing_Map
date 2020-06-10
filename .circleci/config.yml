@@ -9,7 +9,7 @@ jobs:
       # specify the version you desire here
       - image: circleci/ruby:2.6.3-node-browsers
         environment:
-          RAILS_ENV: fmap_test
+          RAILS_ENV: test
           MYSQL_HOST: 127.0.0.1
           MYSQL_USERNAME: 'root'
           MYSQL_PASSWORD: ''
@@ -18,7 +18,7 @@ jobs:
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: true
           MYSQL_ROOT_PASSWORD: ''
-          MYSQL_DATABASE: circle_ci_test-test
+          MYSQL_DATABASE: fmap_test
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
