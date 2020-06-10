@@ -38,8 +38,8 @@ development:
 test:
   <<: *default
   database: fmap_test
-  host: <%= ENV.fetch("MYSQL_HOST") { 'localhost' } %>
-  port: <%= ENV.fetch("MYSQL_PORT") { '' } %>
+  host: <%= ENV.fetch("MYSQL_HOST") { 'mysql' } %>
+  port: <%= ENV.fetch("MYSQL_PORT") { '' }%>
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
