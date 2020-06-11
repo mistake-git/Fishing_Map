@@ -41,7 +41,6 @@ jobs:
           name: install dependencies
           command: |
             gem install bundler
-            yum install
             bundle update --bundler
             bundle install --jobs=4 --retry=3 --path vendor/bundle
           
