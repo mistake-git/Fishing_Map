@@ -41,9 +41,11 @@ jobs:
           name: install dependencies
           command: |
             gem install bundler:2.1.4
+            gem install mysql2 -v '0.4.10' --source 'https://rubygems.org/'
+            sudo yum install mysql-devel
             bundle update --bundler
             bundle install --jobs=4 --retry=3 --path vendor/bundle
-            yum install mysql-devel
+          
            
            
 
