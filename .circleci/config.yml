@@ -42,15 +42,10 @@ jobs:
           command: |
             sudo apt update
             sudo apt-get install default-mysql-client
-
       - run:
-          name: install dependencies
-          command: |
-            gem install bundler
-            bundle update --bundler
-            gem uninstall mysql2
-            bundle install --no-cache
-          
+          name: bundle Install
+          command: bundle install --path vendor/bundle
+                
            
            
 
