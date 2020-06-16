@@ -65,3 +65,12 @@ jobs:
           command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
+
+      # run tests!
+            - run:
+                name: Run test in parallel
+                command: |
+                  rails t
+                  rails test:system
+                  
+                  
