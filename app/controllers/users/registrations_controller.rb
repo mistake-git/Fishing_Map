@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :forbid_test_user, only:[:edit,:update,:destroy]
+
   
 
 
@@ -91,10 +91,4 @@ class Users::RegistrationsController < Devise::RegistrationsController
       devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
   
-  def forbid_test_user
-      if @user.email == "test@example.com"
-        flash[:notice] = "テストユーザーのため変更できません"
-        redirect_to root_path
-      end
-  end
 end
