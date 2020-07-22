@@ -1,5 +1,5 @@
 <div class="h5 my-5 text-secondary d-flex justify-content-around">
- <div><i class="fas fa-heart"> </i><%= post.likes.count %></div>
+ <div><i class="fas fa-heart"></i> <%= post.likes.count %></div>
  <div><i class="fas fa-comment"> <%= post.comments.count %></i></div>
  <div><i class="fas fa-clock"></i> <%= "#{time_ago_in_words(post.created_at)}前"%></div>
 </div>
