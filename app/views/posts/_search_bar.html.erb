@@ -1,7 +1,7 @@
 <div class="card text-info font-weight-bold mt-1" style="border: none;">
     <%= search_form_for @search, url: url do |form| %>
         <div class="p-3">
-            <h4 class="font-weight-bold py-3">釣りたい魚を検索</h4>
+            <h4 class="font-weight-bold py-3"><i class="fas fa-fish"></i> 釣りたい魚を検索</h4>
             <div class="field">
                 <div>魚種</div>
                 <%= form.search_field :name_cont %>
